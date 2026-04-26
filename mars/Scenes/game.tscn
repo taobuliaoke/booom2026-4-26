@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cve87385duapf"]
+
+[ext_resource type="Script" uid="uid://did26gyc2u8u8" path="res://Script/word_button.gd" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://d1dgqyhchuke4" path="res://Script/clue_slot.gd" id="2_qxrlw"]
+
+[node name="game" type="Node2D"]
+
+[node name="WordButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "周某"
+script = ExtResource("1_ebmjs")
+
+[node name="ClueSlot" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+mouse_filter = 0
+text = "______"
+script = ExtResource("2_qxrlw")
