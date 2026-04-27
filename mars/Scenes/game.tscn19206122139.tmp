@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cve87385duapf"]
+
+[ext_resource type="Script" uid="uid://did26gyc2u8u8" path="res://Script/word_button.gd" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://d3ccd5y7ssn4t" path="res://Script/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://d1dgqyhchuke4" path="res://Script/clue_slot.gd" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://dqub48rowwes5" path="res://Script/clue_slot_2.gd" id="3_1l0tm"]
+[ext_resource type="Script" uid="uid://c8kc6tk5yrsbv" path="res://Script/word_button_2.gd" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://b3q7pfxalwelg" path="res://Script/word_button_3.gd" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://bd2la5rwqc2mb" path="res://Script/word_button_4.gd" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://cb0ib8m8swo4s" path="res://Scenes/floating_word.gd" id="8_v158k"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wrm1d")
+
+[node name="ClueSlot2" type="Label" parent="."]
+offset_right = 42.0
+offset_bottom = 23.0
+mouse_filter = 0
+text = "______"
+script = ExtResource("3_1l0tm")
+
+[node name="ClueSlot" type="Label" parent="."]
+offset_left = 58.0
+offset_right = 100.0
+offset_bottom = 23.0
+mouse_filter = 0
+text = "______"
+script = ExtResource("2_qxrlw")
+
+[node name="WordButton" type="Button" parent="."]
+offset_left = 213.0
+offset_top = 34.0
+offset_right = 253.0
+offset_bottom = 65.0
+text = "周某"
+script = ExtResource("1_ebmjs")
+
+[node name="WordButton2" type="Button" parent="."]
+offset_left = 78.0
+offset_top = 68.0
+offset_right = 118.0
+offset_bottom = 99.0
+text = "沈某"
+script = ExtResource("4_3dryh")
+
+[node name="WordButton3" type="Button" parent="."]
+offset_left = 21.0
+offset_top = 98.0
+offset_right = 61.0
+offset_bottom = 129.0
+text = "厨房"
+script = ExtResource("5_wowpa")
+
+[node name="WordButton4" type="Button" parent="."]
+visible = false
+offset_left = 131.0
+offset_top = 37.0
+offset_right = 171.0
+offset_bottom = 68.0
+text = "毒药"
+script = ExtResource("6_i6g32")
+
+[node name="FloatingWord" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0.54509807, 0.5647059, 1)
+script = ExtResource("8_v158k")

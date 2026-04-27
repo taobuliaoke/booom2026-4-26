@@ -14,3 +14,12 @@ config/name="Mars"
 run/main_scene="uid://cve87385duapf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Script/GameManager.gd"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=1200
