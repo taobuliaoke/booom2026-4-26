@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbvrbw36e5sdv"]
+[gd_scene load_steps=4 format=3 uid="uid://dbvrbw36e5sdv"]
 
 [ext_resource type="Script" uid="uid://b2bb68cbjbsaa" path="res://Script/word_card.gd" id="1_k0ndv"]
 [ext_resource type="Texture2D" uid="uid://cmdb38i8xl0rl" path="res://art/UI/WordCard.png" id="1_o10kx"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_k0ndv"]
+font_size = 50
+
 [node name="WordCard" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 script = ExtResource("1_k0ndv")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -20,5 +27,6 @@ patch_margin_bottom = 5
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "-----"
+label_settings = SubResource("LabelSettings_k0ndv")
 horizontal_alignment = 1
 vertical_alignment = 1
