@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://cve87385duapf"]
+
+[ext_resource type="Texture2D" uid="uid://dmqci76p4lm8j" path="res://art/047b1f8ea5d97683bee19095b3bb3149.jpg" id="1_4315t"]
+[ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="1_aywqq"]
+[ext_resource type="Script" uid="uid://dxw441niqkku8" path="res://Script/button.gd" id="2_afv73"]
+[ext_resource type="Script" uid="uid://jq02kax11fgn" path="res://Script/button_2.gd" id="4_cl2h1"]
+[ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="5_n4tjm"]
+[ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="5_t6l3q"]
+[ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="6_xgatw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4315t"]
+
+[node name="MianScene" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+position = Vector2(801, 601)
+texture = ExtResource("1_4315t")
+
+[node name="Button" type="Button" parent="Environment"]
+offset_left = 991.0
+offset_top = 113.0
+offset_right = 1097.0
+offset_bottom = 196.0
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxTexture_4315t")
+text = "周某"
+script = ExtResource("2_afv73")
+
+[node name="Button2" type="Button" parent="Environment"]
+offset_left = 1166.0
+offset_top = 117.0
+offset_right = 1272.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxTexture_4315t")
+text = "沈某"
+script = ExtResource("4_cl2h1")
+
+[node name="UiLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" type="HFlowContainer" parent="UiLayer"]
+custom_minimum_size = Vector2(200, 40)
+offset_left = 513.0
+offset_top = 907.0
+offset_right = 1488.0
+offset_bottom = 1202.0
+
+[node name="ReasoningPage" type="Panel" parent="UiLayer"]
+offset_right = 829.0
+offset_bottom = 894.0
+script = ExtResource("5_n4tjm")
+metadata/_edit_lock_ = true
+
+[node name="level1_1" type="Label" parent="UiLayer/ReasoningPage"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 118.0
+offset_right = 666.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 50
+text = "py交易说是"
+
+[node name="level1" type="Label" parent="UiLayer/ReasoningPage"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 126.0
+offset_right = 278.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 50
+text = "跟"
+
+[node name="Slot" parent="UiLayer/ReasoningPage" instance=ExtResource("5_t6l3q")]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 120.0
+offset_right = 155.0
+offset_bottom = 189.0
+
+[node name="Slot2" parent="UiLayer/ReasoningPage" instance=ExtResource("5_t6l3q")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 122.0
+offset_right = 320.0
+offset_bottom = 191.0
+
+[node name="ToggleButton" type="TextureButton" parent="UiLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_xgatw")
+
+[node name="WordCard" parent="UiLayer" instance=ExtResource("1_aywqq")]
+offset_left = -80.0
+offset_top = 1.0
+offset_right = 0.0
+offset_bottom = 70.0

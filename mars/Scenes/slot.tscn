@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://xysgpobuo6ri"]
+
+[ext_resource type="Script" uid="uid://b5n2rw08ngjk2" path="res://Script/slot.gd" id="1_12ej0"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="1_luhj6"]
+
+[node name="Slot" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_12ej0")
+correct_answer = Array[String](["周某", "沈某"])
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_luhj6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
