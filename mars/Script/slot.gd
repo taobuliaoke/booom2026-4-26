@@ -26,7 +26,14 @@ func _can_drop_data(_at_position, data):
 func _drop_data(_at_position, data):
 	# 将空格的文字改为拖过来的词条内容
 	label.text = data
+	
+	# 改变底框颜色
+	$NinePatchRect.modulate = Color(0.767, 1.2, 0.567, 1.0) # 略微过曝，看起来像发光
+	
+	# 果冻
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.1)
+	tween.chain().tween_property(self, "scale", Vector2(1.0, 1.0), 0.1)
+	
 	#通知manager，slot被填了
 	slot_changed.emit()
-	# 可以在这里改变底框颜色，比如变亮，表示已填充
-	$NinePatchRect.modulate = Color.WHITE

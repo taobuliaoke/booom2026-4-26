@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cve87385duapf"]
+[gd_scene load_steps=11 format=3 uid="uid://cve87385duapf"]
 
 [ext_resource type="Texture2D" uid="uid://dmqci76p4lm8j" path="res://art/047b1f8ea5d97683bee19095b3bb3149.jpg" id="1_4315t"]
 [ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="1_aywqq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://jq02kax11fgn" path="res://Script/button_2.gd" id="4_cl2h1"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="5_n4tjm"]
 [ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="5_t6l3q"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="6_2n3dv"]
 [ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="6_m5ntv"]
 [ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="6_xgatw"]
 
@@ -49,7 +50,6 @@ offset_right = 1488.0
 offset_bottom = 1202.0
 
 [node name="ReasoningPage" type="Panel" parent="UiLayer"]
-visible = false
 offset_right = 829.0
 offset_bottom = 894.0
 script = ExtResource("5_n4tjm")
@@ -89,8 +89,16 @@ offset_bottom = 191.0
 
 [node name="FeedbackLabel" type="Label" parent="UiLayer/ReasoningPage"]
 layout_mode = 0
+offset_left = 1396.0
+offset_top = 1158.0
+offset_right = 1436.0
+offset_bottom = 1181.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UiLayer/ReasoningPage/FeedbackLabel"]
+layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+texture = ExtResource("6_2n3dv")
 
 [node name="ToggleButton" type="TextureButton" parent="UiLayer"]
 offset_left = 1336.0

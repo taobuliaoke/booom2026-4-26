@@ -2,6 +2,7 @@ extends Control
 
 var all_slots = []
 
+
 func _ready() :
 	#自动收集所有slot
 	for child in get_children():
@@ -10,34 +11,31 @@ func _ready() :
 			child.slot_changed.connect(Callable(self, "_check_all_slots"))
 
 func _check_all_slots():
+	var wrong_count = 0
 	#填满没有
 	for slot in all_slots:
 		if !slot.is_filled():
 			return #还有空的
 	#如果全部填满了，就开始判定是不是都对了
-	var all_correct = true
-	
-	for slot in all_slots:
-		if !slot.is_correct():
-			all_correct = false
-			break
-	
-	if all_correct:
-		print('全部正确')
+		if  not slot.is_correct():
+			wrong_count += 1
+			
+	if wrong_count == 0:
 		_on_all_crrect()
 	else:
-		print('有错误')
-		_on_some_wrong()
-		
+		_on_some_wrong(wrong_count)
+
 		
 func _on_all_crrect():
-	print('事情是这样的：')
+	print('完全正确，事情是这样的：')
 	#播放通关动画
 
 
-func _on_some_wrong():
-	print('还没搞清楚发生了什么事')
+func _on_some_wrong(count:int):
+	print('还没有搞清楚发生了什么，还有'+str(count)+'个错误。')
 	#播放错误提示音效
+
+
 
 #func _on_verify_button_pressed():
 	#
