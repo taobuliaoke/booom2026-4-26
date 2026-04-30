@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bvqrcq4btc6ia"]
+
+[ext_resource type="Script" uid="uid://d3kwjggkfiav1" path="res://Script/Interactable.gd" id="1_v6xsw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nytcm"]
+radius = 128.93794
+height = 427.53107
+
+[node name="Interactable" type="Area2D" unique_id=512711626]
+script = ExtResource("1_v6xsw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545069451]
+position = Vector2(2, 18)
+scale = Vector2(0.29471543, 0.29471543)
+shape = SubResource("CapsuleShape2D_nytcm")

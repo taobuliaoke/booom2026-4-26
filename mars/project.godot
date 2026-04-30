@@ -8,16 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Mars"
 run/main_scene="uid://cve87385duapf"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameEvents="*res://Script/GameEvents.gd"
+GameData="*uid://b0l6233mceas1"
+SenceChange="*uid://d1wnn8tru2fux"
 
 [display]
 

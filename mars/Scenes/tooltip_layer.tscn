@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dk8obsm68d3lv"]
+
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="1_i1v4w"]
+[ext_resource type="Script" uid="uid://cmt76vsmw8hik" path="res://Script/tooltip_layer.gd" id="1_k5cfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5cfm"]
+
+[node name="TooltipLayer" type="CanvasLayer" unique_id=34164584]
+script = ExtResource("1_k5cfm")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1294460193]
+offset_top = -40.0
+offset_right = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k5cfm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer" unique_id=209532052]
+layout_mode = 2
+texture = ExtResource("1_i1v4w")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1886523003]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="RichTextLabel" parent="PanelContainer/MarginContainer" unique_id=649345649]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

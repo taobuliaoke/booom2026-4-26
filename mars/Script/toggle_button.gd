@@ -1,8 +1,10 @@
 extends TextureButton
 
-
 @onready var reasoning_page = $"../ReasoningPage"
 
+#预加载
+var normal_img = preload("res://art/UI/ToggleButton.png")
+var pressed_img = preload("res://art/UI/ToggleButton_open.png")
 
 func _ready() -> void:
 	# 确保已经指定了 normal texture
@@ -23,12 +25,18 @@ func create_bitmap_from_texture(tex: Texture2D) -> BitMap:
 	bitmap.create_from_image_alpha(img, 0.5)
 	
 	return bitmap
+	
+	
 func _pressed():
 	# 切换显示或隐藏（取反逻辑）
 	reasoning_page.visible = !reasoning_page.visible
 	
 	# 细节处理：打开推理页时，可以改变按钮文字[[[]]
 	if reasoning_page.visible:
+		#打开时候
+		texture_normal = pressed_img
 		print('return')
 	else:
+		#关闭时候
+		texture_normal = normal_img
 		print('check')

@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://xysgpobuo6ri"]
+[gd_scene format=3 uid="uid://xysgpobuo6ri"]
 
 [ext_resource type="Script" uid="uid://b5n2rw08ngjk2" path="res://Script/slot.gd" id="1_12ej0"]
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="1_luhj6"]
 
-[node name="Slot" type="MarginContainer"]
+[node name="Slot" type="MarginContainer" unique_id=214723661]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_12ej0")
 correct_answer = Array[String](["周某", "沈某"])
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=744153642]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 texture = ExtResource("1_luhj6")
 patch_margin_left = 5
@@ -17,6 +18,13 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Label" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=874606393]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=292541742]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50

@@ -10,6 +10,29 @@ func _ready() :
 			all_slots.append(child)
 			child.slot_changed.connect(Callable(self, "_check_all_slots"))
 
+
+# --- 新增：核心位置管理逻辑 ---
+func handle_word_move(word_text: String, from_node: Node, to_node: Node):
+	#遍历所有 slot，如果在其他地方已经有这个词了，就先清空它（实现唯一性）
+	for slot in all_slots:
+		if slot.label.text == word_text:
+			slot.clear_slot()
+	
+	#如果是从另一个 Slot 拖过来的，且目标位置已经有词了
+	# 这里可以选择交换词语，或者简单地覆盖。
+	to_node.label.text = word_text
+	to_node.get_node("NinePatchRect").modulate = Color(0.767, 1.2, 0.567, 1.0) # 发光效果
+	
+	
+	#播放动效
+	var tween = create_tween()
+	tween.tween_property(to_node, "scale", Vector2(1.1, 1.1), 0.1)
+	tween.chain().tween_property(to_node, "scale", Vector2(1.0, 1.0), 0.1)
+	
+	
+	#触发检查
+	to_node.slot_changed.emit()
+	
 func _check_all_slots():
 	var wrong_count = 0
 	#填满没有
