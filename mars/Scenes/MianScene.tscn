@@ -2,39 +2,74 @@
 
 [ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="1_aywqq"]
 [ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_eptn2"]
-[ext_resource type="Texture2D" uid="uid://vojhl7fr2gyq" path="res://art/UI/ButtonIcon.png" id="2_1r64c"]
 [ext_resource type="Texture2D" uid="uid://p473w6ookrfi" path="res://art/UI/Reason.png" id="2_eptn2"]
-[ext_resource type="Texture2D" uid="uid://boc5025qwo4s4" path="res://art/vision/Level1/Alien.jpg" id="3_uxjin"]
-[ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="4_1r64c"]
+[ext_resource type="PackedScene" uid="uid://bnh43ra5a8v1" path="res://Scenes/Level/Level1.tscn" id="4_3sfxd"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="5_n4tjm"]
 [ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="5_t6l3q"]
 [ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="6_m5ntv"]
+[ext_resource type="Script" uid="uid://euxiacw53p8f" path="res://Script/inventory.gd" id="6_vomyu"]
 [ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="6_xgatw"]
 [ext_resource type="Script" uid="uid://b6u58vmkduulc" path="res://Script/slot2.gd" id="8_1r64c"]
 [ext_resource type="Texture2D" uid="uid://brrn0h66oisfm" path="res://art/UI/ToggleButton_open.png" id="11_uxjin"]
+[ext_resource type="Texture2D" uid="uid://cr33bnba3bvl3" path="res://art/UI/Prev_Button.png" id="14_plxtd"]
+[ext_resource type="Texture2D" uid="uid://by5nsnusdv2ls" path="res://art/UI/Next_Button.png" id="15_r5k81"]
+[ext_resource type="Script" uid="uid://t08qf46lvxkv" path="res://Script/prev_button.gd" id="15_vomyu"]
+[ext_resource type="Script" uid="uid://c7enuu6wi85ij" path="res://Script/next_button.gd" id="17_vomyu"]
 
 [node name="MianScene" type="Node2D" unique_id=1019803257]
 
 [node name="TooltipLayer" parent="." unique_id=34164584 instance=ExtResource("1_eptn2")]
 
-[node name="Environment" type="Node2D" parent="." unique_id=1239188360]
-
-[node name="ReasonBg" type="Sprite2D" parent="Environment" unique_id=1481183360]
+[node name="ReasonBg" type="Sprite2D" parent="." unique_id=1481183360]
 position = Vector2(800, 599)
 texture = ExtResource("2_eptn2")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment" unique_id=737306851]
-position = Vector2(800.1879, 478.16772)
-scale = Vector2(0.99110425, 0.9911042)
-texture = ExtResource("3_uxjin")
+[node name="ReasoningPage" type="Panel" parent="." unique_id=661820521]
+visible = false
+offset_left = 507.0
+offset_top = 56.0
+offset_right = 1484.0
+offset_bottom = 894.0
+script = ExtResource("5_n4tjm")
 
-[node name="ZJZ" type="Sprite2D" parent="Environment" unique_id=684354719]
-position = Vector2(1113, 372)
-texture = ExtResource("2_1r64c")
+[node name="level1_1" type="Label" parent="ReasoningPage" unique_id=224838180]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 132.0
+offset_right = 772.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 50
+text = "py交易说是"
 
-[node name="Interactable" parent="Environment/ZJZ" unique_id=512711626 instance=ExtResource("4_1r64c")]
-position = Vector2(-1, -8)
+[node name="level1" type="Label" parent="ReasoningPage" unique_id=1082001206]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 134.0
+offset_right = 347.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 50
+text = "跟"
+
+[node name="Slot" parent="ReasoningPage" unique_id=1702316060 instance=ExtResource("5_t6l3q")]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 120.0
+offset_right = 292.0
+offset_bottom = 199.0
+
+[node name="Slot2" parent="ReasoningPage" unique_id=742582215 instance=ExtResource("5_t6l3q")]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 122.0
+offset_right = 506.0
+offset_bottom = 201.0
+script = ExtResource("8_1r64c")
+correct_answer = Array[String]([])
+
+[node name="Environment" type="Node2D" parent="." unique_id=1239188360]
+
+[node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("4_3sfxd")]
 
 [node name="UiLayer" type="CanvasLayer" parent="." unique_id=1067193768]
 
@@ -44,53 +79,13 @@ offset_left = 508.0
 offset_top = 895.0
 offset_right = 1338.0
 offset_bottom = 1190.0
+script = ExtResource("6_vomyu")
 
 [node name="WordCard" parent="UiLayer" unique_id=417128353 instance=ExtResource("1_aywqq")]
 offset_left = -104.0
 offset_top = 1.0
 offset_right = -4.0
 offset_bottom = 90.0
-
-[node name="ReasoningPage" type="Panel" parent="UiLayer" unique_id=661820521]
-visible = false
-offset_right = 829.0
-offset_bottom = 894.0
-script = ExtResource("5_n4tjm")
-metadata/_edit_lock_ = true
-
-[node name="level1_1" type="Label" parent="UiLayer/ReasoningPage" unique_id=224838180]
-layout_mode = 0
-offset_left = 514.0
-offset_top = 132.0
-offset_right = 772.0
-offset_bottom = 201.0
-theme_override_font_sizes/font_size = 50
-text = "py交易说是"
-
-[node name="level1" type="Label" parent="UiLayer/ReasoningPage" unique_id=1082001206]
-layout_mode = 0
-offset_left = 295.0
-offset_top = 134.0
-offset_right = 347.0
-offset_bottom = 203.0
-theme_override_font_sizes/font_size = 50
-text = "跟"
-
-[node name="Slot" parent="UiLayer/ReasoningPage" unique_id=1702316060 instance=ExtResource("5_t6l3q")]
-layout_mode = 0
-offset_left = 142.0
-offset_top = 120.0
-offset_right = 292.0
-offset_bottom = 199.0
-
-[node name="Slot2" parent="UiLayer/ReasoningPage" unique_id=742582215 instance=ExtResource("5_t6l3q")]
-layout_mode = 0
-offset_left = 356.0
-offset_top = 122.0
-offset_right = 506.0
-offset_bottom = 201.0
-script = ExtResource("8_1r64c")
-correct_answer = Array[String]([])
 
 [node name="ToggleButton" type="TextureButton" parent="UiLayer" unique_id=1515466629]
 offset_left = 1336.0
@@ -101,3 +96,21 @@ texture_normal = ExtResource("6_m5ntv")
 texture_pressed = ExtResource("11_uxjin")
 script = ExtResource("6_xgatw")
 metadata/_edit_lock_ = true
+
+[node name="NextButton" type="TextureButton" parent="UiLayer" unique_id=420409453]
+offset_left = 401.0
+offset_top = 991.0
+offset_right = 510.0
+offset_bottom = 1118.0
+texture_normal = ExtResource("15_r5k81")
+script = ExtResource("17_vomyu")
+
+[node name="PrevButton" type="TextureButton" parent="UiLayer" unique_id=1457634373]
+offset_top = 991.0
+offset_right = 109.0
+offset_bottom = 1118.0
+texture_normal = ExtResource("14_plxtd")
+script = ExtResource("15_vomyu")
+
+[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
+[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]

@@ -1,15 +1,33 @@
 extends Node
 signal word_collected(word_text)
-signal show_tooltip(text)
-signal hide_tooltip
+signal request_next_view
+signal request_prev_view
+signal show_tooltip(text) # 定义显示信号，带一个文字参数
+signal hide_tooltip       # 定义隐藏信号
+signal global_clicked(event:InputEventMouseButton) #检查鼠标点击
+
 
 var collected_words = [] # 存储所有已获得的词条名
 var word_card_scene = preload("res://Scenes/word_card.tscn")
+var clues_registry = {}#用字典储存所有线索的收集状态，键是词条名，值是布尔值
+
+
+func _input(event):
+	#只要有鼠标按下
+	if event is InputEventMouseButton and event.pressed:
+		#发电报，通知UI面板，认领工作
+		emit_signal('global_clicked',event)
+
+func collect_clue(word_name:String):
+	if not clues_registry.has(word_name) or clues_registry[word_name] == false:
+		clues_registry[word_name] = true
+		return true#成功收集
+	return false #表示之前已经拿过了
 
 func add_word(word):
 	if not collected_words.has(word):
 		collected_words.append(word)
-		emit_signal("word_collected", word) # 只有新词才发信号词才发送信号
+		emit_signal("word_collected", word) # 只有新词才发信号词
 
 
 

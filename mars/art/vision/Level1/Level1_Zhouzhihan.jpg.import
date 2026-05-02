@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boc5025qwo4s4"
-path="res://.godot/imported/Alien.jpg-6551891e3e07d73b0fc485f69b28bb64.ctex"
+uid="uid://uw4ma00rgy68"
+path="res://.godot/imported/Level1_Zhouzhihan.jpg-8cb989d14a48a81d8b9d2cf3702bd8ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/Level1/Alien.jpg"
-dest_files=["res://.godot/imported/Alien.jpg-6551891e3e07d73b0fc485f69b28bb64.ctex"]
+source_file="res://art/vision/Level1/Level1_Zhouzhihan.jpg"
+dest_files=["res://.godot/imported/Level1_Zhouzhihan.jpg-8cb989d14a48a81d8b9d2cf3702bd8ca.ctex"]
 
 [params]
 

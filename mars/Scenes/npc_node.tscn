@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://ba3pfpste2rt4"]
+
+[ext_resource type="Script" uid="uid://bfcqpm6okx0k5" path="res://Script/CharacterText/CharacterInteract.gd" id="1_tgu4c"]
+[ext_resource type="Script" uid="uid://ce7yl153tqga7" path="res://Script/CharacterText/CharacterDialogUI.gd" id="2_ldstp"]
+[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="3_ldstp"]
+[ext_resource type="Texture2D" uid="uid://cmdb38i8xl0rl" path="res://art/UI/WordCard.png" id="4_tw7c5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0a88"]
+radius = 77.0
+height = 214.0
+
+[node name="NPC_Node" type="Node2D" unique_id=1725076169]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=719227004]
+script = ExtResource("1_tgu4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1569998854]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_y0a88")
+
+[node name="CharacterDialogUI" type="Control" parent="." unique_id=1378797198]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ldstp")
+
+[node name="Itempreview" type="TextureRect" parent="CharacterDialogUI" unique_id=1639327560]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 79.0
+offset_right = 1060.0
+offset_bottom = 689.0
+texture = ExtResource("3_ldstp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterDialogUI" unique_id=1957289522]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 309.0
+offset_right = 557.0
+offset_bottom = 349.0
+bbcode_enabled = true
+
+[node name="Item" type="TextureRect" parent="CharacterDialogUI" unique_id=1023090650]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_tw7c5")

@@ -1,23 +1,27 @@
 extends Node
 
-# 预加载你的关卡路径，方便调用
-var levels = {
-    "客厅": "res://Scenes/LivingRoom.tscn",
-    "花园": "res://Scenes/Garden.tscn"
-}
+# 1. 声明变量（这就是介绍“老王”）：记录当前在第几关（从0开始数）
+var current_level_index: int = 0
 
-func change_scene(scene_name: String):
-    # 1. 找到主场景里的 WorldContainer
-    # 注意：这里假设你的 Main 节点在根目录下
-    var world = get_tree().root.get_node("Main/WorldContainer")
-    
-    # 2. 清空当前正在显示的场景
-    for child in world.get_children():
-        child.queue_free()
-    
-    # 3. 加载新场景并添加进去
-    var new_scene_path = levels[scene_name]
-    var new_scene = load(new_scene_path).instantiate()
-    world.add_child(new_scene)
-    
-    print("场景已切换至：", scene_name)
+# 2. 关卡列表：用数组 [] 更有序，电脑数起来更快
+var levels_list = [
+	"res://Scenes/Level/level1.tscn", # 记得后缀名要写全 .tscn
+    "res://Scenes/Level/level2.tscn"
+]
+
+func load_next_level():
+	# 序号加 1
+	current_level_index += 1
+	
+	# 检查：如果加完后的序号，还在列表范围内
+	if current_level_index < levels_list.size():
+		var next_scene_path = levels_list[current_level_index]
+		get_tree().change_scene_to_file(next_scene_path)
+		print("进入下一关：", next_scene_path)
+	else:
+		print("恭喜！已经是最后一关了。")
+
+# 给第一关手动重置的方法（备用）
+func start_game():
+	current_level_index = 0
+	get_tree().change_scene_to_file(levels_list[0])

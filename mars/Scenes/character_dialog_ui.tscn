@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ubiero115yt2"]
+
+[ext_resource type="Script" uid="uid://ce7yl153tqga7" path="res://Script/CharacterText/CharacterDialogUI.gd" id="1_pss2r"]
+[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="2_pcyrt"]
+[ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://art/UI/Itemlist.png" id="3_pss2r"]
+
+[node name="CharacterDialogUI" type="Control" unique_id=1356130498]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pss2r")
+
+[node name="Itempreview" type="TextureRect" parent="." unique_id=51008495]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 78.0
+offset_right = 1060.0
+offset_bottom = 689.0
+texture = ExtResource("2_pcyrt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=317700084]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 307.0
+offset_right = 1000.0
+offset_bottom = 459.0
+bbcode_enabled = true
+
+[node name="Item" type="TextureRect" parent="." unique_id=612429515]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 514.0
+offset_right = 1066.0
+offset_bottom = 777.0
+texture = ExtResource("3_pss2r")

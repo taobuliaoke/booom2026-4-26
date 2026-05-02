@@ -4,7 +4,8 @@ extends CanvasLayer
 @onready var box = $PanelContainer
 
 func _ready():
-	box.hide() # 初始隐藏
+	box.hide() 
+	# 推荐使用这种 .connect() 的标准写法
 	GameEvents.show_tooltip.connect(_display)
 	GameEvents.hide_tooltip.connect(_hide)
 
