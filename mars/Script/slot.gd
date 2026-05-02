@@ -30,12 +30,12 @@ func clear_slot():
 func _can_drop_data(_at_position, data):
 	# 兼容Inventory传来的String和Slot传来的Dictionary
 	if typeof(data) == TYPE_STRING: return true
-	if typeof(data) == TYPE_DICTIONARY and data.has("text"): return true
+	#if typeof(data) == TYPE_DICTIONARY and data.has("text"): return true
 	return false
 
 
 #允许从slot处拖拽
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	if label.text == '':
 		return null
 	#中转

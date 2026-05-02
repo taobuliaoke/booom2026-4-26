@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ba3pfpste2rt4" path="res://Scenes/npc_node.tscn" id="3_i7gaw"]
 [ext_resource type="Texture2D" uid="uid://k22xowoq4kqr" path="res://art/vision/Level1/Level1_Alien.jpg" id="5_i7gaw"]
 [ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://art/vision/Level1/Level1_Zhoujingshu.jpg" id="6_xtiaw"]
+[ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/character_dialog_ui.tscn" id="8_xtiaw"]
+[ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="9_7axx8"]
 
 [node name="Level1" type="Node2D" unique_id=1293253096]
 script = ExtResource("1_q12u6")
@@ -20,36 +22,43 @@ script = ExtResource("1_q12u6")
 position = Vector2(800, 450)
 texture = ExtResource("2_5vtej")
 
-[node name="NPC_Node" parent="Viewpoints/CharacterA_View" unique_id=1725076169 instance=ExtResource("3_i7gaw")]
-position = Vector2(529, 694)
-
 [node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=1858805244]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterB_View" unique_id=1179942880]
 position = Vector2(800, 450)
 texture = ExtResource("3_b2j2l")
 
 [node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterC_View" unique_id=1777260132]
 position = Vector2(800, 450)
 texture = ExtResource("2_jghel")
 
 [node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=1362285274]
 position = Vector2(800, 450)
 texture = ExtResource("5_i7gaw")
 
 [node name="CharacterE_View" type="Node2D" parent="Viewpoints" unique_id=1397963395]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterE_View" unique_id=439661490]
 position = Vector2(800, 450)
 texture = ExtResource("6_xtiaw")
+
+[node name="Interactable" parent="Viewpoints/CharacterE_View" unique_id=512711626 instance=ExtResource("9_7axx8")]
+position = Vector2(708, 351)
+
+[node name="NPC_Node" parent="Viewpoints/CharacterE_View" unique_id=1725076169 instance=ExtResource("3_i7gaw")]
+visible = false
+position = Vector2(1385, 555)
+
+[node name="CharacterDialogUI" parent="Viewpoints/CharacterE_View/NPC_Node" unique_id=1356130498 instance=ExtResource("8_xtiaw")]
+visible = false
+offset_left = -820.0
+offset_top = -280.0
+offset_right = -780.0
+offset_bottom = -240.0
 
 [node name="CharacterF_View" type="Node2D" parent="Viewpoints" unique_id=1591023651]
 visible = false

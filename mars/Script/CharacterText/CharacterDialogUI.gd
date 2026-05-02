@@ -1,7 +1,8 @@
 extends Control
 
-@onready var item_preview =$Itempreview #展示框子拿来
-
+#导出路径
+@onready var dialog_label = $MyCustomLabel
+@onready var item_rect = $ItemBox
 
 func _ready():
 	# 重点：订阅 GameEvents 的“电报”，只要有人点屏幕，我就去检查
@@ -9,15 +10,24 @@ func _ready():
 
 # 这个 id 是从 NPC 脚本传过来的
 func show_content(id: String):
-	# 这里根据 id 去 GameData 里找对应的台词
-	$RichTextLabel.text = GameData.item_descriptions.get(id, "我没有什么想给你的。")
-	# 也可以在这里换道具图：$Icon.texture = load(...) 
-	if id == '周某':
-		item_preview.texture = load("res://art/Evidence/test.png") # 加载周某的钥匙[cite: 14]
-		item_preview.show()
+	#从GameDate里读Character_date
+	var data= GameData.character_data.get(id,{})
+	
+	if data.is_empty():
+		dialog_label.text = '……'
+		item_rect.hide()
+		return
+	#填入自定义文本内容
+	dialog_label.text = data.get('dialog','')
+	
+	#填入图片并显示
+	var img_path = data.get('item_path','')
+	if img_path != '':
+		item_rect.texture = load(img_path)
+		item_rect.show()
 	else:
-		item_preview.hide() # 没道具的角色就藏起来
-
+		item_rect.hide()
+		 
 func _on_global_clicked(event: InputEventMouseButton):
 	# 如果我本来就没出来，那就不用理会
 	if not visible:

@@ -1,7 +1,7 @@
 extends Area2D
 
 # 这里的 word_name 可以作为角色的 ID，用来提取对应的文本和道具
-@export var character_id: String = "周某"
+@export var character_id: String = "沈慧心"
 # 引用你想要弹出的 UI 界面（文本框和道具展示框的组合体）
 @onready var dialog_ui = $"../CharacterDialogUI"
 
