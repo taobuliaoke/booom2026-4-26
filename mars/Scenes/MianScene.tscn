@@ -26,6 +26,7 @@ texture = ExtResource("2_eptn2")
 metadata/_edit_lock_ = true
 
 [node name="ReasoningPage" type="Panel" parent="." unique_id=661820521]
+visible = false
 offset_left = 507.0
 offset_top = 56.0
 offset_right = 1484.0

@@ -1,4 +1,6 @@
 extends Node2D
+@export var data_resource_path: String
+
 
 # 记录当前看的是第几个视角（从 0 开始）
 var current_view_index: int = 0
@@ -6,6 +8,8 @@ var current_view_index: int = 0
 @onready var viewpoints_container = $Viewpoints
 
 func _ready():
+	if data_resource_path != "":
+		GameData.load_level_data(data_resource_path)
 	# 游戏开始时，先刷新一次，确保只显示第一个视角
 	update_views()
 	GameEvents.request_next_view.connect(_on_next_pressed)

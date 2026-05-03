@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://csnf4aii5jrkg" path="res://art/vision/Level1/Level1_Wenyuan.jpg" id="2_5vtej"]
 [ext_resource type="Texture2D" uid="uid://vs2k4bisuuke" path="res://art/vision/Level1/Level1_Shendeyuan.jpg" id="2_jghel"]
 [ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://art/vision/Level1/Level1_Zhouzhihan.jpg" id="2_joc8x"]
-[ext_resource type="Texture2D" uid="uid://lecwnlx2g058" path="res://art/vision/Level1/Level1_Shenhuixin.jpg" id="3_b2j2l"]
 [ext_resource type="PackedScene" uid="uid://ba3pfpste2rt4" path="res://Scenes/npc_node.tscn" id="3_i7gaw"]
 [ext_resource type="Texture2D" uid="uid://k22xowoq4kqr" path="res://art/vision/Level1/Level1_Alien.jpg" id="5_i7gaw"]
 [ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://art/vision/Level1/Level1_Zhoujingshu.jpg" id="6_xtiaw"]
@@ -13,56 +12,56 @@
 
 [node name="Level1" type="Node2D" unique_id=1293253096]
 script = ExtResource("1_q12u6")
+data_resource_path = "res://Script/Resourse/level_1_data.tres"
 
 [node name="Viewpoints" type="Node2D" parent="." unique_id=1828431442]
 
 [node name="CharacterA_View" type="Node2D" parent="Viewpoints" unique_id=235592852]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterA_View" unique_id=634595649]
 position = Vector2(800, 450)
 texture = ExtResource("2_5vtej")
 
-[node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=1858805244]
+[node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterB_View" unique_id=1179942880]
-position = Vector2(800, 450)
-texture = ExtResource("3_b2j2l")
-
-[node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
-
-[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterC_View" unique_id=1777260132]
+[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterB_View" unique_id=1777260132]
 position = Vector2(800, 450)
 texture = ExtResource("2_jghel")
 
-[node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
+[node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=1362285274]
+[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterC_View" unique_id=1362285274]
 position = Vector2(800, 450)
 texture = ExtResource("5_i7gaw")
 
-[node name="CharacterE_View" type="Node2D" parent="Viewpoints" unique_id=1397963395]
+[node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=1397963395]
 
-[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterE_View" unique_id=439661490]
+[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=439661490]
 position = Vector2(800, 450)
 texture = ExtResource("6_xtiaw")
 
-[node name="Interactable" parent="Viewpoints/CharacterE_View" unique_id=512711626 instance=ExtResource("9_7axx8")]
+[node name="Interactable" parent="Viewpoints/CharacterD_View" unique_id=512711626 instance=ExtResource("9_7axx8")]
 position = Vector2(708, 351)
 
-[node name="NPC_Node" parent="Viewpoints/CharacterE_View" unique_id=1725076169 instance=ExtResource("3_i7gaw")]
-visible = false
+[node name="Interactable2" parent="Viewpoints/CharacterD_View" unique_id=682518948 instance=ExtResource("9_7axx8")]
+position = Vector2(624, 348)
+word_name = "沈某"
+
+[node name="NPC_Node" parent="Viewpoints/CharacterD_View" unique_id=1725076169 instance=ExtResource("3_i7gaw")]
 position = Vector2(1385, 555)
 
-[node name="CharacterDialogUI" parent="Viewpoints/CharacterE_View/NPC_Node" unique_id=1356130498 instance=ExtResource("8_xtiaw")]
-visible = false
+[node name="CharacterDialogUI" parent="Viewpoints/CharacterD_View/NPC_Node" unique_id=1356130498 instance=ExtResource("8_xtiaw")]
 offset_left = -820.0
 offset_top = -280.0
 offset_right = -780.0
 offset_bottom = -240.0
 
-[node name="CharacterF_View" type="Node2D" parent="Viewpoints" unique_id=1591023651]
+[node name="CharacterE_View" type="Node2D" parent="Viewpoints" unique_id=1591023651]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterF_View" unique_id=1876110344]
+[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterE_View" unique_id=1876110344]
 position = Vector2(800, 450)
 texture = ExtResource("2_joc8x")

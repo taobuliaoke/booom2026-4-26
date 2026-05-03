@@ -4,9 +4,12 @@ signal request_next_view
 signal request_prev_view
 signal show_tooltip(text) # 定义显示信号，带一个文字参数
 signal hide_tooltip       # 定义隐藏信号
+signal request_character_dialog(char_name: String)
 signal global_clicked(event:InputEventMouseButton) #检查鼠标点击
+signal request_item_detail(content)
 
-
+var is_sub_ui_open: bool = false
+var is_in_dialogue = false
 var collected_words = [] # 存储所有已获得的词条名
 var word_card_scene = preload("res://Scenes/word_card.tscn")
 var clues_registry = {}#用字典储存所有线索的收集状态，键是词条名，值是布尔值

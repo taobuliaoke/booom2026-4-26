@@ -10,6 +10,7 @@ var pressed_img = preload("res://art/UI/ToggleButton_open.png")
 var env_original_pos:Vector2
 
 func _ready() -> void:
+	reasoning_page.visible = false
 	# 确保已经指定了 normal texture
 	if texture_normal:
 		texture_click_mask = create_bitmap_from_texture(texture_normal)
@@ -36,19 +37,22 @@ func _pressed():
 
 
 #重生之，动画，做
-func run_env_animation(is_opoening:bool):
+func run_env_animation(is_opening:bool):
+	
 	if not environment:return
+	
 	#创建tween
 	var tween = create_tween()
 	
 	#设置弹性动画参数
 	tween.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	
-	if  is_opoening:
+	if  is_opening:
 		#推理页打开时，场景从下往上移出镜头（减去屏幕高度）
 		var target_pos = env_original_pos + Vector2(0,-1000)
 		tween.tween_property(environment,'position',target_pos,1.5)
 	else:
+		
 		#推理页关闭，场景归位
 		tween.tween_property(environment,'position',env_original_pos,1.5)
 		
