@@ -17,6 +17,7 @@ func _process(_delta):
 func _display(text):
 	label.text = text
 	box.show()
+	box.reset_size()
 
 func _hide():
 	box.hide()

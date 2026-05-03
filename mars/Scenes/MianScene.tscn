@@ -2,17 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="1_aywqq"]
 [ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_eptn2"]
-[ext_resource type="Texture2D" uid="uid://p473w6ookrfi" path="res://art/UI/Reason.png" id="2_eptn2"]
+[ext_resource type="Texture2D" uid="uid://p473w6ookrfi" path="res://Art/UI/Reason.png" id="2_eptn2"]
 [ext_resource type="PackedScene" uid="uid://bnh43ra5a8v1" path="res://Scenes/Level/Level1.tscn" id="4_3sfxd"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="5_n4tjm"]
 [ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="5_t6l3q"]
-[ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="6_m5ntv"]
+[ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://Art/UI/ToggleButton.png" id="6_m5ntv"]
 [ext_resource type="Script" uid="uid://euxiacw53p8f" path="res://Script/inventory.gd" id="6_vomyu"]
 [ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="6_xgatw"]
+[ext_resource type="PackedScene" uid="uid://doxfsuld4fsb0" path="res://Scenes/Level/level_2.tscn" id="7_r5k81"]
 [ext_resource type="Script" uid="uid://b6u58vmkduulc" path="res://Script/slot2.gd" id="8_1r64c"]
-[ext_resource type="Texture2D" uid="uid://brrn0h66oisfm" path="res://art/UI/ToggleButton_open.png" id="11_uxjin"]
-[ext_resource type="Texture2D" uid="uid://cr33bnba3bvl3" path="res://art/UI/Prev_Button.png" id="14_plxtd"]
-[ext_resource type="Texture2D" uid="uid://by5nsnusdv2ls" path="res://art/UI/Next_Button.png" id="15_r5k81"]
+[ext_resource type="Texture2D" uid="uid://brrn0h66oisfm" path="res://Art/UI/ToggleButton_open.png" id="11_uxjin"]
+[ext_resource type="Texture2D" uid="uid://cr33bnba3bvl3" path="res://Art/UI/Prev_Button.png" id="14_plxtd"]
+[ext_resource type="Texture2D" uid="uid://by5nsnusdv2ls" path="res://Art/UI/Next_Button.png" id="15_r5k81"]
 [ext_resource type="Script" uid="uid://t08qf46lvxkv" path="res://Script/prev_button.gd" id="15_vomyu"]
 [ext_resource type="Script" uid="uid://c7enuu6wi85ij" path="res://Script/next_button.gd" id="17_vomyu"]
 
@@ -26,7 +27,6 @@ texture = ExtResource("2_eptn2")
 metadata/_edit_lock_ = true
 
 [node name="ReasoningPage" type="Panel" parent="." unique_id=661820521]
-visible = false
 offset_left = 507.0
 offset_top = 56.0
 offset_right = 1484.0
@@ -57,6 +57,7 @@ offset_left = 142.0
 offset_top = 120.0
 offset_right = 292.0
 offset_bottom = 199.0
+script = ExtResource("8_1r64c")
 
 [node name="Slot2" parent="ReasoningPage" unique_id=742582215 instance=ExtResource("5_t6l3q")]
 layout_mode = 0
@@ -65,26 +66,58 @@ offset_top = 122.0
 offset_right = 506.0
 offset_bottom = 201.0
 script = ExtResource("8_1r64c")
-correct_answer = Array[String]([])
+correct_answer = Array[String](["沈某", "周某"])
+
+[node name="FeedBackPanel" type="Panel" parent="ReasoningPage" unique_id=424428421]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99200004
+anchor_bottom = 0.124000005
+offset_right = -0.184021
+offset_bottom = 0.08799744
+
+[node name="Label" type="Label" parent="ReasoningPage/FeedBackPanel" unique_id=1272747696]
+layout_mode = 0
+offset_right = 972.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 63
+text = "我告诉你是对是错"
 
 [node name="Environment" type="Node2D" parent="." unique_id=1239188360]
 
 [node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("4_3sfxd")]
 
+[node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_r5k81")]
+visible = false
+
 [node name="UiLayer" type="CanvasLayer" parent="." unique_id=1067193768]
 
-[node name="Inventory" type="HFlowContainer" parent="UiLayer" unique_id=1025961843]
+[node name="MarginContainer" type="MarginContainer" parent="UiLayer" unique_id=352183578]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -289.0
+offset_top = -291.0
+offset_right = 539.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Inventory" type="HFlowContainer" parent="UiLayer/MarginContainer" unique_id=1025961843]
 custom_minimum_size = Vector2(200, 40)
-offset_left = 508.0
-offset_top = 895.0
-offset_right = 1338.0
-offset_bottom = 1190.0
+layout_mode = 2
 script = ExtResource("6_vomyu")
 
 [node name="WordCard" parent="UiLayer" unique_id=417128353 instance=ExtResource("1_aywqq")]
-offset_left = -104.0
+offset_left = -205.0
 offset_top = 1.0
-offset_right = -4.0
+offset_right = -105.0
 offset_bottom = 90.0
 
 [node name="ToggleButton" type="TextureButton" parent="UiLayer" unique_id=1515466629]

@@ -1,0 +1,41 @@
+
+{
+	"item_descriptions" :{
+	"周某": "歪比八",
+	"线索A": "这是一个重要的证据。",
+	"沈某": "比巴伯",
+	"沈慧心":"她聚精会神地听着。",
+	"钢笔": "一支昂贵的钢笔。",
+	"信件":"一封信",
+	"一个神秘的人":"一个神秘的人"
+	 },
+
+	 "character_data":{
+		"沈慧心": {
+		"dialog": "好久不见，这是我为你准备的礼物。",
+		"items":[
+			{
+				"item_name": "钢笔",
+				"collectible_word": "钢笔",
+				"path":"res://art/UI/ToggleButton.png" ,
+				"can_interact": false,
+				"content": ""
+			},
+			{
+				"item_name": "信件",
+				"collectible_word": "信件",
+				"path": "res://art/Evidence/LetterTest.png",
+				"can_interact": true, 
+				"content": "这是一封信。"
+			}
+			]
+	 	},
+	
+	
+	
+	"沈某": {
+		"dialog": "别在那边鬼鬼祟祟的！",
+		"item_path": "" 
+		}
+	}
+}

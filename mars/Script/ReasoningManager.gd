@@ -1,5 +1,7 @@
 extends Control
 
+@onready var feedback_panel = $FeedBackPanel
+@onready var feedback_label = $FeedBackPanel/Label
 var all_slots = []
 
 
@@ -51,13 +53,23 @@ func _check_all_slots():
 		
 func _on_all_crrect():
 	print('完全正确，事情是这样的：')
+	_show_feedback("推理完全正确！")
 	#播放通关动画
 
 
 func _on_some_wrong(count:int):
 	print('还没有搞清楚发生了什么，还有'+str(count)+'个错误。')
+	_show_feedback("仍有 " + str(count) + " 处疑点...")
 	#播放错误提示音效
-
+	
+func _show_feedback(msg: String):
+	feedback_label.text = msg
+	feedback_panel.show()
+	
+	# 如果你希望它几秒后自动消失，可以使用 Tween 或 Timer
+	var tween = create_tween()
+	tween.tween_interval(2.0) # 显示2秒
+	tween.tween_callback(feedback_panel.hide)
 
 
 #func _on_verify_button_pressed():

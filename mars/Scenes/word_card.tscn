@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbvrbw36e5sdv"]
 
 [ext_resource type="Script" uid="uid://b2bb68cbjbsaa" path="res://Script/word_card.gd" id="1_k0ndv"]
-[ext_resource type="Texture2D" uid="uid://cmdb38i8xl0rl" path="res://art/UI/WordCard.png" id="1_o10kx"]
+[ext_resource type="Texture2D" uid="uid://cmdb38i8xl0rl" path="res://Art/UI/WordCard.png" id="1_o10kx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0ndv"]
 font_size = 50

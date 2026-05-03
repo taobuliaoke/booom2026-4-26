@@ -1,6 +1,6 @@
 extends Control # 建议根节点用 Control 方便做全屏判定
 
-@onready var content_label = $LetterContent # 对应你显示信件内容的标签
+@onready var content_label = $letter/MarginContainer/LetterContent # 对应你显示信件内容的标签
 @onready var paper_rect =  $letter            # 对应你信件的背景底图
 
 func _ready() -> void:

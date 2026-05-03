@@ -1,17 +1,33 @@
 # GameData.gd
 extends Node
-var current_level_data : LevelData
+# 存储当前加载好的关卡资源
+var current_level_data: LevelData
 
-# 线索表：用于普通的 Interactable 物品
-var item_descriptions:
-	get:
-		return current_level_data.item_descriptions if current_level_data else {}
+# 快捷访问属性
+var item_descriptions: Dictionary:
+	get: return current_level_data.item_descriptions if current_level_data else {}
 
+var character_data: Dictionary:
+	get: return current_level_data.character_data if current_level_data else {}
 
-# 角色表：用于 NPC 的详细交互
-var character_data:
-	get:
-		return current_level_data.character_data if current_level_data else {}
-
-func load_level_data(path: String):
-	current_level_data = load(path)
+# --- 你提供的 JSON 加载函数 ---
+func load_data_from_json(path: String):
+	if not FileAccess.file_exists(path):
+		print("找不到文件: ", path)
+		return null
+		
+	var file = FileAccess.open(path, FileAccess.READ)
+	var json_text = file.get_as_text()
+	var dict = JSON.parse_string(json_text)
+	
+	if dict == null:
+		print("JSON 解析失败，请检查格式是否正确（不能有注释！）")
+		return null
+	
+	var new_data = LevelData.new()
+	new_data.item_descriptions = dict.get("item_descriptions", {})
+	new_data.character_data = dict.get("character_data", {})
+	
+	# 将加载好的数据存入全局变量
+	current_level_data = new_data
+	return new_data

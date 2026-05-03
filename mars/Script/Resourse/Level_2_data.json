@@ -1,0 +1,37 @@
+
+{
+	"item_descriptions" :{
+	
+	"一个神秘的人":"一个神秘的人",
+	"沈慧心":"我是第二个场景资源"
+	 },
+
+	 "character_data":{
+		"沈慧心": {
+		"dialog": "好久不见，这是我为你准备的礼物。",
+		"items":[
+			{
+				"item_name": "钢笔",
+				"collectible_word": "钢笔",
+				"path":"res://art/UI/ToggleButton.png" ,
+				"can_interact": false,
+				"content": ""
+			},
+			{
+				"item_name": "信件",
+				"collectible_word": "信件",
+				"path": "res://art/Evidence/LetterTest.png",
+				"can_interact": true, 
+				"content": "这是一封信。"
+			}
+			]
+	 	},
+	
+	
+	
+	"沈某": {
+		"dialog": "别在那边鬼鬼祟祟的！",
+		"item_path": "" 
+		}
+	}
+}

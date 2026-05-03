@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://doxfsuld4fsb0"]
+
+[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://Art/Vision/Level1/Level1_Zhoujingshu.jpg" id="1_lxn2w"]
+[ext_resource type="Script" uid="uid://c7iuo41fc5qay" path="res://Script/Level.gd" id="1_ppjc3"]
+[ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="2_ppjc3"]
+[ext_resource type="PackedScene" uid="uid://ba3pfpste2rt4" path="res://Scenes/npc_node.tscn" id="3_nraam"]
+[ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="4_n0bsh"]
+[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://Art/Vision/Level1/Level1_Zhouzhihan.jpg" id="5_4eusg"]
+
+[node name="Level2" type="Node2D" unique_id=1646515426]
+script = ExtResource("1_ppjc3")
+data_resource_path = "res://Script/Resourse/level_2_data.tres"
+
+[node name="Viewpoints" type="Node2D" parent="." unique_id=233438763]
+
+[node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=84867687]
+
+[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=1849888057]
+position = Vector2(800, 450)
+texture = ExtResource("1_lxn2w")
+
+[node name="Interactable" parent="Viewpoints/CharacterD_View" unique_id=512711626 instance=ExtResource("2_ppjc3")]
+position = Vector2(708, 351)
+
+[node name="Interactable2" parent="Viewpoints/CharacterD_View" unique_id=61689677 instance=ExtResource("2_ppjc3")]
+position = Vector2(624, 348)
+word_name = "沈某"
+
+[node name="NPC_Node" parent="Viewpoints/CharacterD_View" unique_id=1725076169 instance=ExtResource("3_nraam")]
+position = Vector2(1385, 555)
+
+[node name="CharacterDialogUI" parent="Viewpoints/CharacterD_View/NPC_Node" unique_id=1356130498 instance=ExtResource("4_n0bsh")]
+offset_left = -820.0
+offset_top = -280.0
+offset_right = -780.0
+offset_bottom = -240.0
+
+[node name="CharacterE_View" type="Node2D" parent="Viewpoints" unique_id=1900139675]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterE_View" unique_id=392608823]
+position = Vector2(800, 450)
+texture = ExtResource("5_4eusg")

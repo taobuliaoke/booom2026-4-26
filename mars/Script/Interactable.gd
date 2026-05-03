@@ -38,6 +38,7 @@ func _on_clicked():
 		
 func _on_mouse_entered():
 	#变icon
+	if GameEvents.is_in_dialogue:return
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	
 	#弹出对话框

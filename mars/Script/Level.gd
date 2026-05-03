@@ -9,7 +9,8 @@ var current_view_index: int = 0
 
 func _ready():
 	if data_resource_path != "":
-		GameData.load_level_data(data_resource_path)
+	# 游戏开始时加载第一关的 JSON[cite: 12]
+		GameData.load_data_from_json("res://Script/Resourse/level_1_data.json")
 	# 游戏开始时，先刷新一次，确保只显示第一个视角
 	update_views()
 	GameEvents.request_next_view.connect(_on_next_pressed)

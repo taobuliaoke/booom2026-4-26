@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xysgpobuo6ri"]
 
 [ext_resource type="Script" uid="uid://b5n2rw08ngjk2" path="res://Script/slot.gd" id="1_12ej0"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="1_luhj6"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="1_luhj6"]
 
 [node name="Slot" type="MarginContainer" unique_id=214723661]
 offset_right = 40.0
