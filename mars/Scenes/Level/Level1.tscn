@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://bnh43ra5a8v1"]
 
 [ext_resource type="Script" uid="uid://c7iuo41fc5qay" path="res://Script/Level.gd" id="1_q12u6"]
-[ext_resource type="Texture2D" uid="uid://csnf4aii5jrkg" path="res://Art/Vision/Level1/Level1_Wenyuan.jpg" id="2_5vtej"]
-[ext_resource type="Texture2D" uid="uid://vs2k4bisuuke" path="res://Art/Vision/Level1/Level1_Shendeyuan.jpg" id="2_jghel"]
-[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://Art/Vision/Level1/Level1_Zhouzhihan.jpg" id="2_joc8x"]
+[ext_resource type="Texture2D" uid="uid://csnf4aii5jrkg" path="res://art/vision/Level1/Level1_Wenyuan.jpg" id="2_5vtej"]
+[ext_resource type="Texture2D" uid="uid://vs2k4bisuuke" path="res://art/vision/Level1/Level1_Shendeyuan.jpg" id="2_jghel"]
+[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://art/vision/Level1/Level1_Zhouzhihan.jpg" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ba3pfpste2rt4" path="res://Scenes/npc_node.tscn" id="3_i7gaw"]
-[ext_resource type="Texture2D" uid="uid://k22xowoq4kqr" path="res://Art/Vision/Level1/Level1_Alien.jpg" id="5_i7gaw"]
-[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://Art/Vision/Level1/Level1_Zhoujingshu.jpg" id="6_xtiaw"]
+[ext_resource type="Texture2D" uid="uid://k22xowoq4kqr" path="res://art/vision/Level1/Level1_Alien.jpg" id="5_i7gaw"]
+[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://art/vision/Level1/Level1_Zhoujingshu.jpg" id="6_xtiaw"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="8_xtiaw"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="9_7axx8"]
-[ext_resource type="PackedScene" uid="uid://b61rmy0ooaj65" path="res://Scenes/DialogueUI/zhou_shen_DialogUI.tscn" id="9_60y7f"]
 
 [node name="Level1" type="Node2D" unique_id=1293253096]
 script = ExtResource("1_q12u6")
@@ -18,21 +17,18 @@ data_resource_path = "res://Script/Resourse/level_1_data.tres"
 [node name="Viewpoints" type="Node2D" parent="." unique_id=1828431442]
 
 [node name="CharacterA_View" type="Node2D" parent="Viewpoints" unique_id=235592852]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterA_View" unique_id=634595649]
 position = Vector2(800, 450)
 texture = ExtResource("2_5vtej")
 
 [node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterB_View" unique_id=1777260132]
 position = Vector2(800, 450)
 texture = ExtResource("2_jghel")
 
 [node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterC_View" unique_id=1362285274]
 position = Vector2(800, 450)
@@ -54,10 +50,7 @@ word_name = "沈某"
 [node name="NPC_Node" parent="Viewpoints/CharacterD_View" unique_id=1725076169 instance=ExtResource("3_i7gaw")]
 position = Vector2(1385, 555)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Viewpoints/CharacterD_View/NPC_Node" unique_id=1093187663]
-
-[node name="CharacterDialogUI" parent="Viewpoints/CharacterD_View/NPC_Node/CanvasLayer" unique_id=1356130498 instance=ExtResource("8_xtiaw")]
-visible = false
+[node name="CharacterDialogUI" parent="Viewpoints/CharacterD_View" unique_id=1356130498 instance=ExtResource("8_xtiaw")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -69,14 +62,7 @@ grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 0
 
-[node name="zhou_shen_DialogUI" parent="Viewpoints/CharacterD_View/NPC_Node/CanvasLayer" unique_id=2062130056 instance=ExtResource("9_60y7f")]
-offset_left = 493.0
-offset_top = 276.0
-offset_right = 493.0
-offset_bottom = 276.0
-
 [node name="CharacterE_View" type="Node2D" parent="Viewpoints" unique_id=1591023651]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterE_View" unique_id=1876110344]
 position = Vector2(800, 450)

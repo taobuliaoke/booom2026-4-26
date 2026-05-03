@@ -13,7 +13,7 @@ func _ready():
 	# 重点：订阅 GameEvents 的“电报”，只要有人点屏幕，我就去检查
 	GameEvents.global_clicked.connect(_on_global_clicked)
 	
-	# 如果正在看信，对话框就当没看见点击，不要自己缩回去
+	
 
 # id 从 characterInteract 脚本传过来
 func show_content(id: String):
@@ -100,10 +100,8 @@ func _refresh_item_cursor(rect: TextureRect, info: Dictionary):
 	var has_pending_word = word != "" and not GameEvents.clues_registry.get(word, false)
 	
 	if has_pending_word or can_interact:
-		print("小手")
 		rect.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	else:
-		print("指针")
 		rect.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 # 信号连接交互绑定

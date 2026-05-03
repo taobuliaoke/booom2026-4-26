@@ -30,7 +30,6 @@ func clear_slot():
 func _can_drop_data(_at_position, data):
 	# 兼容Inventory传来的String和Slot传来的Dictionary
 	if typeof(data) == TYPE_STRING: return true
-	#if typeof(data) == TYPE_DICTIONARY and data.has("text"): return true
 	return false
 
 
