@@ -25,6 +25,7 @@ func _ready():
 	
 #负责接收两个参数
 func _on_request_dialog(cid:String,pos:Vector2):
+	GameEvents.is_in_dialogue = true #爸呀大哥，总算给你锁死了
 	#设置内容，计算容器大小
 	show_content(cid)
 	
@@ -66,6 +67,10 @@ func show_content(id: String):
 
 # 点击外部收起逻辑 (修改检测范围，因为现在都在 VBox 里)
 func _on_global_clicked(event: InputEventMouseButton):
+	#只有在左键点击，且当前UI可见的时候才判断
+	if event.button_index != MOUSE_BUTTON_LEFT or not event.pressed:
+		return
+		
 	if GameEvents.is_sub_ui_open or not visible:
 		return
 
@@ -73,7 +78,7 @@ func _on_global_clicked(event: InputEventMouseButton):
 	var rect = vbox.get_global_rect()
 	if not rect.has_point(event.global_position):
 		print("点到 UI 外面了，收起面板")
-		hide()
+		hide_dialog()
 		await get_tree().process_frame
 		GameEvents.is_in_dialogue = false
 		GameEvents.emit_signal("ui_closed_refresh_hover")
@@ -149,6 +154,13 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 	)
 	
 func hide_dialog():
+	print('执行统一关闭逻辑，重置对话状态为false')
 	hide()
 	GameEvents.is_in_dialogue = false #只有设为false，按钮才能恢复点击
+	
+	#别忘了之前的刷新信号，否则鼠标样式会卡住
+	await get_tree().process_frame
+	GameEvents.emit_signal('ui_closed_refresh_hover')
+	
+	
 	
