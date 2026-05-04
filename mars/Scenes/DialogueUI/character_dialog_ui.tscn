@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ubiero115yt2"]
 
 [ext_resource type="Script" uid="uid://ce7yl153tqga7" path="res://Script/CharacterText/CharacterDialogUI.gd" id="1_pss2r"]
-[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://Art/UI/DialogueBox.png" id="2_pcyrt"]
+[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="2_pcyrt"]
 [ext_resource type="Script" uid="uid://cn05yqjxybiyh" path="res://Script/Letter.gd" id="2_rea2k"]
-[ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://Art/UI/Itemlist.png" id="3_pss2r"]
+[ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://art/UI/Itemlist.png" id="3_pss2r"]
 
 [node name="CharacterDialogUI" type="Control" unique_id=1356130498]
 layout_mode = 3
@@ -13,39 +13,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pss2r")
+max_width = 400.0
 
-[node name="Itempreview" type="TextureRect" parent="." unique_id=51008495]
-layout_mode = 1
-offset_right = 612.0
-offset_bottom = 263.0
-texture = ExtResource("2_pcyrt")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="MyCustomLabel" type="RichTextLabel" parent="Itempreview" unique_id=317700084]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=287042001]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 60.0
-offset_right = 549.0
-offset_bottom = 212.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="DialogBox" type="MarginContainer" parent="VBoxContainer" unique_id=406524863]
+layout_mode = 2
+
+[node name="BG" type="NinePatchRect" parent="VBoxContainer/DialogBox" unique_id=1911938331]
+show_behind_parent = true
+layout_mode = 2
+texture = ExtResource("2_pcyrt")
+region_rect = Rect2(0, 0, 264, 264)
+
+[node name="TextMargin" type="MarginContainer" parent="VBoxContainer/DialogBox" unique_id=1155816817]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="MyCustomLabel" type="RichTextLabel" parent="VBoxContainer/DialogBox/TextMargin" unique_id=317700084]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 43
 bbcode_enabled = true
 text = "test"
+fit_content = true
+scroll_active = false
 
-[node name="ItemBox" type="TextureRect" parent="." unique_id=612429515]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 267.0
-offset_right = 615.0
-offset_bottom = 530.0
+[node name="ItemBox" type="TextureRect" parent="VBoxContainer" unique_id=612429515]
+layout_mode = 2
 texture = ExtResource("3_pss2r")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="ItemBox" unique_id=906900151]
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer/ItemBox" unique_id=906900151]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 37.0
-offset_right = 573.0
+offset_right = 570.0
 offset_bottom = 225.0
 
 [node name="Letter" type="Control" parent="." unique_id=1458472220]

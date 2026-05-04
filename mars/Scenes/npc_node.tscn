@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bfcqpm6okx0k5" path="res://Script/CharacterText/CharacterInteract.gd" id="1_tgu4c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0a88"]
-radius = 136.0
-height = 686.0
+radius = 62.0
+height = 402.0
 
 [node name="NPC_Node" type="Area2D" unique_id=773302282]
 script = ExtResource("1_tgu4c")

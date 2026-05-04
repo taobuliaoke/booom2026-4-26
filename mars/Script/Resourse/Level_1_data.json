@@ -26,16 +26,22 @@
 				"collectible_word": "信件",
 				"path": "res://art/Evidence/LetterTest.png",
 				"can_interact": true, 
-				"content": "这是一封信。"
+				"content": "这是一封信"
 			}
 			]
 	 	},
 	
 	
 	
-	"沈某": {
-		"dialog": "别在那边鬼鬼祟祟的！",
-		"item_path": "" 
+	"文鸳": {
+		"dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么火星不火星的，还不如看看水里有没有鱼。",
+		"item_path": "草稿纸" ,
+		"collectible_word": "英文",
+		"path": "res://art/Evidence/draft.png",
+		"can_interact": true,
+		"content":"文鸢随身携带"
 		}
 	}
+
+	
 }

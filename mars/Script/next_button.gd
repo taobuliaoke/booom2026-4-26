@@ -1,3 +1,9 @@
 extends TextureButton
 func _on_pressed():
+	print('按钮被点击了，当前对话状态，GameEvents.is_in_dialogue')
+	# 如果正在对话中，直接拦截，不执行任何操作[cite: 18, 19]
+	if GameEvents.is_in_dialogue:
+		print('因为正在对话，所以被拦截了')
+		return
+	print('成功发出切换信号')
 	GameEvents.emit_signal("request_next_view")

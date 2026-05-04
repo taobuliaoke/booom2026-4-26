@@ -9,16 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="6_m5ntv"]
 [ext_resource type="Script" uid="uid://euxiacw53p8f" path="res://Script/inventory.gd" id="6_vomyu"]
 [ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="6_xgatw"]
-[ext_resource type="PackedScene" path="res://Scenes/Level/level_2.tscn" id="7_r5k81"]
+[ext_resource type="PackedScene" uid="uid://doxfsuld4fsb0" path="res://Scenes/Level/level_2.tscn" id="7_r5k81"]
 [ext_resource type="Script" uid="uid://b6u58vmkduulc" path="res://Script/slot2.gd" id="8_1r64c"]
 [ext_resource type="Texture2D" uid="uid://brrn0h66oisfm" path="res://art/UI/ToggleButton_open.png" id="11_uxjin"]
 [ext_resource type="Texture2D" uid="uid://cr33bnba3bvl3" path="res://art/UI/Prev_Button.png" id="14_plxtd"]
 [ext_resource type="Texture2D" uid="uid://by5nsnusdv2ls" path="res://art/UI/Next_Button.png" id="15_r5k81"]
 [ext_resource type="Script" uid="uid://t08qf46lvxkv" path="res://Script/prev_button.gd" id="15_vomyu"]
+[ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="17_33k15"]
 [ext_resource type="Script" uid="uid://c7enuu6wi85ij" path="res://Script/next_button.gd" id="17_vomyu"]
 
 [node name="MianScene" type="Node2D" unique_id=1019803257]
 metadata/_edit_horizontal_guides_ = [900.0]
+metadata/_edit_vertical_guides_ = [452.0]
 
 [node name="TooltipLayer" parent="." unique_id=34164584 instance=ExtResource("1_eptn2")]
 
@@ -164,5 +166,14 @@ offset_bottom = 1118.0
 texture_normal = ExtResource("14_plxtd")
 script = ExtResource("15_vomyu")
 
+[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("17_33k15")]
+unique_name_in_owner = true
+offset_left = -1600.0
+offset_top = -6.0
+offset_right = -1600.0
+offset_bottom = -6.0
+
 [connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
+[connection signal="pressed" from="UiLayer/NextButton" to="UiLayer/NextButton" method="_on_pressed"]
 [connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]
+[connection signal="pressed" from="UiLayer/PrevButton" to="UiLayer/PrevButton" method="_on_pressed"]

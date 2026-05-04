@@ -2,7 +2,7 @@ extends Area2D
 
 var word_card_scene = preload("res://Scenes/word_card.tscn")
 # 在编辑器右侧直接填词条
-@export var word_name: String = "信"
+@export var word_name: String = "……"
 
 func _ready():
 	#鼠标监听

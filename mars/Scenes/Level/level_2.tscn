@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://doxfsuld4fsb0"]
 
-[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://Art/Vision/Level1/Level1_Zhoujingshu.jpg" id="1_lxn2w"]
+[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://art/vision/Level1/Level1_Zhoujingshu.jpg" id="1_lxn2w"]
 [ext_resource type="Script" uid="uid://c7iuo41fc5qay" path="res://Script/Level.gd" id="1_ppjc3"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="2_ppjc3"]
 [ext_resource type="PackedScene" uid="uid://ba3pfpste2rt4" path="res://Scenes/npc_node.tscn" id="3_nraam"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="4_n0bsh"]
-[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://Art/Vision/Level1/Level1_Zhouzhihan.jpg" id="5_4eusg"]
+[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://art/vision/Level1/Level1_Zhouzhihan.jpg" id="5_4eusg"]
 
 [node name="Level2" type="Node2D" unique_id=1646515426]
 script = ExtResource("1_ppjc3")
@@ -21,6 +21,7 @@ texture = ExtResource("1_lxn2w")
 
 [node name="Interactable" parent="Viewpoints/CharacterD_View" unique_id=512711626 instance=ExtResource("2_ppjc3")]
 position = Vector2(708, 351)
+word_name = "信"
 
 [node name="Interactable2" parent="Viewpoints/CharacterD_View" unique_id=61689677 instance=ExtResource("2_ppjc3")]
 position = Vector2(624, 348)

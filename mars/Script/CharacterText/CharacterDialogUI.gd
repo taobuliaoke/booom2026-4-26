@@ -1,73 +1,82 @@
 extends Control
 
+#导出参数
+@export var max_width: float = 500 # max width
+@export var spacing:int = 10 #how far from dialogbox to item box
 #导出路径
-@onready var dialog_label = $Itempreview/MyCustomLabel
-@onready var item_box = $ItemBox
-@onready var dialog_box = $Itempreview
-@onready var container = $ItemBox/HFlowContainer
+@onready var vbox = $VBoxContainer
+@onready var dialog_label = $VBoxContainer/DialogBox/TextMargin/MyCustomLabel
+@onready var item_box = $VBoxContainer/ItemBox
+@onready var container = $VBoxContainer/ItemBox/HFlowContainer
+
 
 func _ready():
 	visible = false
+	
+	# 确保节点存在再操作，防止崩溃
+	if vbox and dialog_label:
+		vbox.add_theme_constant_override('separation', spacing)
+		dialog_label.custom_minimum_size.x = max_width
+	else:
+		print("错误：找不到 UI 节点，请检查场景树路径！")
 
-	GameEvents.request_character_dialog.connect(show_content)
-	# 重点：订阅 GameEvents 的“电报”，只要有人点屏幕，我就去检查
+	GameEvents.request_character_dialog.connect(_on_request_dialog)
 	GameEvents.global_clicked.connect(_on_global_clicked)
 	
+#负责接收两个参数
+func _on_request_dialog(cid:String,pos:Vector2):
+	#设置内容，计算容器大小
+	show_content(cid)
 	
+	#1.处理位置
+	global_position = pos
+	
+	#3.显示自己
+	show()
+
 
 # id 从 characterInteract 脚本传过来
 func show_content(id: String):
+	var data = GameData.character_data.get(id,{})
 	
-	#从GameDate里读Character_date
-	visible = true
-	var data= GameData.character_data.get(id,{})
-	
-	# 每次显示前，清空旧的道具图标
+	#清空旧道具
 	for child in container.get_children():
 		child.queue_free()
-	
+		
 	if data.is_empty():
 		dialog_label.text = '……'
 		item_box.hide()
-		return
-	#填入自定义文本内容
-	dialog_label.text = data.get('dialog','')
-	
-	# 获取道具数组
-	var items_array = data.get("items", [])
-	if items_array != []:
-		for item_info in items_array:
-			add_new_item(item_info)
-		item_box.show()
 	else:
-		item_box.hide()
-
-# 点击外部收起对话框道具栏逻辑
-func _on_global_clicked(event: InputEventMouseButton):
-	var dialog_rect = dialog_box.get_global_rect()
-	var item_rect = item_box.get_global_rect()
-	# 如果我本来就没出来，那就不用理会
-	if GameEvents.is_sub_ui_open:
-		return
-	if not visible:
-		return
-
-	# 【核心逻辑】
-	# get_global_rect() 获取这个 UI 面板在屏幕上的矩形区域
-	# has_point(点击位置) 判断你点的地方在不在这个矩形里
-	if item_box.visible:
-		if dialog_rect.has_point(event.global_position) or item_rect.has_point(event.global_position):
-			return
-	if dialog_rect.has_point(event.global_position):
-		return
-	
-	print("点到 UI 外面了，收起面板")
-	hide()
+		#填入文本
+		dialog_label.text = data.get('dialog','')
+		 
+		#处理道具
+		var items_array = data.get('items',[])
+		if items_array.is_empty():
+			item_box.hide()
+		else:
+			for item_info in items_array:
+				add_new_item(item_info)
+			item_box.show()
+			
+	# 4. 关键：强制刷新布局
+	# 这两行能保证道具框在文字变动后，立刻重新吸附到文字下方
+	vbox.reset_size() 
 	await get_tree().process_frame
-	GameEvents.is_in_dialogue = false
-	# 收起面板
-	#发信号告诉所有 Area2D 可以重新检查鼠标了
-	GameEvents.emit_signal("ui_closed_refresh_hover")
+
+# 点击外部收起逻辑 (修改检测范围，因为现在都在 VBox 里)
+func _on_global_clicked(event: InputEventMouseButton):
+	if GameEvents.is_sub_ui_open or not visible:
+		return
+
+	# 现在只需检测鼠标是否在 VBoxContainer 的范围内即可
+	var rect = vbox.get_global_rect()
+	if not rect.has_point(event.global_position):
+		print("点到 UI 外面了，收起面板")
+		hide()
+		await get_tree().process_frame
+		GameEvents.is_in_dialogue = false
+		GameEvents.emit_signal("ui_closed_refresh_hover")
 
 
 #----------------------以下是道具框相关逻辑----------------------------------------
@@ -138,4 +147,8 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 				GameEvents.emit_signal("hide_tooltip")
 				GameEvents.emit_signal("request_item_detail", info.get("content", ""))
 	)
+	
+func hide_dialog():
+	hide()
+	GameEvents.is_in_dialogue = false #只有设为false，按钮才能恢复点击
 	
