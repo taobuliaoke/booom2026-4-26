@@ -26,6 +26,9 @@ func _ready():
 func _on_mouse_entered():
 	if GameEvents.is_in_dialogue:return
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	#在通知显示新文本前，先通知全局UI把旧的Tooltip清空
+	GameEvents.emit_signal('hide_tooltip')
+	
 	# 统一从 item_descriptions 读取 tooltip
 	var desc = GameData.item_descriptions.get(character_id, "一个神秘的人")
 	GameEvents.emit_signal("show_tooltip", desc)
@@ -38,6 +41,7 @@ func _input_event(_viewport, event, _shape_idx):
 	# 如果点的是左键
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_interact()
+
 
 func _interact():
 	var data = GameData.character_data.get(character_id, {})

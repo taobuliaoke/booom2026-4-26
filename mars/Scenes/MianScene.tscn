@@ -2,17 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="1_aywqq"]
 [ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_eptn2"]
+[ext_resource type="Texture2D" uid="uid://p473w6ookrfi" path="res://art/UI/Reason.png" id="2_eptn2"]
 [ext_resource type="PackedScene" uid="uid://bnh43ra5a8v1" path="res://Scenes/Level/Level1.tscn" id="4_3sfxd"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="5_n4tjm"]
 [ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="5_t6l3q"]
+[ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="6_m5ntv"]
 [ext_resource type="Script" uid="uid://euxiacw53p8f" path="res://Script/inventory.gd" id="6_vomyu"]
 [ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="6_xgatw"]
 [ext_resource type="PackedScene" uid="uid://doxfsuld4fsb0" path="res://Scenes/Level/level_2.tscn" id="7_r5k81"]
 [ext_resource type="Script" uid="uid://b6u58vmkduulc" path="res://Script/slot2.gd" id="8_1r64c"]
+[ext_resource type="Texture2D" uid="uid://brrn0h66oisfm" path="res://art/UI/ToggleButton_open.png" id="11_uxjin"]
+[ext_resource type="Texture2D" uid="uid://cr33bnba3bvl3" path="res://art/UI/Prev_Button.png" id="14_plxtd"]
+[ext_resource type="Texture2D" uid="uid://by5nsnusdv2ls" path="res://art/UI/Next_Button.png" id="15_r5k81"]
 [ext_resource type="Script" uid="uid://t08qf46lvxkv" path="res://Script/prev_button.gd" id="15_vomyu"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="17_33k15"]
 [ext_resource type="Script" uid="uid://c7enuu6wi85ij" path="res://Script/next_button.gd" id="17_vomyu"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="18_33k15"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="19_f3cnu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_33k15"]
 shader = ExtResource("18_33k15")
