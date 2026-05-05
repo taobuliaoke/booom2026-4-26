@@ -12,7 +12,7 @@ extends Control
 
 func _ready():
 	visible = false
-	
+	add_to_group("dialog_uis")
 	# 确保节点存在再操作，防止崩溃
 	if vbox and dialog_label:
 		vbox.add_theme_constant_override('separation', spacing)
@@ -25,11 +25,20 @@ func _ready():
 	
 #负责接收两个参数
 func _on_request_dialog(cid:String,pos:Vector2):
+	# 1. 关键：通知组内所有对话框立刻隐藏 (包括其他视角的对话框)
+	get_tree().call_group("dialog_uis", "hide") 
+	
+	# 2. 如果你的 hide 逻辑里有复杂的解开锁逻辑，建议单独写一个受控隐藏函数
+	get_tree().call_group("dialog_uis", "controlled_hide")
+
+	# 3. 开启当前的 UI 逻辑
+	$VBoxContainer.global_position = pos
 	GameEvents.is_in_dialogue = true #爸呀大哥，总算给你锁死了
-	#设置内容，计算容器大小
+	#设置内容，计算容器大小	
+	
 	show_content(cid)
 	
-	$VBoxContainer.global_position = pos
+
 	
 	#3.显示自己
 	show()
