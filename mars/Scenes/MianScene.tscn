@@ -168,7 +168,6 @@ script = ExtResource("15_vomyu")
 
 [node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("17_33k15")]
 unique_name_in_owner = true
-visible = false
 
 [connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
 [connection signal="pressed" from="UiLayer/NextButton" to="UiLayer/NextButton" method="_on_pressed"]

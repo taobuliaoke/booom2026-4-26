@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://b61rmy0ooaj65"]
-
-[ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="1_hqugn"]
-
-[node name="CharacterDialogUI" unique_id=1356130498 instance=ExtResource("1_hqugn")]
-
-[node name="Letter" parent="." index="2" unique_id=1458472220]
-visible = true

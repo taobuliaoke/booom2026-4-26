@@ -29,8 +29,7 @@ func _on_request_dialog(cid:String,pos:Vector2):
 	#设置内容，计算容器大小
 	show_content(cid)
 	
-	#1.处理位置
-	global_position = pos
+	$VBoxContainer.global_position = pos
 	
 	#3.显示自己
 	show()

@@ -49,6 +49,7 @@ func _on_prev_pressed():
 
 #眨眼动效方法
 func play_blink_transition():
+	if $"../../ReasoningPage".visible:return
 	is_blinking = true #锁上
 	var screen_height = get_viewport_rect().size.y
 	var half_height = screen_height / 2.0
