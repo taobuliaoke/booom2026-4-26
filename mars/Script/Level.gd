@@ -5,8 +5,8 @@ extends Node2D
 # 引用存放视角的容器
 @onready var viewpoints_container = $Viewpoints
 #引用眼睑节点
-@onready var upper_lid =$"../../UiLayer/BlinkCanvas/UpperLid"
-@onready var lower_lid =$"../../UiLayer/BlinkCanvas/LowerLid"
+@onready var upper_lid =$"../../../UiLayer/BlinkCanvas/UpperLid"
+@onready var lower_lid =$"../../../UiLayer/BlinkCanvas/LowerLid"
 
 # 记录当前看的是第几个视角（从 0 开始）
 var current_view_index: int = 0
@@ -49,7 +49,7 @@ func _on_prev_pressed():
 
 #眨眼动效方法
 func play_blink_transition():
-	if $"../../ReasoningPage".visible:return
+	if $"../../../ReasoningPage".visible:return
 	is_blinking = true #锁上
 	var screen_height = get_viewport_rect().size.y
 	var half_height = screen_height / 2.0

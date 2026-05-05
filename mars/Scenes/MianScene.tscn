@@ -17,12 +17,28 @@
 [ext_resource type="Script" uid="uid://t08qf46lvxkv" path="res://Script/prev_button.gd" id="15_vomyu"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="17_33k15"]
 [ext_resource type="Script" uid="uid://c7enuu6wi85ij" path="res://Script/next_button.gd" id="17_vomyu"]
+[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="18_33k15"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33k15"]
+shader = ExtResource("18_33k15")
+shader_parameter/intensity = 0.15200000722
+shader_parameter/speed = 0.470000022325
+shader_parameter/channel_bias = Vector3(0.8, 0.295, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3cnu"]
+shader = ExtResource("18_33k15")
+shader_parameter/intensity = 0.150000007125
+shader_parameter/speed = 1.082000051395
+shader_parameter/channel_bias = Vector3(0.205, 0.285, 1.795)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_33k15"]
 
 [node name="MianScene" type="Node2D" unique_id=1019803257]
 metadata/_edit_horizontal_guides_ = [900.0]
 metadata/_edit_vertical_guides_ = [452.0]
 
 [node name="TooltipLayer" parent="." unique_id=34164584 instance=ExtResource("1_eptn2")]
+layer = 2
 
 [node name="ReasonBg" type="Sprite2D" parent="." unique_id=1481183360]
 position = Vector2(800, 599)
@@ -86,11 +102,14 @@ offset_bottom = 105.0
 theme_override_font_sizes/font_size = 63
 text = "我告诉你是对是错"
 
-[node name="Environment" type="Node2D" parent="." unique_id=1239188360]
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1667725608]
+material = SubResource("ShaderMaterial_33k15")
 
-[node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("4_3sfxd")]
+[node name="Environment" type="Node2D" parent="CanvasGroup" unique_id=1239188360]
 
-[node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_r5k81")]
+[node name="Level1" parent="CanvasGroup/Environment" unique_id=1293253096 instance=ExtResource("4_3sfxd")]
+
+[node name="Level2" parent="CanvasGroup/Environment" unique_id=1646515426 instance=ExtResource("7_r5k81")]
 visible = false
 
 [node name="UiLayer" type="CanvasLayer" parent="." unique_id=1067193768]
@@ -168,8 +187,20 @@ script = ExtResource("15_vomyu")
 
 [node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("17_33k15")]
 unique_name_in_owner = true
+visible = false
 
-[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
+[node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1557060867]
+visible = false
+material = SubResource("ShaderMaterial_f3cnu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_33k15")
+
+[connection signal="pressed" from="UiLayer/NextButton" to="CanvasGroup/Environment/Level1" method="_on_next_pressed"]
 [connection signal="pressed" from="UiLayer/NextButton" to="UiLayer/NextButton" method="_on_pressed"]
-[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]
+[connection signal="pressed" from="UiLayer/PrevButton" to="CanvasGroup/Environment/Level1" method="_on_prev_pressed"]
 [connection signal="pressed" from="UiLayer/PrevButton" to="UiLayer/PrevButton" method="_on_pressed"]
