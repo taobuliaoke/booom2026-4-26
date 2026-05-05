@@ -8,9 +8,13 @@ var normal_img = preload("res://art/UI/ToggleButton.png")
 var pressed_img = preload("res://art/UI/ToggleButton_open.png")
 #记录Environment的初始位置
 var env_original_pos:Vector2
+#动画状态锁
+var is_animating: bool = false
+
 
 func _ready() -> void:
-	reasoning_page.visible = false
+	if reasoning_page:
+		reasoning_page.visible = false
 	# 确保已经指定了 normal texture
 	if texture_normal:
 		texture_click_mask = create_bitmap_from_texture(texture_normal)
@@ -20,6 +24,13 @@ func _ready() -> void:
 		
 
 func _pressed():
+	#拦截
+	if is_animating:
+		print('动画正在播放，无视多余的点击')
+		return
+		
+	#没播动画，上锁
+	is_animating = true
 	# 切换显示或隐藏（取反逻辑）
 	reasoning_page.visible = !reasoning_page.visible
 	#执行场景平移补间动画
@@ -39,7 +50,10 @@ func _pressed():
 #重生之，动画，做
 func run_env_animation(is_opening:bool):
 	
-	if not environment:return
+	if not environment:
+		#如果没有场景，立刻解锁，防止死锁
+		is_animating = false
+		return
 	
 	#创建tween
 	var tween = create_tween()
@@ -49,13 +63,18 @@ func run_env_animation(is_opening:bool):
 	
 	if  is_opening:
 		#推理页打开时，场景从下往上移出镜头（减去屏幕高度）
-		var target_pos = env_original_pos + Vector2(0,-1000)
-		tween.tween_property(environment,'position',target_pos,1.5)
+		var target_pos = env_original_pos - Vector2(0, get_viewport_rect().size.y)
+		tween.tween_property(environment,'position',target_pos,0.5)
 	else:
 		
 		#推理页关闭，场景归位
-		tween.tween_property(environment,'position',env_original_pos,1.5)
+		tween.tween_property(environment,'position',env_original_pos,0.5)
 		
+	#用chain触发回调解锁按钮，再动画播放完毕后
+	tween.chain().tween_callback(func():
+		is_animating = false
+		print('已解锁')
+	)
 		
 func create_bitmap_from_texture(tex: Texture2D) -> BitMap:
 	var bitmap = BitMap.new()
