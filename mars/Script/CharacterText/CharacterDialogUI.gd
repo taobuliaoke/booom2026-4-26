@@ -39,7 +39,7 @@ func _on_request_dialog(cid:String,pos:Vector2):
 # id 从 characterInteract 脚本传过来
 func show_content(id: String):
 	var data = GameData.character_data.get(id,{})
-	GameEvents.is_in_dialogue = true
+	
 	#清空旧道具
 	for child in container.get_children():
 		child.queue_free()
@@ -78,9 +78,10 @@ func _on_global_clicked(event: InputEventMouseButton):
 	var rect = vbox.get_global_rect()
 	if not rect.has_point(event.global_position):
 		print("点到 UI 外面了，收起面板")
-		await get_tree().process_frame
 		hide_dialog()
-
+		await get_tree().process_frame
+		GameEvents.is_in_dialogue = false
+		GameEvents.emit_signal("ui_closed_refresh_hover")
 
 
 #----------------------以下是道具框相关逻辑----------------------------------------
@@ -104,6 +105,11 @@ func _setup_item_appearance(rect: TextureRect, info: Dictionary):
 func _refresh_item_cursor(rect: TextureRect, info: Dictionary):
 	var word = info.get("collectible_word", "")
 	var can_interact = info.get("can_interact", false)
+	# 打印当前字典里所有的 Key，看看有没有“钢笔”
+	print("当前注册表内容: ", GameEvents.clues_registry.keys())
+	print("正在对比的词条 ID: ", word)
+	var is_collected = GameEvents.clues_registry.get(word, false)
+	print("当前检查词条: ", word, " 是否已收集: ", is_collected)
 	# 判断是否还有未拿取的词条
 	var has_pending_word = word != "" and not GameEvents.clues_registry.get(word, false)
 	
@@ -148,16 +154,13 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 	)
 	
 func hide_dialog():
-	hide()#  视觉上立刻消失
+	print('执行统一关闭逻辑，重置对话状态为false')
+	hide()
+	GameEvents.is_in_dialogue = false #只有设为false，按钮才能恢复点击
 	
-	# 我们在这里“等一帧”，确保当前的点击信号（比如按钮的 pressed 信号）
-	# 在 is_in_dialogue 还是 true 的时候就处理完。
-	await get_tree().process_frame 
-	
-	GameEvents.is_in_dialogue = false # 2. 此时再解锁，下一帧的点击才会生效
+	#别忘了之前的刷新信号，否则鼠标样式会卡住
+	await get_tree().process_frame
 	GameEvents.emit_signal('ui_closed_refresh_hover')
-	
-
 	
 	
 	
