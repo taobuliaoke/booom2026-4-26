@@ -1,7 +1,7 @@
 extends TextureButton
 
 @onready var reasoning_page = $"../../ReasoningPage"
-@onready var environment =$"../../CanvasGroup" #拿来吧你
+@onready var environment =$"../../Environment" #拿来吧你
 
 #预加载
 var normal_img = preload("res://art/UI/ToggleButton.png")
