@@ -3,15 +3,12 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmdb38i8xl0rl"
-path="res://.godot/imported/WordCard.png-eb931cc2cfbf4a4d9576550379dfb5e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/WordCard.png"
-dest_files=["res://.godot/imported/WordCard.png-eb931cc2cfbf4a4d9576550379dfb5e7.ctex"]
 
 [params]
 
