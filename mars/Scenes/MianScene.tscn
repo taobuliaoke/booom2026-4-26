@@ -151,6 +151,13 @@ texture_pressed = ExtResource("11_uxjin")
 script = ExtResource("6_xgatw")
 metadata/_edit_lock_ = true
 
+[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("17_33k15")]
+unique_name_in_owner = true
+offset_left = -1600.0
+offset_top = -6.0
+offset_right = -1600.0
+offset_bottom = -6.0
+
 [node name="NextButton" type="TextureButton" parent="UiLayer" unique_id=420409453]
 offset_left = 401.0
 offset_top = 991.0
@@ -166,10 +173,13 @@ offset_bottom = 1118.0
 texture_normal = ExtResource("14_plxtd")
 script = ExtResource("15_vomyu")
 
+<<<<<<< Updated upstream
 [node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("17_33k15")]
 unique_name_in_owner = true
 visible = false
 
+=======
+>>>>>>> Stashed changes
 [connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
 [connection signal="pressed" from="UiLayer/NextButton" to="UiLayer/NextButton" method="_on_pressed"]
 [connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]
