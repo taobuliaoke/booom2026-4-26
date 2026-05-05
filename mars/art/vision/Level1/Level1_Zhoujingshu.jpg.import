@@ -3,12 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://corxiwl262imk"
+path="res://.godot/imported/Level1_Zhoujingshu.jpg-a32ae7ec7844b320c3ce14c490bca294.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+source_file="res://Art/Vision/Level1/Level1_Zhoujingshu.jpg"
+dest_files=["res://.godot/imported/Level1_Zhoujingshu.jpg-a32ae7ec7844b320c3ce14c490bca294.ctex"]
 
 [params]
 
