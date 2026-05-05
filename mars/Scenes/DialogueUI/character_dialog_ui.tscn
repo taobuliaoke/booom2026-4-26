@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://ubiero115yt2"]
 
 [ext_resource type="Script" uid="uid://ce7yl153tqga7" path="res://Script/CharacterText/CharacterDialogUI.gd" id="1_pss2r"]
-[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="2_pcyrt"]
 [ext_resource type="Script" uid="uid://cn05yqjxybiyh" path="res://Script/Letter.gd" id="2_rea2k"]
-[ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://art/UI/Itemlist.png" id="3_pss2r"]
 
 [node name="CharacterDialogUI" type="Control" unique_id=1356130498]
 layout_mode = 3
@@ -34,7 +32,6 @@ region_rect = Rect2(0, 0, 264, 264)
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 30
 
 [node name="MyCustomLabel" type="RichTextLabel" parent="VBoxContainer/DialogBox/TextMargin" unique_id=317700084]

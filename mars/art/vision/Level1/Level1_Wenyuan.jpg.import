@@ -3,15 +3,12 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csnf4aii5jrkg"
-path="res://.godot/imported/Level1_Wenyuan.jpg-c6d6fd49bff6811f43dc2afcaea13bf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/Level1/Level1_Wenyuan.jpg"
-dest_files=["res://.godot/imported/Level1_Wenyuan.jpg-c6d6fd49bff6811f43dc2afcaea13bf0.ctex"]
 
 [params]
 
