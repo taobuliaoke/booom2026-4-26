@@ -12,7 +12,6 @@
 
 	 "character_data":{
 		"沈慧心": {
-		"dialog": "好久不见，这是我为你准备的礼物。",
 		"items":[
 			{
 				"item_name": "钢笔",
@@ -33,13 +32,7 @@
 	
 	
 	
-	"文鸳": {
 		"dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么火星不火星的，还不如看看水里有没有鱼。",
-		"item_path": "草稿纸" ,
-		"collectible_word": "英文",
-		"path": "res://art/Evidence/draft.png",
-		"can_interact": true,
-		"content":"文鸢随身携带"
 		}
 	}
 
