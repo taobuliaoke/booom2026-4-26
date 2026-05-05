@@ -38,9 +38,6 @@ func _input_event(_viewport, event, _shape_idx):
 	# 如果点的是左键
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_interact()
-		#if dialog_ui:
-			#dialog_ui.show_content(character_id) # 告诉 UI 该显摆谁了
-			#dialog_ui.show() # 弹出面板
 
 func _interact():
 	var data = GameData.character_data.get(character_id, {})

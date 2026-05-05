@@ -22,13 +22,8 @@ position = Vector2(800, 450)
 texture = ExtResource("2_joc8x")
 metadata/_edit_lock_ = true
 
-[node name="NPC_Node" parent="Viewpoints/CharacterA_View" unique_id=773302282 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
-position = Vector2(316, 444)
 character_id = "文鸳"
-ui_pos_node = NodePath("../Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View" unique_id=1472820866]
-position = Vector2(437, 160)
 
 [node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
 visible = false
