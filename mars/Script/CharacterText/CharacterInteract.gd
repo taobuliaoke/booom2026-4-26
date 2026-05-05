@@ -47,17 +47,15 @@ func _interact():
 	var data = GameData.character_data.get(character_id, {})
 	if data.is_empty(): return
 	if GameEvents.is_in_dialogue:return
-	print(GameEvents.is_in_dialogue)
+	print("弹出对话")
 	var final_pos: Vector2
 	if ui_pos_node:
 		# 核心：将 Marker2D 的世界坐标转换为 UI 所在的屏幕画布坐标
 		final_pos = ui_pos_node.get_global_transform_with_canvas().origin
-		print('使用marker位置：',final_pos)
 		
 	else:
 		# 如果没给 Marker2D，则默认使用鼠标位置（作为备份）
 		final_pos = get_viewport().get_mouse_position()
-		print('未绑定marker2d，使用鼠标位置')
 		
 		# 发出信号，传递正确的画布位置
 	GameEvents.emit_signal("request_character_dialog", character_id, final_pos)
