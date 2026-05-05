@@ -34,7 +34,6 @@ region_rect = Rect2(0, 0, 264, 264)
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 30
 
 [node name="MyCustomLabel" type="RichTextLabel" parent="VBoxContainer/DialogBox/TextMargin" unique_id=317700084]
