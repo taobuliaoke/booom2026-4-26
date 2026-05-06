@@ -5,6 +5,10 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k5cfm"]
 texture = ExtResource("1_i1v4w")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [node name="TooltipLayer" type="CanvasLayer" unique_id=34164584]
 script = ExtResource("1_k5cfm")
@@ -25,7 +29,11 @@ theme_override_constants/margin_bottom = 5
 [node name="Label" type="RichTextLabel" parent="PanelContainer/MarginContainer" unique_id=649345649]
 layout_direction = 2
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
