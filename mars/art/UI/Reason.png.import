@@ -3,7 +3,6 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p473w6ookrfi"
-path="res://.godot/imported/Reason.png-20ad4e15c08db9815d275ceb0dd9aee4.ctex"
 path="res://.godot/imported/Reason.png-b8e9fb798c2c0ba1376623e883502ac4.ctex"
 metadata={
 "vram_texture": false
@@ -11,8 +10,6 @@ metadata={
 
 [deps]
 
-source_file="res://Art/UI/Reason.png"
-dest_files=["res://.godot/imported/Reason.png-20ad4e15c08db9815d275ceb0dd9aee4.ctex"]
 source_file="res://art/UI/Reason.png"
 dest_files=["res://.godot/imported/Reason.png-b8e9fb798c2c0ba1376623e883502ac4.ctex"]
 

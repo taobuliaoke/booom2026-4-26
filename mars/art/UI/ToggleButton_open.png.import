@@ -3,7 +3,6 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brrn0h66oisfm"
-path="res://.godot/imported/ToggleButton_open.png-72d7e24a62ae434a776fcdfbc1664167.ctex"
 path="res://.godot/imported/ToggleButton_open.png-08a1b49bdd1020f9b4201b44dcd257b8.ctex"
 metadata={
 "vram_texture": false
@@ -11,8 +10,6 @@ metadata={
 
 [deps]
 
-source_file="res://Art/UI/ToggleButton_open.png"
-dest_files=["res://.godot/imported/ToggleButton_open.png-72d7e24a62ae434a776fcdfbc1664167.ctex"]
 source_file="res://art/UI/ToggleButton_open.png"
 dest_files=["res://.godot/imported/ToggleButton_open.png-08a1b49bdd1020f9b4201b44dcd257b8.ctex"]
 

@@ -3,7 +3,6 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vojhl7fr2gyq"
-path="res://.godot/imported/ButtonIcon.png-007c8692cd260a26f4b91d7f8f29eb48.ctex"
 path="res://.godot/imported/ButtonIcon.png-60bdfa690bf3102d1dd99694dfd0c13f.ctex"
 metadata={
 "vram_texture": false
@@ -11,8 +10,6 @@ metadata={
 
 [deps]
 
-source_file="res://Art/UI/ButtonIcon.png"
-dest_files=["res://.godot/imported/ButtonIcon.png-007c8692cd260a26f4b91d7f8f29eb48.ctex"]
 source_file="res://art/UI/ButtonIcon.png"
 dest_files=["res://.godot/imported/ButtonIcon.png-60bdfa690bf3102d1dd99694dfd0c13f.ctex"]
 

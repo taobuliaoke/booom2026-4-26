@@ -3,7 +3,6 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://corxiwl262imk"
-path="res://.godot/imported/Level1_Zhoujingshu.jpg-a32ae7ec7844b320c3ce14c490bca294.ctex"
 path="res://.godot/imported/Level1_Zhoujingshu.jpg-062cb7127083e6d7c3bbf4a5a1ce2aa4.ctex"
 metadata={
 "vram_texture": false
@@ -11,8 +10,6 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Vision/Level1/Level1_Zhoujingshu.jpg"
-dest_files=["res://.godot/imported/Level1_Zhoujingshu.jpg-a32ae7ec7844b320c3ce14c490bca294.ctex"]
 source_file="res://art/vision/Level1/Level1_Zhoujingshu.jpg"
 dest_files=["res://.godot/imported/Level1_Zhoujingshu.jpg-062cb7127083e6d7c3bbf4a5a1ce2aa4.ctex"]
 

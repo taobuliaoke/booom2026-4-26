@@ -3,7 +3,6 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bu03ad2imf6qx"
-path="res://.godot/imported/LetterTest.png-25b95b72aa5e9196589838310c3cd6af.ctex"
 path="res://.godot/imported/LetterTest.png-10f7d881f2bc7ee5769bba188eb87ea8.ctex"
 metadata={
 "vram_texture": false
@@ -11,8 +10,6 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Evidence/LetterTest.png"
-dest_files=["res://.godot/imported/LetterTest.png-25b95b72aa5e9196589838310c3cd6af.ctex"]
 source_file="res://art/Evidence/LetterTest.png"
 dest_files=["res://.godot/imported/LetterTest.png-10f7d881f2bc7ee5769bba188eb87ea8.ctex"]
 
