@@ -21,21 +21,13 @@ position = Vector2(800, 450)
 texture = ExtResource("2_joc8x")
 metadata/_edit_lock_ = true
 
-[node name="ShenHuiXin" parent="Viewpoints/CharacterA_View" unique_id=773302282 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
-position = Vector2(447.95, 513.005)
-scale = Vector2(0.99, 0.77)
-ui_pos_node = NodePath("../WenYuan/WenYuanMK")
-
-[node name="ShenHuiXinMK" type="Marker2D" parent="Viewpoints/CharacterA_View/ShenHuiXin" unique_id=331413680]
-position = Vector2(246.46461, -400)
-
-[node name="WenYuan" parent="Viewpoints/CharacterA_View" unique_id=1267569424 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
-position = Vector2(313, 444)
+[node name="NPC_Node" parent="Viewpoints/CharacterA_View" unique_id=773302282 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
+position = Vector2(316, 444)
 character_id = "文鸳"
-ui_pos_node = NodePath("WenYuanMK")
+ui_pos_node = NodePath("../Marker2D")
 
-[node name="WenYuanMK" type="Marker2D" parent="Viewpoints/CharacterA_View/WenYuan" unique_id=1472820866]
-position = Vector2(146, -299)
+[node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View" unique_id=1472820866]
+position = Vector2(437, 160)
 
 [node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
 visible = false
@@ -52,7 +44,6 @@ position = Vector2(800, 450)
 texture = ExtResource("5_i7gaw")
 
 [node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=1397963395]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=439661490]
 position = Vector2(800, 450)
