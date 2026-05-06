@@ -33,21 +33,32 @@ func load_data_from_json(path: String):
 	return new_data
 func parse_pickable_text(raw_text: String) -> Dictionary:
 	var regex = RegEx.new()
-	regex.compile("\\{(.*?)\\}") # 匹配 {} 里的内容
+	regex.compile("\\{(.*?)\\}")
 	var matches = regex.search_all(raw_text)
 	
-	var clean_text = raw_text.replace("{", "").replace("}", "")
-	var pickable_data = [] # 存储词条信息
+	# 统一使用这个数组
+	var words_data = [] 
+	
+	# 生成视觉用的 BBCode 文本
+	var formatted_text = regex.sub(raw_text, "[color=red][u]$1[/u][/color]", true)
+	# 生成计算坐标用的干净文本
+	var clean_text = regex.sub(raw_text, "$1", true)
 	
 	var offset = 0
 	for m in matches:
 		var word = m.get_string(1)
+		# 每一个词条前面的花括号会对索引造成干扰，这里减去累积的括号长度
 		var start_index = m.get_start() - offset
-		pickable_data.append({
+		
+		words_data.append({
 			"word": word,
 			"index": start_index,
 			"length": word.length()
 		})
-		offset += 2 # 每匹配一个词，去掉了两个括号
+		offset += 2 # 每处理一个词，就意味着干净文本里少了两个字符（{ 和 }）
 		
-	return {"text": clean_text, "data": pickable_data}
+	return {
+		"text": clean_text,
+		"formatted_text": formatted_text,
+		"data": words_data # 确保这里返回的是装满数据的数组！
+	}

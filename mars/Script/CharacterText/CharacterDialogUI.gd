@@ -55,29 +55,29 @@ func show_content(id: String):
 	if data.is_empty():
 		dialog_label.text = '……'
 		item_box.hide()
-	else:
-		#填入文本
-		var raw_dialog = data.get('dialog','')
-		var parsed_result = GameData.parse_pickable_text(raw_dialog)
+
+	#填入文本
+	var raw_dialog = data.get('dialog','')
+	var parsed_result = GameData.parse_pickable_text(raw_dialog)
 		
-		# 1. 给 Label 显示没有花括号的干净文本
-		dialog_label.text = parsed_result["text"]
+	# 1. 给 Label 显示没有花括号的干净文本
+	dialog_label.text = parsed_result["formatted_text"]
 		
-		# 2. 将解析出的词条信息存起来，用于生成交互区域
-		# (你可以先打印一下，看看后台识别对不对)
-		print("解析成功，词条数据：", parsed_result["data"])
+	# 2. 将解析出的词条信息存起来，用于生成交互区域
+	# (你可以先打印一下，看看后台识别对不对)
+	print("解析成功，词条数据：", parsed_result["data"])
 		
-		# 3. 接下来你可以调用生成 Area2D 的方法了
-		generate_word_areas(parsed_result)
+	# 3. 接下来你可以调用生成 Area2D 的方法了
+	generate_word_areas(parsed_result)
 		 
 		#处理道具
-		var items_array = data.get('items',[])
-		if items_array.is_empty():
-			item_box.hide()
-		else:
-			for item_info in items_array:
-				add_new_item(item_info)
-			item_box.show()
+	var items_array = data.get('items',[])
+	if items_array.is_empty():
+		item_box.hide()
+	else:
+		for item_info in items_array:
+			add_new_item(item_info)
+		item_box.show()
 			
 	# 4. 关键：强制刷新布局
 	# 这两行能保证道具框在文字变动后，立刻重新吸附到文字下方
