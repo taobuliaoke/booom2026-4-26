@@ -4,6 +4,7 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dux0areccp5f7"
 path="res://.godot/imported/DialogueBox.png-a7dffd381f1a413aa99a40de9f1ee810.ctex"
+path="res://.godot/imported/DialogueBox.png-3a1cc688f2a124ff088577f4c53bed97.ctex"
 metadata={
 "vram_texture": false
 }
@@ -12,6 +13,8 @@ metadata={
 
 source_file="res://Art/UI/DialogueBox.png"
 dest_files=["res://.godot/imported/DialogueBox.png-a7dffd381f1a413aa99a40de9f1ee810.ctex"]
+source_file="res://art/UI/DialogueBox.png"
+dest_files=["res://.godot/imported/DialogueBox.png-3a1cc688f2a124ff088577f4c53bed97.ctex"]
 
 [params]
 
