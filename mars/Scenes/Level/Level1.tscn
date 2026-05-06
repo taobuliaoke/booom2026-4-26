@@ -21,7 +21,6 @@ position = Vector2(800, 450)
 texture = ExtResource("2_joc8x")
 metadata/_edit_lock_ = true
 
-[node name="ShenHuiXin" parent="Viewpoints/CharacterA_View" unique_id=773302282 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(447.95, 513.005)
 scale = Vector2(0.99, 0.77)
 ui_pos_node = NodePath("../WenYuan/WenYuanMK")
@@ -30,7 +29,6 @@ ui_pos_node = NodePath("../WenYuan/WenYuanMK")
 position = Vector2(246.46461, -400)
 
 [node name="WenYuan" parent="Viewpoints/CharacterA_View" unique_id=1267569424 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
-position = Vector2(313, 444)
 character_id = "文鸳"
 ui_pos_node = NodePath("WenYuanMK")
 

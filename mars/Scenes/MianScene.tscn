@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="17_33k15"]
 [ext_resource type="Script" uid="uid://c7enuu6wi85ij" path="res://Script/next_button.gd" id="17_vomyu"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="18_33k15"]
-[ext_resource type="PackedScene" uid="uid://da16xr4e26afb" path="res://Scenes/letter.tscn" id="18_eju3t"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="18_j20pe"]
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="19_f3cnu"]
 
