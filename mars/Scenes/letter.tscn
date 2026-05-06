@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://da16xr4e26afb"]
+
+[ext_resource type="Script" uid="uid://cn05yqjxybiyh" path="res://Script/Letter.gd" id="1_7n1mw"]
+[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://Art/UI/DialogueBox.png" id="2_sqwnb"]
+
+[node name="Letter2" type="Control" unique_id=354924844]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_7n1mw")
+
+[node name="letter" type="TextureRect" parent="." unique_id=1454206723]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -347.0
+offset_top = 77.0
+offset_right = 355.0
+offset_bottom = 761.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sqwnb")
+
+[node name="MarginContainer" type="MarginContainer" parent="letter" unique_id=786124538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+metadata/_edit_lock_ = true
+
+[node name="LetterContent" type="RichTextLabel" parent="letter/MarginContainer" unique_id=289103113]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 57
+bbcode_enabled = true
+text = "你好我是信"
+scroll_active = false

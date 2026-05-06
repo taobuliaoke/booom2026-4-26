@@ -8,7 +8,7 @@ extends Control
 @onready var dialog_label = $VBoxContainer/DialogBox/TextMargin/MyCustomLabel
 @onready var item_box = $VBoxContainer/ItemBox
 @onready var container = $VBoxContainer/ItemBox/HFlowContainer
-
+@onready var word_container = $VBoxContainer/DialogBox/TextMargin/MyCustomLabel/WordContainer
 
 func _ready():
 	visible = false
@@ -57,7 +57,18 @@ func show_content(id: String):
 		item_box.hide()
 	else:
 		#填入文本
-		dialog_label.text = data.get('dialog','')
+		var raw_dialog = data.get('dialog','')
+		var parsed_result = GameData.parse_pickable_text(raw_dialog)
+		
+		# 1. 给 Label 显示没有花括号的干净文本
+		dialog_label.text = parsed_result["text"]
+		
+		# 2. 将解析出的词条信息存起来，用于生成交互区域
+		# (你可以先打印一下，看看后台识别对不对)
+		print("解析成功，词条数据：", parsed_result["data"])
+		
+		# 3. 接下来你可以调用生成 Area2D 的方法了
+		generate_word_areas(parsed_result)
 		 
 		#处理道具
 		var items_array = data.get('items',[])
@@ -76,6 +87,7 @@ func show_content(id: String):
 # 点击外部收起逻辑 (修改检测范围，因为现在都在 VBox 里)
 func _on_global_clicked(event: InputEventMouseButton):
 	#只有在左键点击，且当前UI可见的时候才判断
+	
 	if event.button_index != MOUSE_BUTTON_LEFT or not event.pressed:
 		return
 		
@@ -89,8 +101,104 @@ func _on_global_clicked(event: InputEventMouseButton):
 		await get_tree().process_frame
 		hide_dialog()
 
+func generate_word_areas(parsed_result):
+	# 1. 清理旧的交互区域
+	for child in word_container.get_children():
+		child.queue_free()
+	
+	# 2. 准备 TextServer 模拟排版
+	var p = TextParagraph.new()
+	# 必须与你的 RichTextLabel 属性完全对齐
+	p.alignment = dialog_label.horizontal_alignment 
+	p.width = dialog_label.size.x
+	
+	var font = dialog_label.get_theme_font("normal_font")
+	var font_size = dialog_label.get_theme_font_size("normal_font_size")
+	if font_size == 0: font_size = 43
+	# 将干净的文本交给排版引擎
+	p.add_string(parsed_result["text"], font, font_size)
+	
+	# 3. 遍历关键词并生成 Area2D
+	for info in parsed_result["data"]:
+		var start = info["index"]
+		var length = info["length"]
+		
+		# 利用 TextParagraph 查找该索引段落的矩形区域
+		var word_rect = _get_rect_from_paragraph(p, start, length)
+		
+		if word_rect != Rect2():
+			_spawn_interactable(info["word"], word_rect)
+			
+	# 辅助函数：计算索引范围的矩形
 
+func _get_rect_from_paragraph(p: TextParagraph, start: int, length: int) -> Rect2:
+	for i in p.get_line_count():
+		var line_range = p.get_line_range(i)
+		if start >= line_range.x and start < line_range.y:
+			var ts = TextServerManager.get_primary_interface()
+			var rid = p.get_line_rid(i)
+			
+			# 获取起始位置和结束位置的光标字典
+			var c_start = ts.shaped_text_get_carets(rid, start)
+			var c_end = ts.shaped_text_get_carets(rid, start + length)
+			
+			# 从字典中提取 X 轴数值。注意：你的字典里 x 坐标在 trailing_rect.position.x
+			var x_start = c_start["trailing_rect"].position.x
+			var x_end = c_end["trailing_rect"].position.x
+			
+			var line_ascent = p.get_line_ascent(i)
+			var line_descent = p.get_line_descent(i)
+			var line_height = line_ascent + line_descent # 这是完整的行高
+			
+			var y_pos = 0.0
+			for j in i:
+				y_pos += p.get_line_ascent(j) + p.get_line_descent(j)
+			
+			# 【关键修改】：Rect2 的第一个参数是左上角坐标，第二个是尺寸 (Width, Height)[cite: 5]
+			var rect_x = min(x_start, x_end)
+			var rect_width = abs(x_end - x_start)
+			
+			# 如果宽度还是 0，强制给一个字符的大约宽度（兜底逻辑）
+			if rect_width < 1: rect_width = 80 
+			
+			return Rect2(Vector2(rect_x, y_pos), Vector2(rect_width, line_height))
+			
+	return Rect2()
 
+func _calculate_word_rect(index: int, length: int) -> Rect2:
+	var first_char_rect = dialog_label.get_character_bounds(index)
+	var last_char_rect = dialog_label.get_character_bounds(index + length - 1)
+	
+	# 合并这两个矩形得到完整单词的范围
+	return first_char_rect.merge(last_char_rect)
+	
+func _spawn_interactable(word: String, rect: Rect2):
+	var new_area = preload("res://Scenes/Interactable.tscn").instantiate()
+	word_container.add_child(new_area)
+	
+	# 确保缩放是 (1, 1)，防止框框看起来很小
+	new_area.scale = Vector2.ONE 
+	
+	var col = new_area.get_node("CollisionShape2D")
+	col.scale = Vector2.ONE # 强制形状节点缩放也为 1
+	
+	var shape = RectangleShape2D.new()
+	shape.size = rect.size # 确认这是 (86, 55)
+	col.shape = shape
+	
+	# 位置对齐
+	new_area.position = rect.position
+	col.position = rect.size / 2 
+	
+	# 赋值
+	if "word_name" in new_area:
+		new_area.word_name = word 
+		new_area.z_index = 5
+		print("词条 [", word, "] 实际碰撞尺寸已设为: ", shape.size)
+	# 关键：让这个词条所在的容器（以及它自己）在鼠标经过时默认就是小手
+	# 这样 UI 系统和物理系统就统一了
+	word_container.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	dialog_label.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 #----------------------以下是道具框相关逻辑----------------------------------------
 # 道具栏添加角色物品
 func add_new_item(info: Dictionary):

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ce7yl153tqga7" path="res://Script/CharacterText/CharacterDialogUI.gd" id="1_pss2r"]
 [ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://Art/UI/DialogueBox.png" id="2_pcyrt"]
-[ext_resource type="Script" uid="uid://cn05yqjxybiyh" path="res://Script/Letter.gd" id="2_rea2k"]
 [ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://Art/UI/Itemlist.png" id="3_pss2r"]
 
 [node name="CharacterDialogUI" type="Control" unique_id=1356130498]
@@ -12,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_pss2r")
 max_width = 400.0
 
@@ -19,6 +19,7 @@ max_width = 400.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_constants/separation = 10
 
 [node name="DialogBox" type="MarginContainer" parent="VBoxContainer" unique_id=406524863]
@@ -32,6 +33,7 @@ region_rect = Rect2(0, 0, 264, 264)
 
 [node name="TextMargin" type="MarginContainer" parent="VBoxContainer/DialogBox" unique_id=1155816817]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
@@ -42,12 +44,21 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 43
 bbcode_enabled = true
 text = "test"
 fit_content = true
 scroll_active = false
+
+[node name="WordContainer" type="Control" parent="VBoxContainer/DialogBox/TextMargin/MyCustomLabel" unique_id=1906129177]
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 59.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 
 [node name="ItemBox" type="TextureRect" parent="VBoxContainer" unique_id=612429515]
 layout_mode = 2
@@ -59,45 +70,3 @@ offset_left = 35.0
 offset_top = 37.0
 offset_right = 570.0
 offset_bottom = 225.0
-
-[node name="Letter" type="Control" parent="." unique_id=1458472220]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
-script = ExtResource("2_rea2k")
-
-[node name="letter" type="TextureRect" parent="Letter" unique_id=1499283511]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -347.0
-offset_top = 77.0
-offset_right = 355.0
-offset_bottom = 761.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_pcyrt")
-
-[node name="MarginContainer" type="MarginContainer" parent="Letter/letter" unique_id=37860045]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-metadata/_edit_lock_ = true
-
-[node name="LetterContent" type="RichTextLabel" parent="Letter/letter/MarginContainer" unique_id=1698362238]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 57
-bbcode_enabled = true
-text = "你好我是信"
-scroll_active = false

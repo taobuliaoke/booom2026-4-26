@@ -31,3 +31,23 @@ func load_data_from_json(path: String):
 	# 将加载好的数据存入全局变量
 	current_level_data = new_data
 	return new_data
+func parse_pickable_text(raw_text: String) -> Dictionary:
+	var regex = RegEx.new()
+	regex.compile("\\{(.*?)\\}") # 匹配 {} 里的内容
+	var matches = regex.search_all(raw_text)
+	
+	var clean_text = raw_text.replace("{", "").replace("}", "")
+	var pickable_data = [] # 存储词条信息
+	
+	var offset = 0
+	for m in matches:
+		var word = m.get_string(1)
+		var start_index = m.get_start() - offset
+		pickable_data.append({
+			"word": word,
+			"index": start_index,
+			"length": word.length()
+		})
+		offset += 2 # 每匹配一个词，去掉了两个括号
+		
+	return {"text": clean_text, "data": pickable_data}

@@ -1,23 +1,24 @@
 extends Area2D
-
+var is_hovering = false
 var word_card_scene = preload("res://Scenes/word_card.tscn")
+
+
+
 # 在编辑器右侧直接填词条
 @export var word_name: String = "……"
 
 func _ready():
 	#鼠标监听
 	input_pickable = true
-	#连接信号
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	#监听视角切换或者场景进入
 	#每次这个线索出现在屏幕上时，检查状态
 	visibility_changed.connect(_on_visibility_changed)
 	#其他视角同名物品被捡走的时候，也要更新状态
 	add_to_group('clue_items')
 	check_status()
 	
-	
+
 func _on_visibility_changed():
 	if is_visible_in_tree():
 		check_status()
@@ -36,27 +37,27 @@ func _on_clicked():
 		get_tree().call_group('clue_items','check_status')
 		
 		
+# 在 Interactable_4.gd 中添加
+
 func _on_mouse_entered():
-	#变icon
-	if GameEvents.is_in_dialogue:return
+	is_hovering = true # 标记“我正在悬停”[cite: 3]
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	
 	#弹出对话框
 	print(GameData)
-	var desc = GameData.item_descriptions.get(word_name,'聚精会神')
-	#通知UI层显示文本
-	GameEvents.emit_signal('show_tooltip',desc)
 	
 	
 func _on_mouse_exited():
-	#恢复普通箭头
+	is_hovering = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	# 告诉 UI 层：把对话框藏起来
 	GameEvents.emit_signal("hide_tooltip")
 
 func _input_event(_viewport, event, _shape_idx):
 	# 只要是鼠标左键按下
+	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print("点到我了")
 		collect_this_word()
 
 func collect_this_word():

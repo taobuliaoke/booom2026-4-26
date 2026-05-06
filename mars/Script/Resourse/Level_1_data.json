@@ -7,12 +7,13 @@
 	"沈慧心":"她聚精会神地听着。",
 	"钢笔": "一支昂贵的钢笔。",
 	"信件":"一封信",
+	"文鸳":"她有点心不在焉",
 	"一个神秘的人":"一个神秘的人"
 	 },
 
 	 "character_data":{
 		"沈慧心": {
-		"dialog": "好久不见，这是我为你准备的礼物。",
+		"dialog": "好久不见，这是{我}为你准备的{礼物}。",
 		"items":[
 			{
 				"item_name": "钢笔",
@@ -26,7 +27,7 @@
 				"collectible_word": "信件",
 				"path": "res://art/Evidence/LetterTest.png",
 				"can_interact": true, 
-				"content": "这是一封信"
+				"content": "这是一封信,里面写满了我的{bug}"
 			}
 			]
 	 	},
@@ -34,7 +35,7 @@
 	
 	
 	"文鸳": {
-		"dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么火星不火星的，还不如看看水里有没有鱼。",
+		"dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。",
 		"item_path": "草稿纸" ,
 		"collectible_word": "英文",
 		"path": "res://art/Evidence/draft.png",

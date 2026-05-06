@@ -1,103 +1,93 @@
 extends Area2D
 
-# 这里的 word_name 可以作为角色的 ID，用来提取对应的文本和道具
-@export var character_id: String = "沈慧心"
-# 引用你想要弹出的 UI 界面（文本框和道具展示框的组合体）
-
-@export var ui_pos_node: Marker2D #在编辑器离把刚才的marker2d拖进来
+# 1. 变量定义
+@export var character_id: String = ""
+@export var ui_pos_node: Marker2D 
 
 func _ready():
-	#找到碰撞体并让它的形状资源变成“独有”的
 	if has_node('CollisionShape2D'):
 		var col = $CollisionShape2D
 		if col.shape:
-			#这行代码等同于编辑器里把Make unique点上
 			col.shape = col.shape.duplicate()
 			
-	input_pickable = true # 必须开启，否则点不到
-	# 监听对话框关闭的信号（假设你有关闭信号，或者监听状态改变）
+	input_pickable = true 
 	GameEvents.ui_closed_refresh_hover.connect(_on_ui_refresh)
-	mouse_entered.connect(_on_mouse_entered) # 变小手
-	mouse_exited.connect(_on_mouse_exited) # 恢复
-	# 同样加入拾取检查组
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 	add_to_group("clue_items")
-	check_status()
+
+# --- 2. 核心交互逻辑 (嫁接后的版本) ---
+func _input_event(_viewport, event, _shape_idx):
+
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_interact()
+
+func _interact():
+	if GameEvents.is_sub_ui_open: return
+	if GameEvents.is_in_dialogue: return
+	var data = GameData.character_data.get(character_id, {})
+	if data.is_empty() or GameEvents.is_in_dialogue: 
+		return
+
+	# 计算 UI 弹出位置 [这里的 final_pos 替代了你报错的 pos]
+	var final_pos: Vector2
+	if ui_pos_node:
+		final_pos = ui_pos_node.get_global_transform_with_canvas().origin
+	else:
+		final_pos = get_viewport().get_mouse_position()
+		
+	# 发送信号给 UI 脚本 [这里的 character_id 替代了你报错的 cid]
+	GameEvents.emit_signal("request_character_dialog", character_id, final_pos)
+	
+	# 清理状态
+	GameEvents.emit_signal("hide_tooltip")
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+	# 角色身上可能附带的自动拾取逻辑 (可选)
+	var word = data.get("collectible_word", "")
+	if word != "" and not GameEvents.clues_registry.get(word, false):
+		GameEvents.add_word(word)
+		get_tree().call_group("clue_items", "check_status")
+
+# --- 3. 辅助功能函数 ---
+
+func _on_word_picked():
+	if character_id == "" or GameEvents.clues_registry.get(character_id, false):
+		return
+		
+	print("成功拾取文本词条: ", character_id)
+	GameEvents.add_word(character_id)
+	GameEvents.collect_clue(character_id)
+	
+	# 拾取效果：淡出并销毁该 Area2D
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.2)
+	await tween.finished
+	queue_free()
 
 func _on_mouse_entered():
-	if GameEvents.is_in_dialogue:return
+	if GameEvents.is_in_dialogue: return
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	# 统一从 item_descriptions 读取 tooltip
 	var desc = GameData.item_descriptions.get(character_id, "一个神秘的人")
 	GameEvents.emit_signal("show_tooltip", desc)
 	
 func _on_mouse_exited():
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	GameEvents.emit_signal("hide_tooltip")
-	
-func _input_event(_viewport, event, _shape_idx):
-	# 如果点的是左键
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		_interact()
-		#if dialog_ui:
-			#dialog_ui.show_content(character_id) # 告诉 UI 该显摆谁了
-			#dialog_ui.show() # 弹出面板
-
-func _interact():
-	var data = GameData.character_data.get(character_id, {})
-	if data.is_empty(): return
 	if GameEvents.is_in_dialogue:return
-	print("弹出对话")
-	var final_pos: Vector2
-	if ui_pos_node:
-		# 核心：将 Marker2D 的世界坐标转换为 UI 所在的屏幕画布坐标
-		final_pos = ui_pos_node.get_global_transform_with_canvas().origin
-		
-	else:
-		# 如果没给 Marker2D，则默认使用鼠标位置（作为备份）
-		final_pos = get_viewport().get_mouse_position()
-		
-		# 发出信号，传递正确的画布位置
-	GameEvents.emit_signal("request_character_dialog", character_id, final_pos)
-	
-	# 在执行任何点击逻辑前，先让 Tooltip 闭嘴,同时恢复鼠标样式
-	GameEvents.emit_signal("hide_tooltip")
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	# 从 GameData 获取该角色的配置
+	GameEvents.emit_signal("hide_tooltip")
 
-	var word = data.get("collectible_word", "")
-	if word != "" and not GameEvents.clues_registry.get(word, false):
-		GameEvents.add_word(word) # 拾取词条
-		get_tree().call_group("clue_items", "check_status")
-	
-	#发出信号，传递目标坐标
-	#GameEvents.emit_signal("request_character_dialog", character_id)
-	GameEvents.is_in_dialogue = true
-	
-#关闭对话ui之后刷新鼠标样式
 func _on_ui_refresh():
-	# 如果当前已经不在对话中了，才进行恢复检查
-	if GameEvents.is_in_dialogue:
-		return
-	
-	# 获取当前的鼠标全局位置
+	if GameEvents.is_in_dialogue: return
 	var mouse_pos = get_global_mouse_position()
-	
-	# 物理检测：检查鼠标点下有哪些碰撞体
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mouse_pos
-	query.collide_with_areas = true # 必须开启，因为我们是 Area2D
-	
+	query.collide_with_areas = true
 	var results = space_state.intersect_point(query)
-	
-	# 遍历结果，看鼠标是不是还指着我
 	for dict in results:
 		if dict.collider == self:
-			# 只要鼠标还在我身上，就手动触发“进入”逻辑
-			# 这样小手图标和 Tooltip 都会立刻回来
 			_on_mouse_entered() 
 			break
 
 func check_status():
-	# 角色通常不会在拾取后消失，但你可以让他的 Tooltip 改变或者变灰[cite: 12]
 	pass
