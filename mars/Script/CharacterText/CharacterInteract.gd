@@ -85,7 +85,7 @@ func _on_ui_refresh():
 	query.collide_with_areas = true
 	var results = space_state.intersect_point(query)
 	for dict in results:
-		if dict.collider == self:
+		if dict.collider == self and is_visible_in_tree():
 			_on_mouse_entered() 
 			break
 
