@@ -3,12 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vs2k4bisuuke"
+path="res://.godot/imported/Level1_Shendeyuan.jpg-d00d45a22981bac6720e79ba8503c46d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+source_file="res://Art/Vision/Level1/Level1_Shendeyuan.jpg"
+dest_files=["res://.godot/imported/Level1_Shendeyuan.jpg-d00d45a22981bac6720e79ba8503c46d.ctex"]
 
 [params]
 
