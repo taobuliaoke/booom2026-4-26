@@ -1,51 +1,55 @@
-
 {
-	"item_descriptions" :{
-	"文鸳":"对当前的话题兴致缺缺",
+  "item_descriptions": {
+	"文鸳": "对当前的话题兴致缺缺",
 	"周之瀚": "没有正眼看对方",
 	"沈德渊": "摆出了求人的姿态",
 	"周静姝": "正在看着她的洋人私塾老师",
 	"沈慧心": "对目前的话题很感兴趣",
 	"钢笔": "一支昂贵的钢笔",
-	"丁加立":"拿着修金，尽心尽责",
-	"信件":"一封信",
-	"渔人甲":"正在和渔人乙交谈",
-	"渔人乙":"正在和渔人甲交谈",
-	"一个神秘的人":"一个神秘的人"
-	 },
-
-	 "character_data":{
-		"沈慧心": {
-		"dialog": "好久不见，这是{我}为你准备的{礼物}。",
-		"items":[
-			{
-				"item_name": "钢笔",
-				"collectible_word": "钢笔",
-				"path":"res://art/UI/ToggleButton.png" ,
-				"can_interact": false,
-				"content": ""
-			},
-			{
-				"item_name": "信件",
-				"collectible_word": "信件",
-				"path": "res://art/Evidence/LetterTest.png",
-				"can_interact": true, 
-				"content": "这是一封信,里面写满了我的{bug}"
-			}
-			]
-	 	},
-	
-	
-	
-	"文鸳": {
-		"dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。",
-		"item_path": "草稿纸" ,
-		"collectible_word": "英文",
-		"path": "res://art/Evidence/draft.png",
-		"can_interact": true,
-		"content":"文鸢随身携带"
+	"丁加立": "拿着修金，尽心尽责",
+	"信件": "一封信",
+	"渔人甲": "正在和渔人乙交谈",
+	"渔人乙": "正在和渔人甲交谈",
+	"一个神秘的人": "一个神秘的人"
+  },
+  "character_data": {
+	"沈慧心": {
+	  "dialog": "好久不见，这是{我}为你准备的{礼物}。",
+	  "items": [
+		{
+		  "item_name": "钢笔",
+		  "collectible_word": "钢笔",
+		  "path": "res://art/UI/ToggleButton.png",
+		  "can_interact": false,
+		  "content": ""
+		},
+		{
+		  "item_name": "信件",
+		  "collectible_word": "信件",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": true,
+		  "content": "这是一封信,里面写满了我的{bug}"
 		}
+	  ]
+	},
+	"文鸳": {
+	  "dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。",
+	  "items": [
+		{
+		  "item_name": "稿纸",
+		  "collectible_word": "洋文",
+		  "path": "res://Art/Evidence/draft.png",
+		  "can_interact": true,
+		  "content": ""
+		},
+		{
+		  "item_name": "针线包",
+		  "collectible_word": "信件",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": false,
+		  "content": ""
+		}
+	  ]
 	}
-
-	
+  }
 }
