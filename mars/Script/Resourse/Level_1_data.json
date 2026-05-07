@@ -8,8 +8,8 @@
 	"钢笔": "一支昂贵的钢笔",
 	"丁加立": "拿着修金，尽心尽责",
 	"信件": "一封信",
-	"渔人甲": "正在和渔人乙交谈",
-	"渔人乙": "正在和渔人甲交谈",
+	"渔民甲": "正在和渔人乙交谈",
+	"渔民乙": "正在和渔人甲交谈",
 	"一个神秘的人": "一个神秘的人"
   },
   "character_data": {
@@ -38,7 +38,7 @@
 		{
 		  "item_name": "稿纸",
 		  "collectible_word": "洋文",
-		  "path": "res://Art/Evidence/draft.png",
+		  "path": "res://art/Evidence/draft.png",
 		  "can_interact": true,
 		  "content": ""
 		},
@@ -50,6 +50,90 @@
 		  "content": ""
 		}
 	  ]
+	},
+	"丁加立": {
+	  "dialog": "……书上说，火星荧荧如火，{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。",
+	  "items": [
+		{
+		  "item_name": "十字架项链",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/draft.png",
+		  "can_interact": true,
+		  "content": ""
+		},
+		{
+		  "item_name": "圣经",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": false,
+		  "content": ""
+		}
+	  ]
+	},
+	"周静姝": {
+	  "dialog": "这么说来萤惑上面有人吗？我怎样能去到萤惑上面？",
+	  "items": [
+		{
+		  "item_name": "一块黑色的石头",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/draft.png",
+		  "can_interact": false,
+		  "content": ""
+		}
+	  ]
+	},
+	"周之瀚": {
+	  "dialog": "靖臣啊，急什么。名单是死的，人是活的。慧心聪慧，自然有她的去处。",
+	  "items": [
+		{
+		  "item_name": "周之瀚印",
+		  "collectible_word": "之瀚",
+		  "path": "res://art/Evidence/draft.png",
+		  "can_interact": false,
+		  "content": ""
+		},
+		{
+		  "item_name": "一份名单",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": true,
+		  "content": ""
+		}
+	  ]
+	},
+	"沈德渊": {
+	  "dialog": "中堂，德渊如今在朝中举步维艰，慧心是我唯一的指望！这船政局的名单……",
+	  "items": [
+		{
+		  "item_name": "沈德渊印",
+		  "collectible_word": "德渊",
+		  "path": "res://art/Evidence/draft.png",
+		  "can_interact": false,
+		  "content": ""
+		},
+		{
+		  "item_name": "银票",
+		  "collectible_word": "银票",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": false,
+		  "content": ""
+		},
+		{
+		  "item_name": "戒烟丸",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": false,
+		  "content": ""
+		}
+	  ]
+	},
+	"渔民甲": {
+	  "dialog": "昨天不会真是{神仙(?)}显灵了吧。",
+	  "items": []
+	},
+	"渔民乙": {
+	  "dialog": "哎呀，可别再提了，我们一起晕过去，不落水已经很好了，不要犯了忌讳得罪不管是神仙还是别的什么东西。",
+	  "items": []
 	}
   }
 }
