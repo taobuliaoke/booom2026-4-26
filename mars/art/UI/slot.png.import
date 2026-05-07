@@ -3,15 +3,12 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bufeprcvtb3r5"
-path="res://.godot/imported/slot.png-a1ac8836849e90faa76307ada34da26a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/slot.png"
-dest_files=["res://.godot/imported/slot.png-a1ac8836849e90faa76307ada34da26a.ctex"]
 
 [params]
 
