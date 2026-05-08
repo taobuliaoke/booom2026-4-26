@@ -1,0 +1,297 @@
+[gd_scene format=3 uid="uid://cve87385duapf"]
+
+[ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_i0j58"]
+[ext_resource type="Texture2D" uid="uid://p473w6ookrfi" path="res://art/UI/Reason.png" id="2_c1ier"]
+[ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="3_gyaec"]
+[ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="4_bpy1e"]
+[ext_resource type="Script" uid="uid://b6u58vmkduulc" path="res://Script/slot2.gd" id="5_p5ymy"]
+[ext_resource type="PackedScene" uid="uid://bnh43ra5a8v1" path="res://Scenes/Level/Level1.tscn" id="6_3va76"]
+[ext_resource type="PackedScene" uid="uid://doxfsuld4fsb0" path="res://Scenes/Level/level_2.tscn" id="7_wmecs"]
+[ext_resource type="Script" uid="uid://euxiacw53p8f" path="res://Script/inventory.gd" id="8_mymud"]
+[ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="9_4sso6"]
+[ext_resource type="PackedScene" uid="uid://df6kdpkev120a" path="res://Scenes/toggle_button.tscn" id="10_r0vnq"]
+[ext_resource type="PackedScene" uid="uid://n33ok0udqg1u" path="res://Scenes/next_button.tscn" id="11_hx8n4"]
+[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://art/UI/mysteryA.png" id="11_i0j58"]
+[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://art/UI/mysteryE.png" id="11_p5ymy"]
+[ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
+[ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
+[ext_resource type="PackedScene" uid="uid://da16xr4e26afb" path="res://Scenes/letter.tscn" id="16_dtg5n"]
+[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="17_d0jji"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="18_cotnl"]
+[ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eju3t"]
+shader = ExtResource("17_d0jji")
+shader_parameter/intensity = 0.1
+shader_parameter/speed = 2.0
+shader_parameter/channel_bias = Vector3(0.8, 0.6, 1)
+
+[node name="MainScene" type="Node2D" unique_id=1019803257]
+metadata/_edit_horizontal_guides_ = [1716.0]
+
+[node name="TooltipLayer" parent="." unique_id=34164584 instance=ExtResource("1_i0j58")]
+layer = 2
+
+[node name="ReasonBg" type="Sprite2D" parent="." unique_id=1481183360]
+position = Vector2(800, 599)
+texture = ExtResource("2_c1ier")
+metadata/_edit_lock_ = true
+
+[node name="ReasoningPage" type="Panel" parent="." unique_id=661820521]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 507.0
+offset_top = 56.0
+offset_right = 1484.0
+offset_bottom = 894.0
+script = ExtResource("3_gyaec")
+
+[node name="level1_1" type="Label" parent="ReasoningPage" unique_id=224838180]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 132.0
+offset_right = 772.0
+offset_bottom = 201.0
+theme_override_font_sizes/font_size = 50
+text = "py交易说是"
+
+[node name="level1" type="Label" parent="ReasoningPage" unique_id=1082001206]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 134.0
+offset_right = 347.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 50
+text = "跟"
+
+[node name="Slot3" parent="ReasoningPage" unique_id=214723661 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 120.0
+offset_right = 292.0
+offset_bottom = 199.0
+script = ExtResource("5_p5ymy")
+
+[node name="Slot4" parent="ReasoningPage" unique_id=486684295 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -316.0
+offset_top = 186.0
+offset_right = -166.0
+offset_bottom = 265.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["周之瀚"])
+
+[node name="Slot6" parent="ReasoningPage" unique_id=1306683441 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -452.0
+offset_top = 461.0
+offset_right = -302.0
+offset_bottom = 540.0
+script = ExtResource("5_p5ymy")
+
+[node name="Slot5" parent="ReasoningPage" unique_id=312802841 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -452.0
+offset_top = 461.0
+offset_right = -302.0
+offset_bottom = 540.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["沈德渊"])
+
+[node name="Slot2" parent="ReasoningPage" unique_id=742582215 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 122.0
+offset_right = 506.0
+offset_bottom = 201.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["沈某", "周某"])
+
+[node name="Slot8" parent="ReasoningPage" unique_id=340901554 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = 459.0
+offset_right = -58.0
+offset_bottom = 538.0
+script = ExtResource("5_p5ymy")
+
+[node name="Slot7" parent="ReasoningPage" unique_id=1939347214 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = 459.0
+offset_right = -58.0
+offset_bottom = 538.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["神仙"])
+
+[node name="Slot9" parent="ReasoningPage" unique_id=966017733 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -452.0
+offset_top = 737.0
+offset_right = -302.0
+offset_bottom = 816.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["周静姝"])
+
+[node name="Slot" parent="ReasoningPage" unique_id=1702316060 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -206.0
+offset_top = 737.0
+offset_right = -56.0
+offset_bottom = 816.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["文鸳"])
+
+[node name="FeedBackPanel" type="Panel" parent="ReasoningPage" unique_id=424428421]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99200004
+anchor_bottom = 0.124000005
+offset_right = -0.184021
+offset_bottom = 0.08799744
+
+[node name="Label" type="Label" parent="ReasoningPage/FeedBackPanel" unique_id=1272747696]
+layout_mode = 0
+offset_right = 972.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 63
+text = "我告诉你是对是错"
+
+[node name="Environment" type="Node2D" parent="." unique_id=1239188360]
+
+[node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("6_3va76")]
+
+[node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_wmecs")]
+visible = false
+script = null
+
+[node name="UiLayer" type="CanvasLayer" parent="." unique_id=1067193768]
+
+[node name="BlinkCanvas" type="CanvasLayer" parent="UiLayer" unique_id=1556948744]
+
+[node name="UpperLid" type="ColorRect" parent="UiLayer/BlinkCanvas" unique_id=1800286255]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LowerLid" type="ColorRect" parent="UiLayer/BlinkCanvas" unique_id=1509617653]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="UiLayer" unique_id=352183578]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -289.0
+offset_top = -291.0
+offset_right = 539.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Inventory" type="HFlowContainer" parent="UiLayer/MarginContainer" unique_id=1025961843]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+script = ExtResource("8_mymud")
+
+[node name="WordCard" parent="UiLayer" unique_id=417128353 instance=ExtResource("9_4sso6")]
+offset_left = -205.0
+offset_top = 1.0
+offset_right = -105.0
+offset_bottom = 90.0
+
+[node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
+offset_left = 1312.0
+offset_top = 869.0
+offset_right = 1587.0
+offset_bottom = 1198.0
+
+[node name="IconContainer" type="Control" parent="UiLayer" unique_id=2020812257]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = -276.0
+offset_right = 379.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UiLayer/IconContainer" unique_id=1928108169]
+clip_children = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_p5ymy")
+
+[node name="OldIcon" type="TextureRect" parent="UiLayer/IconContainer/TextureRect" unique_id=1800749882]
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 255.0
+texture = ExtResource("11_p5ymy")
+metadata/_edit_lock_ = true
+
+[node name="CurrentIcon" type="TextureRect" parent="UiLayer/IconContainer/TextureRect" unique_id=1830655234]
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 255.0
+texture = ExtResource("11_i0j58")
+metadata/_edit_lock_ = true
+
+[node name="NextButton" parent="UiLayer" unique_id=539064510 instance=ExtResource("11_hx8n4")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 399.0
+offset_top = -222.0
+offset_right = 508.0
+offset_bottom = -95.0
+grow_vertical = 0
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+
+[node name="PrevButton" parent="UiLayer" unique_id=640096522 instance=ExtResource("12_enc0b")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -223.0
+offset_bottom = -96.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+
+[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Letter2" parent="UiLayer/CharacterDialogUI" unique_id=354924844 instance=ExtResource("16_dtg5n")]
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1552045099]
+material = SubResource("ShaderMaterial_eju3t")
+offset_right = 1598.0
+offset_bottom = 1200.0
+mouse_filter = 2
+texture = ExtResource("18_cotnl")
+metadata/_edit_lock_ = true
+
+[node name="Interactable" parent="UiLayer" unique_id=512711626 instance=ExtResource("19_ypccg")]
+visible = false
+z_index = 1000
+y_sort_enabled = true
+position = Vector2(633, 360)
+priority = 1
+
+[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
+[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]

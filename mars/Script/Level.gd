@@ -2,7 +2,13 @@ extends Node2D
 @export var data_resource_path: String
 @export var blink_duration:float = 0.2 #(眨眼动画时间)
 
-# 引用存放视角的容器
+@onready var old_icon = $"../../UiLayer/IconContainer/TextureRect/OldIcon"
+@onready var current_icon =$"../../UiLayer/IconContainer/TextureRect/CurrentIcon"
+@export var view_icons: Array[Texture2D]   # ... 按视角顺序排列
+@export var slide_duration: float = 0.3 # 滑动持续时间
+
+
+@onready var view_icon_rect = $"../../UiLayer/ViewIcon"
 @onready var viewpoints_container = $Viewpoints
 #引用眼睑节点
 @onready var upper_lid =$"../../UiLayer/BlinkCanvas/UpperLid"
@@ -22,9 +28,8 @@ func _ready():
 		GameData.load_data_from_json("res://Script/Resourse/level_1_data.json")
 	# 游戏开始时，先刷新一次，确保只显示第一个视角
 	update_views()
-	GameEvents.request_next_view.connect(_on_next_pressed)
-	GameEvents.request_prev_view.connect(_on_prev_pressed)
-	update_views()
+
+
 	
 # 点击“右翻”按钮连接到这个函数
 func _on_next_pressed():
@@ -33,7 +38,13 @@ func _on_next_pressed():
 		return
 	var total_views = viewpoints_container.get_child_count()
 	current_view_index = (current_view_index + 1) % total_views
-	play_blink_transition()
+	
+	if $"../../ReasoningPage".visible:
+		update_views() # 直接更新视角
+		switch_icon(1)
+	else:
+		switch_icon(1)
+		play_blink_transition() # 眨眼切换
 
 
 # 点击“左翻”按钮连接到这个函数
@@ -43,13 +54,19 @@ func _on_prev_pressed():
 		
 	var total_views = viewpoints_container.get_child_count()
 	current_view_index = (current_view_index - 1 + total_views) % total_views
-	play_blink_transition()
+	
+	if $"../../ReasoningPage".visible:
+		update_views()
+		switch_icon(-1)
+	else:
+		switch_icon(-1) # 正常向左滑动
+		play_blink_transition()
 
 
 
 #眨眼动效方法
 func play_blink_transition():
-	if $"../../ReasoningPage".visible:return
+	
 	is_blinking = true #锁上
 	var screen_height = get_viewport_rect().size.y
 	var half_height = screen_height / 2.0
@@ -86,10 +103,28 @@ func play_blink_transition():
 func update_views():
 	if not viewpoints_container:
 		return
-	
+
+
 	var views = viewpoints_container.get_children()
 	for i in range(views.size()):
-		if i == current_view_index:
-			views[i].show()     # 显示当前序号的视角
-		else:
-			views[i].hide()     # 隐藏其他的
+		views[i].visible = (i == current_view_index)
+
+	
+func switch_icon(direction: int):
+	if view_icons.size() == 0: return
+
+	# 1. 准备旧图层（当前显示的图变成底图）
+	old_icon.texture = current_icon.texture
+	old_icon.position = Vector2.ZERO
+	
+	# 2. 准备新图层（设置新贴图并瞬移到侧边）
+	current_icon.texture = view_icons[current_view_index]
+	var offset_x = current_icon.size.x * direction
+	current_icon.position = Vector2(offset_x, 0)
+	
+	# 3. 立即执行滑入 Tween
+	# 这样玩家点击的一瞬间，图标就开始动了，而背景还在等眨眼
+	var icon_tween = create_tween()
+	icon_tween.tween_property(current_icon, "position", Vector2.ZERO, 0.25)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_ease(Tween.EASE_OUT)

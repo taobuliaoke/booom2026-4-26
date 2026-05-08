@@ -1,3 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://cbym7rxjwufn7"]
 
+[ext_resource type="FontFile" uid="uid://xydp2xpwd375" path="res://theme/NANOOLDSONGA-REGULAR.TTF" id="1_bgaje"]
+
 [resource]
+default_font = ExtResource("1_bgaje")
