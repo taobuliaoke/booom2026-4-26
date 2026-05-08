@@ -21,46 +21,50 @@ position = Vector2(800, 450)
 texture = ExtResource("2_joc8x")
 metadata/_edit_lock_ = true
 
-[node name="YuMing2" parent="Viewpoints/CharacterA_View" unique_id=773302282 instance=ExtResource("3_i7gaw")]
+[node name="YuMing2" parent="Viewpoints/CharacterA_View" unique_id=773302282 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(1376, 418.00003)
 scale = Vector2(0.41, 0.351)
-character_id = "渔人乙"
+character_id = "渔民乙"
+ui_pos_node = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View/YuMing2" unique_id=1118494398]
-position = Vector2(-190.24391, -663.8177)
+position = Vector2(-646.3415, -837.60693)
 
-[node name="YuMing" parent="Viewpoints/CharacterA_View" unique_id=1047630891 instance=ExtResource("3_i7gaw")]
+[node name="YuMing" parent="Viewpoints/CharacterA_View" unique_id=1047630891 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(1280, 427.99994)
 scale = Vector2(0.485, 0.425)
-character_id = "渔人甲"
+character_id = "渔民甲"
+ui_pos_node = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View/YuMing" unique_id=608684665]
-position = Vector2(-323.71136, -583.5293)
+position = Vector2(-731.9588, -588.23517)
 
-[node name="NPC_Node" parent="Viewpoints/CharacterA_View" unique_id=1731442662 instance=ExtResource("3_i7gaw")]
+[node name="DingJiaLi" parent="Viewpoints/CharacterA_View" unique_id=1731442662 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(905, 482)
 scale = Vector2(1.275, 0.88)
 character_id = "丁加立"
+ui_pos_node = NodePath("Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View/NPC_Node" unique_id=1354092649]
+[node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View/DingJiaLi" unique_id=1354092649]
+position = Vector2(122.35294, -404.54544)
 
 [node name="ZhouJingShu" parent="Viewpoints/CharacterA_View" unique_id=2054936294 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(582, 555)
 scale = Vector2(0.96, 0.525)
 character_id = "周静姝"
-ui_pos_node = NodePath("Marker2D")
+ui_pos_node = NodePath("ZhouJingShuMK")
 
-[node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterA_View/ZhouJingShu" unique_id=638327341]
-position = Vector2(194.79169, -790.47626)
+[node name="ZhouJingShuMK" type="Marker2D" parent="Viewpoints/CharacterA_View/ZhouJingShu" unique_id=638327341]
+position = Vector2(118.750015, -470.47617)
 
 [node name="ShenHuiXin" parent="Viewpoints/CharacterA_View" unique_id=1968556957 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(447.95, 513.005)
 scale = Vector2(0.99, 0.77)
 character_id = "沈慧心"
-ui_pos_node = NodePath("../WenYuan/WenYuanMK")
+ui_pos_node = NodePath("ShenHuiXinMK")
 
 [node name="ShenHuiXinMK" type="Marker2D" parent="Viewpoints/CharacterA_View/ShenHuiXin" unique_id=331413680]
-position = Vector2(246.46461, -400)
+position = Vector2(143.48482, -328.5779)
 
 [node name="WenYuan" parent="Viewpoints/CharacterA_View" unique_id=1267569424 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
 position = Vector2(303, 451)

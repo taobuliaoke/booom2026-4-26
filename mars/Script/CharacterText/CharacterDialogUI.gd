@@ -31,18 +31,31 @@ func _on_request_dialog(cid:String,pos:Vector2):
 	# 如果你的 hide 逻辑里有复杂的解开锁逻辑，建议单独写一个受控隐藏函数
 	#get_tree().call_group("dialog_uis", "controlled_hide")
 
-	# 开启当前的 UI 逻辑
+
 	$VBoxContainer.global_position = pos
+	$VBoxContainer.modulate.a = 0.0
+	$VBoxContainer.scale = Vector2(0.9,0.9)#微小的弹出感
+	$VBoxContainer/ItemBox.modulate.a = 0.0
+	$VBoxContainer/ItemBox.scale = Vector2(0.9,0.9)
 	GameEvents.is_in_dialogue = true #爸呀大哥，总算给你锁死了
 	#设置内容，计算容器大小	
 	
-	show_content(cid)
+	show()
 	
-
+	# 阶段 1：Tween 出现动画
+	var tween = create_tween().set_parallel(true) # 并行执行透明度和缩放
+	tween.tween_property($VBoxContainer, "modulate:a", 1.0, 0.4).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($VBoxContainer, "scale", Vector2.ONE, 0.4).set_ease(Tween.EASE_OUT)
+	tween.tween_property($VBoxContainer/ItemBox, "modulate:a", 1.0, 0.4).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($VBoxContainer/ItemBox, "scale", Vector2.ONE, 0.4).set_ease(Tween.EASE_OUT)
+	# 阶段 2：待机状态
+	# 此时 Shader 会在后台自动运行边缘波浪。
+	# 如果你还想要一点缓慢的整体“呼吸感”，可以再加一个：
+	#_play_idle_float()
 	
 	#3.显示自己
-	show()
 
+	show_content(cid)
 
 # id 从 characterInteract 脚本传过来
 func show_content(id: String):
@@ -83,7 +96,14 @@ func show_content(id: String):
 	# 这两行能保证道具框在文字变动后，立刻重新吸附到文字下方
 	vbox.reset_size() 
 	await get_tree().process_frame
-
+	
+	
+func _play_idle_animation():
+	var tween = create_tween().set_loops() # 无限循环
+	tween.tween_property($VBoxContainer/DialogBox/BG, "scale", Vector2(1.02, 1.02), 1.5)
+	tween.tween_property($VBoxContainer/DialogBox/BG, "scale", Vector2(1.0, 1.0), 1.5)
+	
+	
 # 点击外部收起逻辑 (修改检测范围，因为现在都在 VBox 里)
 func _on_global_clicked(event: InputEventMouseButton):
 	#只有在左键点击，且当前UI可见的时候才判断
@@ -264,6 +284,16 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 	)
 	
 func hide_dialog():
+	# 阶段 3：Tween 消失动画
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property($VBoxContainer, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($VBoxContainer/ItemBox, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($VBoxContainer, "scale", Vector2(0.9, 0.9), 0.3)
+	tween.tween_property($VBoxContainer/ItemBox, "scale", Vector2(0.9, 0.9), 0.3)
+	
+	# 等待动画结束
+	await tween.finished
+	
 	hide()#  视觉上立刻消失
 	
 	# 我们在这里“等一帧”，确保当前的点击信号（比如按钮的 pressed 信号）

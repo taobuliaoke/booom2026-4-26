@@ -1,8 +1,78 @@
 [gd_scene format=3 uid="uid://ubiero115yt2"]
 
 [ext_resource type="Script" uid="uid://ce7yl153tqga7" path="res://Script/CharacterText/CharacterDialogUI.gd" id="1_pss2r"]
-[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="2_pcyrt"]
-[ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://art/UI/Itemlist.png" id="3_pss2r"]
+[ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="2_p6swp"]
+[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://Art/UI/DialogueBox.png" id="2_pcyrt"]
+[ext_resource type="Texture2D" uid="uid://b2kawkbndp0g7" path="res://Art/UI/Itemlist.png" id="3_pss2r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpsa5"]
+shader = ExtResource("2_p6swp")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 17.94800085253
+shader_parameter/amplitude = 0.0250000011875
+shader_parameter/edge_softness = 0.54000002565
+
+[sub_resource type="Shader" id="Shader_p6swp"]
+code = "shader_type canvas_item;
+
+uniform float speed : hint_range(0.0, 10.0) = 3.0;
+uniform float frequency : hint_range(0.0, 50.0) = 15.0;
+uniform float amplitude : hint_range(0.0, 0.1) = 0.1;
+uniform float edge_softness : hint_range(0.0, 1.0) = 0.2; // 边缘波及范围
+
+void vertex() {
+    // 获取 UV（0.0 到 1.0）
+    // 注意：CanvasItem 的 VERTEX 是局部坐标，UV 决定了我们在贴图的哪个位置
+    vec2 uv = UV;
+
+    // 计算到边缘的距离 (0 表示在边缘，0.5 表示在中心)
+    float dist_to_edge_x = min(uv.x, 1.0 - uv.x);
+    float dist_to_edge_y = min(uv.y, 1.0 - uv.y);
+    float edge_mask = 1.0 - smoothstep(0.0, edge_softness, min(dist_to_edge_x, dist_to_edge_y));
+
+    // 只对边缘应用正弦波偏移
+    float wave = sin(TIME * speed + (uv.x + uv.y) * frequency) * amplitude * 100.0;
+    
+    VERTEX += wave * edge_mask;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hp7vx"]
+shader = SubResource("Shader_p6swp")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 15.0
+shader_parameter/amplitude = 0.0050000002375
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="Shader" id="Shader_fpsa5"]
+code = "shader_type canvas_item;
+
+uniform float speed : hint_range(0.0, 10.0) = 3.0;
+uniform float frequency : hint_range(0.0, 50.0) = 15.0;
+uniform float amplitude : hint_range(0.0, 0.1) = 0.1;
+uniform float edge_softness : hint_range(0.0, 1.0) = 0.2; // 边缘波及范围
+
+void vertex() {
+    // 获取 UV（0.0 到 1.0）
+    // 注意：CanvasItem 的 VERTEX 是局部坐标，UV 决定了我们在贴图的哪个位置
+    vec2 uv = UV;
+
+    // 计算到边缘的距离 (0 表示在边缘，0.5 表示在中心)
+    float dist_to_edge_x = min(uv.x, 1.0 - uv.x);
+    float dist_to_edge_y = min(uv.y, 1.0 - uv.y);
+    float edge_mask = 1.0 - smoothstep(0.0, edge_softness, min(dist_to_edge_x, dist_to_edge_y));
+
+    // 只对边缘应用正弦波偏移
+    float wave = sin(TIME * speed + (uv.x + uv.y) * frequency) * amplitude * 100.0;
+    
+    VERTEX += wave * edge_mask;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8y0de"]
+shader = SubResource("Shader_fpsa5")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 11.410000541975
+shader_parameter/amplitude = 0.0250000011875
+shader_parameter/edge_softness = 0.2
 
 [node name="CharacterDialogUI" type="Control" unique_id=1356130498]
 layout_mode = 3
@@ -27,6 +97,7 @@ layout_mode = 2
 
 [node name="BG" type="NinePatchRect" parent="VBoxContainer/DialogBox" unique_id=1911938331]
 show_behind_parent = true
+material = SubResource("ShaderMaterial_fpsa5")
 layout_mode = 2
 texture = ExtResource("2_pcyrt")
 region_rect = Rect2(0, 0, 264, 264)
@@ -40,6 +111,7 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="MyCustomLabel" type="RichTextLabel" parent="VBoxContainer/DialogBox/TextMargin" unique_id=317700084]
+material = SubResource("ShaderMaterial_hp7vx")
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -47,7 +119,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "test"
 fit_content = true
@@ -61,6 +133,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 2
 
 [node name="ItemBox" type="TextureRect" parent="VBoxContainer" unique_id=612429515]
+material = SubResource("ShaderMaterial_8y0de")
 layout_mode = 2
 texture = ExtResource("3_pss2r")
 
