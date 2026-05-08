@@ -4,7 +4,8 @@ signal show_tooltip(text) # 定义显示信号，带一个文字参数
 signal hide_tooltip       # 定义隐藏信号
 signal request_character_dialog(char_name: String)
 signal global_clicked(event:InputEventMouseButton) #检查鼠标点击
-signal request_item_detail(content)
+signal request_item_detail(info: Dictionary)
+signal request_letter_open(letter_node_name:String)#负责通知信件库，打开哪封信
 signal ui_closed_refresh_hover # 当 UI 关闭时提醒场景物体刷新状态
 
 var is_sub_ui_open: bool = false

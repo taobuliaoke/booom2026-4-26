@@ -93,11 +93,11 @@
 		  "content": ""
 		},
 		{
-		  "item_name": "一份名单",
+		  "item_name": "一份名单?",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://art/Evidence/draft.png",
 		  "can_interact": true,
-		  "content": ""
+		  "letter_node_name": "Letter_MingDan"
 		}
 	  ]
 	},

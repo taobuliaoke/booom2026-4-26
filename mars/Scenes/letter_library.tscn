@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c433qlphl8hfu"]
+
+[ext_resource type="Texture2D" uid="uid://8g0saa33tj5i" path="res://Art/letter/letter_MingDan.jpg" id="1_6v7ti"]
+[ext_resource type="Texture2D" uid="uid://be44e412sdn51" path="res://Art/letter/red_marker.png" id="2_7qn7r"]
+[ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="2_667sm"]
+
+[node name="LetterLibrary" type="Control" unique_id=236458037]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="Letter_MingDan" type="Control" parent="." unique_id=775902840]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 611.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Letter_MingDan" unique_id=901756728]
+layout_mode = 0
+offset_left = 3.0517578e-05
+offset_right = 631.0
+offset_bottom = 691.0
+mouse_filter = 2
+texture = ExtResource("1_6v7ti")
+
+[node name="RedMarker" type="Sprite2D" parent="Letter_MingDan" unique_id=82604288]
+position = Vector2(344, 316)
+texture = ExtResource("2_7qn7r")
+
+[node name="Interactable" parent="Letter_MingDan" unique_id=512711626 instance=ExtResource("2_667sm")]
+position = Vector2(331, 270)
+scale = Vector2(1.16, 3.78)
+word_name = "静姝"

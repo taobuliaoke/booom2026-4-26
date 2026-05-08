@@ -25,18 +25,30 @@ func _input_event(_viewport, event, _shape_idx):
 func _interact():
 	if GameEvents.is_sub_ui_open: return
 	if GameEvents.is_in_dialogue: return
+	
 	var data = GameData.character_data.get(character_id, {})
-	if data.is_empty() or GameEvents.is_in_dialogue: 
-		return
+	if data.is_empty(): return
 
-	# 计算 UI 弹出位置 [这里的 final_pos 替代了你报错的 pos]
+	# --- 手术植入：判断是否需要打开信件库 ---
+	# 检查该 NPC/物品的数据里是否有 letter_node_name 字段
+	var letter_name = data.get("letter_node_name", "")
+	if letter_name != "":
+		# 如果有，发送信号给 Letter.gd，通知它开启 Library 里的对应节点
+		var info = { "letter_node_name": letter_name }
+		GameEvents.emit_signal("request_item_detail", info)
+		
+		# 既然开了信件，通常就不弹对话框了，直接清理状态并返回
+		GameEvents.emit_signal("hide_tooltip")
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		return 
+
+	# --- 原有逻辑：计算 UI 弹出位置并显示对话 ---
 	var final_pos: Vector2
 	if ui_pos_node:
 		final_pos = ui_pos_node.get_global_transform_with_canvas().origin
 	else:
 		final_pos = get_viewport().get_mouse_position()
 		
-	# 发送信号给 UI 脚本 [这里的 character_id 替代了你报错的 cid]
 	GameEvents.emit_signal("request_character_dialog", character_id, final_pos)
 	
 	# 清理状态
