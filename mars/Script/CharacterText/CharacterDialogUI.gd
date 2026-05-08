@@ -195,6 +195,7 @@ func _calculate_word_rect(index: int, length: int) -> Rect2:
 func _spawn_interactable(word: String, rect: Rect2):
 	var new_area = preload("res://Scenes/Interactable.tscn").instantiate()
 	word_container.add_child(new_area)
+	new_area.word_name = word
 	
 	# 确保缩放是 (1, 1)，防止框框看起来很小
 	new_area.scale = Vector2.ONE 

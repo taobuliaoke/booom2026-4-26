@@ -25,13 +25,20 @@ func _on_visibility_changed():
 		
 
 func check_status():
-	#如果全局账本里显示这个词拿过了，就自毁交互性
-	if GameEvents.clues_registry.get(word_name,false):
+# 1. 如果 word_name 是空的或者是默认占位符，绝对不触发自毁
+	if word_name == "" or word_name == "……": 
+		return
+
+	# 2. 只有当 registry 里确实有这个特定的词时才禁用
+	if GameEvents.clues_registry.get(word_name, false):
+		# 3. 增加保护：如果是挂在 UiLayer 这种错误地方的节点，直接删除而不是禁用
+		if get_parent().name == "UiLayer":
+			print("警告：节点 ", name, " (词条: ", word_name, ") 正在自毁。我的父节点是:", get_parent().name)
+			queue_free()
+			return
 		if is_instance_valid(red_marker):
 			red_marker.hide()
-		$CollisionShape2D.disabled = true
-		#owner.modulate.a = 0.5 #变灰
-		
+		$CollisionShape2D.set_deferred("disabled", true)
 
 func _on_clicked():
 	if GameEvents.collect_clue(word_name):
@@ -39,7 +46,7 @@ func _on_clicked():
 		get_tree().call_group('clue_items','check_status')
 		if get_parent().has_node(red_marker):
 			red_marker.hide()
-		print('点击了信件内部的交互物:',word_name)
+		print(word_name)
 		
 # 在 Interactable_4.gd 中添加
 
