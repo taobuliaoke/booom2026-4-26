@@ -1,7 +1,5 @@
 extends Node
 signal word_collected(word_text)
-signal request_next_view
-signal request_prev_view
 signal show_tooltip(text) # 定义显示信号，带一个文字参数
 signal hide_tooltip       # 定义隐藏信号
 signal request_character_dialog(char_name: String)

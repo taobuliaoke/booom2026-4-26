@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://df6kdpkev120a" path="res://Scenes/toggle_button.tscn" id="10_r0vnq"]
 [ext_resource type="PackedScene" uid="uid://n33ok0udqg1u" path="res://Scenes/next_button.tscn" id="11_hx8n4"]
 [ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://art/UI/mysteryA.png" id="11_i0j58"]
+[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://art/UI/mysteryE.png" id="11_p5ymy"]
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://da16xr4e26afb" path="res://Scenes/letter.tscn" id="16_dtg5n"]
@@ -37,6 +38,7 @@ texture = ExtResource("2_c1ier")
 metadata/_edit_lock_ = true
 
 [node name="ReasoningPage" type="Panel" parent="." unique_id=661820521]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 507.0
 offset_top = 56.0
 offset_right = 1484.0
@@ -61,13 +63,39 @@ offset_bottom = 203.0
 theme_override_font_sizes/font_size = 50
 text = "跟"
 
-[node name="Slot" parent="ReasoningPage" unique_id=1702316060 instance=ExtResource("4_bpy1e")]
+[node name="Slot3" parent="ReasoningPage" unique_id=214723661 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
 offset_left = 142.0
 offset_top = 120.0
 offset_right = 292.0
 offset_bottom = 199.0
 script = ExtResource("5_p5ymy")
+
+[node name="Slot4" parent="ReasoningPage" unique_id=486684295 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -316.0
+offset_top = 186.0
+offset_right = -166.0
+offset_bottom = 265.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["周之瀚"])
+
+[node name="Slot6" parent="ReasoningPage" unique_id=1306683441 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -452.0
+offset_top = 461.0
+offset_right = -302.0
+offset_bottom = 540.0
+script = ExtResource("5_p5ymy")
+
+[node name="Slot5" parent="ReasoningPage" unique_id=312802841 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -452.0
+offset_top = 461.0
+offset_right = -302.0
+offset_bottom = 540.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["沈德渊"])
 
 [node name="Slot2" parent="ReasoningPage" unique_id=742582215 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
@@ -77,6 +105,41 @@ offset_right = 506.0
 offset_bottom = 201.0
 script = ExtResource("5_p5ymy")
 correct_answer = Array[String](["沈某", "周某"])
+
+[node name="Slot8" parent="ReasoningPage" unique_id=340901554 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = 459.0
+offset_right = -58.0
+offset_bottom = 538.0
+script = ExtResource("5_p5ymy")
+
+[node name="Slot7" parent="ReasoningPage" unique_id=1939347214 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -208.0
+offset_top = 459.0
+offset_right = -58.0
+offset_bottom = 538.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["神仙"])
+
+[node name="Slot9" parent="ReasoningPage" unique_id=966017733 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -452.0
+offset_top = 737.0
+offset_right = -302.0
+offset_bottom = 816.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["周静姝"])
+
+[node name="Slot" parent="ReasoningPage" unique_id=1702316060 instance=ExtResource("4_bpy1e")]
+layout_mode = 0
+offset_left = -206.0
+offset_top = 737.0
+offset_right = -56.0
+offset_bottom = 816.0
+script = ExtResource("5_p5ymy")
+correct_answer = Array[String](["文鸳"])
 
 [node name="FeedBackPanel" type="Panel" parent="ReasoningPage" unique_id=424428421]
 layout_mode = 1
@@ -99,6 +162,7 @@ text = "我告诉你是对是错"
 
 [node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_wmecs")]
 visible = false
+script = null
 
 [node name="UiLayer" type="CanvasLayer" parent="." unique_id=1067193768]
 
@@ -154,12 +218,37 @@ offset_top = 869.0
 offset_right = 1587.0
 offset_bottom = 1198.0
 
-[node name="TextureRect2" type="TextureRect" parent="UiLayer" unique_id=1523233257]
-offset_left = 111.0
-offset_top = 907.0
-offset_right = 398.0
-offset_bottom = 1194.0
+[node name="IconContainer" type="Control" parent="UiLayer" unique_id=2020812257]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = -276.0
+offset_right = 379.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UiLayer/IconContainer" unique_id=1928108169]
+clip_children = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_p5ymy")
+
+[node name="OldIcon" type="TextureRect" parent="UiLayer/IconContainer/TextureRect" unique_id=1800749882]
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 255.0
+texture = ExtResource("11_p5ymy")
+metadata/_edit_lock_ = true
+
+[node name="CurrentIcon" type="TextureRect" parent="UiLayer/IconContainer/TextureRect" unique_id=1830655234]
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 255.0
 texture = ExtResource("11_i0j58")
+metadata/_edit_lock_ = true
 
 [node name="NextButton" parent="UiLayer" unique_id=539064510 instance=ExtResource("11_hx8n4")]
 anchors_preset = 2
