@@ -37,6 +37,13 @@ position = Vector2(800, 599)
 texture = ExtResource("2_c1ier")
 metadata/_edit_lock_ = true
 
+[node name="ReasoningForView" type="Panel" parent="." unique_id=818400799]
+visible = false
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 503.0
+offset_bottom = 920.0
+
 [node name="ReasoningPage" type="Panel" parent="." unique_id=661820521]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 507.0
