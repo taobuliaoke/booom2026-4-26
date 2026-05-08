@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://df6kdpkev120a"]
+
+[ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="1_gv3bf"]
+[ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="3_vn4en"]
+[ext_resource type="Texture2D" uid="uid://dxglilr1332yg" path="res://art/UI/ToggleButton-eye1.png" id="4_6q040"]
+[ext_resource type="Texture2D" uid="uid://b86hdtseei2xo" path="res://art/UI/ToggleButton-eye2.png" id="6_ni7pb"]
+[ext_resource type="Texture2D" uid="uid://da4uj0dcdy81e" path="res://art/UI/ToggleButton-sheet.png" id="6_sbl6j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni7pb"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(1155, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynw28"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(770, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e745c"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(385, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d83gl"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(0, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma8au"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(0, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mafje"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(385, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwo2y"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(770, 0, 385, 461)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2jkl"]
+atlas = ExtResource("6_sbl6j")
+region = Rect2(1155, 0, 385, 461)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gv3bf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni7pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynw28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e745c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d83gl")
+}],
+"loop": false,
+"name": &"to_environment",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma8au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mafje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwo2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2jkl")
+}],
+"loop": false,
+"name": &"to_reasoning",
+"speed": 10.0
+}]
+
+[node name="ToggleButton" type="TextureButton" unique_id=1101282643]
+offset_right = 275.0
+offset_bottom = 329.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_gv3bf")
+script = ExtResource("3_vn4en")
+metadata/_edit_lock_ = true
+
+[node name="background" type="Sprite2D" parent="." unique_id=309757928]
+position = Vector2(137, 164)
+texture = ExtResource("1_gv3bf")
+
+[node name="EyeWhite" type="Sprite2D" parent="." unique_id=34062103]
+clip_children = 2
+position = Vector2(51, 67)
+texture = ExtResource("4_6q040")
+
+[node name="Pupil" type="Sprite2D" parent="EyeWhite" unique_id=1468704510]
+texture = ExtResource("6_ni7pb")
+
+[node name="ClickAnim" type="AnimatedSprite2D" parent="." unique_id=1252355203]
+visible = false
+position = Vector2(82, 98)
+sprite_frames = SubResource("SpriteFrames_gv3bf")
+animation = &"to_reasoning"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

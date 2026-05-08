@@ -33,3 +33,7 @@ window/size/window_width_override=800
 window/size/window_height_override=600
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
+
+[gui]
+
+theme/custom="uid://cbym7rxjwufn7"

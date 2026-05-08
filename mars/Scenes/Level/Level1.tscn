@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bnh43ra5a8v1"]
 
 [ext_resource type="Script" uid="uid://c7iuo41fc5qay" path="res://Script/Level.gd" id="1_q12u6"]
-[ext_resource type="Texture2D" uid="uid://csnf4aii5jrkg" path="res://Art/Vision/Level1/Level1_Wenyuan.jpg" id="2_5vtej"]
-[ext_resource type="Texture2D" uid="uid://vs2k4bisuuke" path="res://Art/Vision/Level1/Level1_Shendeyuan.jpg" id="2_jghel"]
-[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://Art/Vision/Level1/Level1_Zhouzhihan.jpg" id="2_joc8x"]
+[ext_resource type="Texture2D" uid="uid://csnf4aii5jrkg" path="res://art/vision/Level1/Level1_Wenyuan.jpg" id="2_5vtej"]
+[ext_resource type="Texture2D" uid="uid://vs2k4bisuuke" path="res://art/vision/Level1/Level1_Shendeyuan.jpg" id="2_jghel"]
+[ext_resource type="Texture2D" uid="uid://uw4ma00rgy68" path="res://art/vision/Level1/Level1_Zhouzhihan.jpg" id="2_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ba3pfpste2rt4" path="res://Scenes/npc_node.tscn" id="3_i7gaw"]
-[ext_resource type="Texture2D" uid="uid://k22xowoq4kqr" path="res://Art/Vision/Level1/Level1_Alien.jpg" id="5_i7gaw"]
-[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://Art/Vision/Level1/Level1_Zhoujingshu.jpg" id="6_xtiaw"]
+[ext_resource type="Texture2D" uid="uid://k22xowoq4kqr" path="res://art/vision/Level1/Level1_Alien.jpg" id="5_i7gaw"]
+[ext_resource type="Texture2D" uid="uid://corxiwl262imk" path="res://art/vision/Level1/Level1_Zhoujingshu.jpg" id="6_xtiaw"]
 
 [node name="Level1" type="Node2D" unique_id=1293253096]
 script = ExtResource("1_q12u6")

@@ -24,7 +24,7 @@ func _ready():
 	update_views()
 	GameEvents.request_next_view.connect(_on_next_pressed)
 	GameEvents.request_prev_view.connect(_on_prev_pressed)
-	update_views()
+
 	
 # 点击“右翻”按钮连接到这个函数
 func _on_next_pressed():
@@ -49,7 +49,9 @@ func _on_prev_pressed():
 
 #眨眼动效方法
 func play_blink_transition():
-	if $"../../ReasoningPage".visible:return
+	if $"../../ReasoningPage".visible:
+		update_views()
+		return
 	is_blinking = true #锁上
 	var screen_height = get_viewport_rect().size.y
 	var half_height = screen_height / 2.0

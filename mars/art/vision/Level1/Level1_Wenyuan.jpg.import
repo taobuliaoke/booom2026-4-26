@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csnf4aii5jrkg"
-path="res://.godot/imported/Level1_Wenyuan.jpg-c1da8c89c7ef703ed4462728a2841e2e.ctex"
+path="res://.godot/imported/Level1_Wenyuan.jpg-c6d6fd49bff6811f43dc2afcaea13bf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Vision/Level1/Level1_Wenyuan.jpg"
-dest_files=["res://.godot/imported/Level1_Wenyuan.jpg-c1da8c89c7ef703ed4462728a2841e2e.ctex"]
+source_file="res://art/vision/Level1/Level1_Wenyuan.jpg"
+dest_files=["res://.godot/imported/Level1_Wenyuan.jpg-c6d6fd49bff6811f43dc2afcaea13bf0.ctex"]
 
 [params]
 
