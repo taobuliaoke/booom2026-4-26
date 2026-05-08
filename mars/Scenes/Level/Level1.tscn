@@ -75,21 +75,27 @@ ui_pos_node = NodePath("WenYuanMK")
 position = Vector2(146, -299)
 
 [node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterB_View" unique_id=1777260132]
 position = Vector2(800, 450)
 texture = ExtResource("2_jghel")
 
+[node name="ZhouZhiHan" parent="Viewpoints/CharacterB_View/Sprite2D" unique_id=1331825246 node_paths=PackedStringArray("ui_pos_node") instance=ExtResource("3_i7gaw")]
+position = Vector2(193, 58.999992)
+scale = Vector2(2.21, 1.95)
+character_id = "周之瀚"
+ui_pos_node = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Viewpoints/CharacterB_View/Sprite2D/ZhouZhiHan" unique_id=736132432]
+position = Vector2(-304.5249, -159.48717)
+
 [node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterC_View" unique_id=1362285274]
 position = Vector2(800, 450)
 texture = ExtResource("5_i7gaw")
 
 [node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=1397963395]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=439661490]
 position = Vector2(800, 450)
@@ -105,7 +111,6 @@ ui_pos_node = NodePath("../Dialogpos")
 position = Vector2(666, 222)
 
 [node name="CharacterE_View" type="Node2D" parent="Viewpoints" unique_id=1591023651]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterE_View" unique_id=1876110344]
 position = Vector2(800, 450)

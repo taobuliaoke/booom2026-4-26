@@ -1,7 +1,7 @@
 extends Area2D
 var is_hovering = false
 var word_card_scene = preload("res://Scenes/word_card.tscn")
-
+@onready var red_marker = $"../RedMarker"
 
 
 # 在编辑器右侧直接填词条
@@ -27,6 +27,8 @@ func _on_visibility_changed():
 func check_status():
 	#如果全局账本里显示这个词拿过了，就自毁交互性
 	if GameEvents.clues_registry.get(word_name,false):
+		if is_instance_valid(red_marker):
+			red_marker.hide()
 		$CollisionShape2D.disabled = true
 		#owner.modulate.a = 0.5 #变灰
 		
@@ -35,7 +37,9 @@ func _on_clicked():
 	if GameEvents.collect_clue(word_name):
 		#成功收集，通知本关卡所有视角里的同名线索更新状态
 		get_tree().call_group('clue_items','check_status')
-		
+		if get_parent().has_node(red_marker):
+			red_marker.hide()
+		print('点击了信件内部的交互物:',word_name)
 		
 # 在 Interactable_4.gd 中添加
 

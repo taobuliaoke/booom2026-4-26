@@ -250,9 +250,9 @@ func _refresh_item_cursor(rect: TextureRect, info: Dictionary):
 
 # 信号连接交互绑定
 func _bind_item_signals(rect: TextureRect, info: Dictionary):
-	var item_key = info.get("item_name", '未知物品')
+	var item_key = info.get("item_name", info.get("name", "未知物品"))
 	
-	# 悬停反馈（展示描述）
+	# 悬停反馈
 	rect.mouse_entered.connect(func():
 		var desc = GameData.item_descriptions.get(item_key, item_key)
 		GameEvents.emit_signal("show_tooltip", desc)
@@ -280,15 +280,9 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 			# 处理详情页
 			if info.get("can_interact", false):
 				GameEvents.emit_signal("hide_tooltip")
-			
-				# 这里的info['letter_node_name'] 对应 json中定义的节点名字
-				#并且，如果用了contente字段，取content
-				var target_node = info.get("letter_node_name", info.get("content", ""))
-			
-				if target_node !='':
-				#触发开信信号
-					GameEvents.emit_signal("request_letter_open", target_node)
-)
+				GameEvents.emit_signal("request_item_detail", {"letter_node_name": ""})
+	)
+	
 	
 	#————————————整体hide————————————————
 func hide_dialog():
