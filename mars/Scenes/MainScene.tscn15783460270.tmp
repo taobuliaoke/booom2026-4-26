@@ -328,6 +328,7 @@ offset_left = 1312.0
 offset_top = 869.0
 offset_right = 1587.0
 offset_bottom = 1198.0
+max_look_dist = null
 
 [node name="IconContainer" type="Control" parent="UiLayer" unique_id=2020812257]
 layout_mode = 3

@@ -60,46 +60,38 @@ func update_pupil_focus():
 	pupil.position = pupil.position.lerp(target_pos, 0.15)
 	
 func _pressed():
+	#
 	if is_animating:return
 	is_animating = true
 	
-	#var is_to_reasoning = !reasoning_group.visible
+	var is_to_reasoning = !reasoning_group.visible
+	reasoning_group.visible = is_to_reasoning
 	
-	
-	#眼球
+
 	click_anim.show()
-	click_anim.play('click')
+	if is_to_reasoning:
 	
-	#切换逻辑
-	var will_open = !reasoning_group.visible
-	reasoning_group.visible = will_open
-	#修改按钮样式
-	update_button_style(will_open)
-	
-	#调用淡入淡出动画
-	run_env_animation(will_open)
-	if will_open:
 		click_anim.play("to_reasoning")
 		$background.hide()
 		$EyeWhite.hide()
 	else:
+		
 		click_anim.play("to_environment")
 		$background.hide()
 	
-	##执行场景平移补间动画
-	#run_env_animation(reasoning_group.visible)
-	#update_button_style(is_to_reasoning)
+	#执行场景平移补间动画
+	run_env_animation(reasoning_group.visible)
+	update_button_style(is_to_reasoning)
 func update_button_style(is_reasoning: bool):
 	# 这里根据状态修改你三层结构中任意一层的贴图
 	if is_reasoning:
 		$background.texture =  pressed_img
 	else:
 		$background.texture = normal_img
-
-#动画整合
+#探索界面动画展示
 func run_env_animation(is_opening:bool):
 	
-	if not environment or not reasoning_group:
+	if not environment:
 		#如果没有场景，立刻解锁，防止死锁
 		is_animating = false
 		return
@@ -107,37 +99,23 @@ func run_env_animation(is_opening:bool):
 	#创建tween
 	var tween = create_tween()
 	
-	#设置environment平滑曲线
+	#设置弹性动画参数
 	tween.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	
 	if  is_opening:
-		#让大局逆转吧，开！
-		reasoning_group.modulate.a = 0
-		reasoning_group.visible = true
-		GameEvents.is_sub_ui_open = true
-		
-		#environment+group魂兮归来
+		#推理页打开时，场景从下往上移出镜头（减去屏幕高度）
 		var target_pos = env_original_pos - Vector2(0, get_viewport_rect().size.y)
-		tween.parallel().tween_property(environment, 'position', target_pos, 0.5)
-		tween.parallel().tween_property(reasoning_group, 'modulate:a', 1.0, 0.4)
-		
+		tween.tween_property(environment,'position',target_pos,0.5)
 	else:
-		#关了，再见世界886
-		#environment+group魂飞魄散
-		tween.parallel().tween_property(environment, 'position', env_original_pos, 0.5)
-		tween.parallel().tween_property(reasoning_group, 'modulate:a', 0.0, 0.3)
 		
-		#动画结束后把它们都杀掉，鼠标闪亮登场
-		tween.chain().tween_callback(func():
-			reasoning_group.visible = false
-			GameEvents.is_sub_ui_open = false
-			GameEvents.ui_closed_refresh_hover.emit()
-			)
-	#动画完全结束后解锁togglebutton
+		#推理页关闭，场景归位
+		tween.tween_property(environment,'position',env_original_pos,0.5)
+		
+	#用chain触发回调解锁按钮，再动画播放完毕后
 	tween.chain().tween_callback(func():
 		is_animating = false
-		print('动画完成，按钮解锁')
-		)
+		print('已解锁')
+	)
 
 func create_bitmap_from_texture(tex: Texture2D) -> BitMap:
 	var bitmap = BitMap.new()

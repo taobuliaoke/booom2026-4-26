@@ -2,15 +2,17 @@ extends Control
 
 @onready var feedback_panel = $FeedBackPanel
 @onready var feedback_label = $FeedBackPanel/Label
+@onready var v_slots_container = $Vslots
 var all_slots = []
 
 
 func _ready() :
-	#自动收集所有slot
-	for child in get_children():
-		if child.has_method('is_correct'):
-			all_slots.append(child)
-			child.slot_changed.connect(Callable(self, "_check_all_slots"))
+	#历遍Vsolts容器而非根节点
+	if v_slots_container:
+		for child in v_slots_container.get_children():
+			if child.has_method('is_correct'):
+				all_slots.append(child)
+				child.slot_changed.connect(Callable(self, "_check_all_slots"))
 
 
 # --- 新增：核心位置管理逻辑 ---

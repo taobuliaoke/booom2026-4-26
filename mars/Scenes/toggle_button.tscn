@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://df6kdpkev120a"]
 
-[ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://art/UI/ToggleButton.png" id="1_gv3bf"]
+[ext_resource type="Texture2D" uid="uid://ccos8vpca2o4h" path="res://Art/UI/ToggleButton.png" id="1_gv3bf"]
 [ext_resource type="Script" uid="uid://b37xwlbk8r7he" path="res://Script/toggle_button.gd" id="3_vn4en"]
-[ext_resource type="Texture2D" uid="uid://dxglilr1332yg" path="res://art/UI/ToggleButton-eye1.png" id="4_6q040"]
-[ext_resource type="Texture2D" uid="uid://b86hdtseei2xo" path="res://art/UI/ToggleButton-eye2.png" id="6_ni7pb"]
-[ext_resource type="Texture2D" uid="uid://da4uj0dcdy81e" path="res://art/UI/ToggleButton-sheet.png" id="6_sbl6j"]
+[ext_resource type="Texture2D" uid="uid://dxglilr1332yg" path="res://Art/UI/ToggleButton-eye1.png" id="4_6q040"]
+[ext_resource type="Texture2D" uid="uid://b86hdtseei2xo" path="res://Art/UI/ToggleButton-eye2.png" id="6_ni7pb"]
+[ext_resource type="Texture2D" uid="uid://da4uj0dcdy81e" path="res://Art/UI/ToggleButton-sheet.png" id="6_sbl6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ni7pb"]
 atlas = ExtResource("6_sbl6j")

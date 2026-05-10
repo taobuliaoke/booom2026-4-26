@@ -7,7 +7,7 @@ size = Vector2(77.86207, 81.25517)
 
 [node name="Interactable" type="Area2D" unique_id=512711626]
 script = ExtResource("1_v6xsw")
-word_name = "礼物"
+word_name = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545069451]
 position = Vector2(11.5264225, 12.0264225)
