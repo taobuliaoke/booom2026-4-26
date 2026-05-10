@@ -14,7 +14,7 @@ func _ready() :
 
 
 # --- 新增：核心位置管理逻辑 ---
-func handle_word_move(word_text: String, from_node: Node, to_node: Node):
+func handle_word_move(word_text: String, _from_node: Node, to_node: Node):
 	#遍历所有 slot，如果在其他地方已经有这个词了，就先清空它（实现唯一性）
 	for slot in all_slots:
 		if slot.label.text == word_text:

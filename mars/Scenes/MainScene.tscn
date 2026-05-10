@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://art/UI/mysteryE.png" id="11_p5ymy"]
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
-[ext_resource type="PackedScene" uid="uid://da16xr4e26afb" path="res://Scenes/letter.tscn" id="16_dtg5n"]
+[ext_resource type="PackedScene" uid="uid://cpibujf4fghri" path="res://Scenes/letter.tscn" id="16_dtg5n"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="17_d0jji"]
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="18_cotnl"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
@@ -299,6 +299,7 @@ z_index = 1000
 y_sort_enabled = true
 position = Vector2(633, 360)
 priority = 1
+word_name = "2"
 
 [connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
 [connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]

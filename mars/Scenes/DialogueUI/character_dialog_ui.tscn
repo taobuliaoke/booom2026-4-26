@@ -81,7 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_pss2r")
 max_width = 400.0
 
@@ -94,6 +94,7 @@ theme_override_constants/separation = 10
 
 [node name="DialogBox" type="MarginContainer" parent="VBoxContainer" unique_id=406524863]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="BG" type="NinePatchRect" parent="VBoxContainer/DialogBox" unique_id=1911938331]
 show_behind_parent = true
@@ -117,7 +118,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
-mouse_default_cursor_shape = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
@@ -130,7 +130,7 @@ anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 59.0
 mouse_filter = 2
-mouse_default_cursor_shape = 2
+mouse_force_pass_scroll_events = false
 
 [node name="ItemBox" type="TextureRect" parent="VBoxContainer" unique_id=612429515]
 material = SubResource("ShaderMaterial_8y0de")

@@ -1,7 +1,7 @@
 extends Area2D
 var is_hovering = false
 var word_card_scene = preload("res://Scenes/word_card.tscn")
-@onready var red_marker = $"../RedMarker"
+
 
 
 # 在编辑器右侧直接填词条
@@ -10,8 +10,7 @@ var word_card_scene = preload("res://Scenes/word_card.tscn")
 func _ready():
 	#鼠标监听
 	input_pickable = true
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+
 	#每次这个线索出现在屏幕上时，检查状态
 	visibility_changed.connect(_on_visibility_changed)
 	#其他视角同名物品被捡走的时候，也要更新状态
@@ -25,33 +24,25 @@ func _on_visibility_changed():
 		
 
 func check_status():
-# 1. 如果 word_name 是空的或者是默认占位符，绝对不触发自毁
 	if word_name == "" or word_name == "……": 
 		return
 
-	# 2. 只有当 registry 里确实有这个特定的词时才禁用
+	#  只有当 registry 里确实有这个特定的词时才禁用
 	if GameEvents.clues_registry.get(word_name, false):
-		# 3. 增加保护：如果是挂在 UiLayer 这种错误地方的节点，直接删除而不是禁用
-		if get_parent().name == "UiLayer":
-			print("警告：节点 ", name, " (词条: ", word_name, ") 正在自毁。我的父节点是:", get_parent().name)
-			queue_free()
-			return
-		if is_instance_valid(red_marker):
-			red_marker.hide()
-		$CollisionShape2D.set_deferred("disabled", true)
+		if has_node("../RedMarker"):
+			get_node("../RedMarker").hide()
 
 func _on_clicked():
 	if GameEvents.collect_clue(word_name):
 		#成功收集，通知本关卡所有视角里的同名线索更新状态
 		get_tree().call_group('clue_items','check_status')
-		if get_parent().has_node(red_marker):
-			red_marker.hide()
+	
 		print(word_name)
 		
 # 在 Interactable_4.gd 中添加
 
 func _on_mouse_entered():
-	is_hovering = true # 标记“我正在悬停”[cite: 3]
+	is_hovering = true 
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	
 	#弹出对话框
@@ -61,8 +52,6 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	is_hovering = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	# 告诉 UI 层：把对话框藏起来
-	GameEvents.emit_signal("hide_tooltip")
 
 func _input_event(_viewport, event, _shape_idx):
 	# 只要是鼠标左键按下
@@ -76,13 +65,13 @@ func collect_this_word():
 	
 	# 只有在全局账本里还没拿过这个词时，才执行
 	if GameEvents.collect_clue(word_name):
-		# 1. 只调用这一行！它会负责检查重复并发出“加词”信号
+		#  只调用这一行！它会负责检查重复并发出“加词”信号
 		GameEvents.add_word(word_name)
 		
-		# 2. 通知本关所有视角的同名物品变灰
+		# 通知本关所有视角的同名物品变灰
 		get_tree().call_group("clue_items", "check_status")
 		
-		# 3. 禁用自己的碰撞，防止连点
+		#  禁用自己的碰撞，防止连点
 		$CollisionShape2D.set_deferred("disabled", true)
-		
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		print("成功触发全局加词逻辑：", word_name)

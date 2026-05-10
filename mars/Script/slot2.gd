@@ -35,7 +35,7 @@ func _can_drop_data(_at_position, data):
 
 
 #允许从slot处拖拽
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	if label.text == '':
 		return null
 	#中转

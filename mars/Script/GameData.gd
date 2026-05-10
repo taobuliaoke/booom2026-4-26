@@ -34,31 +34,47 @@ func load_data_from_json(path: String):
 func parse_pickable_text(raw_text: String) -> Dictionary:
 	var regex = RegEx.new()
 	regex.compile("\\{(.*?)\\}")
+	
+	var formatted_text = raw_text
+	var words_data = []
+	
+	# --- 改进点 1: 先生成干净文本，同时记录准确索引 ---
+	var clean_text = ""
+	var last_pos = 0
 	var matches = regex.search_all(raw_text)
 	
-	# 统一使用这个数组
-	var words_data = [] 
-	
-	# 生成视觉用的 BBCode 文本
-	var formatted_text = regex.sub(raw_text, "[color=red][u]$1[/u][/color]", true)
-	# 生成计算坐标用的干净文本
-	var clean_text = regex.sub(raw_text, "$1", true)
-	
-	var offset = 0
 	for m in matches:
-		var word = m.get_string(1)
-		# 每一个词条前面的花括号会对索引造成干扰，这里减去累积的括号长度
-		var start_index = m.get_start() - offset
+		# 添加大括号之前的普通文本
+		clean_text += raw_text.substr(last_pos, m.get_start() - last_pos)
 		
+		var word = m.get_string(1)
+		# 此时 clean_text.length() 就是该词条在纯文本中的准确起始位置
 		words_data.append({
 			"word": word,
-			"index": start_index,
+			"index": clean_text.length(), 
 			"length": word.length()
 		})
-		offset += 2 # 每处理一个词，就意味着干净文本里少了两个字符（{ 和 }）
 		
+		# 将词条内容加入干净文本
+		clean_text += word
+		last_pos = m.get_end()
+	
+	# 添加剩余文本
+	clean_text += raw_text.substr(last_pos)
+	
+	# --- 改进点 2: 倒序生成用于 RichTextLabel 显示的格式化文本 ---
+	for i in range(matches.size() - 1, -1, -1):
+		var m = matches[i]
+		var word = m.get_string(1)
+		var is_picked = GameEvents.clues_registry.get(word, false)
+		var color_tag = "#444444" if is_picked else "red" 
+		
+		var replacement = "[color=%s][u]%s[/u][/color]" % [color_tag, word]
+		formatted_text = formatted_text.erase(m.get_start(), m.get_end() - m.get_start())
+		formatted_text = formatted_text.insert(m.get_start(), replacement)
+
 	return {
 		"text": clean_text,
 		"formatted_text": formatted_text,
-		"data": words_data # 确保这里返回的是装满数据的数组！
+		"data": words_data
 	}

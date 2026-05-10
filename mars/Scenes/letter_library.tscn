@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c433qlphl8hfu"]
 
-[ext_resource type="Texture2D" uid="uid://8g0saa33tj5i" path="res://Art/letter/letter_MingDan.jpg" id="1_6v7ti"]
-[ext_resource type="Texture2D" uid="uid://be44e412sdn51" path="res://Art/letter/red_marker.png" id="2_7qn7r"]
+[ext_resource type="Texture2D" uid="uid://8g0saa33tj5i" path="res://art/letter/letter_MingDan.jpg" id="1_6v7ti"]
+[ext_resource type="Texture2D" uid="uid://be44e412sdn51" path="res://art/letter/red_marker.png" id="2_7qn7r"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="2_667sm"]
 
 [node name="LetterLibrary" type="Control" unique_id=236458037]
@@ -39,6 +39,6 @@ position = Vector2(344, 316)
 texture = ExtResource("2_7qn7r")
 
 [node name="Interactable" parent="Letter_MingDan" unique_id=512711626 instance=ExtResource("2_667sm")]
-position = Vector2(331, 270)
-scale = Vector2(1.16, 3.78)
+position = Vector2(338, 295.00003)
+scale = Vector2(0.472, 1.537)
 word_name = "静姝"
