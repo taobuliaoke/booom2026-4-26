@@ -1,12 +1,19 @@
 extends Node
 signal word_collected(word_text)
+@warning_ignore("unused_signal")
 signal show_tooltip(text) # 定义显示信号，带一个文字参数
+@warning_ignore("unused_signal")
 signal hide_tooltip       # 定义隐藏信号
+@warning_ignore("unused_signal")
 signal request_character_dialog(char_name: String)
 signal global_clicked(event:InputEventMouseButton) #检查鼠标点击
+@warning_ignore("unused_signal")
 signal request_item_detail(info: Dictionary)
+@warning_ignore("unused_signal")
 signal request_letter_open(letter_node_name:String)#负责通知信件库，打开哪封信
+@warning_ignore("unused_signal")
 signal ui_closed_refresh_hover # 当 UI 关闭时提醒场景物体刷新状态
+signal clue_collected
 
 var is_sub_ui_open: bool = false
 var is_in_dialogue = false
@@ -23,7 +30,9 @@ func _input(event):
 
 func collect_clue(word_name:String):
 	if not clues_registry.has(word_name) or clues_registry[word_name] == false:
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		clues_registry[word_name] = true
+		clue_collected.emit(word_name)
 		return true#成功收集
 	return false #表示之前已经拿过了
 

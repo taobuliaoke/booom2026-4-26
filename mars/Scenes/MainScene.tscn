@@ -406,6 +406,7 @@ z_index = 1000
 y_sort_enabled = true
 position = Vector2(633, 360)
 priority = 1
+word_name = "2"
 
 [connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
 [connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]

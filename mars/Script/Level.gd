@@ -8,7 +8,6 @@ extends Node2D
 @export var slide_duration: float = 0.3 # 滑动持续时间
 
 
-
 @onready var viewpoints_container = $Viewpoints
 #引用眼睑节点
 @onready var upper_lid =$"../../UiLayer/BlinkCanvas/UpperLid"
