@@ -934,12 +934,6 @@ offset_top = 1.0
 offset_right = -105.0
 offset_bottom = 90.0
 
-[node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
-offset_left = 1312.0
-offset_top = 869.0
-offset_right = 1587.0
-offset_bottom = 1198.0
-
 [node name="IconContainer" type="Control" parent="UiLayer" unique_id=2020812257]
 layout_mode = 3
 anchors_preset = 2
@@ -1017,7 +1011,6 @@ z_index = 1000
 y_sort_enabled = true
 position = Vector2(633, 360)
 priority = 1
-word_name = "2"
 
-[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
-[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]
+[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_button_pressed"]
+[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_button_pressed"]

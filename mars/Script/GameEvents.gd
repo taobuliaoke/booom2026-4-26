@@ -1,4 +1,5 @@
 extends Node
+@warning_ignore("unused_signal")
 signal word_collected(word_text)
 @warning_ignore("unused_signal")
 signal show_tooltip(text) # 定义显示信号，带一个文字参数
@@ -13,6 +14,10 @@ signal request_item_detail(info: Dictionary)
 signal request_letter_open(letter_node_name:String)#负责通知信件库，打开哪封信
 @warning_ignore("unused_signal")
 signal ui_closed_refresh_hover # 当 UI 关闭时提醒场景物体刷新状态
+@warning_ignore("unused_signal")
+signal request_next_view
+@warning_ignore("unused_signal")
+signal request_prev_view
 signal clue_collected
 signal request_ui_suppression(should_suppress: bool)
 
@@ -29,20 +34,23 @@ func _input(event):
 		#发电报，通知UI面板，认领工作
 		emit_signal('global_clicked',event)
 
-func collect_clue(word_name:String):
-	if not clues_registry.has(word_name) or clues_registry[word_name] == false:
-		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-		clues_registry[word_name] = true
-		clue_collected.emit(word_name)
-		return true#成功收集
-	return false #表示之前已经拿过了
-
-func add_word(word):
+func register_and_add_clue(word: String) -> bool:
+	print("信号发射源头")
+	# 1. 检查是否已经收集过
+	if clues_registry.get(word, false):
+		return false
+		
+	# 2. 写入注册表
+	clues_registry[word] = true
+	
+	# 3. 加入列表（如果不在列表里）
 	if not collected_words.has(word):
 		collected_words.append(word)
-		emit_signal("word_collected", word) # 只有新词才发信号词
-
-
+	
+	# 4. 只发射一个统一的信号，通知 UI 刷新
+	clue_collected.emit(word) 
+	
+	return true
 
 #皮肤中转
 func get_drag_preview(word_text: String) -> Control:

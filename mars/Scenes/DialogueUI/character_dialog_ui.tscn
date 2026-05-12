@@ -83,7 +83,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pss2r")
-max_width = 400.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=287042001]
 layout_mode = 0
