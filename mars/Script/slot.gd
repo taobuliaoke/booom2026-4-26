@@ -62,9 +62,19 @@ func _drop_data(_at_position, data):
 		
 		
 	#通知ReasoningManager处理排他性
-	var manager = get_parent()
-	if manager.has_method('handle_word_move'):
+	var manager = _get_page_manager(self)
+	if manager and manager.has_method('handle_word_move'):
 		manager.handle_word_move(new_text, origin_node, self)
+
+
+func _get_page_manager(node):
+	var p = node.get_parent()
+	while p != null:
+		if p.has_method('handle_word_move'):
+			return p
+		p = p.get_parent()
+	return null
+	
 	# 将空格的文字改为拖过来的词条内容
 	#label.text = data
 	

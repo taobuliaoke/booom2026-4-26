@@ -323,6 +323,12 @@ offset_top = 1.0
 offset_right = -105.0
 offset_bottom = 90.0
 
+[node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
+offset_left = 1312.0
+offset_top = 869.0
+offset_right = 1587.0
+offset_bottom = 1198.0
+
 [node name="IconContainer" type="Control" parent="UiLayer" unique_id=2020812257]
 layout_mode = 3
 anchors_preset = 2
@@ -382,17 +388,9 @@ metadata/_edit_lock_ = true
 [node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
 unique_name_in_owner = true
 visible = false
-mouse_filter = 1
-is_global_manager = true
 
 [node name="Letter2" parent="UiLayer/CharacterDialogUI" unique_id=354924844 instance=ExtResource("16_dtg5n")]
 layout_mode = 1
-
-[node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
-offset_left = 1312.0
-offset_top = 869.0
-offset_right = 1587.0
-offset_bottom = 1198.0
 
 [node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1552045099]
 material = SubResource("ShaderMaterial_eju3t")
@@ -409,5 +407,5 @@ y_sort_enabled = true
 position = Vector2(633, 360)
 priority = 1
 
-[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_button_pressed"]
-[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_button_pressed"]
+[connection signal="pressed" from="UiLayer/NextButton" to="Environment/Level1" method="_on_next_pressed"]
+[connection signal="pressed" from="UiLayer/PrevButton" to="Environment/Level1" method="_on_prev_pressed"]

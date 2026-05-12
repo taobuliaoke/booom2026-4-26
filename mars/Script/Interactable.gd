@@ -43,8 +43,8 @@ func _on_clicked():
 	if GameEvents.register_and_add_clue(word_name):
 		#成功收集，通知本关卡所有视角里的同名线索更新状态
 		get_tree().call_group('clue_items','check_status')
-	
-		print(word_name)
+
+		print('点击了信件内部的交互物:',word_name)
 		
 # 在 Interactable_4.gd 中添加
 
