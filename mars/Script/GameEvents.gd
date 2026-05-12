@@ -1,7 +1,5 @@
 extends Node
 @warning_ignore("unused_signal")
-signal word_collected(word_text)
-@warning_ignore("unused_signal")
 signal show_tooltip(text) # 定义显示信号，带一个文字参数
 @warning_ignore("unused_signal")
 signal hide_tooltip       # 定义隐藏信号

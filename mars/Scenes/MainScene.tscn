@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cve87385duapf"]
 
 [ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_i0j58"]
-[ext_resource type="Texture2D" uid="uid://ekboxnq5cfam" path="res://Art/UI/Reason_1.png" id="2_i0j58"]
+[ext_resource type="Texture2D" uid="uid://ekboxnq5cfam" path="res://art/UI/Reason_1.png" id="2_i0j58"]
 [ext_resource type="Script" uid="uid://45gmo527sitv" path="res://Script/RMForView.gd" id="3_bpy1e"]
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="3_c1ier"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="3_gyaec"]
@@ -12,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="9_4sso6"]
 [ext_resource type="PackedScene" uid="uid://df6kdpkev120a" path="res://Scenes/toggle_button.tscn" id="10_r0vnq"]
 [ext_resource type="PackedScene" uid="uid://n33ok0udqg1u" path="res://Scenes/next_button.tscn" id="11_hx8n4"]
-[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://Art/UI/mysteryA.png" id="11_i0j58"]
-[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://Art/UI/mysteryE.png" id="11_p5ymy"]
+[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://art/UI/mysteryA.png" id="11_i0j58"]
+[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://art/UI/mysteryE.png" id="11_p5ymy"]
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://cpibujf4fghri" path="res://Scenes/letter.tscn" id="16_dtg5n"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="17_d0jji"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="18_cotnl"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="18_cotnl"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eju3t"]
@@ -39,6 +39,7 @@ texture = ExtResource("2_i0j58")
 metadata/_edit_lock_ = true
 
 [node name="ReasoningGroup" type="Control" parent="." unique_id=1824886820]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
@@ -879,7 +880,6 @@ correct_answer = Array[String](["静姝"])
 [node name="Environment" type="Node2D" parent="." unique_id=1239188360]
 
 [node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("6_3va76")]
-metadata/_edit_lock_ = true
 
 [node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_wmecs")]
 visible = false
@@ -967,13 +967,6 @@ offset_bottom = 255.0
 texture = ExtResource("11_i0j58")
 metadata/_edit_lock_ = true
 
-[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
-unique_name_in_owner = true
-visible = false
-
-[node name="Letter2" parent="UiLayer/CharacterDialogUI" unique_id=354924844 instance=ExtResource("16_dtg5n")]
-layout_mode = 1
-
 [node name="NextButton" parent="UiLayer" unique_id=539064510 instance=ExtResource("11_hx8n4")]
 anchors_preset = 2
 anchor_top = 1.0
@@ -997,11 +990,18 @@ grow_vertical = 0
 mouse_default_cursor_shape = 2
 metadata/_edit_lock_ = true
 
+[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Letter2" parent="UiLayer/CharacterDialogUI" unique_id=354924844 instance=ExtResource("16_dtg5n")]
+layout_mode = 1
+
 [node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
 offset_left = 1312.0
-offset_top = 870.0
+offset_top = 876.0
 offset_right = 1587.0
-offset_bottom = 1199.0
+offset_bottom = 1205.0
 
 [node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1552045099]
 material = SubResource("ShaderMaterial_eju3t")

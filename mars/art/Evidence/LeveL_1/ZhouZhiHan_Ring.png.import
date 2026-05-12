@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bufeprcvtb3r5"
-path="res://.godot/imported/slot.png-a1ac8836849e90faa76307ada34da26a.ctex"
+uid="uid://cpeo3d6usxxmk"
+path="res://.godot/imported/ZhouZhiHan_Ring.png-bc35e703fa7b9d6492992ac177bf965f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/slot.png"
-dest_files=["res://.godot/imported/slot.png-a1ac8836849e90faa76307ada34da26a.ctex"]
+source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Ring.png"
+dest_files=["res://.godot/imported/ZhouZhiHan_Ring.png-bc35e703fa7b9d6492992ac177bf965f.ctex"]
 
 [params]
 

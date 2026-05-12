@@ -47,7 +47,7 @@ func _on_next_pressed():
 
 
 # 点击“左翻”按钮连接到这个函数
-func _on_prev_pressed():
+func _on_prev_button_pressed():
 	if is_blinking or not viewpoints_container or viewpoints_container.get_child_count() == 0:
 		return
 		
