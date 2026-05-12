@@ -879,7 +879,7 @@ correct_answer = Array[String](["静姝"])
 [node name="Environment" type="Node2D" parent="." unique_id=1239188360]
 
 [node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("6_3va76")]
-visible = false
+metadata/_edit_lock_ = true
 
 [node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_wmecs")]
 visible = false
@@ -996,6 +996,12 @@ offset_bottom = -96.0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
 metadata/_edit_lock_ = true
+
+[node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
+offset_left = 1312.0
+offset_top = 870.0
+offset_right = 1587.0
+offset_bottom = 1199.0
 
 [node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1552045099]
 material = SubResource("ShaderMaterial_eju3t")

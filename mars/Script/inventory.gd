@@ -3,7 +3,7 @@ var word_card_scene = preload("res://Scenes/word_card.tscn")
 
 func _ready():
 	# 听 GameEvents 的信号，只要有新词，就执行 add_new_card_ui
-	GameEvents.word_collected.connect(add_new_card_ui)
+	GameEvents.clue_collected.connect(add_new_card_ui)
 
 func add_new_card_ui(word_name):
 	var new_card = word_card_scene.instantiate()

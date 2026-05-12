@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4a50f4044aqd"
-path="res://.godot/imported/Level1_Zhoujingshu.png-98e41e3ae8633c6b2365b07571105de9.ctex"
+uid="uid://cvk7hg72dxlro"
+path="res://.godot/imported/ZhouZhiHan_Seal.png-34162a5cced3f4849fe752a680029910.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Vision/Level1/Level1_Zhoujingshu.png"
-dest_files=["res://.godot/imported/Level1_Zhoujingshu.png-98e41e3ae8633c6b2365b07571105de9.ctex"]
+source_file="res://Art/Evidence/LeveL_1/ZhouZhiHan_Seal.png"
+dest_files=["res://.godot/imported/ZhouZhiHan_Seal.png-34162a5cced3f4849fe752a680029910.ctex"]
 
 [params]
 

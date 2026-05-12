@@ -69,7 +69,7 @@ func _on_next_button_pressed() -> void:
 	var total_views = viewpoints_container.get_child_count()
 	current_view_index = (current_view_index + 1) % total_views
 	
-	if $"../../ReasoningPage".visible:
+	if $"../../ReasoningGroup".visible:
 		update_views() # 直接更新视角
 		switch_icon(1)
 	else:
