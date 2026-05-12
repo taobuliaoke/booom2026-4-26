@@ -4,6 +4,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
 	
 func _on_pressed():
+	if GameEvents.is_in_dialogue:return
 	$AnimatedSprite2D.play("pressed")
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.play("idle")

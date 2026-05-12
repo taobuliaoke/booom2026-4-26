@@ -19,6 +19,7 @@ signal request_next_view
 @warning_ignore("unused_signal")
 signal request_prev_view
 signal clue_collected
+signal request_ui_suppression(should_suppress: bool)
 
 var is_sub_ui_open: bool = false
 var is_in_dialogue = false

@@ -8,11 +8,16 @@ func _ready() -> void:
 	if library:
 		for child in library.get_children():
 			child.visible = false
-	
-	GameEvents.request_item_detail.connect(show_letter_by_node_name)
+			
+	GameEvents.request_ui_suppression.connect(_on_ui_suppression)
 	GameEvents.global_clicked.connect(_on_global_clicked)
 	GameEvents.request_letter_open.connect(show_letter_by_node_name)
 
+func _on_ui_suppression(should_suppress: bool):
+	if should_suppress and visible:
+		close_letter() # 切换到推理界面时，直接关掉信件 
+		
+		
 func show_letter_by_node_name(node_name:String) -> void:
 	if node_name == '' or  not library:
 		return

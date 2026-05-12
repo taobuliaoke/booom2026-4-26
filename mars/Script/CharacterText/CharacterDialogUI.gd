@@ -15,14 +15,27 @@ var current_character_id: String = ""
 func _ready():
 	visible = false
 	add_to_group("dialog_uis")
-	vbox.add_theme_constant_override('separation', spacing)
-	dialog_label.custom_minimum_size.x = max_width
+	# 确保节点存在再操作，防止崩溃
+	if vbox and dialog_label:
+		vbox.add_theme_constant_override('separation', spacing)
+		dialog_label.custom_minimum_size.x = max_width
+	else:
+		print("错误：找不到 UI 节点，请检查场景树路径！")
 
-
+	GameEvents.request_ui_suppression.connect(_on_ui_suppression)
+	print('对话框：信号连接成功')
 	GameEvents.request_character_dialog.connect(_on_request_dialog)
 	GameEvents.global_clicked.connect(_on_global_clicked)
-	if is_global_manager:
-		GameEvents.clue_collected.connect(_on_clue_collected_refresh)
+	
+	
+func _on_ui_suppression(should_suppress: bool):
+	if should_suppress:
+		# 仅仅是隐藏视觉效果，不清除 current_character_id [cite: 4]
+		visible = false
+	#else:
+		## 如果切回主场景，且之前确实有对话在进行，则恢复显示
+		#if current_character_id != "":
+			#visible = true
 
 #处理对话框生成
 func _on_request_dialog(cid:String,pos:Vector2):
@@ -251,8 +264,8 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 				GameEvents.register_and_add_clue(word)
 				get_tree().call_group("clue_items", "check_status")
 				# 拾取后，再次调用刷新函数
-				await get_tree().process_frame
-				_refresh_item_cursor(rect, info)
+				#await get_tree().process_frame
+				#_refresh_item_cursor()
 				# 如果该道具不能进次级界面，拾取完后立刻让小手消失变回箭头
 				if not info.get("can_interact", false):
 					Input.set_default_cursor_shape(Input.CURSOR_ARROW)

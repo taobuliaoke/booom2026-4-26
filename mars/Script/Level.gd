@@ -27,7 +27,27 @@ func _ready():
 		GameData.load_data_from_json("res://Script/Resourse/level_1_data.json")
 	# 游戏开始时，先刷新一次，确保只显示第一个视角
 	update_views()
-func _on_prev_button_pressed() -> void:
+
+
+	
+# 点击“右翻”按钮连接到这个函数
+func _on_next_pressed():
+	#如果在眨眼，拦截，不执行任何逻辑
+	if is_blinking or not viewpoints_container or viewpoints_container.get_child_count() == 0:
+		return
+	var total_views = viewpoints_container.get_child_count()
+	current_view_index = (current_view_index + 1) % total_views
+	
+	if $"../../ReasoningGroup".visible:
+		update_views() # 直接更新视角
+		switch_icon(1)
+	else:
+		switch_icon(1)
+		play_blink_transition() # 眨眼切换
+
+
+# 点击“左翻”按钮连接到这个函数
+func _on_prev_pressed():
 	if is_blinking or not viewpoints_container or viewpoints_container.get_child_count() == 0:
 		return
 		
