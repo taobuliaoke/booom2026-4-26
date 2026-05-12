@@ -39,6 +39,7 @@ texture = ExtResource("2_i0j58")
 metadata/_edit_lock_ = true
 
 [node name="ReasoningGroup" type="Control" parent="." unique_id=1824886820]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
@@ -879,7 +880,6 @@ correct_answer = Array[String](["静姝"])
 [node name="Environment" type="Node2D" parent="." unique_id=1239188360]
 
 [node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("6_3va76")]
-visible = false
 
 [node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_wmecs")]
 visible = false
@@ -967,13 +967,6 @@ offset_bottom = 255.0
 texture = ExtResource("11_i0j58")
 metadata/_edit_lock_ = true
 
-[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
-unique_name_in_owner = true
-visible = false
-
-[node name="Letter2" parent="UiLayer/CharacterDialogUI" unique_id=354924844 instance=ExtResource("16_dtg5n")]
-layout_mode = 1
-
 [node name="NextButton" parent="UiLayer" unique_id=539064510 instance=ExtResource("11_hx8n4")]
 anchors_preset = 2
 anchor_top = 1.0
@@ -996,6 +989,19 @@ offset_bottom = -96.0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
 metadata/_edit_lock_ = true
+
+[node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Letter2" parent="UiLayer/CharacterDialogUI" unique_id=354924844 instance=ExtResource("16_dtg5n")]
+layout_mode = 1
+
+[node name="ToggleButton" parent="UiLayer" unique_id=1101282643 instance=ExtResource("10_r0vnq")]
+offset_left = 1312.0
+offset_top = 876.0
+offset_right = 1587.0
+offset_bottom = 1205.0
 
 [node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1552045099]
 material = SubResource("ShaderMaterial_eju3t")

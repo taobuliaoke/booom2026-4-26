@@ -58,7 +58,7 @@ func _interact():
 	# 角色身上可能附带的自动拾取逻辑 (可选)
 	var word = data.get("collectible_word", "")
 	if word != "" and not GameEvents.clues_registry.get(word, false):
-		GameEvents.add_word(word)
+		GameEvents.register_and_add_clue(word)
 		get_tree().call_group("clue_items", "check_status")
 
 # --- 3. 辅助功能函数 ---
