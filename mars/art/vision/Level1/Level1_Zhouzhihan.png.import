@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2a850srdod8u"
-path="res://.godot/imported/047b1f8ea5d97683bee19095b3bb3149.jpg-8ffd72e822d96a41eab9c8e6d38cdc39.ctex"
+uid="uid://loel61fjee1e"
+path="res://.godot/imported/Level1_Zhouzhihan.png-195229cef257062b5855b3b30cfab65c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/047b1f8ea5d97683bee19095b3bb3149.jpg"
-dest_files=["res://.godot/imported/047b1f8ea5d97683bee19095b3bb3149.jpg-8ffd72e822d96a41eab9c8e6d38cdc39.ctex"]
+source_file="res://art/vision/Level1/Level1_Zhouzhihan.png"
+dest_files=["res://.godot/imported/Level1_Zhouzhihan.png-195229cef257062b5855b3b30cfab65c.ctex"]
 
 [params]
 

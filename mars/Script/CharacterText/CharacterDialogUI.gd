@@ -1,5 +1,5 @@
 extends Control
-
+@export var is_global_manager: bool = false # 在编辑器里，主 UI 设为 true，NPC 下的设为 false
 
 @export var max_width: float = 500 # max width
 @export var spacing:int = 10 #how far from dialogbox to item box
@@ -21,7 +21,8 @@ func _ready():
 
 	GameEvents.request_character_dialog.connect(_on_request_dialog)
 	GameEvents.global_clicked.connect(_on_global_clicked)
-	GameEvents.clue_collected.connect(_on_clue_collected_refresh)
+	if is_global_manager:
+		GameEvents.clue_collected.connect(_on_clue_collected_refresh)
 
 #处理对话框生成
 func _on_request_dialog(cid:String,pos:Vector2):
@@ -247,8 +248,7 @@ func _bind_item_signals(rect: TextureRect, info: Dictionary):
 			# 处理拾取
 			var word = info.get("collectible_word", "")
 			if word != "" and not GameEvents.clues_registry.get(word, false):
-				GameEvents.add_word(word)
-				GameEvents.collect_clue(word)
+				GameEvents.register_and_add_clue(word)
 				get_tree().call_group("clue_items", "check_status")
 				# 拾取后，再次调用刷新函数
 				await get_tree().process_frame
@@ -292,6 +292,7 @@ func hide_dialog():
 	GameEvents.emit_signal('ui_closed_refresh_hover')
 	
 func _on_clue_collected_refresh(_word):
+	print("收到信号的节点: ", name, " | 路径: ", get_path(), " | ID: ", get_instance_id())
 	print("触发")
 	# 如果当前对话框是开启状态，重新解析并刷新文本颜色
 	if visible and current_character_id != "":

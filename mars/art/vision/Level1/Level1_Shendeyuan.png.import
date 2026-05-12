@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vs2k4bisuuke"
-path="res://.godot/imported/Level1_Shendeyuan.jpg-1b9829ad1763ecbceb6465fc34ca2269.ctex"
+uid="uid://dbwenlhhhvnho"
+path="res://.godot/imported/Level1_Shendeyuan.png-911bf38254cffc69059088943d4590b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/Level1/Level1_Shendeyuan.jpg"
-dest_files=["res://.godot/imported/Level1_Shendeyuan.jpg-1b9829ad1763ecbceb6465fc34ca2269.ctex"]
+source_file="res://art/vision/Level1/Level1_Shendeyuan.png"
+dest_files=["res://.godot/imported/Level1_Shendeyuan.png-911bf38254cffc69059088943d4590b5.ctex"]
 
 [params]
 

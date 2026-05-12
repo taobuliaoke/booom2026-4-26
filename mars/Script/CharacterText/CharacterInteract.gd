@@ -68,8 +68,7 @@ func _on_word_picked():
 		return
 		
 	print("成功拾取文本词条: ", character_id)
-	GameEvents.add_word(character_id)
-	GameEvents.collect_clue(character_id)
+	GameEvents.register_and_add_clue(character_id)
 	
 	# 拾取效果：淡出并销毁该 Area2D
 	var tween = create_tween()
