@@ -1,50 +1,80 @@
 {
   "item_descriptions": {
 	"文鸳": "对当前的话题兴致缺缺",
-	"周之瀚": "没有正眼看对方",
+	"文鸳_ViewD": "沈姐姐的随身丫鬟",
+	"周之瀚": "没有正眼看我",
+	"周之瀚_ViewC": "木干",
+	"周之瀚_ViewD":"爹爹好像在看着我",
 	"沈德渊": "摆出了求人的姿态",
+	"沈德渊_ViewC": "土敦",
+	"沈德渊_ViewD":"沈伯伯背对着我们",
 	"周静姝": "正在看着她的洋人私塾老师",
+	"周静姝_ViewE":"周小姐",
 	"沈慧心": "对目前的话题很感兴趣",
+	"沈慧心_ViewD": "第一次认识的沈姐姐，想和她一起玩",
 	"钢笔": "一支昂贵的钢笔",
 	"丁加立": "拿着修金，尽心尽责",
+	"丁加立_ViewD": "被爹爹雇来教我洋文的先生",
+	"丁加立_ViewE": "名叫丁加立的洋人传教士，名字好奇怪",
 	"信件": "一封信",
-	"渔民甲": "正在和渔人乙交谈",
-	"渔民乙": "正在和渔人甲交谈",
+	"渔民甲": "路过的渔民吧",
+	"渔民甲_ViewE": "正在和渔人乙交谈",
+	"渔民乙": "另一个路过的渔民",
+	"渔民乙_ViewE": "正在和渔人甲交谈",
+	"3":"'''?",
+	"1":"'?",
+	"2":"''?",
+	"bird":"ˇˇ",
 	"一个神秘的人": "一个神秘的人"
   },
   "character_data": {
 	"沈慧心": {
-	  "dialog": "好久不见，这是{我}为你准备的{礼物}。",
+	  "dialog": "那火星上的人长什么样，他们也像丁先生你吗？还是像庙里的罗汉？"
+	  	},
+	"沈慧心_ViewD": {
+	  "dialog": "那火星上的人长什么样，他们也像丁先生你吗？还是像庙里的罗汉？",
 	  "items": [
 		{
-		  "item_name": "钢笔",
-		  "collectible_word": "钢笔",
-		  "path": "res://art/UI/ToggleButton.png",
-		  "can_interact": false,
-		  "content": ""
+		  "item_name": "《谈天》,纸贵洛阳，为一时之奇观",
+		  "collectible_word": "《谈天》",
+		  "path": "res://art/Evidence/draft.png",
+		  "can_interact": false
 		},
 		{
-		  "item_name": "信件",
-		  "collectible_word": "信件",
+		  "item_name": "一张火星星图",
+		  "collectible_word": "",
 		  "path": "res://art/Evidence/LetterTest.png",
 		  "can_interact": true,
-		  "content": "这是一封信,里面写满了我的{bug}"
+		  "letter_node_name": "Letter_MingDan"
+
+		},
+		{
+		  "item_name": "一张手绢",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": true,
+		  "content": "",
+		  "letter_node_name": "Letter_MingDan"
+
 		}
 	  ]
 	},
 	"文鸳": {
+	  "dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。"
+		},
+	"文鸳_ViewD": {
 	  "dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。",
 	  "items": [
 		{
 		  "item_name": "稿纸",
-		  "collectible_word": "洋文",
+		  "collectible_word": "教",
 		  "path": "res://art/Evidence/draft.png",
 		  "can_interact": true,
-		  "content": ""
+		  "letter_node_name": "Letter_MingDan"
 		},
 		{
 		  "item_name": "针线包",
-		  "collectible_word": "信件",
+		  "collectible_word": "",
 		  "path": "res://art/Evidence/LetterTest.png",
 		  "can_interact": false,
 		  "content": ""
@@ -52,7 +82,11 @@
 	  ]
 	},
 	"丁加立": {
+	  "dialog": "……书上说，火星荧荧如火，{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。"
+	},
+	"丁加立_ViewD": {
 	  "dialog": "……书上说，火星荧荧如火，{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。",
+	  "collectible_word":"女儿",
 	  "items": [
 		{
 		  "item_name": "十字架项链",
@@ -60,6 +94,7 @@
 		  "path": "res://art/Evidence/draft.png",
 		  "can_interact": true,
 		  "content": ""
+		  
 		},
 		{
 		  "item_name": "圣经",
@@ -70,11 +105,35 @@
 		}
 	  ]
 	},
-	"周静姝": {
-	  "dialog": "这么说来萤惑上面有人吗？我怎样能去到萤惑上面？",
+	"丁加立_ViewE": {
+	  "dialog": "……书上说，火星荧荧如火，{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。",
+	  "collectible_word":"丁加立",
 	  "items": [
 		{
-		  "item_name": "一块黑色的石头",
+		  "item_name": "十字架项链",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/draft.png",
+		  "can_interact": true,
+		  "content": ""
+		  
+		},
+		{
+		  "item_name": "圣经",
+		  "collectible_word": "",
+		  "path": "res://art/Evidence/LetterTest.png",
+		  "can_interact": false,
+		  "content": ""
+		}
+	  ]
+	  },
+	"周静姝": {
+	  "dialog": "这么说来{萤惑}上面有人吗？我怎样能去到萤惑上面？"
+	},
+	"周静姝_ViewE": {
+	  "dialog": "这么说来{萤惑}上面有人吗？我怎样能去到萤惑上面？",
+	  "items": [
+		{
+		  "item_name": "岸边捡到的黑色的石头",
 		  "collectible_word": "",
 		  "path": "res://art/Evidence/draft.png",
 		  "can_interact": false,
@@ -94,15 +153,19 @@
 		},
 		{
 		  "item_name": "一份名单?",
-		  "collectible_word": "",
+		  "collectible_word": "留洋名单",
 		  "path": "res://art/Evidence/draft.png",
 		  "can_interact": true,
 		  "letter_node_name": "Letter_MingDan"
 		}
 	  ]
 	},
+	"周之瀚_ViewC": {
+	  "dialog": "靖臣啊，急什么。名单是死的，人是活的。慧心聪慧，自然有她的去处。"
+	
+	},
 	"沈德渊": {
-	  "dialog": "中堂，德渊如今在朝中举步维艰，慧心是我唯一的指望！这船政局的名单……",
+	  "dialog": "中堂，{德渊}如今在朝中举步维艰，{慧心}是我唯一的指望！这船政局的名单……",
 	  "items": [
 		{
 		  "item_name": "沈德渊印",
@@ -127,11 +190,15 @@
 		}
 	  ]
 	},
-	"渔民甲": {
+	"沈德渊_ViewC": {
+	  "dialog": "中堂，{德渊}如今在朝中举步维艰，{慧心}是我唯一的指望！这船政局的名单……"
+
+	},
+	"渔民甲_ViewE": {
 	  "dialog": "昨天不会真是{神}{仙}显灵了吧？",
 	  "items": []
 	},
-	"渔民乙": {
+	"渔民乙_ViewE": {
 	  "dialog": "哎呀，可别再提了，我们一起晕过去，不落水已经很好了，不要犯了忌讳得罪不管是神仙还是别的什么东西。",
 	  "items": []
 	}

@@ -2,10 +2,9 @@ extends TextureButton
 
 @onready var pupil = $EyeWhite/Pupil
 @onready var click_anim = $ClickAnim
-@onready var reasoning_page = $"../../ReasoningPage"
 @onready var environment =$"../../Environment" #拿来吧你
 @onready var reasoning_group =$"../../ReasoningGroup"
-
+@onready var dialogueUI = %CharacterDialogUI
 @export var max_look_dist: float = 8.0 # 眼珠晃动最大半径
 var is_animating: bool = false
 var env_original_pos: Vector2
@@ -61,24 +60,28 @@ func update_pupil_focus():
 	
 func _pressed():
 	if is_animating:return
-	is_animating = true
+	var is_to_reasoning = !reasoning_group.visible
 	
-	#var is_to_reasoning = !reasoning_group.visible
+	#连全局GameEvent，控制其他ui开关
+	# 去推理界面的画，should_suppress = true: 切回场景为false
+	GameEvents.request_ui_suppression.emit(is_to_reasoning)  
+
 	
+
 	
 	#眼球
 	click_anim.show()
-	click_anim.play('click')
 	
-	#切换逻辑
-	var will_open = !reasoning_group.visible
-	reasoning_group.visible = will_open
+	#reasoning_group.visible = is_to_reasoning
+	print("pressed：",reasoning_group.visible)
 	#修改按钮样式
-	update_button_style(will_open)
-	
+	update_button_style(is_to_reasoning)
+	is_animating = true
 	#调用淡入淡出动画
-	run_env_animation(will_open)
-	if will_open:
+	run_env_animation(is_to_reasoning)
+	if is_to_reasoning:
+		GameEvents.is_in_dialogue = false
+		GameEvents.is_sub_ui_open = false
 		click_anim.play("to_reasoning")
 		$background.hide()
 		$EyeWhite.hide()
@@ -98,7 +101,7 @@ func update_button_style(is_reasoning: bool):
 
 #动画整合
 func run_env_animation(is_opening:bool):
-	
+	print("去填空：",is_opening)
 	if not environment or not reasoning_group:
 		#如果没有场景，立刻解锁，防止死锁
 		is_animating = false
@@ -122,6 +125,8 @@ func run_env_animation(is_opening:bool):
 		tween.parallel().tween_property(reasoning_group, 'modulate:a', 1.0, 0.4)
 		
 	else:
+		
+		print("渐出")
 		#关了，再见世界886
 		#environment+group魂飞魄散
 		tween.parallel().tween_property(environment, 'position', env_original_pos, 0.5)
@@ -129,6 +134,7 @@ func run_env_animation(is_opening:bool):
 		
 		#动画结束后把它们都杀掉，鼠标闪亮登场
 		tween.chain().tween_callback(func():
+			$EyeWhite.show()
 			reasoning_group.visible = false
 			GameEvents.is_sub_ui_open = false
 			GameEvents.ui_closed_refresh_hover.emit()
@@ -157,7 +163,6 @@ func create_bitmap_from_texture(tex: Texture2D) -> BitMap:
 func _on_anim_finished():
 	# 隐藏动画节点
 	$background.show()
-	if not reasoning_group.visible:$EyeWhite.show()
 	click_anim.hide()
 	# 重置到第一帧，防止下次显示时闪现最后一帧的残影
 	click_anim.frame = 0 

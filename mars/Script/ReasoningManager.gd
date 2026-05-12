@@ -8,7 +8,7 @@ var all_slots = []
 
 func _ready() :
 	if E_slots_container:
-		for child in get_children():
+		for child in E_slots_container.get_children():
 			if child.has_method('is_correct'):
 				all_slots.append(child)
 				child.slot_changed.connect(Callable(self, "_check_all_slots"))
@@ -16,10 +16,10 @@ func _ready() :
 
 # --- 新增：核心位置管理逻辑 ---
 func handle_word_move(word_text: String, _from_node: Node, to_node: Node):
-	#遍历所有 slot，如果在其他地方已经有这个词了，就先清空它（实现唯一性）
-	for slot in all_slots:
-		if slot.label.text == word_text:
-			slot.clear_slot()
+	##遍历所有 slot，如果在其他地方已经有这个词了，就先清空它（实现唯一性）
+	#for slot in all_slots:
+		#if slot.label.text == word_text:
+			#slot.clear_slot()
 	
 	#如果是从另一个 Slot 拖过来的，且目标位置已经有词了
 	# 这里可以选择交换词语，或者简单地覆盖。
@@ -64,13 +64,16 @@ func _on_some_wrong(count:int):
 	#播放错误提示音效
 	
 func _show_feedback(msg: String):
-	feedback_label.text = msg
-	feedback_panel.show()
+	if feedback_label:
+		feedback_label.text = msg
 	
-	# 如果你希望它几秒后自动消失，可以使用 Tween 或 Timer
-	var tween = create_tween()
-	tween.tween_interval(2.0) # 显示2秒
-	tween.tween_callback(feedback_panel.hide)
+	if feedback_panel:
+		feedback_panel.show() #确保面板一直可见
+	
+	## 如果你希望它几秒后自动消失，可以使用 Tween 或 Timer
+	#var tween = create_tween()
+	#tween.tween_interval(2.0) # 显示2秒
+	#tween.tween_callback(feedback_panel.hide)
 
 
 #func _on_verify_button_pressed():

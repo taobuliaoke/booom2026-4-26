@@ -89,7 +89,7 @@ func update_button_style(is_reasoning: bool):
 	else:
 		$background.texture = normal_img
 #探索界面动画展示
-func run_env_animation(is_opening:bool):
+func run_env_animation(is_to_reasoning:bool):
 	
 	if not environment:
 		#如果没有场景，立刻解锁，防止死锁
@@ -102,7 +102,7 @@ func run_env_animation(is_opening:bool):
 	#设置弹性动画参数
 	tween.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	
-	if  is_opening:
+	if  is_to_reasoning:
 		#推理页打开时，场景从下往上移出镜头（减去屏幕高度）
 		var target_pos = env_original_pos - Vector2(0, get_viewport_rect().size.y)
 		tween.tween_property(environment,'position',target_pos,0.5)

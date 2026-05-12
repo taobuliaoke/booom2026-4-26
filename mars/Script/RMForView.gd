@@ -17,10 +17,10 @@ func _ready() :
 
 # --- 新增：核心位置管理逻辑 ---
 func handle_word_move(word_text: String, from_node: Node, to_node: Node):
-	#遍历所有 slot，如果在其他地方已经有这个词了，就先清空它（实现唯一性）
-	for slot in all_slots:
-		if slot.label.text == word_text:
-			slot.clear_slot()
+	##遍历所有 slot，如果在其他地方已经有这个词了，就先清空它（实现唯一性）
+	#for slot in all_slots:
+		#if slot.label.text == word_text:
+			#slot.clear_slot()
 	
 	#如果是从另一个 Slot 拖过来的，且目标位置已经有词了
 	# 这里可以选择交换词语，或者简单地覆盖。
@@ -65,13 +65,16 @@ func _on_some_wrong(count:int):
 	#播放错误提示音效
 	
 func _show_feedback(msg: String):
-	feedback_label.text = msg
-	feedback_panel.show()
+	if feedback_label:
+		feedback_label.text = msg
+
+	if feedback_panel:
+		feedback_panel.show()
 	
-	# 如果你希望它几秒后自动消失，可以使用 Tween 或 Timer
-	var tween = create_tween()
-	tween.tween_interval(2.0) # 显示2秒
-	tween.tween_callback(feedback_panel.hide)
+	## 如果你希望它几秒后自动消失，可以使用 Tween 或 Timer
+	#var tween = create_tween()
+	#tween.tween_interval(2.0) # 显示2秒
+	#tween.tween_callback(feedback_panel.hide)
 
 
 #func _on_verify_button_pressed():

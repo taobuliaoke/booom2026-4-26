@@ -14,6 +14,7 @@ signal request_letter_open(letter_node_name:String)#负责通知信件库，打�
 @warning_ignore("unused_signal")
 signal ui_closed_refresh_hover # 当 UI 关闭时提醒场景物体刷新状态
 signal clue_collected
+signal request_ui_suppression(should_suppress: bool)
 
 var is_sub_ui_open: bool = false
 var is_in_dialogue = false
