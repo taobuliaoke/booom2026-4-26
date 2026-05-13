@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wwhh0r4qjwwx"
-path="res://.godot/imported/Shendeyuan_receipt.png-1753bb1d2f6b2fd72f85bdf03ba8d9bb.ctex"
+path="res://.godot/imported/Shendeyuan_receipt.png-fc51a4ef59f8de8bde1b3614d44d452a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/Shendeyuan_receipt.png"
-dest_files=["res://.godot/imported/Shendeyuan_receipt.png-1753bb1d2f6b2fd72f85bdf03ba8d9bb.ctex"]
+source_file="res://art/Evidence/LeveL_1/Shendeyuan_receipt.png"
+dest_files=["res://.godot/imported/Shendeyuan_receipt.png-fc51a4ef59f8de8bde1b3614d44d452a.ctex"]
 
 [params]
 

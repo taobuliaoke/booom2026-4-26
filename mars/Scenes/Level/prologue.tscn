@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://6kyob3fduouo"]
+
+[ext_resource type="Script" uid="uid://bli1vv6d0wioj" path="res://Script/prologue/prologue.gd" id="1_nim4c"]
+[ext_resource type="Texture2D" uid="uid://cwen0yi3bq56l" path="res://art/vision/prologue/prologue_0.jpg" id="2_rt4ci"]
+[ext_resource type="Texture2D" uid="uid://duqjgehrl21cd" path="res://art/vision/prologue/prologue_1.jpg" id="3_ghkf2"]
+[ext_resource type="Texture2D" uid="uid://wee5iqt2qrr6" path="res://art/vision/prologue/prologue_2.jpg" id="4_30pd2"]
+[ext_resource type="Script" uid="uid://dm8v3lgt6pfaj" path="res://Script/prologue/prologue_interact.gd" id="5_52yis"]
+[ext_resource type="Texture2D" uid="uid://dwjpnmu0sy0nt" path="res://art/vision/prologue/prologue_3.jpg" id="5_t2qym"]
+[ext_resource type="Texture2D" uid="uid://bjfb5xur66cki" path="res://art/vision/prologue/prologue_5.jpg" id="7_2jbdw"]
+[ext_resource type="Texture2D" uid="uid://cxxhslq6j8fvd" path="res://art/vision/prologue/prologue_6.jpg" id="8_go5so"]
+[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="9_436kb"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_2kgvc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3wly"]
+radius = 199.30379
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52yis"]
+radius = 78.1089
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqs61"]
+shader = ExtResource("9_436kb")
+shader_parameter/intensity = 0.1
+shader_parameter/speed = 2.0
+shader_parameter/channel_bias = Vector3(0.8, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_erp77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o1e67"]
+resource_name = "fade_in2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3hhce"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntbng"]
+_data = {
+&"RESET": SubResource("Animation_erp77"),
+&"fade_in": SubResource("Animation_o1e67"),
+&"fade_out": SubResource("Animation_3hhce")
+}
+
+[node name="Prologue" type="Control" unique_id=1102609327 node_paths=PackedStringArray("slide_nodes")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_nim4c")
+slide_nodes = [NodePath("SlidesContainer/Slide0"), NodePath("SlidesContainer/Slide1"), NodePath("SlidesContainer/Slide2"), NodePath("SlidesContainer/Slide3"), NodePath("SlidesContainer/Slide4"), NodePath("SlidesContainer/Slide5"), NodePath("SlidesContainer/Slide6")]
+
+[node name="SlidesContainer" type="Control" parent="." unique_id=1208665037]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Slide0" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide0" unique_id=643970147]
+texture = ExtResource("2_rt4ci")
+centered = false
+
+[node name="Slide1" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide1" unique_id=2026857587]
+texture = ExtResource("3_ghkf2")
+centered = false
+
+[node name="Slide2" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide2" unique_id=1734597785]
+texture = ExtResource("4_30pd2")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="SlidesContainer/Slide2" unique_id=693563326]
+script = ExtResource("5_52yis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/Slide2/Area2D" unique_id=4260387]
+position = Vector2(804, 532)
+shape = SubResource("CircleShape2D_k3wly")
+
+[node name="Slide3" type="Node2D" parent="SlidesContainer" unique_id=2049157347]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide3" unique_id=1482771329]
+texture = ExtResource("5_t2qym")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="SlidesContainer/Slide3" unique_id=1472114810]
+script = ExtResource("5_52yis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/Slide3/Area2D" unique_id=1524460595]
+position = Vector2(796, 517)
+shape = SubResource("CircleShape2D_52yis")
+
+[node name="Slide4" type="CanvasGroup" parent="SlidesContainer" unique_id=397223761]
+visible = false
+
+[node name="Slide5" type="Node2D" parent="SlidesContainer" unique_id=628548123]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide5" unique_id=1086709686]
+texture = ExtResource("7_2jbdw")
+centered = false
+
+[node name="Slide6" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide6" unique_id=1186193574]
+texture = ExtResource("8_go5so")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1440551128]
+
+[node name="ScreenFader" type="ColorRect" parent="CanvasLayer" unique_id=1524486539]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=1765236196]
+material = SubResource("ShaderMaterial_cqs61")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_2kgvc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=682776889]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ntbng")
