@@ -75,7 +75,9 @@ func collect_this_word():
 	if GameEvents.register_and_add_clue(word_name):
 		# 通知本关所有视角的同名物品变灰
 		get_tree().call_group("clue_items", "check_status")
-		
+		if dialog_root and dialog_root.has_method("show_content"):
+			# 重新显示当前角色的内容，触发 GameData 的重新解析
+			dialog_root.show_content(dialog_root.current_character_id)
 		#  禁用自己的碰撞，防止连点
 		$CollisionShape2D.set_deferred("disabled", true)
 		dialog_root.mouse_default_cursor_shape = Control.CURSOR_ARROW

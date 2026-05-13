@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nvksofqx7hj0"
-path="res://.godot/imported/ZhouZhiHan_Yin.png-937731382e2c39834cdb17e159fbb917.ctex"
+path="res://.godot/imported/ZhouZhiHan_Yin.png-1006b38fc09fd6d4990a966d764c1134.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/ZhouZhiHan_Yin.png"
-dest_files=["res://.godot/imported/ZhouZhiHan_Yin.png-937731382e2c39834cdb17e159fbb917.ctex"]
+source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Yin.png"
+dest_files=["res://.godot/imported/ZhouZhiHan_Yin.png-1006b38fc09fd6d4990a966d764c1134.ctex"]
 
 [params]
 
