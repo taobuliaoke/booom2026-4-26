@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvksofqx7hj0"
-path="res://.godot/imported/ZhouZhiHan_Yin.png-1006b38fc09fd6d4990a966d764c1134.ctex"
+uid="uid://bjhm0rbo6o1ap"
+path="res://.godot/imported/Dingjiali_necklace.png-8b4539e39bc9c5413537c6fdc9864d1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Yin.png"
-dest_files=["res://.godot/imported/ZhouZhiHan_Yin.png-1006b38fc09fd6d4990a966d764c1134.ctex"]
+source_file="res://Art/Evidence/LeveL_1/Dingjiali_necklace.png"
+dest_files=["res://.godot/imported/Dingjiali_necklace.png-8b4539e39bc9c5413537c6fdc9864d1d.ctex"]
 
 [params]
 

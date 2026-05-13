@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nvksofqx7hj0"
-path="res://.godot/imported/ZhouZhiHan_Yin.png-1006b38fc09fd6d4990a966d764c1134.ctex"
+uid="uid://6bofhbx0npbu"
+path="res://.godot/imported/ZhouJingShu_stone.png-1fca5deb555a5cd3f2c58a7a8d45ea1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Yin.png"
-dest_files=["res://.godot/imported/ZhouZhiHan_Yin.png-1006b38fc09fd6d4990a966d764c1134.ctex"]
+source_file="res://Art/Evidence/LeveL_1/ZhouJingShu_stone.png"
+dest_files=["res://.godot/imported/ZhouJingShu_stone.png-1fca5deb555a5cd3f2c58a7a8d45ea1a.ctex"]
 
 [params]
 
