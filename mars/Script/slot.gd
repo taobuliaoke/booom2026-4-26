@@ -11,6 +11,9 @@ var word_card_scene = preload("res://Scenes/word_card.tscn")
 
 #检查是否是正确答案
 func is_correct() -> bool:
+	if label.text == '' or label.text == "":
+		return false
+	
 	return label.text in correct_answer
 	
 	

@@ -24,6 +24,7 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1238727185]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -32,7 +33,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=541939859]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "=="
 label_settings = SubResource("LabelSettings_k0ndv")
 horizontal_alignment = 1

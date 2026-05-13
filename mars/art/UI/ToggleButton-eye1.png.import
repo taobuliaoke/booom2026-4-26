@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxglilr1332yg"
-path="res://.godot/imported/ToggleButton-eye1.png-c52225b99d963d313dbcff23d9a56638.ctex"
+path="res://.godot/imported/ToggleButton-eye1.png-ca84cc3289c6ca06dea5be9fead1573c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/ToggleButton-eye1.png"
-dest_files=["res://.godot/imported/ToggleButton-eye1.png-c52225b99d963d313dbcff23d9a56638.ctex"]
+source_file="res://Art/UI/ToggleButton-eye1.png"
+dest_files=["res://.godot/imported/ToggleButton-eye1.png-ca84cc3289c6ca06dea5be9fead1573c.ctex"]
 
 [params]
 

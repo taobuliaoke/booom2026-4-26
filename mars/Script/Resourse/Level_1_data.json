@@ -36,26 +36,23 @@
 	  "items": [
 		{
 		  "item_name": "《谈天》,纸贵洛阳，为一时之奇观",
-		  "collectible_word": "《谈天》",
-		  "path": "res://art/Evidence/draft.png",
+		  "collectible_word": "谈天",
+		  "path": "res://Art/Evidence/LeveL_1/Shenhuixin_tantian.png",
 		  "can_interact": false
 		},
 		{
-		  "item_name": "一张火星星图",
+		  "item_name": "一张星图",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://Art/Evidence/LeveL_1/Shenhuixin_starmap.png",
 		  "can_interact": true,
-		  "letter_node_name": "Letter_MingDan"
+		  "letter_node_name": "Letter_StarMap"
 
 		},
 		{
-		  "item_name": "一张手绢",
+		  "item_name": "手绢,上面绣着兰花和萤火虫",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
-		  "can_interact": true,
-		  "content": "",
-		  "letter_node_name": "Letter_MingDan"
-
+		  "path": "res://Art/Evidence/LeveL_1/Shenhuixin_handkerchief.png",
+		  "can_interact": false
 		}
 	  ]
 	},
@@ -67,15 +64,15 @@
 	  "items": [
 		{
 		  "item_name": "稿纸",
-		  "collectible_word": "教",
-		  "path": "res://art/Evidence/draft.png",
+		  "collectible_word": "洋文",
+		  "path": "res://Art/Evidence/LeveL_1/Wenyuan_draft.png",
 		  "can_interact": true,
-		  "letter_node_name": "Letter_MingDan"
+		  "letter_node_name": "Letter_Draft"
 		},
 		{
 		  "item_name": "针线包",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://Art/Evidence/LeveL_1/Wenyuan_sewingkit.png",
 		  "can_interact": false,
 		  "content": ""
 		}
@@ -91,7 +88,7 @@
 		{
 		  "item_name": "十字架项链",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/draft.png",
+		  "path": "res://Art/Evidence/LeveL_1/Dingjiali_necklace.png",
 		  "can_interact": true,
 		  "content": ""
 		  
@@ -99,7 +96,7 @@
 		{
 		  "item_name": "圣经",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://Art/Evidence/LeveL_1/Dingjiali_Bible.png",
 		  "can_interact": false,
 		  "content": ""
 		}
@@ -112,7 +109,7 @@
 		{
 		  "item_name": "十字架项链",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/draft.png",
+		  "path": "res://Art/Evidence/LeveL_1/Dingjiali_necklace.png",
 		  "can_interact": true,
 		  "content": ""
 		  
@@ -120,7 +117,7 @@
 		{
 		  "item_name": "圣经",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://Art/Evidence/LeveL_1/Dingjiali_Bible.png",
 		  "can_interact": false,
 		  "content": ""
 		}
@@ -135,7 +132,7 @@
 		{
 		  "item_name": "岸边捡到的黑色的石头",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/draft.png",
+		  "path": "res://Art/Evidence/LeveL_1/ZhouJingShu_stone.png",
 		  "can_interact": false,
 		  "content": ""
 		}
@@ -147,35 +144,42 @@
 		{
 		  "item_name": "周之瀚印",
 		  "collectible_word": "之瀚",
-		  "path": "res://art/Evidence/draft.png",
+		  "path": "res://Art/Evidence/LeveL_1/ZhouZhiHan_Seal.png",
 		  "can_interact": false,
 		  "content": ""
 		},
 		{
 		  "item_name": "一份名单?",
 		  "collectible_word": "留洋名单",
-		  "path": "res://art/Evidence/draft.png",
+		  "path": "res://Art/Evidence/LeveL_1/ZhouZhiHan_Abroad.png",
 		  "can_interact": true,
 		  "letter_node_name": "Letter_MingDan"
-		}
+		},
+		{
+		  "item_name": "盖着直隶总督行馆",
+		  "collectible_word": "",
+		  "path": "res://Art/Evidence/LeveL_1/ZhouZhiHan_Document.png",
+		  "can_interact": false,
+		  "letter_node_name": ""
+		},
+		{
+		  "item_name": "翡翠扳指",
+		  "collectible_word": "",
+		  "path": "res://Art/Evidence/LeveL_1/ZhouZhiHan_Ring.png",
+		  "can_interact": false,
+		  "letter_node_name": ""
+		},
 	  ]
 	},
 	"周之瀚_ViewC": {
 	  "dialog": "靖臣啊，急什么。名单是死的，人是活的。慧心聪慧，自然有她的去处。"
 	
 	},
-	"沈德渊": {
+	"沈德渊_ViewD":{
 	  "dialog": "中堂，{德渊}如今在朝中举步维艰，{慧心}是我唯一的指望！这船政局的名单……",
 	  "items": [
 		{
-		  "item_name": "沈德渊印",
-		  "collectible_word": "德渊",
-		  "path": "res://art/Evidence/draft.png",
-		  "can_interact": false,
-		  "content": ""
-		},
-		{
-		  "item_name": "银票",
+		  "item_name": "一垯银票",
 		  "collectible_word": "银票",
 		  "path": "res://art/Evidence/LetterTest.png",
 		  "can_interact": false,
@@ -184,7 +188,7 @@
 		{
 		  "item_name": "戒烟丸",
 		  "collectible_word": "",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://Art/Evidence/LeveL_1/Shendeyuan_medicine.png",
 		  "can_interact": false,
 		  "content": ""
 		}
