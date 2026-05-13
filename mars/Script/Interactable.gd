@@ -6,6 +6,7 @@ var dialog_root: Control = null
 
 # 在编辑器右侧直接填词条
 @export var word_name: String = "……"
+@export var marker_node: CanvasItem
 
 func _ready():
 	var p = get_parent()
@@ -36,8 +37,9 @@ func check_status():
 
 	#  只有当 registry 里确实有这个特定的词时才禁用
 	if GameEvents.clues_registry.get(word_name, false):
-		if has_node("../RedMarker"):
-			get_node("../RedMarker").hide()
+		if marker_node:
+			marker_node.hide()
+		
 
 func _on_clicked():
 	if GameEvents.register_and_add_clue(word_name):

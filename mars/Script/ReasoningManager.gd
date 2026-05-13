@@ -50,7 +50,7 @@ func _check_all_slots():
 		_on_all_crrect()
 	else:
 		_on_some_wrong(wrong_count)
-
+		$FeedBackPanel.show_feedback(wrong_count)
 		
 func _on_all_crrect():
 	print('完全正确，事情是这样的：')

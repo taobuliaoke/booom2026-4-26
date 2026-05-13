@@ -14,7 +14,7 @@ script = ExtResource("1_7n1mw")
 
 [node name="LetterLibrary" parent="." unique_id=236458037 instance=ExtResource("3_sqwnb")]
 layout_mode = 0
-offset_left = -295.0
-offset_top = 126.0
-offset_right = -255.0
-offset_bottom = 166.0
+offset_left = -430.0
+offset_top = 119.0
+offset_right = -390.0
+offset_bottom = 159.0
