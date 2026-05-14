@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6kyob3fduouo"]
 
 [ext_resource type="Script" uid="uid://bli1vv6d0wioj" path="res://Script/prologue/prologue.gd" id="1_nim4c"]
+[ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="2_2kgvc"]
 [ext_resource type="Texture2D" uid="uid://cwen0yi3bq56l" path="res://art/vision/prologue/prologue_0.jpg" id="2_rt4ci"]
 [ext_resource type="Texture2D" uid="uid://duqjgehrl21cd" path="res://art/vision/prologue/prologue_1.jpg" id="3_ghkf2"]
 [ext_resource type="Texture2D" uid="uid://wee5iqt2qrr6" path="res://art/vision/prologue/prologue_2.jpg" id="4_30pd2"]
@@ -77,7 +78,7 @@ _data = {
 &"fade_out": SubResource("Animation_3hhce")
 }
 
-[node name="Prologue" type="Control" unique_id=1102609327 node_paths=PackedStringArray("slide_nodes")]
+[node name="Prologue" type="Control" unique_id=1102609327 node_paths=PackedStringArray("special_slides", "slide_nodes")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,7 +87,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_nim4c")
-slide_nodes = [NodePath("SlidesContainer/Slide0"), NodePath("SlidesContainer/Slide1"), NodePath("SlidesContainer/Slide2"), NodePath("SlidesContainer/Slide3"), NodePath("SlidesContainer/Slide4"), NodePath("SlidesContainer/Slide5"), NodePath("SlidesContainer/Slide6")]
+to_minigame_slide = 4
+special_slides = [NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/AlienSlideOpen")]
+slide_nodes = [NodePath("SlidesContainer/TitleSlide"), NodePath("SlidesContainer/RiverSlide"), NodePath("SlidesContainer/BoatSlide"), NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/AlienSlideOpen"), NodePath("SlidesContainer/PanoramaSlide"), NodePath("SlidesContainer/PanoramaSlideChanged"), NodePath("SlidesContainer/TitleSlide2")]
 
 [node name="SlidesContainer" type="Control" parent="." unique_id=1208665037]
 anchors_preset = 0
@@ -94,61 +97,116 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Slide0" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
+[node name="TitleSlide" type="Node2D" parent="SlidesContainer" unique_id=1416818479]
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide0" unique_id=643970147]
+[node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide" unique_id=421492128]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlidesContainer/TitleSlide" unique_id=63238006]
+offset_left = 627.0
+offset_top = 451.0
+offset_right = 994.0
+offset_bottom = 752.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "  序章
+
+  神仙"
+scroll_active = false
+
+[node name="RiverSlide" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/RiverSlide" unique_id=643970147]
 texture = ExtResource("2_rt4ci")
 centered = false
 
-[node name="Slide1" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
+[node name="BoatSlide" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide1" unique_id=2026857587]
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/BoatSlide" unique_id=2026857587]
 texture = ExtResource("3_ghkf2")
 centered = false
 
-[node name="Slide2" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
+[node name="AlienSlide" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide2" unique_id=1734597785]
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1734597785]
 texture = ExtResource("4_30pd2")
 centered = false
 
-[node name="Area2D" type="Area2D" parent="SlidesContainer/Slide2" unique_id=693563326]
+[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlide" unique_id=693563326]
 script = ExtResource("5_52yis")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/Slide2/Area2D" unique_id=4260387]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlide/Area2D" unique_id=4260387]
 position = Vector2(804, 532)
 shape = SubResource("CircleShape2D_k3wly")
 
-[node name="Slide3" type="Node2D" parent="SlidesContainer" unique_id=2049157347]
+[node name="AlienSlideOpen" type="Node2D" parent="SlidesContainer" unique_id=2049157347]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide3" unique_id=1482771329]
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1482771329]
 texture = ExtResource("5_t2qym")
 centered = false
 
-[node name="Area2D" type="Area2D" parent="SlidesContainer/Slide3" unique_id=1472114810]
+[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1472114810]
 script = ExtResource("5_52yis")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/Slide3/Area2D" unique_id=1524460595]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlideOpen/Area2D" unique_id=1524460595]
 position = Vector2(796, 517)
 shape = SubResource("CircleShape2D_52yis")
 
-[node name="Slide4" type="CanvasGroup" parent="SlidesContainer" unique_id=397223761]
+[node name="PanoramaSlide" type="Node2D" parent="SlidesContainer" unique_id=628548123]
 visible = false
 
-[node name="Slide5" type="Node2D" parent="SlidesContainer" unique_id=628548123]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide5" unique_id=1086709686]
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlide" unique_id=1086709686]
 texture = ExtResource("7_2jbdw")
 centered = false
 
-[node name="Slide6" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
+[node name="PanoramaSlideChanged" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/Slide6" unique_id=1186193574]
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlideChanged" unique_id=1186193574]
 texture = ExtResource("8_go5so")
 centered = false
+
+[node name="TitleSlide2" type="Node2D" parent="SlidesContainer" unique_id=618350915]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide2" unique_id=887100732]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlidesContainer/TitleSlide2" unique_id=139178240]
+offset_left = 627.0
+offset_top = 451.0
+offset_right = 994.0
+offset_bottom = 752.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = " 第一章
+
+  谈天"
+scroll_active = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1440551128]
 

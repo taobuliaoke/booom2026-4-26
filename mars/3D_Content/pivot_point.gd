@@ -65,9 +65,6 @@ func _start_limbs_growth():
 		var limb = limbs[i]
 	# 如果你的肢体是 MeshInstance3D
 		if limb is MeshInstance3D:
-		# 假设你已经把材质做成了一个资源文件 .tres
-			var my_material = load("res://Shader/stylized_red.tres")
-			limb.set_surface_override_material(0, my_material)
 			limbs_container.show()
 
 	
@@ -151,7 +148,8 @@ func _check_win():
 
 
 func _on_win():
-	_start_fade_out("res://scenes/下一关.tscn")  # ← 改成下一关的路径
+	is_won = true
+	SceneChanger.change_scene("res://Scenes/Level/prologue.tscn", 1.2) # ← 改成下一关的路径
 
 
 func _start_fade_out(next_scene_path: String):
