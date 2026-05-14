@@ -24,8 +24,9 @@ config/icon="res://icon.svg"
 GameEvents="*res://Script/GameEvents.gd"
 GameData="*uid://b0l6233mceas1"
 LevelChanger="*uid://d1wnn8tru2fux"
-SceneChanger="*uid://nb88bq8gpjak"
 GlobalData="*uid://clmkwkdphlio5"
+SceneChanger="*uid://nb88bq8gpjak"
+MusicManager="*uid://dgq07yj533evs"
 
 [display]
 

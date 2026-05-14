@@ -1,17 +1,30 @@
 extends Control
 
+
+@export var title_bgm: AudioStream
+@export var click_se: AudioStream 
+@export var hover_se: AudioStream
 @onready var active_anim =$HoverDisplay/ChoiceAnimation
 @onready var select_ui = $HoverDisplay/Select
 var current_static_frame: Node2D = null
 
 func _ready():
-	
+	#音乐播放启动
+	if title_bgm:
+		MusicManager.play_with_fade_in(title_bgm,0)
+		
 	active_anim.hide()
 	# 停止在第一帧
 	active_anim.stop() 
 	
 	for btn in get_tree().get_nodes_in_group("menu_buttons"):
+		#鼠标移入，执行原有逻辑+变调
 		btn.mouse_entered.connect(_on_button_hovered.bind(btn))
+		#鼠标移出，慢慢恢复原调
+		btn.mouse_exited.connect(_on_button_unhovered)
+		#点击，如果点击后要跳转，可以直接在这里处理变调或者淡出
+		btn.pressed.connect(_on_button_clicked)
+		
 
 func _on_button_hovered(btn: TextureButton):
 	_restore_all_static_frames()
@@ -26,11 +39,26 @@ func _on_button_hovered(btn: TextureButton):
 	
 
 	var btn_center_x = btn.global_position.x + (btn.size.x / 2)
+	select_ui.global_position = Vector2(btn_center_x,450)
+	
+	#播放切换音效
+	if hover_se:
+		MusicManager.play_se(hover_se, -5.0)
 
-	var fixed_y_position = 450
+	#music音调变低
+	MusicManager.smooth_pitch(0.7,0.8)
+	
+	
+func _on_button_unhovered():
+	#慢慢恢复到音调1.0
+	MusicManager.smooth_pitch(1.0,0.5)
+	
 
-	var target_pos = Vector2(btn_center_x, fixed_y_position)
-	select_ui.global_position = target_pos
+func _on_button_clicked():
+	#播放音效
+	if click_se:
+		MusicManager.play_se(click_se)
+	MusicManager.smooth_pitch(1.2,0.2)
 
 # 记得连接 AnimatedSprite2D 的信号
 func _on_choice_animation_finished():
@@ -45,6 +73,7 @@ func _restore_all_static_frames():
 
 
 func _on_start_button_pressed() -> void:
+	MusicManager.fade_out_and_stop(1.0)
 	$CanvasLayer/AnimationPlayer.play("fade_out")
 	await$CanvasLayer/AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Level/prologue.tscn")
