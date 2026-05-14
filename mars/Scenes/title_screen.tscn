@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://dfr4s3at6xko2"]
+
+[ext_resource type="Script" uid="uid://bjprto5kh64do" path="res://Scenes/title_screen.gd" id="1_n82rj"]
+[ext_resource type="Texture2D" uid="uid://bnkuym8rlntc3" path="res://art/UI/title_screen.png" id="1_twnyg"]
+[ext_resource type="Texture2D" uid="uid://clgiscsd4ptyu" path="res://art/UI/TitleScreen_buttonback.png" id="2_12m1t"]
+[ext_resource type="Texture2D" uid="uid://b1s1fbj2sf5w2" path="res://art/UI/Quit.png" id="2_55kwv"]
+[ext_resource type="Texture2D" uid="uid://cbcqipfftm7ve" path="res://art/UI/Setting.png" id="3_12m1t"]
+[ext_resource type="Texture2D" uid="uid://d8l86fx5atxs" path="res://art/UI/NewGame.png" id="4_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://c6njj5xf3itja" path="res://art/UI/Title_cloud.png" id="4_o1e67"]
+[ext_resource type="Texture2D" uid="uid://s88nr2xsqa7t" path="res://art/UI/Select.png" id="6_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://cl8w7inw52hr3" path="res://art/UI/TitleScreen_buttonanim.png" id="8_0061g"]
+[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="9_8mikk"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_sqelc"]
+[ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="11_w5sh6"]
+[ext_resource type="Texture2D" uid="uid://ds4soi76e4lx5" path="res://art/UI/Title.png" id="12_o1e67"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsy20"]
+shader = ExtResource("11_w5sh6")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 15.0
+shader_parameter/amplitude = 0.1
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqelc"]
+atlas = ExtResource("8_0061g")
+region = Rect2(68, 0, 68, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5sh6"]
+atlas = ExtResource("8_0061g")
+region = Rect2(136, 0, 68, 267)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1e67"]
+atlas = ExtResource("8_0061g")
+region = Rect2(204, 0, 68, 267)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycay6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqelc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5sh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1e67")
+}],
+"loop": false,
+"name": &"select_effect",
+"speed": 9.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycay6"]
+shader = ExtResource("11_w5sh6")
+shader_parameter/speed = 0.802000038095
+shader_parameter/frequency = 15.0
+shader_parameter/amplitude = 0.1
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5sh6"]
+shader = ExtResource("9_8mikk")
+shader_parameter/intensity = 0.1
+shader_parameter/speed = 2.0
+shader_parameter/channel_bias = Vector3(0.8, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_o1e67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ycay6"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsy20"]
+_data = {
+&"RESET": SubResource("Animation_o1e67"),
+&"fade_out": SubResource("Animation_ycay6")
+}
+
+[node name="TitleScreen" type="Control" unique_id=1091021732]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n82rj")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2059019522]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_twnyg")
+metadata/_edit_lock_ = true
+
+[node name="TitleCloud" type="Sprite2D" parent="Background" unique_id=2008287749]
+material = SubResource("ShaderMaterial_bsy20")
+position = Vector2(1030, 470)
+texture = ExtResource("4_o1e67")
+
+[node name="HoverDisplay" type="Node2D" parent="." unique_id=657771517]
+
+[node name="Select" type="Sprite2D" parent="HoverDisplay" unique_id=1677966573]
+position = Vector2(213.5, 450)
+texture = ExtResource("6_6vd4x")
+
+[node name="ChoiceAnimation" type="AnimatedSprite2D" parent="HoverDisplay" unique_id=542021958]
+position = Vector2(-164, 21)
+sprite_frames = SubResource("SpriteFrames_ycay6")
+animation = &"select_effect"
+frame = 1
+frame_progress = 1.0
+
+[node name="MenuButtons" type="HBoxContainer" parent="." unique_id=1332404958]
+layout_mode = 1
+offset_left = 190.0
+offset_top = 135.0
+offset_right = 350.0
+offset_bottom = 372.0
+theme_override_constants/separation = 16
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Start" type="MarginContainer" parent="MenuButtons" unique_id=1630531416]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 59
+
+[node name="StaticFrame" type="Sprite2D" parent="MenuButtons/Start" unique_id=1175801661 groups=["static_frames"]]
+position = Vector2(19, 134)
+texture = ExtResource("2_12m1t")
+
+[node name="StartButton" type="TextureButton" parent="MenuButtons/Start" unique_id=1307980898 groups=["menu_buttons"]]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_6vd4x")
+
+[node name="Setting" type="MarginContainer" parent="MenuButtons" unique_id=316094374]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 26
+
+[node name="StaticFrame" type="Sprite2D" parent="MenuButtons/Setting" unique_id=2102635891 groups=["static_frames"]]
+position = Vector2(14, 133)
+texture = ExtResource("2_12m1t")
+
+[node name="SettingsButton" type="TextureButton" parent="MenuButtons/Setting" unique_id=585153418 groups=["menu_buttons"]]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+texture_normal = ExtResource("3_12m1t")
+
+[node name="Exit" type="MarginContainer" parent="MenuButtons" unique_id=1514808908]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 1
+
+[node name="StaticFrame" type="Sprite2D" parent="MenuButtons/Exit" unique_id=1549821351 groups=["static_frames"]]
+position = Vector2(12, 133)
+texture = ExtResource("2_12m1t")
+
+[node name="ExitButton" type="TextureButton" parent="MenuButtons/Exit" unique_id=1303280381 groups=["menu_buttons"]]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+texture_normal = ExtResource("2_55kwv")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1561608047]
+material = SubResource("ShaderMaterial_ycay6")
+position = Vector2(1049, 301)
+texture = ExtResource("12_o1e67")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=413543084]
+
+[node name="ScreenFader" type="ColorRect" parent="CanvasLayer" unique_id=594044985]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1650311444]
+material = SubResource("ShaderMaterial_w5sh6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_sqelc")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1153583018]
+root_node = NodePath("../ScreenFader")
+libraries/ = SubResource("AnimationLibrary_bsy20")
+
+[connection signal="animation_finished" from="HoverDisplay/ChoiceAnimation" to="." method="_on_choice_animation_finished"]
+[connection signal="pressed" from="MenuButtons/Start/StartButton" to="." method="_on_start_button_pressed"]

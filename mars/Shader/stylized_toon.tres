@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b2hu170p6t07m"]
+
+[ext_resource type="Shader" uid="uid://dcmjvxgnqw400" path="res://Shader/stylized_toon.gdshader.gdshader" id="1_4pisq"]
+[ext_resource type="Texture2D" uid="uid://dga6x8vu8xyox" path="res://3D_Content/yinghuo_openPBR_shader1_BaseColor.png" id="2_q6chb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pisq"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+grow = true
+grow_amount = 0.01
+
+[resource]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_4pisq")
+shader = ExtResource("1_4pisq")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("2_q6chb")
+shader_parameter/shadow_threshold = 0.1600000076
+shader_parameter/shadow_softness = 0.5670000269325

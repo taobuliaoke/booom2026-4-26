@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Mars"
-run/main_scene="uid://cve87385duapf"
+run/main_scene="uid://dfr4s3at6xko2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -33,6 +33,10 @@ window/size/window_width_override=800
 window/size/window_height_override=600
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [gui]
 

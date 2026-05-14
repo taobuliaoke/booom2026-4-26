@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://cpibujf4fghri" path="res://Scenes/letter.tscn" id="16_dtg5n"]
-[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/MianScene.gdshader" id="17_d0jji"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="18_cotnl"]
+[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="17_d0jji"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="18_cotnl"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eju3t"]
