@@ -229,7 +229,7 @@ shader_parameter/intensity = 0.1
 shader_parameter/speed = 2.0
 shader_parameter/channel_bias = Vector3(0.8, 0.6, 1)
 
-[node name="main" type="Node3D" unique_id=1762015694]
+[node name="3Dgam" type="Node3D" unique_id=1762015694]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1609478212]
 environment = SubResource("Environment_16ey8")
