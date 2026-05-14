@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://1ypb8en1ws5c"]
+
+[ext_resource type="Texture2D" uid="uid://mvostg0kgob5" path="res://Art/UI/047b1f8ea5d97683bee19095b3bb3149.jpg" id="1_fblos"]
+
+[node name="BooomEnd" type="Node2D" unique_id=1241172231]
+
+[node name="EndBG" type="Sprite2D" parent="." unique_id=1476378526]
+position = Vector2(800, 600)
+texture = ExtResource("1_fblos")
+
+[node name="Label" type="Label" parent="EndBG" unique_id=338975984]
+offset_left = -272.0
+offset_top = -82.0
+offset_right = 278.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 50
+text = "恭喜通关暴躁2026版本
+《荧惑仙》的试玩关卡！"

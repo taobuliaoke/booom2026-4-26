@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://45gmo527sitv" path="res://Script/RMForView.gd" id="3_bpy1e"]
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="3_c1ier"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="3_gyaec"]
+[ext_resource type="Script" uid="uid://dq7yn4ble4d6m" path="res://Script/reasoning_group.gd" id="3_p5ymy"]
 [ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="4_bpy1e"]
 [ext_resource type="PackedScene" uid="uid://bnh43ra5a8v1" path="res://Scenes/Level/Level1.tscn" id="6_3va76"]
 [ext_resource type="PackedScene" uid="uid://doxfsuld4fsb0" path="res://Scenes/Level/level_2.tscn" id="7_wmecs"]
@@ -45,6 +46,7 @@ offset_left = -1.0
 offset_top = -4.0
 offset_right = 39.0
 offset_bottom = 36.0
+script = ExtResource("3_p5ymy")
 
 [node name="ReasoningPage_1" type="Panel" parent="ReasoningGroup" unique_id=1629547195]
 self_modulate = Color(1, 1, 1, 0)
@@ -86,39 +88,39 @@ offset_bottom = 40.0
 [node name="Label_1" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=907969401]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 304.28568
-offset_top = 67.14287
-offset_right = 384.28568
-offset_bottom = 107.14287
+offset_left = 362.85706
+offset_top = 65.714294
+offset_right = 442.85706
+offset_bottom = 105.714294
 theme_override_font_sizes/font_size = 40
 text = "雇佣"
 
 [node name="Label_3" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1570730368]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 535.71423
-offset_top = 67.14286
-offset_right = 695.71423
-offset_bottom = 107.14286
+offset_left = 618.5714
+offset_top = 62.857143
+offset_right = 778.5714
+offset_bottom = 102.85715
 theme_override_font_sizes/font_size = 40
 text = "，教女儿"
 
 [node name="Label_4" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1592223950]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 990.0
-offset_top = 61.42858
-offset_right = 1030.0
-offset_bottom = 101.42858
+offset_left = 1128.5714
+offset_top = 60.000008
+offset_right = 1168.5715
+offset_bottom = 100.00001
 theme_override_font_sizes/font_size = 40
 text = "学"
 
 [node name="Label_6" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=2002652805]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 305.71426
+offset_left = 362.85706
 offset_top = 134.28572
-offset_right = 345.71426
+offset_right = 402.85706
 offset_bottom = 174.28572
 theme_override_font_sizes/font_size = 40
 text = "是"
@@ -126,9 +128,9 @@ text = "是"
 [node name="Label_8" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=105870983]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 639.9999
+offset_left = 754.28564
 offset_top = 134.28572
-offset_right = 1039.9999
+offset_right = 1154.2856
 offset_bottom = 174.28572
 theme_override_font_sizes/font_size = 40
 text = "的贴身丫鬟，后者会说"
@@ -136,49 +138,59 @@ text = "的贴身丫鬟，后者会说"
 [node name="Label_10" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1134819151]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 1185.7142
+offset_left = 1324.2858
 offset_top = 134.28574
-offset_right = 1265.7142
+offset_right = 1365.7142
 offset_bottom = 174.28574
 theme_override_font_sizes/font_size = 40
-text = "，并试图"
+text = "，"
+
+[node name="Label_11" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1915389243]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 11.42845
+offset_top = 198.57144
+offset_right = 131.42845
+offset_bottom = 238.57144
+theme_override_font_sizes/font_size = 40
+text = "并试图"
 
 [node name="Label_13" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1060191991]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 158.57132
-offset_top = 195.71428
-offset_right = 318.57132
-offset_bottom = 235.7143
+offset_left = 302.85703
+offset_top = 198.57144
+offset_right = 462.85703
+offset_bottom = 238.57146
 theme_override_font_sizes/font_size = 40
 text = "会前者。"
 
 [node name="Label_14" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1917042305]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 1175.7142
-offset_top = 61.428577
-offset_right = 1215.7142
-offset_bottom = 101.42859
+offset_left = 1345.7144
+offset_top = 60.000008
+offset_right = 1385.7144
+offset_bottom = 100.00003
 theme_override_font_sizes/font_size = 40
 text = "。"
 
 [node name="Label_15" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1047219725]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 158.57137
-offset_top = 273.45868
-offset_right = 238.57137
-offset_bottom = 313.45868
+offset_left = 187.14279
+offset_top = 272.85715
+offset_right = 267.1428
+offset_bottom = 312.85715
 theme_override_font_sizes/font_size = 40
 text = "在讲"
 
 [node name="Label_16" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=935211116]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 389.99994
+offset_left = 442.8571
 offset_top = 272.85715
-offset_right = 550.0
+offset_right = 602.8572
 offset_bottom = 312.85715
 theme_override_font_sizes/font_size = 40
 text = "的内容，"
@@ -186,9 +198,9 @@ text = "的内容，"
 [node name="Label_17" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=232652478]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 841.42847
+offset_left = 941.4284
 offset_top = 272.85715
-offset_right = 1041.4285
+offset_right = 1141.4285
 offset_bottom = 312.85715
 theme_override_font_sizes/font_size = 40
 text = "不感兴趣。"
@@ -196,10 +208,10 @@ text = "不感兴趣。"
 [node name="Label_18" type="Label" parent="ReasoningGroup/ReasoningPage_1/Words" unique_id=1413284117]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 557.1428
-offset_top = 342.85715
-offset_right = 637.1429
-offset_bottom = 382.85715
+offset_left = 621.42847
+offset_top = 351.4286
+offset_right = 701.4285
+offset_bottom = 391.4286
 theme_override_font_sizes/font_size = 40
 text = "就是"
 
@@ -212,95 +224,95 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 11.428501
 offset_top = 52.857155
-offset_right = 157.4285
+offset_right = 186.4285
 offset_bottom = 108.857155
 correct_answer = Array[String](["周"])
 
 [node name="Empty_2" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1590844904 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 158.57137
-offset_top = 52.857155
-offset_right = 304.57138
-offset_bottom = 108.857155
+offset_left = 187.14279
+offset_top = 54.285725
+offset_right = 362.1428
+offset_bottom = 110.28572
 correct_answer = Array[String](["之瀚"])
 
 [node name="Empty_4" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1792669705 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 389.99988
-offset_top = 52.857155
-offset_right = 535.9999
-offset_bottom = 108.857155
-correct_answer = Array[String](["丁家立"])
+offset_left = 442.85712
+offset_top = 51.42858
+offset_right = 617.8571
+offset_bottom = 107.42858
+correct_answer = Array[String](["丁加立"])
 
 [node name="Empty_6" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=457062986 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 695.7142
-offset_top = 52.857147
-offset_right = 841.7142
-offset_bottom = 108.85715
+offset_left = 778.57117
+offset_top = 51.428574
+offset_right = 953.57117
+offset_bottom = 107.42857
 correct_answer = Array[String](["周"])
 
 [node name="Empty_7" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=2003677802 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 844.28577
-offset_top = 52.857147
-offset_right = 990.28577
-offset_bottom = 108.85714
+offset_left = 952.85706
+offset_top = 51.428574
+offset_right = 1127.857
+offset_bottom = 107.42857
 correct_answer = Array[String](["静姝"])
 
 [node name="Empty_8" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1403987206 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 1029.9999
-offset_top = 52.857147
-offset_right = 1175.9999
-offset_bottom = 108.85715
+offset_left = 1168.5714
+offset_top = 51.428574
+offset_right = 1343.5714
+offset_bottom = 107.42857
 correct_answer = Array[String](["洋文"])
 
 [node name="Empty_10" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1618420726 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
 offset_left = 11.428476
 offset_top = 125.7143
-offset_right = 157.42848
-offset_bottom = 181.71431
+offset_right = 186.42848
+offset_bottom = 181.7143
 correct_answer = Array[String](["文"])
 
 [node name="Empty_11" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=392041672 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 158.5713
+offset_left = 187.14273
 offset_top = 125.7143
-offset_right = 304.5713
+offset_right = 362.14273
 offset_bottom = 181.7143
 correct_answer = Array[String](["鸳"])
 
 [node name="Empty_12" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1463683290 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 345.71426
+offset_left = 402.85706
 offset_top = 125.7143
-offset_right = 491.71426
+offset_right = 577.85706
 offset_bottom = 181.7143
 correct_answer = Array[String](["沈"])
 
 [node name="Empty_13" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1565773026 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 494.2856
+offset_left = 578.57135
 offset_top = 125.714294
-offset_right = 640.28564
+offset_right = 753.57135
 offset_bottom = 181.7143
 correct_answer = Array[String](["慧心"])
 
 [node name="Empty_16" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1756913857 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 1040.0
+offset_left = 1154.2856
 offset_top = 125.71429
-offset_right = 1186.0
+offset_right = 1329.2856
 offset_bottom = 181.7143
 correct_answer = Array[String](["洋文"])
 
 [node name="Empty_17" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=236850907 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 9.999901
+offset_left = 127.14277
 offset_top = 187.14285
-offset_right = 155.99991
+offset_right = 302.14276
 offset_bottom = 243.14285
 correct_answer = Array[String](["教"])
 
@@ -308,49 +320,66 @@ correct_answer = Array[String](["教"])
 layout_mode = 0
 offset_left = 9.999952
 offset_top = 261.4286
-offset_right = 155.99995
+offset_right = 184.99995
 offset_bottom = 317.4286
 correct_answer = Array[String](["丁加立"])
 
 [node name="Empty_19" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1305274229 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 241.42853
-offset_top = 261.42856
-offset_right = 387.42853
-offset_bottom = 317.42856
-correct_answer = Array[String](["《谈天》"])
+offset_left = 267.14282
+offset_top = 261.4286
+offset_right = 442.14282
+offset_bottom = 317.4286
+correct_answer = Array[String](["谈天"])
 
 [node name="Empty_20" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=2087305833 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 544.28564
-offset_top = 261.4286
-offset_right = 690.28564
-offset_bottom = 317.4286
+offset_left = 589.99994
+offset_top = 261.42856
+offset_right = 764.99994
+offset_bottom = 317.42856
 correct_answer = Array[String](["文"])
 
 [node name="Empty_23" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=1514298697 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 691.42847
+offset_left = 765.7142
 offset_top = 261.42856
-offset_right = 837.42847
+offset_right = 940.7142
 offset_bottom = 317.42856
 correct_answer = Array[String](["鸳"])
 
 [node name="Empty_21" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=701548520 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 405.71426
-offset_top = 334.2857
-offset_right = 551.71423
-offset_bottom = 390.2857
+offset_left = 448.57135
+offset_top = 342.85718
+offset_right = 623.5713
+offset_bottom = 398.85718
 correct_answer = Array[String](["火星", "荧惑"])
 
 [node name="Empty_22" parent="ReasoningGroup/ReasoningPage_1/Emptys" unique_id=499703638 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 637.1428
-offset_top = 334.28574
-offset_right = 783.1428
-offset_bottom = 390.28574
-correct_answer = Array[String](["荧惑", "火星"])
+offset_left = 701.42847
+offset_top = 342.85718
+offset_right = 876.42847
+offset_bottom = 398.85718
+correct_answer = Array[String](["火星", "荧惑"])
+
+[node name="Trues" type="Label" parent="ReasoningGroup/ReasoningPage_1" unique_id=2131574730]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 17.142769
+offset_top = 57.142857
+offset_right = 1367.1428
+offset_bottom = 425.14285
+theme_override_font_sizes/font_size = 45
+text = "周之瀚雇佣丁家立，教女儿周静姝学洋文。
+
+文鸳是沈慧心的贴身丫鬟，后者会说洋文，并试图教会前者。
+
+丁加立在讲《谈天》的内容，文鸳不感兴趣。
+
+火星就是荧惑。"
 
 [node name="ReasoningPage_2" type="Panel" parent="ReasoningGroup" unique_id=661820521]
 self_modulate = Color(1, 1, 1, 0)
@@ -391,99 +420,109 @@ offset_bottom = 40.0
 [node name="Label_1" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1558242294]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 304.28574
-offset_top = 42.857136
-offset_right = 344.28574
-offset_bottom = 82.85713
+offset_left = 360.00003
+offset_top = 42.85714
+offset_right = 400.00003
+offset_bottom = 82.85714
 theme_override_font_sizes/font_size = 40
 text = "用"
 
 [node name="Label_2" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1618352026]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 491.4286
-offset_top = 42.857136
-offset_right = 571.4286
-offset_bottom = 82.85713
+offset_left = 575.7143
+offset_top = 42.85718
+offset_right = 655.7143
+offset_bottom = 82.85718
 theme_override_font_sizes/font_size = 40
 text = "贿赂"
 
 [node name="Label_3" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=2073651541]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 867.1429
-offset_top = 41.428562
-offset_right = 1147.1428
+offset_left = 1007.1428
+offset_top = 41.428566
+offset_right = 1287.143
 offset_bottom = 81.42857
 theme_override_font_sizes/font_size = 40
-text = "，希望其将女儿"
+text = "，希望其将自己女儿"
 
 [node name="Label_4" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=54226936]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 157.14288
-offset_top = 107.14289
-offset_right = 357.14288
-offset_bottom = 147.14288
+offset_left = 361.4286
+offset_top = 105.714264
+offset_right = 561.4286
+offset_bottom = 145.71428
 theme_override_font_sizes/font_size = 40
 text = "的名字加进"
 
 [node name="Label_14" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=522495659]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 502.85715
-offset_top = 107.142845
-offset_right = 542.8572
-offset_bottom = 147.14285
+offset_left = 737.1428
+offset_top = 105.71431
+offset_right = 777.1428
+offset_bottom = 145.71431
 theme_override_font_sizes/font_size = 40
 text = "。"
 
 [node name="Label_6" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=190634976]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 302.85718
-offset_top = 180.00005
-offset_right = 462.85718
-offset_bottom = 220.00005
+offset_left = 360.00003
+offset_top = 181.42862
+offset_right = 520.0
+offset_bottom = 221.42862
 theme_override_font_sizes/font_size = 40
 text = "把自己的"
 
 [node name="Label_7" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1657053686]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 608.5715
-offset_top = 180.00005
-offset_right = 648.5715
-offset_bottom = 220.00005
+offset_left = 695.7143
+offset_top = 177.1429
+offset_right = 735.7143
+offset_bottom = 217.1429
 theme_override_font_sizes/font_size = 40
 text = "，"
 
 [node name="Label_8" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1268171958]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 938.57135
-offset_top = 180.00005
-offset_right = 1258.5713
-offset_bottom = 220.00005
+offset_left = 1075.7142
+offset_top = 181.42854
+offset_right = 1360.0
+offset_bottom = 221.42854
 theme_override_font_sizes/font_size = 40
-text = "的名字划掉，换成了"
+text = "的名字划掉，换"
+
+[node name="Label_9" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=373398178]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 8.571411
+offset_top = 241.42853
+offset_right = 48.57141
+offset_bottom = 281.4286
+theme_override_font_sizes/font_size = 40
+text = "成"
 
 [node name="Label_13" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1170194881]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 304.28574
-offset_top = 238.5714
-offset_right = 344.28574
-offset_bottom = 278.5714
+offset_left = 404.2857
+offset_top = 241.42853
+offset_right = 444.2857
+offset_bottom = 281.4286
 theme_override_font_sizes/font_size = 40
 text = "。"
 
 [node name="Label_11" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=719862639]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 302.85718
+offset_left = 361.4286
 offset_top = 318.5714
-offset_right = 342.85718
+offset_right = 401.4286
 offset_bottom = 358.5714
 theme_override_font_sizes/font_size = 40
 text = "在"
@@ -491,9 +530,9 @@ text = "在"
 [node name="Label_12" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=240579577]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 638.5714
+offset_left = 752.8571
 offset_top = 318.5714
-offset_right = 758.5714
+offset_right = 872.8571
 offset_bottom = 358.5714
 theme_override_font_sizes/font_size = 40
 text = "身后。"
@@ -507,160 +546,175 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 8.571464
 offset_top = 32.857136
-offset_right = 154.57146
+offset_right = 183.57146
 offset_bottom = 88.85713
 correct_answer = Array[String](["沈"])
 
 [node name="Empty_2" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1736680658 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 157.14288
-offset_top = 32.857136
-offset_right = 303.14288
+offset_left = 184.28574
+offset_top = 32.85714
+offset_right = 359.28577
 offset_bottom = 88.85713
 correct_answer = Array[String](["德渊"])
 
 [node name="Empty_3" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=33073951 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 344.28568
-offset_top = 32.857136
-offset_right = 490.28568
+offset_left = 399.99997
+offset_top = 32.85714
+offset_right = 575.0
 offset_bottom = 88.85714
 correct_answer = Array[String](["银票"])
 
 [node name="Empty_4" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1225580620 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 572.8572
-offset_top = 32.857136
-offset_right = 718.8572
+offset_left = 655.7143
+offset_top = 32.85714
+offset_right = 830.7143
 offset_bottom = 88.85714
 correct_answer = Array[String](["周"])
 
 [node name="Empty_5" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=338212749 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 721.4286
-offset_top = 32.8571
-offset_right = 867.4286
-offset_bottom = 88.8571
+offset_left = 831.4285
+offset_top = 32.857143
+offset_right = 1006.4285
+offset_bottom = 88.85715
 correct_answer = Array[String](["之瀚"])
 
 [node name="Empty_6" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=704161058 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 1147.143
-offset_top = 32.857136
-offset_right = 1293.143
-offset_bottom = 88.85713
+offset_left = 8.571445
+offset_top = 97.14286
+offset_right = 183.57144
+offset_bottom = 153.14287
 correct_answer = Array[String](["沈"])
 
 [node name="Empty_7" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=821951011 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 8.571445
-offset_top = 94.28568
-offset_right = 154.57144
-offset_bottom = 150.28568
+offset_left = 184.28572
+offset_top = 97.14286
+offset_right = 359.2857
+offset_bottom = 153.14287
 correct_answer = Array[String](["慧心"])
 
 [node name="Empty_9" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=957302186 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 357.14285
-offset_top = 97.14288
-offset_right = 503.14285
-offset_bottom = 153.14288
+offset_left = 561.4285
+offset_top = 97.14284
+offset_right = 736.4285
+offset_bottom = 153.14284
 correct_answer = Array[String](["留洋名单"])
 
 [node name="Empty_10" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=605669027 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
 offset_left = 7.8194532
 offset_top = 168.57146
-offset_right = 153.81946
+offset_right = 182.81946
 offset_bottom = 224.57146
 correct_answer = Array[String](["周"])
 
 [node name="Empty_11" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1351931130 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 157.14287
+offset_left = 184.28574
 offset_top = 168.57146
-offset_right = 303.14288
+offset_right = 359.28577
 offset_bottom = 224.57146
 correct_answer = Array[String](["之瀚"])
 
 [node name="Empty_12" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1608480754 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 462.8572
-offset_top = 168.57146
-offset_right = 608.8572
-offset_bottom = 224.57146
+offset_left = 520.0
+offset_top = 167.14288
+offset_right = 695.0
+offset_bottom = 223.14288
 correct_answer = Array[String](["女儿"])
 
 [node name="Empty_13" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=953925971 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 644.28577
-offset_top = 168.57146
-offset_right = 790.28577
-offset_bottom = 224.57146
+offset_left = 724.28577
+offset_top = 167.14288
+offset_right = 899.28577
+offset_bottom = 223.14288
 correct_answer = Array[String](["周"])
 
 [node name="Empty_14" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1956616737 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 792.8572
-offset_top = 168.57147
-offset_right = 938.8572
-offset_bottom = 224.57147
+offset_left = 900.0
+offset_top = 167.14291
+offset_right = 1075.0
+offset_bottom = 223.14291
 correct_answer = Array[String](["静姝"])
 
 [node name="Empty_16" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=935998623 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 8.571423
-offset_top = 230.827
-offset_right = 154.57143
-offset_bottom = 286.827
+offset_left = 52.857132
+offset_top = 232.85724
+offset_right = 227.85713
+offset_bottom = 288.85727
 correct_answer = Array[String](["沈"])
 
 [node name="Empty_17" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1502671077 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 157.14288
-offset_top = 229.99998
-offset_right = 303.14288
-offset_bottom = 286.0
+offset_left = 228.57144
+offset_top = 232.85712
+offset_right = 403.57144
+offset_bottom = 288.85718
 correct_answer = Array[String](["慧心"])
 
 [node name="Empty_18" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=291107855 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
 offset_left = 8.571437
 offset_top = 305.71432
-offset_right = 154.57144
+offset_right = 183.57144
 offset_bottom = 361.71432
 correct_answer = Array[String](["神"])
 
 [node name="Empty_19" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1604083145 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 157.1429
+offset_left = 185.71434
 offset_top = 305.71432
-offset_right = 303.14288
+offset_right = 360.71436
 offset_bottom = 361.71432
 correct_answer = Array[String](["仙"])
 
 [node name="Empty_20" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1103200466 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 342.85715
+offset_left = 404.2857
 offset_top = 305.71432
-offset_right = 488.85715
+offset_right = 579.2857
 offset_bottom = 361.71432
 correct_answer = Array[String](["周"])
 
 [node name="Empty_21" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1670881292 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 491.42853
+offset_left = 578.5714
 offset_top = 305.71432
-offset_right = 637.4285
+offset_right = 753.5714
 offset_bottom = 361.71432
 correct_answer = Array[String](["之瀚"])
+
+[node name="Trues" type="Label" parent="ReasoningGroup/ReasoningPage_2" unique_id=1050276205]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 5.7142854
+offset_top = 88.57143
+offset_right = 1400.7142
+offset_bottom = 325.5714
+theme_override_font_sizes/font_size = 45
+text = "沈德渊用银票贿赂周之瀚，希望其将女儿沈慧心的名字加进留洋名单。
+
+周之瀚把自己的女儿，周静姝的名字划掉，换成了沈慧心。
+
+神仙？在周之瀚身后，偷偷看。"
 
 [node name="ReasoningForView" type="Panel" parent="ReasoningGroup" unique_id=818400799]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 732.8571
-offset_bottom = 1244.2856
-scale = Vector2(0.7, 0.7)
+offset_right = 787.6924
+offset_bottom = 1353.8462
+scale = Vector2(0.65, 0.65)
 script = ExtResource("3_bpy1e")
 
 [node name="views_name" type="Control" parent="ReasoningGroup/ReasoningForView" unique_id=2082816907]
@@ -669,65 +723,65 @@ anchors_preset = 0
 [node name="Label2" type="Label" parent="ReasoningGroup/ReasoningForView/views_name" unique_id=1259636614]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 0
-offset_left = 647.1429
-offset_top = 152.85715
-offset_right = 687.1429
-offset_bottom = 235.85715
+offset_left = 698.46155
+offset_top = 160.00002
+offset_right = 738.46155
+offset_bottom = 243.00002
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_c1ier")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "视角"
 autowrap_mode = 1
 
 [node name="Label3" type="Label" parent="ReasoningGroup/ReasoningForView/views_name" unique_id=1323653224]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 0
-offset_left = 647.1429
-offset_top = 557.1429
-offset_right = 687.1429
-offset_bottom = 640.1429
+offset_left = 698.46155
+offset_top = 600.0
+offset_right = 738.46155
+offset_bottom = 756.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_c1ier")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "视角"
 autowrap_mode = 1
 
 [node name="Label" type="Label" parent="ReasoningGroup/ReasoningForView/views_name" unique_id=702523869]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 0
-offset_left = 308.57144
-offset_top = 158.57143
-offset_right = 348.57144
-offset_bottom = 241.57143
+offset_left = 332.3077
+offset_top = 169.23077
+offset_right = 372.3077
+offset_bottom = 252.23077
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_c1ier")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "视角"
 autowrap_mode = 1
 
 [node name="Label4" type="Label" parent="ReasoningGroup/ReasoningForView/views_name" unique_id=294190973]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 0
-offset_left = 308.57144
-offset_top = 557.1429
-offset_right = 348.57144
-offset_bottom = 640.1429
+offset_left = 332.3077
+offset_top = 600.00006
+offset_right = 372.3077
+offset_bottom = 683.00006
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_c1ier")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "视角"
 autowrap_mode = 1
 
 [node name="Label5" type="Label" parent="ReasoningGroup/ReasoningForView/views_name" unique_id=2099652907]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 0
-offset_left = 308.57144
-offset_top = 948.5714
-offset_right = 348.57144
-offset_bottom = 1031.5713
+offset_left = 340.00003
+offset_top = 1013.8462
+offset_right = 387.6923
+offset_bottom = 1169.8462
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_c1ier")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "视角"
 autowrap_mode = 1
 
@@ -744,103 +798,158 @@ offset_bottom = 1042.8514
 
 [node name="Label" type="Label" parent="ReasoningGroup/ReasoningForView/FeedBackPanel" unique_id=1420686441]
 layout_mode = 0
-offset_left = 12.857162
-offset_top = 70.000046
-offset_right = 238.85716
-offset_bottom = 186.00006
+offset_left = 22.63739
+offset_top = 235.93417
+offset_right = 342.6374
+offset_bottom = 351.9342
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "我要看到所有……"
 
 [node name="Vslots" type="Control" parent="ReasoningGroup/ReasoningForView" unique_id=1614643245]
 anchors_preset = 0
-offset_left = 27.0
+offset_left = 27.000002
 offset_top = 249.0
 offset_right = 116.0
 offset_bottom = 299.0
 
 [node name="VSlot_1" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1017958662 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 0.1428566
-offset_top = 120.99999
-offset_right = 146.14285
-offset_bottom = 177.0
+offset_left = -13.153847
+offset_top = 131.00002
+offset_right = 156.84616
+offset_bottom = 187.00003
 correct_answer = Array[String](["周"])
 
 [node name="VSlot_2" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=598821249 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 148.7143
-offset_top = 120.999985
-offset_right = 294.7143
-offset_bottom = 176.99998
+offset_left = 156.07692
+offset_top = 131.00003
+offset_right = 326.0769
+offset_bottom = 187.00003
 correct_answer = Array[String](["之瀚"])
 
 [node name="VSlot_3" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=390998230 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 341.57144
-offset_top = 120.999985
-offset_right = 487.57144
-offset_bottom = 176.99998
+offset_left = 360.69232
+offset_top = 131.00003
+offset_right = 530.6923
+offset_bottom = 187.00003
 correct_answer = Array[String](["神"])
 
 [node name="VSlot_4" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1493757450 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 490.14285
-offset_top = 120.999985
-offset_right = 636.1429
-offset_bottom = 176.99998
+offset_left = 531.4616
+offset_top = 131.00003
+offset_right = 701.46155
+offset_bottom = 187.00003
 correct_answer = Array[String](["仙"])
 
 [node name="VSlot_5" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=796977050 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 0.14285707
-offset_top = 516.71423
-offset_right = 146.14285
-offset_bottom = 572.7143
+offset_left = -13.153845
+offset_top = 555.61554
+offset_right = 156.84616
+offset_bottom = 611.61554
 correct_answer = Array[String](["沈"])
 
 [node name="VSlot_6" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1716104631 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 148.71428
-offset_top = 516.7143
-offset_right = 294.7143
-offset_bottom = 572.7143
+offset_left = 156.07693
+offset_top = 555.6155
+offset_right = 326.07697
+offset_bottom = 611.6155
 correct_answer = Array[String](["德渊"])
 
 [node name="VSlot_7" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1578454456 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 341.57144
-offset_top = 516.71436
-offset_right = 487.57144
-offset_bottom = 572.71436
+offset_left = 360.69232
+offset_top = 555.6154
+offset_right = 530.6923
+offset_bottom = 611.6154
 correct_answer = Array[String](["文"])
 
 [node name="VSlot_8" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=695216614 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 490.14285
-offset_top = 516.7144
-offset_right = 636.1429
-offset_bottom = 572.7144
+offset_left = 531.4616
+offset_top = 555.6155
+offset_right = 701.4616
+offset_bottom = 611.6155
 correct_answer = Array[String](["鸳"])
 
 [node name="VSlot_9" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1573817596 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 0.14285707
-offset_top = 922.4286
-offset_right = 146.14285
-offset_bottom = 978.4286
+offset_left = -13.153845
+offset_top = 984.84625
+offset_right = 156.84616
+offset_bottom = 1040.8462
 correct_answer = Array[String](["周"])
 
 [node name="VSlot_10" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1222688021 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 148.71428
-offset_top = 922.42865
-offset_right = 294.7143
-offset_bottom = 978.42865
+offset_left = 156.07692
+offset_top = 984.8462
+offset_right = 326.0769
+offset_bottom = 1040.8462
 correct_answer = Array[String](["静姝"])
 
-[node name="Environment" type="Node2D" parent="." unique_id=1239188360]
+[node name="Trues" type="Control" parent="ReasoningGroup/ReasoningForView" unique_id=1346430010]
 visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Trues_1" type="Label" parent="ReasoningGroup/ReasoningForView/Trues" unique_id=740371378]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 115.38462
+offset_top = 389.2308
+offset_right = 235.38461
+offset_bottom = 429.2308
+theme_override_font_sizes/font_size = 40
+text = "周之瀚"
+
+[node name="Trues_2" type="Label" parent="ReasoningGroup/ReasoningForView/Trues" unique_id=1599648487]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 484.61542
+offset_top = 387.69232
+offset_right = 604.6154
+offset_bottom = 427.69232
+theme_override_font_sizes/font_size = 40
+text = "神仙?"
+
+[node name="Trues_3" type="Label" parent="ReasoningGroup/ReasoningForView/Trues" unique_id=1355387039]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 115.38461
+offset_top = 813.8462
+offset_right = 235.38461
+offset_bottom = 853.8462
+theme_override_font_sizes/font_size = 40
+text = "沈德渊"
+
+[node name="Trues_4" type="Label" parent="ReasoningGroup/ReasoningForView/Trues" unique_id=2129790009]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 507.69235
+offset_top = 813.8462
+offset_right = 587.6924
+offset_bottom = 853.8462
+theme_override_font_sizes/font_size = 40
+text = "文鸳"
+
+[node name="Trues_5" type="Label" parent="ReasoningGroup/ReasoningForView/Trues" unique_id=525762535]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 115.38461
+offset_top = 1244.6155
+offset_right = 235.38461
+offset_bottom = 1284.6155
+theme_override_font_sizes/font_size = 40
+text = "周静姝"
+
+[node name="Environment" type="Node2D" parent="." unique_id=1239188360]
 
 [node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("6_3va76")]
 metadata/_edit_lock_ = true
