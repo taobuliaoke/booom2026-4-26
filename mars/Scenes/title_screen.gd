@@ -6,9 +6,30 @@ extends Control
 @export var hover_se: AudioStream
 @onready var active_anim =$HoverDisplay/ChoiceAnimation
 @onready var select_ui = $HoverDisplay/Select
+#--- 视差配置 ---
+@onready var tree = $Background/Tree          # 第一层：最前面
+@onready var bird =   $Background/Bird          # 第二层
+@onready var bird_shadow = $Background/BirdShadow # 第三层：影子（我们要让它反向动）
+@onready var background = $Background/Background # 第四层：底板
+# 记录初始位置
+var tree_base_pos: Vector2
+var bird_base_pos: Vector2
+var shadow_base_pos: Vector2
+
+# 视差敏感度（数值越大动得越远）
+var tree_factor = 0.01
+var bird_factor = 0.005
+var shadow_factor = -0.005 # 负数实现“伪装打光”的影子反向位移
+
+
 var current_static_frame: Node2D = null
 
 func _ready():
+	#  记录初始位置 [cite: 11]
+	tree_base_pos = tree.position
+	bird_base_pos = bird.position
+	shadow_base_pos = bird_shadow.position
+	
 	#音乐播放启动
 	if title_bgm:
 		MusicManager.play_with_fade_in(title_bgm,0)
@@ -25,7 +46,31 @@ func _ready():
 		#点击，如果点击后要跳转，可以直接在这里处理变调或者淡出
 		btn.pressed.connect(_on_button_clicked)
 		
+func _process(delta):
+	_handle_parallax(delta)
 
+func _handle_parallax(delta):
+	# 获取鼠标距离屏幕中心的偏移
+	var center = get_viewport_rect().size / 2
+	var mouse_pos = get_viewport().get_mouse_position()
+	var offset = mouse_pos - center
+	
+	# 第一层：Tree (正向位移，最快)
+	var tree_target = tree_base_pos + offset * tree_factor
+	tree.position = tree.position.lerp(tree_target, delta * 5.0)
+	
+	# 第二层：Bird (正向位移，中速)
+	var bird_target = bird_base_pos + offset * bird_factor
+	bird.position = bird.position.lerp(bird_target, delta * 5.0)
+	
+	# 第三层：BirdShadow (反向位移 + 稍微拉伸)
+	# 当鼠标（光）往右走，影子往左偏
+	var shadow_target = shadow_base_pos + offset * shadow_factor
+	bird_shadow.position = bird_shadow.position.lerp(shadow_target, delta * 5.0)
+	
+	# 可选：让影子随鼠标位置产生轻微倾斜，更有立体感
+	bird_shadow.skew = lerp(bird_shadow.skew, (offset.x / center.x) * 0.05, delta * 5.0)
+	
 func _on_button_hovered(btn: TextureButton):
 	_restore_all_static_frames()
 	current_static_frame = btn.get_parent().get_node("StaticFrame")

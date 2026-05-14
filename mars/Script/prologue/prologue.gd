@@ -48,11 +48,15 @@ func go_to_next_step():
 	set_process_unhandled_input(true)
 
 func _change_slide_content():
-	
+	var current_node = slide_nodes[GlobalData.current_page]
 	if GlobalData.current_page < slide_nodes.size() - 1:
 		slide_nodes[GlobalData.current_page].hide()
 		GlobalData.current_page += 1
 		slide_nodes[GlobalData.current_page].show()
+		var particles = current_node.get_node_or_null("GPUParticles2D")
+		if particles:
+			particles.emitting = true # 开始发射
+			particles.restart()       # 从头开始
 	else:
 		SceneChanger.change_scene("res://Scenes/MainScene.tscn")
 

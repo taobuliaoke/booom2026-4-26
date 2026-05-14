@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjhm0rbo6o1ap"
-path="res://.godot/imported/Dingjiali_necklace.png-8b4539e39bc9c5413537c6fdc9864d1d.ctex"
+path="res://.godot/imported/Dingjiali_necklace.png-6290d13a5cf12a4682d785c3d84bd32b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/Dingjiali_necklace.png"
-dest_files=["res://.godot/imported/Dingjiali_necklace.png-8b4539e39bc9c5413537c6fdc9864d1d.ctex"]
+source_file="res://art/Evidence/LeveL_1/Dingjiali_necklace.png"
+dest_files=["res://.godot/imported/Dingjiali_necklace.png-6290d13a5cf12a4682d785c3d84bd32b.ctex"]
 
 [params]
 

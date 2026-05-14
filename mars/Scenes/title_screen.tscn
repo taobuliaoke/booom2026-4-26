@@ -1,27 +1,30 @@
 [gd_scene format=3 uid="uid://dfr4s3at6xko2"]
 
 [ext_resource type="Script" uid="uid://bjprto5kh64do" path="res://Scenes/title_screen.gd" id="1_n82rj"]
-[ext_resource type="Texture2D" uid="uid://bnkuym8rlntc3" path="res://Art/UI/title_screen.png" id="1_twnyg"]
-[ext_resource type="Texture2D" uid="uid://clgiscsd4ptyu" path="res://Art/UI/TitleScreen_buttonback.png" id="2_12m1t"]
-[ext_resource type="Texture2D" uid="uid://b1s1fbj2sf5w2" path="res://Art/UI/Quit.png" id="2_55kwv"]
+[ext_resource type="Texture2D" uid="uid://clgiscsd4ptyu" path="res://art/UI/TitleScreen/TitleScreen_buttonback.png" id="2_12m1t"]
+[ext_resource type="Texture2D" uid="uid://b1s1fbj2sf5w2" path="res://art/UI/TitleScreen/Quit.png" id="2_55kwv"]
 [ext_resource type="AudioStream" uid="uid://bb7u2wn6faegu" path="res://Audio/mp3/Level1/looperman.ogg" id="2_ycay6"]
-[ext_resource type="Texture2D" uid="uid://cbcqipfftm7ve" path="res://Art/UI/Setting.png" id="3_12m1t"]
+[ext_resource type="Texture2D" uid="uid://cbcqipfftm7ve" path="res://art/UI/TitleScreen/Setting.png" id="3_12m1t"]
 [ext_resource type="AudioStream" uid="uid://ca48y8xrui663" path="res://Audio/mp3/Level1/MouseChilk.mp3" id="3_bsy20"]
-[ext_resource type="Texture2D" uid="uid://d8l86fx5atxs" path="res://Art/UI/NewGame.png" id="4_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://d8l86fx5atxs" path="res://art/UI/TitleScreen/NewGame.png" id="4_6vd4x"]
 [ext_resource type="AudioStream" uid="uid://cn0pvntpmmujd" path="res://Audio/mp3/Level1/MouseChosing.mp3" id="4_07cxn"]
-[ext_resource type="Texture2D" uid="uid://c6njj5xf3itja" path="res://Art/UI/Title_cloud.png" id="4_o1e67"]
-[ext_resource type="Texture2D" uid="uid://s88nr2xsqa7t" path="res://Art/UI/Select.png" id="6_6vd4x"]
-[ext_resource type="Texture2D" uid="uid://cl8w7inw52hr3" path="res://Art/UI/TitleScreen_buttonanim.png" id="8_0061g"]
+[ext_resource type="Texture2D" uid="uid://dk2180iyv7asc" path="res://art/UI/TitleScreen/background.png" id="5_4blwa"]
+[ext_resource type="Texture2D" uid="uid://s88nr2xsqa7t" path="res://art/UI/TitleScreen/Select.png" id="6_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://c6njj5xf3itja" path="res://art/UI/TitleScreen/Title_cloud.png" id="7_vqgqr"]
+[ext_resource type="Texture2D" uid="uid://cl8w7inw52hr3" path="res://art/UI/TitleScreen/TitleScreen_buttonanim.png" id="8_0061g"]
+[ext_resource type="Texture2D" uid="uid://d1hsj1q45gh7o" path="res://art/UI/TitleScreen/bird_shadow.png" id="8_pcucl"]
+[ext_resource type="Texture2D" uid="uid://dbad2tjfpgb14" path="res://art/UI/TitleScreen/bird.png" id="9_2txeq"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="9_8mikk"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="10_sqelc"]
+[ext_resource type="Texture2D" uid="uid://brdblqlnt122u" path="res://art/UI/TitleScreen/tree.png" id="10_2ia2x"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_sqelc"]
 [ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="11_w5sh6"]
-[ext_resource type="Texture2D" uid="uid://ds4soi76e4lx5" path="res://Art/UI/Title.png" id="12_o1e67"]
+[ext_resource type="Texture2D" uid="uid://ds4soi76e4lx5" path="res://art/UI/TitleScreen/Title.png" id="12_o1e67"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsy20"]
 shader = ExtResource("11_w5sh6")
 shader_parameter/speed = 2.2790001082525
 shader_parameter/frequency = 30.7650014613375
-shader_parameter/amplitude = 0.027000001282499998
+shader_parameter/amplitude = 0.02700000128249999
 shader_parameter/edge_softness = 0.238000011305
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqelc"]
@@ -137,17 +140,31 @@ title_bgm = ExtResource("2_ycay6")
 click_se = ExtResource("3_bsy20")
 hover_se = ExtResource("4_07cxn")
 
-[node name="Background" type="TextureRect" parent="." unique_id=2059019522]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_twnyg")
+[node name="Background" type="Node2D" parent="." unique_id=1428525921]
 metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="Background" unique_id=94717926]
+texture = ExtResource("5_4blwa")
+centered = false
+
+[node name="BirdShadow" type="Sprite2D" parent="Background" unique_id=810825553]
+texture = ExtResource("8_pcucl")
+centered = false
+
+[node name="Bird" type="Sprite2D" parent="Background" unique_id=346194122]
+texture = ExtResource("9_2txeq")
+centered = false
 
 [node name="TitleCloud" type="Sprite2D" parent="Background" unique_id=2008287749]
 material = SubResource("ShaderMaterial_bsy20")
 position = Vector2(1030, 470)
-texture = ExtResource("4_o1e67")
+texture = ExtResource("7_vqgqr")
+
+[node name="Tree" type="Sprite2D" parent="Background" unique_id=651549153]
+position = Vector2(-111, -22)
+scale = Vector2(1.065, 1.065)
+texture = ExtResource("10_2ia2x")
+centered = false
 
 [node name="HoverDisplay" type="Node2D" parent="." unique_id=657771517]
 

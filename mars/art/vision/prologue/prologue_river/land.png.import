@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6njj5xf3itja"
-path="res://.godot/imported/Title_cloud.png-80a314f54b53870aa3ec8ca34439be23.ctex"
+uid="uid://0lo5p3a15hwr"
+path="res://.godot/imported/land.png-7ed837e37ad8fc40fa16604e61ec2a96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/Title_cloud.png"
-dest_files=["res://.godot/imported/Title_cloud.png-80a314f54b53870aa3ec8ca34439be23.ctex"]
+source_file="res://art/vision/prologue/prologue_river/land.png"
+dest_files=["res://.godot/imported/land.png-7ed837e37ad8fc40fa16604e61ec2a96.ctex"]
 
 [params]
 

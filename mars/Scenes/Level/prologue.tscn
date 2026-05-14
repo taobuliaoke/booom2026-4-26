@@ -2,15 +2,81 @@
 
 [ext_resource type="Script" uid="uid://bli1vv6d0wioj" path="res://Script/prologue/prologue.gd" id="1_nim4c"]
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="2_2kgvc"]
-[ext_resource type="Texture2D" uid="uid://cwen0yi3bq56l" path="res://art/vision/prologue/prologue_0.jpg" id="2_rt4ci"]
+[ext_resource type="Script" uid="uid://bmi08y5x5g4av" path="res://Scenes/Level/slide.gd" id="3_2gnns"]
 [ext_resource type="Texture2D" uid="uid://duqjgehrl21cd" path="res://art/vision/prologue/prologue_1.jpg" id="3_ghkf2"]
+[ext_resource type="Texture2D" uid="uid://ckrxkqol5q63a" path="res://art/vision/prologue/prologue_river/background.png" id="3_n4yvt"]
+[ext_resource type="Texture2D" uid="uid://0lo5p3a15hwr" path="res://art/vision/prologue/prologue_river/land.png" id="3_tivjr"]
+[ext_resource type="Shader" uid="uid://c3wyowm16m7su" path="res://Shader/hand_drawn_jitter.gdshader" id="4_2gcac"]
 [ext_resource type="Texture2D" uid="uid://wee5iqt2qrr6" path="res://art/vision/prologue/prologue_2.jpg" id="4_30pd2"]
+[ext_resource type="Texture2D" uid="uid://c0jbhiv30tm7e" path="res://art/vision/prologue/prologue_river/worm.png" id="4_tivjr"]
+[ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="4_w8mph"]
+[ext_resource type="Texture2D" uid="uid://nrwyu8wxapsy" path="res://art/vision/prologue/prologue_river/wave.png" id="5_2gnns"]
 [ext_resource type="Script" uid="uid://dm8v3lgt6pfaj" path="res://Script/prologue/prologue_interact.gd" id="5_52yis"]
+[ext_resource type="Texture2D" uid="uid://7fnywytkuje6" path="res://art/vision/prologue/prologue_river/tree.png" id="5_sgytn"]
 [ext_resource type="Texture2D" uid="uid://dwjpnmu0sy0nt" path="res://art/vision/prologue/prologue_3.jpg" id="5_t2qym"]
 [ext_resource type="Texture2D" uid="uid://bjfb5xur66cki" path="res://art/vision/prologue/prologue_5.jpg" id="7_2jbdw"]
+[ext_resource type="Texture2D" uid="uid://dlk5uw814yo45" path="res://art/vision/prologue/prologue_river/tree_line.png" id="7_7lceu"]
 [ext_resource type="Texture2D" uid="uid://cxxhslq6j8fvd" path="res://art/vision/prologue/prologue_6.jpg" id="8_go5so"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="9_436kb"]
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_2kgvc"]
+[ext_resource type="Texture2D" uid="uid://bcd78a7i3hnkh" path="res://art/vision/prologue/prologue_river/rock.png" id="11_mxmxd"]
+[ext_resource type="Texture2D" uid="uid://cug71g0xlttcb" path="res://art/vision/prologue/prologue_river/tree2.png" id="12_l0eoi"]
+[ext_resource type="Texture2D" uid="uid://cu828pdphwh7p" path="res://art/vision/prologue/prologue_boat/leaf.png" id="15_mxmxd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntvsi"]
+shader = ExtResource("4_w8mph")
+shader_parameter/speed = 1.0410000494475
+shader_parameter/frequency = 15.0
+shader_parameter/amplitude = 0.1
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lceu"]
+atlas = ExtResource("4_tivjr")
+region = Rect2(0, 0, 108, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svi7e"]
+atlas = ExtResource("4_tivjr")
+region = Rect2(108, 0, 108, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2gnns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lceu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svi7e")
+}],
+"loop": true,
+"name": &"worm",
+"speed": 3.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4yvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxmxd"]
+shader = ExtResource("4_2gcac")
+shader_parameter/jitter_speed = 2.7090000811775
+shader_parameter/jitter_amount = 1.9540000928149999
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkv37"]
+shader = ExtResource("4_2gcac")
+shader_parameter/jitter_speed = 2.49600007106
+shader_parameter/jitter_amount = 1.5070000715825
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l0eoi"]
+lifetime_randomness = 0.53
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 178.00002
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(30, 50, 0)
+scale_min = 0.5
+scale_max = 0.79999995
+turbulence_noise_speed_random = 0.54
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3wly"]
 radius = 199.30379
@@ -98,6 +164,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TitleSlide" type="Node2D" parent="SlidesContainer" unique_id=1416818479]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide" unique_id=421492128]
 anchors_preset = 15
@@ -125,10 +192,62 @@ text = "  序章
 scroll_active = false
 
 [node name="RiverSlide" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
-visible = false
+script = ExtResource("3_2gnns")
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/RiverSlide" unique_id=643970147]
-texture = ExtResource("2_rt4ci")
+[node name="static" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=242865763]
+
+[node name="Background" type="Sprite2D" parent="SlidesContainer/RiverSlide/static" unique_id=208004631]
+scale = Vector2(1.025, 1.025)
+texture = ExtResource("3_n4yvt")
+centered = false
+
+[node name="Wave" type="Sprite2D" parent="SlidesContainer/RiverSlide/static" unique_id=579290451]
+material = SubResource("ShaderMaterial_ntvsi")
+texture = ExtResource("5_2gnns")
+centered = false
+
+[node name="distant" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=108032047]
+
+[node name="Land" type="Sprite2D" parent="SlidesContainer/RiverSlide/distant" unique_id=1504577259]
+position = Vector2(-67, -60)
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("3_tivjr")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlidesContainer/RiverSlide/distant" unique_id=1441680526]
+position = Vector2(1168, 753)
+sprite_frames = SubResource("SpriteFrames_2gnns")
+animation = &"worm"
+autoplay = "worm"
+frame_progress = 0.15580621
+
+[node name="medium" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=402278950]
+
+[node name="Tree" type="Sprite2D" parent="SlidesContainer/RiverSlide/medium" unique_id=1959993477]
+material = SubResource("ShaderMaterial_n4yvt")
+position = Vector2(-96, -73)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("5_sgytn")
+centered = false
+
+[node name="TreeLine" type="Sprite2D" parent="SlidesContainer/RiverSlide/medium" unique_id=1366908828]
+material = SubResource("ShaderMaterial_mxmxd")
+position = Vector2(-96, -73)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("7_7lceu")
+centered = false
+
+[node name="Tree2" type="Sprite2D" parent="SlidesContainer/RiverSlide/medium" unique_id=2072520869]
+material = SubResource("ShaderMaterial_jkv37")
+texture = ExtResource("12_l0eoi")
+centered = false
+
+[node name="close" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=1526203506]
+
+[node name="Rock" type="Sprite2D" parent="SlidesContainer/RiverSlide/close" unique_id=1939590668]
+position = Vector2(-5, -26)
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("11_mxmxd")
 centered = false
 
 [node name="BoatSlide" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
@@ -137,6 +256,13 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/BoatSlide" unique_id=2026857587]
 texture = ExtResource("3_ghkf2")
 centered = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SlidesContainer/BoatSlide" unique_id=1289811217]
+position = Vector2(159, -36)
+texture = ExtResource("15_mxmxd")
+lifetime = 10.0
+randomness = 0.08
+process_material = SubResource("ParticleProcessMaterial_l0eoi")
 
 [node name="AlienSlide" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
 visible = false

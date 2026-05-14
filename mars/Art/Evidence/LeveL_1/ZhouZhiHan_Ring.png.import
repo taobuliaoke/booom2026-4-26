@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpeo3d6usxxmk"
-path="res://.godot/imported/ZhouZhiHan_Ring.png-5cde3fd8c6d7f9a1ea40de3f06aac9a4.ctex"
+path="res://.godot/imported/ZhouZhiHan_Ring.png-bc35e703fa7b9d6492992ac177bf965f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/ZhouZhiHan_Ring.png"
-dest_files=["res://.godot/imported/ZhouZhiHan_Ring.png-5cde3fd8c6d7f9a1ea40de3f06aac9a4.ctex"]
+source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Ring.png"
+dest_files=["res://.godot/imported/ZhouZhiHan_Ring.png-bc35e703fa7b9d6492992ac177bf965f.ctex"]
 
 [params]
 
