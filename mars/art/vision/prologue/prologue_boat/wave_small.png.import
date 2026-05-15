@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fhesk43n1ldc"
-path="res://.godot/imported/wave_small.png-7e0f67b07e7aa58a5dea00340ed60cd6.ctex"
+path="res://.godot/imported/wave_small.png-21522e9fdc8d4efc97c0bda82b585bf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/prologue/prologue_boat/wave_small.png"
-dest_files=["res://.godot/imported/wave_small.png-7e0f67b07e7aa58a5dea00340ed60cd6.ctex"]
+source_file="res://Art/Vision/prologue/prologue_boat/wave_small.png"
+dest_files=["res://.godot/imported/wave_small.png-21522e9fdc8d4efc97c0bda82b585bf1.ctex"]
 
 [params]
 

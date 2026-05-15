@@ -17,6 +17,7 @@ extends Control
 
 
 
+
 # --- 运行状态 ---
 var dialogue_data: Array = []
 var final_slide: int 

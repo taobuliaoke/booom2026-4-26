@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlk5uw814yo45"
-path="res://.godot/imported/tree_line.png-7d6842a1616691b2c995cb6f16201bae.ctex"
+path="res://.godot/imported/tree_line.png-f2dda48abe934167d030fe62d11c8fec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/prologue/prologue_river/tree_line.png"
-dest_files=["res://.godot/imported/tree_line.png-7d6842a1616691b2c995cb6f16201bae.ctex"]
+source_file="res://Art/Vision/prologue/prologue_river/tree_line.png"
+dest_files=["res://.godot/imported/tree_line.png-f2dda48abe934167d030fe62d11c8fec.ctex"]
 
 [params]
 
