@@ -8,7 +8,7 @@ var fade_tween: Tween
 func _ready():
 	bgm_player = AudioStreamPlayer.new()
 	add_child(bgm_player)
-	bgm_player.bus = "Master"
+	bgm_player.bus = "Music"
 
 # 修改此函数，允许传入一个音乐资源 (stream)
 func play_with_fade_in(stream: AudioStream, duration: float = 2.0):
@@ -49,6 +49,6 @@ func play_se(se_stream: AudioStream, volume_db: float = 0.0):
 	add_child(se_player)
 	se_player.stream = se_stream
 	se_player.volume_db = volume_db
-	se_player.bus = "Master" 
+	se_player.bus = "Music" 
 	se_player.play()
 	se_player.finished.connect(se_player.queue_free)

@@ -1,11 +1,13 @@
 extends Control
-
-
+@onready var settings_ui = $SettingsLayer
+@onready var confirm_rect = $ExitConfirmLayer/ColorRect
+@onready var confirm_panel = $ExitConfirmLayer/Panel
 @export var title_bgm: AudioStream
 @export var click_se: AudioStream 
 @export var hover_se: AudioStream
 @onready var active_anim =$HoverDisplay/ChoiceAnimation
 @onready var select_ui = $HoverDisplay/Select
+@onready var exit_confirm_layer = $ExitConfirmLayer
 #--- 视差配置 ---
 @onready var tree = $Background/Tree          # 第一层：最前面
 @onready var bird =   $Background/Bird          # 第二层
@@ -122,3 +124,42 @@ func _on_start_button_pressed() -> void:
 	$CanvasLayer/AnimationPlayer.play("fade_out")
 	await$CanvasLayer/AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Level/prologue.tscn")
+
+func _on_settings_button_pressed():
+	if click_se:
+		MusicManager.play_se(click_se)
+	settings_ui.show_settings()
+	
+func _on_exit_button_pressed() -> void:
+	if click_se:
+		MusicManager.play_se(click_se)
+	
+	# 不直接退出，而是显示弹窗
+	exit_confirm_layer.show()
+	
+	# 如果想更细腻点，可以给弹窗做一个简单的淡入
+	var tween = create_tween()
+	# 设置过渡曲线，让弹窗弹出感更丝滑（EASE_OUT 适合弹出）
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_SINE)
+	
+	# 动画逻辑：透明度从 0 到 1
+	 # 假设你有个面板
+	
+	tween.tween_property(confirm_rect, "modulate:a", 1.0, 0.4).from(0.0)
+# --- 2. 弹窗内的“确认退出”按钮 ---
+func _on_confirm_exit_pressed() -> void:
+	if click_se:
+		MusicManager.play_se(click_se)
+	# 播放你原有的淡出效果
+	$CanvasLayer/AnimationPlayer.play("fade_out")
+	await $CanvasLayer/AnimationPlayer.animation_finished
+	
+	get_tree().quit()
+
+# --- 3. 弹窗内的“再留一会儿”按钮 ---
+func _on_cancel_exit_pressed() -> void:
+	if click_se:
+		MusicManager.play_se(click_se)
+	# 隐藏弹窗
+	exit_confirm_layer.hide()

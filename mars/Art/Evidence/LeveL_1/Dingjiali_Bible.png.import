@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tfx2ssad6r7p"
-path="res://.godot/imported/Dingjiali_Bible.png-76cec8ee9139b36b9527d55106ce7290.ctex"
+path="res://.godot/imported/Dingjiali_Bible.png-67e17861b383cd141360977aea2a98f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/Dingjiali_Bible.png"
-dest_files=["res://.godot/imported/Dingjiali_Bible.png-76cec8ee9139b36b9527d55106ce7290.ctex"]
+source_file="res://art/Evidence/LeveL_1/Dingjiali_Bible.png"
+dest_files=["res://.godot/imported/Dingjiali_Bible.png-67e17861b383cd141360977aea2a98f7.ctex"]
 
 [params]
 
