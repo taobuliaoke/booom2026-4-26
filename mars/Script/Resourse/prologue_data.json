@@ -1,0 +1,57 @@
+{
+  "slides": [
+	{
+	  "id": 0,
+	  "name": "TitleSlide",
+	  "dialogues": []
+	},
+	{
+	  "id": 1,
+	  "name": "RiverSlide",
+	  "dialogues": [
+		"1886年5月，天京的海风里裹着咸腥的泥土味道。",
+		"这是漕运的旺季，也是桃洵最猛的时候。",
+		"大沽口的泥沙被河水搅得昏黄，海河两岸的盐碱地上，野草疯长。",
+		"紫竹林码头那一带，洋人的轮船和中国的沙船几乎乱作一团。",
+		"汽笛声和搬运工的号声此起彼伏，如两个世界在揉裂与融合。",
+        "在天津城里，“洋药”和“洋务”是仅有的两桩热门生意，烟馆与官局各得其所。"
+	  ]
+	},
+	{
+	  "id": 2,
+	  "name": "BoatSlide",
+	  "dialogues": [
+		"这日辰时，大沽口外泊着一艘破渔船，船上两个渔户张老蔫与孙儿二海。",
+        "孙二海：“老蔫儿你看，此为何物啊？”"
+	  ]
+	},
+	{
+	  "id": 3,
+	  "name": "AlienSlide",
+	  "dialogues": [
+		"张老蔫：“此物光滑无孔，不似活物……且瞧瞧再说。”",
+        "孙二海：“动……动了！”"
+	  ]
+	},
+	{
+	  "id": 4,
+	  "name": "AlienSlideOpen",
+	  "dialogues": []
+	},
+	{
+	  "id": 5,
+	  "name": "PanoramaSlide",
+	  "dialogues": []
+	},
+	{
+	  "id": 6,
+	  "name": "PanoramaSlideChanged",
+	  "dialogues": []
+	},
+	{
+	  "id": 7,
+	  "name": "TitleSlide2",
+	  "dialogues": []
+	}
+  ]
+}

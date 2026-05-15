@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://loel61fjee1e" path="res://Art/Vision/Level1/Level1_Zhouzhihan.png" id="7_n1aum"]
 
 [node name="Level1" type="Node2D" unique_id=1293253096]
-visible = false
 script = ExtResource("1_q12u6")
 data_resource_path = "res://Script/Resourse/level_1_data.tres"
 view_icons = Array[Texture2D]([ExtResource("2_n1aum"), ExtResource("3_gl8jy"), ExtResource("4_u04hf"), ExtResource("5_ugtqp"), ExtResource("6_1dslf")])
@@ -87,7 +86,7 @@ character_id = "周之瀚"
 ui_pos_node = NodePath("ZhouZhiHanMK")
 
 [node name="ZhouZhiHanMK" type="Marker2D" parent="Viewpoints/CharacterB_View/ZhouZhiHan" unique_id=736132432]
-position = Vector2(-304.5249, -159.48717)
+position = Vector2(-380.99545, -207.69232)
 
 [node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
 visible = false

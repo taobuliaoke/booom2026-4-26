@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bli1vv6d0wioj" path="res://Script/prologue/prologue.gd" id="1_nim4c"]
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="2_2kgvc"]
-[ext_resource type="Texture2D" uid="uid://cwen0yi3bq56l" path="res://art/vision/prologue/prologue_0.jpg" id="2_rt4ci"]
-[ext_resource type="Texture2D" uid="uid://duqjgehrl21cd" path="res://art/vision/prologue/prologue_1.jpg" id="3_ghkf2"]
-[ext_resource type="Texture2D" uid="uid://wee5iqt2qrr6" path="res://art/vision/prologue/prologue_2.jpg" id="4_30pd2"]
+[ext_resource type="Texture2D" uid="uid://cwen0yi3bq56l" path="res://Art/Vision/prologue/prologue_0.jpg" id="2_rt4ci"]
+[ext_resource type="Texture2D" uid="uid://duqjgehrl21cd" path="res://Art/Vision/prologue/prologue_1.jpg" id="3_ghkf2"]
+[ext_resource type="Texture2D" uid="uid://wee5iqt2qrr6" path="res://Art/Vision/prologue/prologue_2.jpg" id="4_30pd2"]
 [ext_resource type="Script" uid="uid://dm8v3lgt6pfaj" path="res://Script/prologue/prologue_interact.gd" id="5_52yis"]
-[ext_resource type="Texture2D" uid="uid://dwjpnmu0sy0nt" path="res://art/vision/prologue/prologue_3.jpg" id="5_t2qym"]
-[ext_resource type="Texture2D" uid="uid://bjfb5xur66cki" path="res://art/vision/prologue/prologue_5.jpg" id="7_2jbdw"]
-[ext_resource type="Texture2D" uid="uid://cxxhslq6j8fvd" path="res://art/vision/prologue/prologue_6.jpg" id="8_go5so"]
+[ext_resource type="Texture2D" uid="uid://dwjpnmu0sy0nt" path="res://Art/Vision/prologue/prologue_3.jpg" id="5_t2qym"]
+[ext_resource type="Texture2D" uid="uid://bjfb5xur66cki" path="res://Art/Vision/prologue/prologue_5.jpg" id="7_2jbdw"]
+[ext_resource type="Texture2D" uid="uid://cxxhslq6j8fvd" path="res://Art/Vision/prologue/prologue_6.jpg" id="8_go5so"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="9_436kb"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_2kgvc"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="10_2kgvc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3wly"]
 radius = 199.30379
@@ -111,35 +111,47 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SlidesContainer/TitleSlide" unique_id=63238006]
-offset_left = 627.0
-offset_top = 451.0
-offset_right = 994.0
-offset_bottom = 752.0
+offset_left = 796.0
+offset_top = 404.0
+offset_right = 887.0
+offset_bottom = 670.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
 theme_override_fonts/normal_font = ExtResource("2_2kgvc")
 theme_override_font_sizes/normal_font_size = 76
 bbcode_enabled = true
 text = "  序章
 
-  神仙"
+"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SlidesContainer/TitleSlide" unique_id=1764964938]
+offset_left = 720.0
+offset_top = 424.0
+offset_right = 811.0
+offset_bottom = 732.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "  神仙显灵
+
+"
 scroll_active = false
 
 [node name="RiverSlide" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/RiverSlide" unique_id=643970147]
 texture = ExtResource("2_rt4ci")
 centered = false
 
 [node name="BoatSlide" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/BoatSlide" unique_id=2026857587]
 texture = ExtResource("3_ghkf2")
 centered = false
 
 [node name="AlienSlide" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1734597785]
 texture = ExtResource("4_30pd2")
@@ -153,7 +165,6 @@ position = Vector2(804, 532)
 shape = SubResource("CircleShape2D_k3wly")
 
 [node name="AlienSlideOpen" type="Node2D" parent="SlidesContainer" unique_id=2049157347]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1482771329]
 texture = ExtResource("5_t2qym")
@@ -167,21 +178,18 @@ position = Vector2(796, 517)
 shape = SubResource("CircleShape2D_52yis")
 
 [node name="PanoramaSlide" type="Node2D" parent="SlidesContainer" unique_id=628548123]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlide" unique_id=1086709686]
 texture = ExtResource("7_2jbdw")
 centered = false
 
 [node name="PanoramaSlideChanged" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlideChanged" unique_id=1186193574]
 texture = ExtResource("8_go5so")
 centered = false
 
 [node name="TitleSlide2" type="Node2D" parent="SlidesContainer" unique_id=618350915]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide2" unique_id=887100732]
 anchors_preset = 15
@@ -194,23 +202,42 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SlidesContainer/TitleSlide2" unique_id=139178240]
-offset_left = 627.0
-offset_top = 451.0
-offset_right = 994.0
-offset_bottom = 752.0
+[node name="RichTextLabel3" type="RichTextLabel" parent="SlidesContainer/TitleSlide2" unique_id=2035273580]
+offset_left = 796.0
+offset_top = 404.0
+offset_right = 887.0
+offset_bottom = 670.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
 theme_override_fonts/normal_font = ExtResource("2_2kgvc")
 theme_override_font_sizes/normal_font_size = 76
 bbcode_enabled = true
-text = " 第一章
+text = "第一章"
+scroll_active = false
 
-  谈天"
+[node name="RichTextLabel4" type="RichTextLabel" parent="SlidesContainer/TitleSlide2" unique_id=1367621572]
+offset_left = 720.0
+offset_top = 424.0
+offset_right = 811.0
+offset_bottom = 732.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "初识谈天"
 scroll_active = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1440551128]
 
+[node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1296159555]
+offset_left = 151.0
+offset_top = 1071.0
+offset_right = 1472.0
+offset_bottom = 1134.0
+theme_override_font_sizes/normal_font_size = 35
+
 [node name="ScreenFader" type="ColorRect" parent="CanvasLayer" unique_id=1524486539]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -218,6 +245,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=1765236196]
 material = SubResource("ShaderMaterial_cqs61")
@@ -228,6 +256,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("10_2kgvc")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=682776889]
 root_node = NodePath("../..")
