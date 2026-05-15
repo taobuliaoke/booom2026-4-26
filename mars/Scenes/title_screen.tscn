@@ -19,6 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_sqelc"]
 [ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="11_w5sh6"]
 [ext_resource type="Texture2D" uid="uid://ds4soi76e4lx5" path="res://art/UI/TitleScreen/Title.png" id="12_o1e67"]
+[ext_resource type="Script" uid="uid://74x118xoiqli" path="res://Scenes/settings_ui.gd" id="18_1hrlb"]
+[ext_resource type="Texture2D" uid="uid://b0cqt5xin6lxg" path="res://art/UI/DialogueBox_big.png" id="18_2ia2x"]
+[ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="18_vqgqr"]
+[ext_resource type="Texture2D" uid="uid://b8sag33uen8bp" path="res://art/UI/button.png" id="19_pcucl"]
+[ext_resource type="Texture2D" uid="uid://bw43iml2airrm" path="res://art/UI/button_pressed.png" id="20_2txeq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsy20"]
 shader = ExtResource("11_w5sh6")
@@ -62,6 +67,13 @@ shader_parameter/speed = 0.802000038095
 shader_parameter/frequency = 9.786000464835
 shader_parameter/amplitude = 0.0250000011875
 shader_parameter/edge_softness = 0.1210000057475
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcucl"]
+shader = ExtResource("11_w5sh6")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 17.94800085253
+shader_parameter/amplitude = 0.0250000011875
+shader_parameter/edge_softness = 0.54000002565
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w5sh6"]
 shader = ExtResource("9_8mikk")
@@ -236,6 +248,209 @@ material = SubResource("ShaderMaterial_ycay6")
 position = Vector2(1049, 301)
 texture = ExtResource("12_o1e67")
 
+[node name="SettingsLayer" type="CanvasLayer" parent="." unique_id=546929721]
+script = ExtResource("18_1hrlb")
+
+[node name="ColorRect" type="ColorRect" parent="SettingsLayer" unique_id=2075399180]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.12941177)
+
+[node name="SettingsBox" type="PanelContainer" parent="SettingsLayer" unique_id=536311955]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.75
+offset_top = -213.125
+offset_right = 401.75
+offset_bottom = 213.125
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="NinePatchRect" parent="SettingsLayer/SettingsBox" unique_id=418909067]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_pcucl")
+layout_mode = 2
+texture = ExtResource("18_2ia2x")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsLayer/SettingsBox" unique_id=1443485295]
+layout_mode = 2
+theme_override_constants/margin_left = 95
+theme_override_constants/margin_top = 57
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsLayer/SettingsBox/MarginContainer" unique_id=544789549]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TitleLabel" type="Label" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer" unique_id=230939456]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+theme_override_font_sizes/font_size = 55
+text = "设置"
+
+[node name="HSeparator" type="HSeparator" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer" unique_id=1575207805]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="MusicVolumeRow" type="HBoxContainer" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer" unique_id=473877604]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.7
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/MusicVolumeRow" unique_id=1170522486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "音乐音量"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/MusicVolumeRow" unique_id=1983000211]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.55
+min_value = -20.0
+max_value = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer" unique_id=779445232]
+layout_mode = 2
+theme_override_constants/separation = -143
+
+[node name="ConfirmButton" type="TextureButton" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2113200746]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("19_pcucl")
+texture_pressed = ExtResource("20_2txeq")
+
+[node name="Label" type="Label" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" unique_id=519133115]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 129.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "保存"
+
+[node name="QuitButton" type="TextureButton" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1401960798]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("19_pcucl")
+texture_pressed = ExtResource("20_2txeq")
+
+[node name="Label" type="Label" parent="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/HBoxContainer/QuitButton" unique_id=1579627008]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 19.0
+offset_right = 134.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+theme_override_font_sizes/font_size = 40
+text = "取消"
+
+[node name="ExitConfirmLayer" type="CanvasLayer" parent="." unique_id=588917444]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ExitConfirmLayer" unique_id=142375157]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.12941177)
+
+[node name="Panel" type="Panel" parent="ExitConfirmLayer" unique_id=122037142]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.5
+offset_top = -117.5
+offset_right = 268.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="NinePatchRect" parent="ExitConfirmLayer/Panel" unique_id=1130372774]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_pcucl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.5
+offset_top = -5.5
+offset_right = 9.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_vqgqr")
+region_rect = Rect2(0, 0, 264, 264)
+
+[node name="Label" type="Label" parent="ExitConfirmLayer/Panel" unique_id=1383106468]
+layout_mode = 1
+offset_left = 58.5
+offset_top = 54.5
+offset_right = 401.5
+offset_bottom = 104.5
+theme_override_colors/font_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+theme_override_font_sizes/font_size = 49
+text = "确定要退出吗？"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExitConfirmLayer/Panel" unique_id=1289432339]
+layout_mode = 0
+offset_left = 60.5
+offset_top = 141.5
+offset_right = 467.5
+offset_bottom = 203.5
+theme_override_constants/separation = 52
+
+[node name="ConfirmButton" type="TextureButton" parent="ExitConfirmLayer/Panel/HBoxContainer" unique_id=1534305605]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("19_pcucl")
+texture_pressed = ExtResource("20_2txeq")
+
+[node name="Label" type="Label" parent="ExitConfirmLayer/Panel/HBoxContainer/ConfirmButton" unique_id=584012283]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 129.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "确定"
+
+[node name="QuitButton" type="TextureButton" parent="ExitConfirmLayer/Panel/HBoxContainer" unique_id=1905507121]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("19_pcucl")
+texture_pressed = ExtResource("20_2txeq")
+
+[node name="Label" type="Label" parent="ExitConfirmLayer/Panel/HBoxContainer/QuitButton" unique_id=1809262105]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 19.0
+offset_right = 134.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+theme_override_font_sizes/font_size = 40
+text = "取消"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=413543084]
 
 [node name="ScreenFader" type="ColorRect" parent="CanvasLayer" unique_id=594044985]
@@ -264,3 +479,10 @@ libraries/ = SubResource("AnimationLibrary_bsy20")
 
 [connection signal="animation_finished" from="HoverDisplay/ChoiceAnimation" to="." method="_on_choice_animation_finished"]
 [connection signal="pressed" from="MenuButtons/Start/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuButtons/Setting/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MenuButtons/Exit/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/MusicVolumeRow/MusicSlider" to="SettingsLayer" method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="SettingsLayer" method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="SettingsLayer/SettingsBox/MarginContainer/VBoxContainer/HBoxContainer/QuitButton" to="SettingsLayer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ExitConfirmLayer/Panel/HBoxContainer/ConfirmButton" to="." method="_on_confirm_exit_pressed"]
+[connection signal="pressed" from="ExitConfirmLayer/Panel/HBoxContainer/QuitButton" to="." method="_on_cancel_exit_pressed"]

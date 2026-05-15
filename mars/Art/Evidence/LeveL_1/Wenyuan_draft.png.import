@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsaks1qeslgbj"
-path="res://.godot/imported/Wenyuan_draft.png-7d1e47a35b800474cec49e48cba9fcfb.ctex"
+path="res://.godot/imported/Wenyuan_draft.png-355990b0a05ed888fc5f072a96a7f4b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/Wenyuan_draft.png"
-dest_files=["res://.godot/imported/Wenyuan_draft.png-7d1e47a35b800474cec49e48cba9fcfb.ctex"]
+source_file="res://art/Evidence/LeveL_1/Wenyuan_draft.png"
+dest_files=["res://.godot/imported/Wenyuan_draft.png-355990b0a05ed888fc5f072a96a7f4b3.ctex"]
 
 [params]
 
