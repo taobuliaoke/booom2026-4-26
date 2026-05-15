@@ -1,5 +1,8 @@
 extends CanvasLayer
+signal request_bird_sound
+
 @onready var rect = $ColorRect
+
 @onready var music_slider = $SettingsBox/MarginContainer/VBoxContainer/MusicVolumeRow/MusicSlider
 var music_bus_index : int
 var volume_before_change : float # 用来记录修改前的音量
@@ -32,7 +35,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 # --- 确定按钮：直接关闭即可，因为滑块拖动时已经改变了音量 ---
 func _on_confirm_button_pressed():
 	if MusicManager.has_method("play_se"): # 假设你有音效管理器
-		# MusicManager.play_se(confirm_se) 
+		request_bird_sound.emit()
 		pass
 	# 这里以后可以添加保存到本地 ConfigFile 的逻辑
 	self.hide()
@@ -40,6 +43,7 @@ func _on_confirm_button_pressed():
 # --- 取消按钮：恢复到打开前的音量 ---
 func _on_quit_button_pressed():
 	# 还原音量
+	request_bird_sound.emit()
 	AudioServer.set_bus_volume_db(music_bus_index, volume_before_change)
 	AudioServer.set_bus_mute(music_bus_index, volume_before_change <= -20)
 	music_slider.value = volume_before_change

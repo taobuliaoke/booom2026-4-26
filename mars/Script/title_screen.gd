@@ -48,6 +48,7 @@ func _ready():
 		#点击，如果点击后要跳转，可以直接在这里处理变调或者淡出
 		btn.pressed.connect(_on_button_clicked)
 		
+	$SettingsLayer.request_bird_sound.connect(request_bird_sound)
 func _process(delta):
 	_handle_parallax(delta)
 
@@ -163,3 +164,5 @@ func _on_cancel_exit_pressed() -> void:
 		MusicManager.play_se(click_se)
 	# 隐藏弹窗
 	exit_confirm_layer.hide()
+func request_bird_sound():
+	MusicManager.play_se(click_se)

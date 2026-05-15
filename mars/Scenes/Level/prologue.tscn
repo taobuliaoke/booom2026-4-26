@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://nrwyu8wxapsy" path="res://art/vision/prologue/prologue_river/wave.png" id="5_2gnns"]
 [ext_resource type="Script" uid="uid://dm8v3lgt6pfaj" path="res://Script/prologue/prologue_interact.gd" id="5_52yis"]
 [ext_resource type="Texture2D" uid="uid://7fnywytkuje6" path="res://art/vision/prologue/prologue_river/tree.png" id="5_sgytn"]
-[ext_resource type="Texture2D" uid="uid://dwjpnmu0sy0nt" path="res://art/vision/prologue/prologue_3.jpg" id="5_t2qym"]
 [ext_resource type="Texture2D" uid="uid://bjfb5xur66cki" path="res://art/vision/prologue/prologue_5.jpg" id="7_2jbdw"]
 [ext_resource type="Texture2D" uid="uid://dlk5uw814yo45" path="res://art/vision/prologue/prologue_river/tree_line.png" id="7_7lceu"]
 [ext_resource type="Texture2D" uid="uid://cxxhslq6j8fvd" path="res://art/vision/prologue/prologue_6.jpg" id="8_go5so"]
@@ -31,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://y7dkb71x0xw2" path="res://art/vision/prologue/prologue_alien/background.png" id="23_3ptvb"]
 [ext_resource type="Texture2D" uid="uid://bwmkckc15cmnb" path="res://art/vision/prologue/prologue_alien/boat.png" id="24_wvlmx"]
 [ext_resource type="Texture2D" uid="uid://b353ba41sw3h6" path="res://art/vision/prologue/prologue_alien/front.png" id="25_mrtvs"]
+[ext_resource type="Texture2D" uid="uid://u2fuw8cb1y7h" path="res://art/vision/prologue/prologue_alien/glass_anim.png" id="27_wvlmx"]
+[ext_resource type="Texture2D" uid="uid://8fb6w8pgy2pl" path="res://art/vision/prologue/prologue_alien/eye-anim.png" id="28_mrtvs"]
+[ext_resource type="Texture2D" uid="uid://8elkmj6766gs" path="res://art/vision/prologue/prologue_alien/pupil.png" id="28_uumld"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ntvsi"]
 shader = ExtResource("4_w8mph")
@@ -168,12 +170,121 @@ scale_min = 0.5
 scale_max = 0.79999995
 turbulence_noise_speed_random = 0.54
 
-[sub_resource type="Animation" id="Animation_uumld"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3wly"]
+radius = 210.00238
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrtvs"]
+atlas = ExtResource("27_wvlmx")
+region = Rect2(0, 0, 619, 788)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uumld"]
+atlas = ExtResource("27_wvlmx")
+region = Rect2(619, 0, 619, 788)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aawr4"]
+atlas = ExtResource("27_wvlmx")
+region = Rect2(1238, 0, 619, 788)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dg63"]
+atlas = ExtResource("27_wvlmx")
+region = Rect2(1857, 0, 619, 788)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mwoc"]
+atlas = ExtResource("27_wvlmx")
+region = Rect2(2476, 0, 619, 788)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_crqvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrtvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uumld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aawr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dg63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mwoc")
+}],
+"loop": false,
+"name": &"glass_open",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crqvi"]
+atlas = ExtResource("28_mrtvs")
+region = Rect2(0, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6lxq"]
+atlas = ExtResource("28_mrtvs")
+region = Rect2(732, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw8lb"]
+atlas = ExtResource("28_mrtvs")
+region = Rect2(976, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcjl4"]
+atlas = ExtResource("28_mrtvs")
+region = Rect2(1220, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0go8"]
+atlas = ExtResource("28_mrtvs")
+region = Rect2(488, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_406dk"]
+atlas = ExtResource("28_mrtvs")
+region = Rect2(244, 0, 244, 186)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_406dk"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_crqvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6lxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw8lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcjl4")
+}],
+"loop": false,
+"name": &"eye",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0go8")
+}],
+"loop": false,
+"name": &"eye_skin_down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_406dk")
+}],
+"loop": false,
+"name": &"eye_skin_up",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrtvs"]
+radius = 67.21989
+
+[sub_resource type="Animation" id="Animation_mrtvs"]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Front:position:y")
+tracks/0/path = NodePath(".:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -181,56 +292,28 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Boat:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 
-[sub_resource type="Animation" id="Animation_2dg63"]
+[sub_resource type="Animation" id="Animation_uumld"]
 resource_name = "boat"
 length = 4.0
 loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Front:position:y")
+tracks/0/path = NodePath(".:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-36, -0.25, 0, 0.25, 0, 0, -0.24444446, 0, 0.25555557, 0, -36, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.9, 4)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Boat:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0, 0, -0.3277778, 0, 0.33888888, 0, -10, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.9, 4)
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 15, -0.33888888, 0, 0.3277778, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.0333333, 4)
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1mwoc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aawr4"]
 _data = {
-&"RESET": SubResource("Animation_uumld"),
-&"boat": SubResource("Animation_2dg63")
+&"RESET": SubResource("Animation_mrtvs"),
+&"boat": SubResource("Animation_uumld")
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k3wly"]
-radius = 199.30379
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_52yis"]
-radius = 78.1089
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cqs61"]
 shader = ExtResource("9_436kb")
@@ -301,9 +384,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_nim4c")
-to_minigame_slide = 4
-special_slides = [NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/AlienSlideOpen")]
-slide_nodes = [NodePath("SlidesContainer/TitleSlide"), NodePath("SlidesContainer/RiverSlide"), NodePath("SlidesContainer/BoatSlide"), NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/AlienSlideOpen"), NodePath("SlidesContainer/PanoramaSlide"), NodePath("SlidesContainer/PanoramaSlideChanged"), NodePath("SlidesContainer/TitleSlide2")]
+to_minigame_slide = 3
+special_slides = [NodePath("SlidesContainer/AlienSlide")]
+slide_nodes = [NodePath("SlidesContainer/TitleSlide"), NodePath("SlidesContainer/RiverSlide"), NodePath("SlidesContainer/BoatSlide"), NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/PanoramaSlide"), NodePath("SlidesContainer/PanoramaSlideChanged"), NodePath("SlidesContainer/TitleSlide2")]
 
 [node name="SlidesContainer" type="Control" parent="." unique_id=1208665037]
 anchors_preset = 0
@@ -414,6 +497,7 @@ texture = ExtResource("11_mxmxd")
 centered = false
 
 [node name="BoatSlide" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
+visible = false
 script = ExtResource("3_2gnns")
 layers_config = {
 "close": 0.01,
@@ -479,7 +563,6 @@ randomness = 0.08
 process_material = SubResource("ParticleProcessMaterial_l0eoi")
 
 [node name="AlienSlide" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
-visible = false
 script = ExtResource("3_2gnns")
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1734597785]
@@ -487,44 +570,62 @@ texture = ExtResource("23_3ptvb")
 centered = false
 
 [node name="Boat" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1067894496]
-position = Vector2(-41, 0)
+position = Vector2(-41, -0.72581786)
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("24_wvlmx")
 centered = false
 
 [node name="medium" type="Node2D" parent="SlidesContainer/AlienSlide" unique_id=1940636160]
-
-[node name="Front" type="Sprite2D" parent="SlidesContainer/AlienSlide/medium" unique_id=320018540]
-position = Vector2(-47, 0)
 scale = Vector2(1.06, 1.06)
+
+[node name="Node2D" type="Node2D" parent="SlidesContainer/AlienSlide/medium" unique_id=608408723]
+
+[node name="Front" type="Sprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=320018540]
+position = Vector2(-47, -36)
 texture = ExtResource("25_mrtvs")
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SlidesContainer/AlienSlide/medium" unique_id=406109915]
-root_node = NodePath("../Area2D")
-libraries/ = SubResource("AnimationLibrary_1mwoc")
-autoplay = &"boat"
-
-[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlide/medium" unique_id=693563326]
+[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=693563326 node_paths=PackedStringArray("prologue", "glass_anim", "eye_anim")]
+position = Vector2(-3.773585, -26.49271)
 script = ExtResource("5_52yis")
+prologue = NodePath("../../../../..")
+glass_anim = NodePath("../Glass")
+eye_anim = NodePath("../Eye")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlide/medium/Area2D" unique_id=4260387]
-position = Vector2(804, 532)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlide/medium/Node2D/Area2D" unique_id=4260387]
+position = Vector2(743.39624, 529.2453)
 shape = SubResource("CircleShape2D_k3wly")
 
-[node name="AlienSlideOpen" type="Node2D" parent="SlidesContainer" unique_id=2049157347]
-visible = false
+[node name="EyeAnchor" type="Node2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=1069072877]
 
-[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1482771329]
-texture = ExtResource("5_t2qym")
-centered = false
+[node name="Pupil" type="Sprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D/EyeAnchor" unique_id=1077809169]
+position = Vector2(745.2831, 495.20544)
+texture = ExtResource("28_uumld")
 
-[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1472114810]
+[node name="Glass" type="AnimatedSprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=1346597047]
+position = Vector2(637.7359, 693.673)
+sprite_frames = SubResource("SpriteFrames_crqvi")
+animation = &"glass_open"
+
+[node name="Eye" type="AnimatedSprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=469181649]
+position = Vector2(749.05664, 497.0922)
+sprite_frames = SubResource("SpriteFrames_406dk")
+animation = &"eye"
+
+[node name="Area2D2" type="Area2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=1709036476 node_paths=PackedStringArray("prologue", "glass_anim", "eye_anim")]
 script = ExtResource("5_52yis")
+prologue = NodePath("../../../../..")
+glass_anim = NodePath("../Glass")
+eye_anim = NodePath("../Eye")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlideOpen/Area2D" unique_id=1524460595]
-position = Vector2(796, 517)
-shape = SubResource("CircleShape2D_52yis")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlide/medium/Node2D/Area2D2" unique_id=1234679766]
+position = Vector2(745.2831, 497.09222)
+shape = SubResource("CircleShape2D_mrtvs")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=208605570]
+libraries/ = SubResource("AnimationLibrary_aawr4")
+autoplay = &"boat"
 
 [node name="PanoramaSlide" type="Node2D" parent="SlidesContainer" unique_id=628548123]
 visible = false
@@ -612,3 +713,7 @@ theme_override_font_sizes/normal_font_size = 35
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=682776889]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_ntbng")
+
+[connection signal="mouse_entered" from="SlidesContainer/AlienSlide/medium/Node2D/Area2D" to="SlidesContainer/AlienSlide/medium/Node2D/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SlidesContainer/AlienSlide/medium/Node2D/Area2D" to="SlidesContainer/AlienSlide/medium/Node2D/Area2D" method="_on_mouse_exited"]
+[connection signal="animation_finished" from="SlidesContainer/AlienSlide/medium/Node2D/Glass" to="SlidesContainer/AlienSlide/medium/Node2D/Area2D" method="_on_animated_sprite_2d_animation_finished"]

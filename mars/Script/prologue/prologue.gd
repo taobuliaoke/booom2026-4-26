@@ -9,6 +9,8 @@ extends Control
 
 # --- 节点引用 ---
 @onready var dialogue_label = $CanvasLayer/DialogueLabel # 请确保你的场景中有此路径的 Label 
+@onready var eye_pupil =$SlidesContainer/AlienSlide/medium/Node2D/EyeAnchor/Pupil
+
 
 # --- 运行状态 ---
 var dialogue_data: Array = []
@@ -17,11 +19,17 @@ var is_typing: bool = false
 var current_dialogue_index: int = 0
 var current_tween: Tween
 var is_locked: bool = false # 终极输入锁
+var is_animation = false
+
+var eye_center_pos: Vector2
+var max_follow_distance: float = 20 # 眼球移动的最大半径
+var is_eye_active: bool = false
 
 signal item_clicked 
 
 func _ready():
 	#防御性检查：确保inspector 已赋值
+	eye_center_pos = eye_pupil.position
 	if slide_nodes.is_empty():
 		push_error('错误：slide_nodes 数组为空，请在inspector 中拖入了节点')
 		return
@@ -38,7 +46,44 @@ func _ready():
 	
 	# 显示当前页的第一句对白
 	_display_current_content()
+func _process(_delta):
+	if is_eye_active:
+		_update_eye_follow()
+		
+func _update_eye_follow():
+	# 1. 获取鼠标相对于眼球中心的位置
+	print("眼动")
+	var mouse_pos = eye_pupil.get_parent().get_local_mouse_position()
+	var direction = (mouse_pos - eye_pupil.global_position).normalized()
+	var distance = eye_pupil.global_position.distance_to(mouse_pos)
+	
+	# 2. 计算偏移量（距离越远偏移越多，但不能超过最大半径）
+	var target_offset = direction * min(distance * 0.2, max_follow_distance)
+	_update_eyelid_direction(target_offset)
+	# 3. 平滑移动眼球（Lerp 让动作更柔和，符合生物感）
+	eye_pupil.position = eye_pupil.position.lerp(eye_center_pos + target_offset, 0.1)
 
+func _update_eyelid_direction(offset: Vector2):
+	# 设定一个阈值，只有当眼珠动得足够远时才切换眼皮方向
+	var threshold = 5.0 
+	
+	# 获取眼皮的 AnimatedSprite2D（假设叫 eye_skin）
+	var eye_skin = $SlidesContainer/AlienSlide/medium/Node2D/Eye
+
+	if offset.length() < threshold:
+		eye_skin.play("center") # 默认居中状态
+	else:
+		# 简单的四方向判定，如果你画了八方向也可以细化
+		if abs(offset.x) > abs(offset.y):
+			if offset.x > 0:
+				eye_skin.play("eye_skin_up")
+			else:
+				eye_skin.play("eye_skin_down")
+		else:
+			if offset.y > 0:
+				eye_skin.play("eye_skin_down")
+			else:
+				eye_skin.play("eye_skin_up")
 func _load_dialogue_data():
 	if not FileAccess.file_exists(data_file_path):
 		print("错误：找不到对白文件 ", data_file_path)
@@ -61,7 +106,8 @@ func _unhandled_input(event):
 		if is_typing:
 			_finish_typing_instantly()
 			return
-
+		if is_animation:
+			return
 		# 2. 检查这一页是否还有下一句对白
 		var slide_info = dialogue_data[GlobalData.current_page]
 		var dialogues = slide_info['dialogues']
@@ -120,6 +166,8 @@ func go_to_next_step():
 	if is_locked:
 		return
 	is_locked = true
+	if GlobalData.current_page==2:
+		is_eye_active = true
 	if GlobalData.current_page == to_minigame_slide: 
 		print('正在跳转3d场景，锁定所有后续逻辑')
 		SceneChanger.change_scene("res://3D_Content/3Dgame.tscn") 
@@ -156,11 +204,7 @@ func _change_slide_content():
 		if particles:
 			particles.emitting = true # 开始发射
 			particles.restart()       # 从头开始
-		var anim =  slide_nodes[GlobalData.current_page+1].get_node_or_null("AnimationPlayer")
-		if anim:
-		# 即使你在编辑器里设了自动播放，
-		# 在这里手动 play 一下可以确保动画从第一帧（RESET）开始，避免跳帧
-			anim.play(anim.get_autoplay())
+
 	else:
 		SceneChanger.change_scene("res://Scenes/MainScene.tscn")
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfr4s3at6xko2"]
 
-[ext_resource type="Script" uid="uid://bjprto5kh64do" path="res://Scenes/title_screen.gd" id="1_n82rj"]
+[ext_resource type="Script" uid="uid://bjprto5kh64do" path="res://Script/title_screen.gd" id="1_n82rj"]
 [ext_resource type="Texture2D" uid="uid://clgiscsd4ptyu" path="res://art/UI/TitleScreen/TitleScreen_buttonback.png" id="2_12m1t"]
 [ext_resource type="Texture2D" uid="uid://b1s1fbj2sf5w2" path="res://art/UI/TitleScreen/Quit.png" id="2_55kwv"]
 [ext_resource type="AudioStream" uid="uid://bb7u2wn6faegu" path="res://Audio/mp3/Level1/looperman.ogg" id="2_ycay6"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_sqelc"]
 [ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="11_w5sh6"]
 [ext_resource type="Texture2D" uid="uid://ds4soi76e4lx5" path="res://art/UI/TitleScreen/Title.png" id="12_o1e67"]
-[ext_resource type="Script" uid="uid://74x118xoiqli" path="res://Scenes/settings_ui.gd" id="18_1hrlb"]
+[ext_resource type="Script" uid="uid://74x118xoiqli" path="res://Script/settings_ui.gd" id="18_1hrlb"]
 [ext_resource type="Texture2D" uid="uid://b0cqt5xin6lxg" path="res://art/UI/DialogueBox_big.png" id="18_2ia2x"]
 [ext_resource type="Texture2D" uid="uid://dux0areccp5f7" path="res://art/UI/DialogueBox.png" id="18_vqgqr"]
 [ext_resource type="Texture2D" uid="uid://b8sag33uen8bp" path="res://art/UI/button.png" id="19_pcucl"]
