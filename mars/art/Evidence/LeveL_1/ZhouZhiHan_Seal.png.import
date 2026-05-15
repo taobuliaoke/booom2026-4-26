@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvk7hg72dxlro"
-path="res://.godot/imported/ZhouZhiHan_Seal.png-b95caac7283ff52ef6fc7c075e2547e6.ctex"
+path="res://.godot/imported/ZhouZhiHan_Seal.png-34162a5cced3f4849fe752a680029910.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Seal.png"
-dest_files=["res://.godot/imported/ZhouZhiHan_Seal.png-b95caac7283ff52ef6fc7c075e2547e6.ctex"]
+source_file="res://Art/Evidence/LeveL_1/ZhouZhiHan_Seal.png"
+dest_files=["res://.godot/imported/ZhouZhiHan_Seal.png-34162a5cced3f4849fe752a680029910.ctex"]
 
 [params]
 

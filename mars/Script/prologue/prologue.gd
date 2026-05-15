@@ -194,11 +194,6 @@ func _change_slide_content():
 		if particles:
 			particles.emitting = true # 开始发射
 			particles.restart()       # 从头开始
-		var anim =  slide_nodes[GlobalData.current_page+1].get_node_or_null("AnimationPlayer")
-		if anim:
-		# 即使你在编辑器里设了自动播放，
-		# 在这里手动 play 一下可以确保动画从第一帧（RESET）开始，避免跳帧
-			anim.play(anim.get_autoplay())
 	else:
 		SceneChanger.change_scene("res://Scenes/MainScene.tscn")
 

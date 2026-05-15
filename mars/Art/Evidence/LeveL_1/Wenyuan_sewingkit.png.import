@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r1ejjrvlhtk0"
-path="res://.godot/imported/Wenyuan_sewingkit.png-db5013060b1fbacd508bdbbe9e55af13.ctex"
+path="res://.godot/imported/Wenyuan_sewingkit.png-b03c8227d7ce1fd32bc08e01c7152aa9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Evidence/LeveL_1/Wenyuan_sewingkit.png"
-dest_files=["res://.godot/imported/Wenyuan_sewingkit.png-db5013060b1fbacd508bdbbe9e55af13.ctex"]
+source_file="res://Art/Evidence/LeveL_1/Wenyuan_sewingkit.png"
+dest_files=["res://.godot/imported/Wenyuan_sewingkit.png-b03c8227d7ce1fd32bc08e01c7152aa9.ctex"]
 
 [params]
 

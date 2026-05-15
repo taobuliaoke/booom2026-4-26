@@ -1,5 +1,5 @@
 extends Area2D
-
+@export var prologue:Control
 
 func _ready():
 	
@@ -13,5 +13,5 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
 			_on_clicked()
 
 func _on_clicked():
-	$"../../../..".item_clicked.emit()
+	prologue.item_clicked.emit()
 	get_viewport().set_input_as_handled()
