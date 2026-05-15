@@ -28,8 +28,10 @@ func load_data_from_json(path: String):
 	new_data.item_descriptions = dict.get("item_descriptions", {})
 	new_data.character_data = dict.get("character_data", {})
 	
+
 	# 将加载好的数据存入全局变量
 	current_level_data = new_data
+	print('打包测试中的数据加载成功')
 	return new_data
 func parse_pickable_text(raw_text: String) -> Dictionary:
 	var regex = RegEx.new()

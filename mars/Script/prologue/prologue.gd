@@ -16,6 +16,7 @@ var final_slide: int
 var is_typing: bool = false
 var current_dialogue_index: int = 0
 var current_tween: Tween
+var is_locked: bool = false # 终极输入锁
 
 signal item_clicked 
 
@@ -52,6 +53,7 @@ func _load_dialogue_data():
 		print("JSON 解析错误")
 
 func _unhandled_input(event):
+	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT: 
 		var current_node = slide_nodes[GlobalData.current_page]
 		
@@ -115,7 +117,11 @@ func _finish_typing_instantly():
 	is_typing = false
 
 func go_to_next_step():
+	if is_locked:
+		return
+	is_locked = true
 	if GlobalData.current_page == to_minigame_slide: 
+		print('正在跳转3d场景，锁定所有后续逻辑')
 		SceneChanger.change_scene("res://3D_Content/3Dgame.tscn") 
 		GlobalData.current_page = to_minigame_slide + 1 
 		return
@@ -124,15 +130,21 @@ func go_to_next_step():
 		SceneChanger.change_scene("res://Scenes/Level/MainScene.tscn") 
 		return
 
-	set_process_unhandled_input(false) 
-	$CanvasLayer/AnimationPlayer.play("fade_out") 
-	await $CanvasLayer/AnimationPlayer.animation_finished 
+	#淡出动画
+	set_process_unhandled_input(false)
+	$CanvasLayer/AnimationPlayer.play('fade_out')
+	await $CanvasLayer/AnimationPlayer.animation_finished
 	
-	_change_slide_content() 
+	#在黑屏下切换内容
+	_change_slide_content()
 	
-	$CanvasLayer/AnimationPlayer.play("fade_in") 
-	_display_current_content() # 新页面开始显示文字
+	#播放淡入动画
+	$CanvasLayer/AnimationPlayer.play('fade_in')
+	_display_current_content()
+	
+
 	set_process_unhandled_input(true) 
+	is_locked = false
 
 func _change_slide_content():
 	var current_node = slide_nodes[GlobalData.current_page]
@@ -148,6 +160,6 @@ func _change_slide_content():
 		SceneChanger.change_scene("res://Scenes/MainScene.tscn")
 
 func _on_item_clicked():
-	# 只有字播完了，交互物品才有效
-	if not is_typing:
+	# 只有在不播字，不切换场景时才响应
+	if not is_typing and not is_locked:
 		go_to_next_step()

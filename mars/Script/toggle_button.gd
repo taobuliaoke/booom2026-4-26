@@ -9,8 +9,8 @@ extends TextureButton
 var is_animating: bool = false
 var env_original_pos: Vector2
 #预加载
-var normal_img = preload("res://art/UI/ToggleButton.png")
-var pressed_img = preload("res://art/UI/ToggleButton_open.png")
+var normal_img = preload("res://Art/UI/ToggleButton.png")
+var pressed_img = preload("res://Art/UI/ToggleButton_open.png")
 
 
 

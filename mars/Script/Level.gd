@@ -24,7 +24,7 @@ func _ready():
 	
 	if data_resource_path != "":
 	# 游戏开始时加载第一关的 JSON[cite: 12]
-		GameData.load_data_from_json("res://Script/Resourse/level_1_data.json")
+		GameData.load_data_from_json("res://Script/Resourse/Level_1_data.json")
 	# 游戏开始时，先刷新一次，确保只显示第一个视角
 	update_views()
 

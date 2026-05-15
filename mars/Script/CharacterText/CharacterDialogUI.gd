@@ -21,7 +21,9 @@ func _ready():
 		dialog_label.custom_minimum_size.x = max_width
 	else:
 		print("错误：找不到 UI 节点，请检查场景树路径！")
-
+	# 设置行间距为 10 像素
+	dialog_label.add_theme_constant_override("line_separation", 5)
+	
 	GameEvents.request_ui_suppression.connect(_on_ui_suppression)
 	print('对话框：信号连接成功')
 	GameEvents.request_character_dialog.connect(_on_request_dialog)
@@ -83,8 +85,11 @@ func show_content(id: String):
 	# 给 Label 显示没有花括号的干净文本
 	dialog_label.text = parsed_result["formatted_text"]
 	
-	# 调用生成 Area2D 
+	vbox.reset_size() 
+	await get_tree().process_frame 
+	
 	generate_word_areas(parsed_result)
+	
 	#---------------------------处理道具栏显示------------------------------------
 	var items_array = data.get('items',[])
 	if items_array.is_empty():
@@ -122,70 +127,52 @@ func _on_global_clicked(event: InputEventMouseButton):
 #---------------------------------生成可拾取词----------------------------------------
 #生成可拾取词area2D交互区域（主方法）
 func generate_word_areas(parsed_result):
-	# 清理旧的交互区域
 	for child in word_container.get_children():
 		child.queue_free()
 	
-	# -------------------------------用 TextServer 模拟排版--------------------------------------------
-	var p = TextParagraph.new()
-	# 必须与RichTextLabel 属性完全对齐
-	p.alignment = dialog_label.horizontal_alignment 
-	p.width = dialog_label.size.x
+	# 关键：多等几帧，确保打包后的 RichTextLabel 完成布局计算
+	await get_tree().process_frame
+	await get_tree().process_frame
 	
 	var font = dialog_label.get_theme_font("normal_font")
 	var font_size = dialog_label.get_theme_font_size("normal_font_size")
 	if font_size == 0: font_size = 43
-	# 将干净的文本交给排版引擎
-	p.add_string(parsed_result["text"], font, font_size)
 	
-	# 遍历data数组里的每一个拾取词，抓取该词在句子中的起始位置（start)、长度（length),来确定rect的位置与长度
+	# 获取行间距设定
+	var line_sep = 5 
+
 	for info in parsed_result["data"]:
 		var start = info["index"]
 		var length = info["length"]
+		var word = info["word"]
 		
-		# 把数据传入下一个函数获取矩形区域
-		var word_rect = _get_rect_from_paragraph(p, start, length)
-		# 生成interactable
-		if word_rect != Rect2():
-			_spawn_interactable(info["word"], word_rect)
-			
-	# 辅助函数：计算索引范围的矩形
-#生成可拾取词rect（辅助）
-func _get_rect_from_paragraph(p: TextParagraph, start: int, length: int) -> Rect2:
-	for i in p.get_line_count():  									#方法返回段落行数，也就是遍历每一行
-		var line_range = p.get_line_range(i) 						#获取当前行包含的字符范围
-		if start >= line_range.x and start < line_range.y:			# 当这一行有可拾取词汇
-			var ts = TextServerManager.get_primary_interface()		# 调用底层文字服务器
-			var rid = p.get_line_rid(i)								# 获取这一行文字的“身份证”(RID)
-			
-			# 获取起始位置和结束位置的光标字典
-			var c_start = ts.shaped_text_get_carets(rid, start)
-			var c_end = ts.shaped_text_get_carets(rid, start + length)
-			
-			# 从字典中提取开始和结束的 X 轴数值。注意：字典里 x 坐标在 trailing_rect.position.x
-			var x_start = c_start["trailing_rect"].position.x
-			var x_end = c_end["trailing_rect"].position.x
-			
-			#获取行高
-			var line_ascent = p.get_line_ascent(i)
-			var line_descent = p.get_line_descent(i)
-			var line_height = line_ascent + line_descent # 上升部+下降部
-			
-			#计算y轴坐标，每一行的高度累加
-			var y_pos = 0.0
-			for j in i:
-				y_pos += p.get_line_ascent(j) + p.get_line_descent(j)
-			
-			# Rect2 的第一个参数是左上角坐标，第二个是尺寸 (Width, Height)
-			var rect_x = min(x_start, x_end)
-			var rect_width = abs(x_end - x_start)
-			
-			# 如果宽度还是 0，强制给一个字符的大约宽度（兜底逻辑）
-			if rect_width < 1: rect_width = 80 
-			
-			return Rect2(Vector2(rect_x, y_pos), Vector2(rect_width, line_height))
-			
-	return Rect2()
+		# 1. 确定行号
+		var line_idx = dialog_label.get_character_line(start)
+		
+		# 2. 获取 Y 坐标 (使用官方 API：get_line_offset)
+		# 这个 offset 是相对于 Label 顶部的，且包含了 line_separation 的逻辑
+		var y_pos = dialog_label.get_line_offset(line_idx)
+		
+		# 3. 计算 X 坐标
+		# 获取这一行的起始字符索引
+		var line_range = dialog_label.get_line_range(line_idx)
+		var line_start_idx = line_range.x
+		
+		# 计算从“行首”到“词首”的文本宽度作为偏移
+		var text_before_word_in_line = parsed_result["text"].substr(line_start_idx, start - line_start_idx)
+		var x_offset = font.get_string_size(text_before_word_in_line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+		
+		# 计算词条本身的宽度
+		var word_w = font.get_string_size(word, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+		var rect_h = dialog_label.get_line_height(line_idx)
+		
+		# 4. 生成 Rect2
+		var final_rect = Rect2(Vector2(x_offset, y_pos), Vector2(word_w, rect_h))
+		
+		if word_w > 0:
+			print("DEBUG: [", word, "] 行:", line_idx, " Y轴:", y_pos, " X轴:", x_offset)
+			_spawn_interactable(word, final_rect)
+
 
 #生成interactable,重设碰撞箱大小
 func _spawn_interactable(word: String, rect: Rect2):

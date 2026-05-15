@@ -3,15 +3,24 @@
 [ext_resource type="Script" uid="uid://d3kwjggkfiav1" path="res://Script/Interactable.gd" id="1_v6xsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi15k"]
-size = Vector2(77.86207, 81.25517)
+size = Vector2(51.931034, 51.627586)
 
 [node name="Interactable" type="Area2D" unique_id=512711626]
 script = ExtResource("1_v6xsw")
 word_name = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545069451]
-position = Vector2(11.5264225, 12.0264225)
+position = Vector2(26.034483, 26.186207)
 shape = SubResource("RectangleShape2D_pi15k")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1298327570]
+visible = false
+offset_left = -26.034483
+offset_top = -26.186207
+offset_right = 25.965517
+offset_bottom = 25.813793
+mouse_filter = 2
+color = Color(0.7137255, 0.29803923, 0.4627451, 0.28235295)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

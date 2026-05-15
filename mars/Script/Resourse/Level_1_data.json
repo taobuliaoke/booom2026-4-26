@@ -35,7 +35,7 @@
 	  "dialog": "那火星上的人长什么样，他们也像丁先生你吗？还是像庙里的罗汉？",
 	  "items": [
 		{
-		  "item_name": "《谈天》,纸贵洛阳，为一时之奇观",
+		  "item_name": "《谈天》，纸贵洛阳，为一时之奇观",
 		  "collectible_word": "谈天",
 		  "path": "res://Art/Evidence/LeveL_1/Shenhuixin_tantian.png",
 		  "can_interact": false
@@ -49,7 +49,7 @@
 
 		},
 		{
-		  "item_name": "手绢,上面绣着兰花和萤火虫",
+		  "item_name": "手绢，上面绣着兰花和萤火虫",
 		  "collectible_word": "",
 		  "path": "res://Art/Evidence/LeveL_1/Shenhuixin_handkerchief.png",
 		  "can_interact": false
@@ -60,7 +60,7 @@
 	  "dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。"
 		},
 	"文鸳_ViewD": {
-	  "dialog": "小姐，坐稳些。万一浪大，小心别掉下去。什么{火星}不火星的，还不如看看水里有没有鱼。",
+	  "dialog": "小姐，坐稳些。万一浪大，小心别掉下去了。什么{火星}不火星的，还不如看看水里有没有鱼。",
 	  "items": [
 		{
 		  "item_name": "稿纸",
@@ -82,7 +82,7 @@
 	  "dialog": "……书上说，火星荧荧如火，{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。"
 	},
 	"丁加立_ViewD": {
-	  "dialog": "……书上说，火星荧荧如火，{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。",
+	  "dialog": "……书上说，火星荧荧如火，你好{周}小姐，{沈}小姐，或许那里也有像你们一样渴望飞翔的生灵。",
 	  "collectible_word":"女儿",
 	  "items": [
 		{
@@ -168,7 +168,7 @@
 		  "path": "res://Art/Evidence/LeveL_1/ZhouZhiHan_Ring.png",
 		  "can_interact": false,
 		  "letter_node_name": ""
-		},
+		}
 	  ]
 	},
 	"周之瀚_ViewC": {
@@ -181,7 +181,7 @@
 		{
 		  "item_name": "一垯银票",
 		  "collectible_word": "银票",
-		  "path": "res://art/Evidence/LetterTest.png",
+		  "path": "res://Art/Evidence/LeveL_1/Shendeyuan_receipt.png",
 		  "can_interact": false,
 		  "content": ""
 		},
