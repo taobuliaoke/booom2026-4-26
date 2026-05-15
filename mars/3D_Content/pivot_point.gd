@@ -1,4 +1,9 @@
 extends Node3D
+
+# --- 音频参数 ---
+@export var btn_click_se: AudioStream # 按钮按下的声音
+@export var limbs_grow_se: AudioStream # 肢体长出来的音效
+@export var stage_ambient_se: AudioStream # 这个关卡的全局背景音/氛围音
 # --- 引用节点 ---
 @onready var btn_mesh = $PuzzleObject/BtnMesh
 @onready var limbs_container = $PuzzleObject/Limbs
@@ -24,6 +29,8 @@ var _debug_label: Label
 var _fade_rect: ColorRect  # ← 新增
 var limbs_deployed: bool = false
 var btn_original_pos: Vector3
+var has_played_click_se: bool = false
+var has_played_limbs_se: bool = false # 确保音效只响一次的开关
 
 
 func _ready():
@@ -31,18 +38,35 @@ func _ready():
 	# 连接点击信号
 	btn_area.input_event.connect(_on_button_input)
 	# 如果有其他逻辑请保留队友的 _ready 内容
-
+	
 	if debug_mode:
 		_setup_debug_label()
+	# 只要进入这个 3D 场景，就播放这个全局音效
+	if stage_ambient_se:
+		# 使用 play_with_fade_in 可以让声音出现时不那么突兀
+		# 同时也利用了 MusicManager 的单例特性，确保它是全局的
+		MusicManager.play_with_fade_in(stage_ambient_se, 1.0)
+		
 		
 func _on_button_input(_camera, event, _pos, _normal, _shape_idx):
-	# 只有左键按下且还没长出肢体时触发
-	print("点到我了！")
+	if is_won or event is not InputEventMouseButton:
+		return
+	var mouse_event = event as InputEventMouseButton
+	if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
+		# --- 1. 这里接按钮按下的声音 ---
+		if btn_click_se and not has_played_click_se:
+			MusicManager.play_se(btn_click_se, 5.0) # 传入资源和音量增益
+			has_played_click_se = true 
+			print('按钮音效已播放，之后将不再触发')
+		
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		# 只有左键按下且还没长出肢体时触发
+		print("点到我了！")
 		get_viewport().set_input_as_handled()
 		if not limbs_deployed:
 			play_interaction_sequence()
-
+			
+		
 func play_interaction_sequence():
 	limbs_deployed = true
 	
@@ -63,6 +87,11 @@ func _start_limbs_growth():
 	var growth_tween = create_tween().set_parallel(true)
 	for i in range(limbs.size()):
 		var limb = limbs[i]
+			# --- 在这里接入肢体长出的音效 ---
+		if limbs_grow_se and not has_played_limbs_se:
+			MusicManager.play_se(limbs_grow_se, 8.0) # 播放音效
+			has_played_limbs_se = true # 设为已播放
+			
 	# 如果你的肢体是 MeshInstance3D
 		if limb is MeshInstance3D:
 			limbs_container.show()

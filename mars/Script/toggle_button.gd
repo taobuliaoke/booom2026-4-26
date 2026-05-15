@@ -6,6 +6,10 @@ extends TextureButton
 @onready var reasoning_group =$"../../ReasoningGroup"
 @onready var dialogueUI = %CharacterDialogUI
 @export var max_look_dist: float = 8.0 # 眼珠晃动最大半径
+@export var open_se :AudioStream
+@export var close_se :AudioStream
+
+
 var is_animating: bool = false
 var env_original_pos: Vector2
 #预加载
@@ -61,6 +65,12 @@ func update_pupil_focus():
 func _pressed():
 	if is_animating:return
 	var is_to_reasoning = !reasoning_group.visible
+	
+	#音效播放逻辑
+	if is_to_reasoning:
+		MusicManager.play_se(open_se)
+	else:
+		MusicManager.play_se(open_se)
 	
 	#连全局GameEvent，控制其他ui开关
 	# 去推理界面的画，should_suppress = true: 切回场景为false

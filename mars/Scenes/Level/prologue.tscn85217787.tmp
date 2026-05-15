@@ -1,0 +1,731 @@
+[gd_scene format=3 uid="uid://6kyob3fduouo"]
+
+[ext_resource type="Script" uid="uid://bli1vv6d0wioj" path="res://Script/prologue/prologue.gd" id="1_nim4c"]
+[ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="2_2kgvc"]
+[ext_resource type="AudioStream" uid="uid://bggkbsu384ogx" path="res://Audio/mp3/Prologue_auto/PrologueAuto.ogg" id="2_ntvsi"]
+[ext_resource type="Script" path="res://Scenes/Level/slide.gd" id="3_2gnns"]
+[ext_resource type="Texture2D" uid="uid://duqjgehrl21cd" path="res://Art/Vision/prologue/prologue_1.jpg" id="3_ghkf2"]
+[ext_resource type="AudioStream" uid="uid://ci5pea7ykwefr" path="res://Audio/mp3/Prologue_auto/hexOpen.mp3" id="3_jkv37"]
+[ext_resource type="Texture2D" uid="uid://ckrxkqol5q63a" path="res://Art/Vision/prologue/prologue_river/background.png" id="3_n4yvt"]
+[ext_resource type="Texture2D" uid="uid://0lo5p3a15hwr" path="res://Art/Vision/prologue/prologue_river/land.png" id="3_tivjr"]
+[ext_resource type="Shader" uid="uid://c3wyowm16m7su" path="res://Shader/hand_drawn_jitter.gdshader" id="4_2gcac"]
+[ext_resource type="Texture2D" uid="uid://c0jbhiv30tm7e" path="res://art/vision/prologue/prologue_river/worm.png" id="4_tivjr"]
+[ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="4_w8mph"]
+[ext_resource type="Texture2D" uid="uid://nrwyu8wxapsy" path="res://art/vision/prologue/prologue_river/wave.png" id="5_2gnns"]
+[ext_resource type="Script" uid="uid://dm8v3lgt6pfaj" path="res://Script/prologue/prologue_interact.gd" id="5_52yis"]
+[ext_resource type="Texture2D" uid="uid://7fnywytkuje6" path="res://art/vision/prologue/prologue_river/tree.png" id="5_sgytn"]
+[ext_resource type="Texture2D" uid="uid://dwjpnmu0sy0nt" path="res://art/vision/prologue/prologue_3.jpg" id="5_t2qym"]
+[ext_resource type="Texture2D" uid="uid://bjfb5xur66cki" path="res://art/vision/prologue/prologue_5.jpg" id="7_2jbdw"]
+[ext_resource type="Texture2D" uid="uid://dlk5uw814yo45" path="res://art/vision/prologue/prologue_river/tree_line.png" id="7_7lceu"]
+[ext_resource type="Texture2D" uid="uid://cxxhslq6j8fvd" path="res://art/vision/prologue/prologue_6.jpg" id="8_go5so"]
+[ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="9_436kb"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="10_2kgvc"]
+[ext_resource type="Texture2D" uid="uid://bcd78a7i3hnkh" path="res://art/vision/prologue/prologue_river/rock.png" id="11_mxmxd"]
+[ext_resource type="Texture2D" uid="uid://cug71g0xlttcb" path="res://art/vision/prologue/prologue_river/tree2.png" id="12_l0eoi"]
+[ext_resource type="Texture2D" uid="uid://cqjxdv2mckg21" path="res://art/vision/prologue/prologue_boat/background.png" id="14_pi2ab"]
+[ext_resource type="Texture2D" uid="uid://cu828pdphwh7p" path="res://art/vision/prologue/prologue_boat/leaf.png" id="15_mxmxd"]
+[ext_resource type="Texture2D" uid="uid://cwe0nlevub6kh" path="res://art/vision/prologue/prologue_boat/smoke.png" id="15_sbool"]
+[ext_resource type="Texture2D" uid="uid://c7b5ldy64vdrp" path="res://art/vision/prologue/prologue_boat/wave_distant.png" id="16_72rfb"]
+[ext_resource type="Texture2D" uid="uid://cu2c5qsxugqp6" path="res://art/vision/prologue/prologue_boat/boat.png" id="17_3ptvb"]
+[ext_resource type="Texture2D" uid="uid://dj6l6pxr2utv0" path="res://art/vision/prologue/prologue_boat/aquatic_plant.png" id="18_sbool"]
+[ext_resource type="Texture2D" uid="uid://ddn4dfopruaij" path="res://art/vision/prologue/prologue_boat/wave_front.png" id="18_wvlmx"]
+[ext_resource type="Texture2D" uid="uid://fhesk43n1ldc" path="res://art/vision/prologue/prologue_boat/wave_small.png" id="19_mrtvs"]
+[ext_resource type="Texture2D" uid="uid://b5fnnstr0cd0q" path="res://art/vision/prologue/prologue_boat/rock.png" id="20_uumld"]
+[ext_resource type="Texture2D" uid="uid://y7dkb71x0xw2" path="res://art/vision/prologue/prologue_alien/background.png" id="23_3ptvb"]
+[ext_resource type="Texture2D" uid="uid://bwmkckc15cmnb" path="res://art/vision/prologue/prologue_alien/boat.png" id="24_wvlmx"]
+[ext_resource type="Texture2D" uid="uid://b353ba41sw3h6" path="res://art/vision/prologue/prologue_alien/front.png" id="25_mrtvs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntvsi"]
+shader = ExtResource("4_w8mph")
+shader_parameter/speed = 1.0410000494475
+shader_parameter/frequency = 15.0
+shader_parameter/amplitude = 0.1
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lceu"]
+atlas = ExtResource("4_tivjr")
+region = Rect2(0, 0, 108, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svi7e"]
+atlas = ExtResource("4_tivjr")
+region = Rect2(108, 0, 108, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2gnns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lceu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svi7e")
+}],
+"loop": true,
+"name": &"worm",
+"speed": 3.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4yvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxmxd"]
+shader = ExtResource("4_2gcac")
+shader_parameter/jitter_speed = 2.7090000811775
+shader_parameter/jitter_amount = 1.954000092815
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkv37"]
+shader = ExtResource("4_2gcac")
+shader_parameter/jitter_speed = 2.49600007106
+shader_parameter/jitter_amount = 1.5070000715825
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbool"]
+shader = ExtResource("4_w8mph")
+shader_parameter/speed = 1.6810000798475
+shader_parameter/frequency = 16.64800079078
+shader_parameter/amplitude = 0.02700000128249999
+shader_parameter/edge_softness = 0.6510000309225
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72rfb"]
+shader = ExtResource("4_w8mph")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 20.93200099427
+shader_parameter/amplitude = 0.030000001425
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ptvb"]
+shader = ExtResource("4_w8mph")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 15.0
+shader_parameter/amplitude = 0.1
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="Animation" id="Animation_pi2ab"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../medium/Boat:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../medium/WaveSmall:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_aawr4"]
+resource_name = "wave"
+length = 3.4666667
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../medium/Boat:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -7.36, -0.23333333, 1.1025, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.7666667, 3.4666667)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../medium/WaveSmall:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3333334, 3.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -19.465, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dg63"]
+_data = {
+&"RESET": SubResource("Animation_pi2ab"),
+&"wave": SubResource("Animation_aawr4")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l0eoi"]
+lifetime_randomness = 0.53
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 178.00002
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(30, 50, 0)
+scale_min = 0.5
+scale_max = 0.79999995
+turbulence_noise_speed_random = 0.54
+
+[sub_resource type="Animation" id="Animation_uumld"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Front:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Boat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_2dg63"]
+resource_name = "boat"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Front:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-36, -0.25, 0, 0.25, 0, 0, -0.24444446, 0, 0.25555557, 0, -36, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.9, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Boat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0, 0, -0.3277778, 0, 0.33888888, 0, -10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.9, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1mwoc"]
+_data = {
+&"RESET": SubResource("Animation_uumld"),
+&"boat": SubResource("Animation_2dg63")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3wly"]
+radius = 199.30379
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0eoi"]
+shader = ExtResource("18_l0eoi")
+shader_parameter/circle_size = 1.5
+shader_parameter/center = Vector2(0.495, 0.475)
+shader_parameter/feather = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52yis"]
+radius = 78.1089
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cqs61"]
+shader = ExtResource("9_436kb")
+shader_parameter/intensity = 0.1
+shader_parameter/speed = 2.0
+shader_parameter/channel_bias = Vector3(0.8, 0.6, 1)
+
+[sub_resource type="Animation" id="Animation_erp77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlidesContainer/AlienSlide/IrisEffect:material:shader_parameter/circle_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlidesContainer/AlienSlide/IrisEffect:material:shader_parameter/center")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.495, 0.475)]
+}
+
+[sub_resource type="Animation" id="Animation_o1e67"]
+resource_name = "fade_in2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3hhce"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m2k2q"]
+resource_name = "iris_zoom_in"
+length = 1.3333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlidesContainer/AlienSlide/IrisEffect:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 0.3590000170525]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlidesContainer/AlienSlide/IrisEffect:material:shader_parameter/center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.495, 0.475), Vector2(0.495, 0.475)]
+}
+
+[sub_resource type="Animation" id="Animation_pi2ab"]
+resource_name = "iris_zoom_out"
+length = 1.3333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlidesContainer/AlienSlide/IrisEffect:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3590000170525, 1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlidesContainer/AlienSlide/IrisEffect:material:shader_parameter/center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.495, 0.475), Vector2(0.495, 0.475)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntbng"]
+_data = {
+&"RESET": SubResource("Animation_erp77"),
+&"fade_in": SubResource("Animation_o1e67"),
+&"fade_out": SubResource("Animation_3hhce"),
+&"iris_zoom_in": SubResource("Animation_m2k2q"),
+&"iris_zoom_out": SubResource("Animation_pi2ab")
+}
+
+[node name="Prologue" type="Control" unique_id=1102609327 node_paths=PackedStringArray("special_slides", "slide_nodes")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_nim4c")
+to_minigame_slide = 4
+special_slides = [NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/AlienSlideOpen")]
+slide_nodes = [NodePath("SlidesContainer/TitleSlide"), NodePath("SlidesContainer/RiverSlide"), NodePath("SlidesContainer/BoatSlide"), NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/AlienSlideOpen"), NodePath("SlidesContainer/PanoramaSlide"), NodePath("SlidesContainer/PanoramaSlideChanged"), NodePath("SlidesContainer/TitleSlide2")]
+prologue_bgm = ExtResource("2_ntvsi")
+post_3d_bgm = ExtResource("3_jkv37")
+
+[node name="SlidesContainer" type="Control" parent="." unique_id=1208665037]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="TitleSlide" type="Node2D" parent="SlidesContainer" unique_id=1416818479]
+
+[node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide" unique_id=421492128]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlidesContainer/TitleSlide" unique_id=63238006]
+offset_left = 796.0
+offset_top = 404.0
+offset_right = 887.0
+offset_bottom = 670.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "  序章
+
+"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SlidesContainer/TitleSlide" unique_id=1764964938]
+offset_left = 720.0
+offset_top = 424.0
+offset_right = 811.0
+offset_bottom = 732.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "  神仙显灵
+
+"
+scroll_active = false
+
+[node name="RiverSlide" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
+visible = false
+script = ExtResource("3_2gnns")
+
+[node name="static" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=242865763]
+
+[node name="Background" type="Sprite2D" parent="SlidesContainer/RiverSlide/static" unique_id=208004631]
+scale = Vector2(1.025, 1.025)
+texture = ExtResource("3_n4yvt")
+centered = false
+
+[node name="Wave" type="Sprite2D" parent="SlidesContainer/RiverSlide/static" unique_id=579290451]
+material = SubResource("ShaderMaterial_ntvsi")
+texture = ExtResource("5_2gnns")
+centered = false
+
+[node name="distant" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=108032047]
+
+[node name="Land" type="Sprite2D" parent="SlidesContainer/RiverSlide/distant" unique_id=1504577259]
+position = Vector2(-67, -60)
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("3_tivjr")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SlidesContainer/RiverSlide/distant" unique_id=1441680526]
+position = Vector2(1168, 753)
+sprite_frames = SubResource("SpriteFrames_2gnns")
+animation = &"worm"
+autoplay = "worm"
+frame_progress = 0.15580621
+
+[node name="medium" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=402278950]
+
+[node name="Tree" type="Sprite2D" parent="SlidesContainer/RiverSlide/medium" unique_id=1959993477]
+material = SubResource("ShaderMaterial_n4yvt")
+position = Vector2(-96, -73)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("5_sgytn")
+centered = false
+
+[node name="TreeLine" type="Sprite2D" parent="SlidesContainer/RiverSlide/medium" unique_id=1366908828]
+material = SubResource("ShaderMaterial_mxmxd")
+position = Vector2(-96, -73)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("7_7lceu")
+centered = false
+
+[node name="Tree2" type="Sprite2D" parent="SlidesContainer/RiverSlide/medium" unique_id=2072520869]
+material = SubResource("ShaderMaterial_jkv37")
+texture = ExtResource("12_l0eoi")
+centered = false
+
+[node name="close" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=1526203506]
+
+[node name="Rock" type="Sprite2D" parent="SlidesContainer/RiverSlide/close" unique_id=1939590668]
+position = Vector2(-5, -26)
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("11_mxmxd")
+centered = false
+
+[node name="BoatSlide" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
+script = ExtResource("3_2gnns")
+layers_config = {
+"close": 0.01,
+"distant": 0.005,
+"medium": 0.005,
+"static": 0
+}
+
+[node name="background" type="Sprite2D" parent="SlidesContainer/BoatSlide" unique_id=2026857587]
+texture = ExtResource("14_pi2ab")
+centered = false
+
+[node name="Smoke" type="Sprite2D" parent="SlidesContainer/BoatSlide" unique_id=18025448]
+material = SubResource("ShaderMaterial_sbool")
+position = Vector2(972, 114)
+texture = ExtResource("15_sbool")
+
+[node name="WaveDistant" type="Sprite2D" parent="SlidesContainer/BoatSlide" unique_id=2134169033]
+texture = ExtResource("16_72rfb")
+centered = false
+
+[node name="distant" type="Node2D" parent="SlidesContainer/BoatSlide" unique_id=1003495201]
+
+[node name="medium" type="Node2D" parent="SlidesContainer/BoatSlide" unique_id=1077682812]
+
+[node name="Boat" type="Sprite2D" parent="SlidesContainer/BoatSlide/medium" unique_id=1820788873]
+texture = ExtResource("17_3ptvb")
+centered = false
+
+[node name="AquaticPlant" type="Sprite2D" parent="SlidesContainer/BoatSlide/medium" unique_id=1957034936]
+material = SubResource("ShaderMaterial_72rfb")
+position = Vector2(139, 432)
+texture = ExtResource("18_sbool")
+centered = false
+
+[node name="WaveFront" type="Sprite2D" parent="SlidesContainer/BoatSlide/medium" unique_id=905765749]
+texture = ExtResource("18_wvlmx")
+centered = false
+
+[node name="WaveSmall" type="Sprite2D" parent="SlidesContainer/BoatSlide/medium" unique_id=605861917]
+material = SubResource("ShaderMaterial_3ptvb")
+texture = ExtResource("19_mrtvs")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlidesContainer/BoatSlide/medium" unique_id=1870437258]
+root_node = NodePath("../../GPUParticles2D")
+libraries/ = SubResource("AnimationLibrary_2dg63")
+autoplay = &"wave"
+
+[node name="close" type="Node2D" parent="SlidesContainer/BoatSlide" unique_id=284833725]
+
+[node name="Rock" type="Sprite2D" parent="SlidesContainer/BoatSlide/close" unique_id=648840855]
+position = Vector2(-38, -80)
+scale = Vector2(1.085, 1.085)
+texture = ExtResource("20_uumld")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SlidesContainer/BoatSlide" unique_id=1289811217]
+position = Vector2(159, -36)
+texture = ExtResource("15_mxmxd")
+lifetime = 10.0
+randomness = 0.08
+process_material = SubResource("ParticleProcessMaterial_l0eoi")
+metadata/_edit_lock_ = true
+
+[node name="AlienSlide" type="Node2D" parent="SlidesContainer" unique_id=1882061512]
+visible = false
+script = ExtResource("3_2gnns")
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1734597785]
+texture = ExtResource("23_3ptvb")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Boat" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1067894496]
+position = Vector2(-41, 0)
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("24_wvlmx")
+centered = false
+
+[node name="medium" type="Node2D" parent="SlidesContainer/AlienSlide" unique_id=1940636160]
+
+[node name="Front" type="Sprite2D" parent="SlidesContainer/AlienSlide/medium" unique_id=320018540]
+position = Vector2(-47, 0)
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("25_mrtvs")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlidesContainer/AlienSlide/medium" unique_id=406109915]
+root_node = NodePath("../Area2D")
+libraries/ = SubResource("AnimationLibrary_1mwoc")
+autoplay = &"boat"
+
+[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlide/medium" unique_id=693563326]
+script = ExtResource("5_52yis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlide/medium/Area2D" unique_id=4260387]
+position = Vector2(804, 532)
+shape = SubResource("CircleShape2D_k3wly")
+
+[node name="IrisEffect" type="ColorRect" parent="SlidesContainer/AlienSlide" unique_id=406471497]
+visible = false
+material = SubResource("ShaderMaterial_l0eoi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AlienSlideOpen" type="Node2D" parent="SlidesContainer" unique_id=2049157347]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1482771329]
+texture = ExtResource("5_t2qym")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="SlidesContainer/AlienSlideOpen" unique_id=1472114810]
+script = ExtResource("5_52yis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlidesContainer/AlienSlideOpen/Area2D" unique_id=1524460595]
+position = Vector2(796, 517)
+shape = SubResource("CircleShape2D_52yis")
+
+[node name="PanoramaSlide" type="Node2D" parent="SlidesContainer" unique_id=628548123]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlide" unique_id=1086709686]
+texture = ExtResource("7_2jbdw")
+centered = false
+
+[node name="PanoramaSlideChanged" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlideChanged" unique_id=1186193574]
+texture = ExtResource("8_go5so")
+centered = false
+
+[node name="TitleSlide2" type="Node2D" parent="SlidesContainer" unique_id=618350915]
+
+[node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide2" unique_id=887100732]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 1200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="SlidesContainer/TitleSlide2" unique_id=2035273580]
+offset_left = 796.0
+offset_top = 404.0
+offset_right = 887.0
+offset_bottom = 670.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 76
+bbcode_enabled = true
+text = "第一章"
+scroll_active = false
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="SlidesContainer/TitleSlide2" unique_id=1367621572]
+offset_left = 720.0
+offset_top = 424.0
+offset_right = 811.0
+offset_bottom = 732.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "初识谈天"
+scroll_active = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1440551128]
+
+[node name="ScreenFader" type="ColorRect" parent="CanvasLayer" unique_id=1524486539]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=1765236196]
+material = SubResource("ShaderMaterial_cqs61")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_2kgvc")
+metadata/_edit_lock_ = true
+
+[node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1296159555]
+texture_filter = 2
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.86600006
+anchor_right = 0.027
+anchor_bottom = 0.86600006
+offset_left = 88.8
+offset_top = 30.799927
+offset_right = 1380.8
+offset_bottom = 110.79993
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_2kgvc")
+theme_override_font_sizes/normal_font_size = 35
+text = "你好"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=682776889]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ntbng")
+autoplay = &"iris_zoom_in"

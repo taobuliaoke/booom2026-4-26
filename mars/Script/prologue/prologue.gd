@@ -6,10 +6,15 @@ extends Control
 @export var special_slides: Array[Node2D] 
 @export var slide_nodes: Array[Node2D] = [] 
 @export var typing_speed: float = 0.05 
+@export var prologue_bgm: AudioStream
+# prologue.gd
+@export var post_3d_bgm: AudioStream # 3D 场景结束后的新音乐
 
 # --- 节点引用 ---
+
 @onready var dialogue_label = $CanvasLayer/DialogueLabel # 请确保你的场景中有此路径的 Label 
 @onready var eye_pupil =$SlidesContainer/AlienSlide/medium/Node2D/EyeAnchor/Pupil
+
 
 
 # --- 运行状态 ---
@@ -24,10 +29,15 @@ var is_animation = false
 var eye_center_pos: Vector2
 var max_follow_distance: float = 20 # 眼球移动的最大半径
 var is_eye_active: bool = false
+var is_post_bgm_finished:bool = false
 
 signal item_clicked 
 
 func _ready():
+	#场景开始时候，自动播放序章背景音乐,淡入2s
+	if prologue_bgm:
+		MusicManager.play_with_fade_in(prologue_bgm,2.0)
+		
 	#防御性检查：确保inspector 已赋值
 	eye_center_pos = eye_pupil.position
 	if slide_nodes.is_empty():
@@ -127,8 +137,22 @@ func _unhandled_input(event):
 		go_to_next_step()
 
 func _display_current_content():
+	#如果当前页是3d出来后的第一页
+	if GlobalData.current_page == (to_minigame_slide + 1) and post_3d_bgm:
+		is_post_bgm_finished = false
+		MusicManager.play_once_then_callback(post_3d_bgm)
+		# 监听播放结束信号
+		if not MusicManager.bgm_finished.is_connected(_on_post_bgm_ended):
+			MusicManager.bgm_finished.connect(_on_post_bgm_ended)
+	
 	current_dialogue_index = 0
 	_show_dialogue_step()
+	
+	
+func _on_post_bgm_ended():
+	is_post_bgm_finished = true
+	is_locked = false
+	print("[调试] 收到信号：音乐已播放完毕，is_post_bgm_finished 设为 true")
 
 func _show_dialogue_step():
 	if GlobalData.current_page < dialogue_data.size():
@@ -164,16 +188,29 @@ func _finish_typing_instantly():
 
 func go_to_next_step():
 	if is_locked:
+		print("!!! [调试] 点击被拦截：is_locked 当前为 true")
 		return
 	is_locked = true
 	if GlobalData.current_page==2:
 		is_eye_active = true
+	print("!!! [调试] 开始执行跳转逻辑，当前页码:", GlobalData.current_page)
+	
+		#从3d出来之后播放新音乐
+	if GlobalData.current_page == (to_minigame_slide + 1):
+		if not is_post_bgm_finished:
+			print('音乐尚未播放结束，暂时无法跳转')
+			return #如果音乐没有播完，直接拦截点击
+	
 	if GlobalData.current_page == to_minigame_slide: 
 		print('正在跳转3d场景，锁定所有后续逻辑')
+		#音乐戛然而止
+		MusicManager.fade_out_and_stop(0)
 		SceneChanger.change_scene("res://3D_Content/3Dgame.tscn") 
 		GlobalData.current_page = to_minigame_slide + 1 
 		return
-		
+
+	
+	#第三种情况，正常翻页或结束
 	if GlobalData.current_page >= final_slide: 
 		SceneChanger.change_scene("res://Scenes/Level/MainScene.tscn") 
 		return
@@ -204,7 +241,6 @@ func _change_slide_content():
 		if particles:
 			particles.emitting = true # 开始发射
 			particles.restart()       # 从头开始
-
 	else:
 		SceneChanger.change_scene("res://Scenes/MainScene.tscn")
 
@@ -212,3 +248,5 @@ func _on_item_clicked():
 	# 只有在不播字，不切换场景时才响应
 	if not is_typing and not is_locked:
 		go_to_next_step()
+		
+		

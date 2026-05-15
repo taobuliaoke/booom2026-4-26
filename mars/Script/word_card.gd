@@ -3,6 +3,8 @@ extends MarginContainer
 # 获取底下的 Label 和底框节点
 @onready var label = $MarginContainer/Label
 @onready var bg_texture = $NinePatchRect
+@export var drag_word_se:AudioStream
+
 var drag_tween: Tween
 
 
@@ -36,6 +38,8 @@ func _get_drag_data(_at_position):
 	drag_tween = create_tween().set_loops()
 	drag_tween.tween_property(bg_texture, "modulate", Color.BLUE, 1)
 	drag_tween.tween_property(bg_texture, "modulate", Color.DARK_ORANGE, 1)
+	
+	MusicManager.play_se(drag_word_se, -2.0)
 	
 	return label.text
 

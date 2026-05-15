@@ -7,8 +7,8 @@ var word_card_scene = preload("res://Scenes/word_card.tscn")
 @onready var bg =$NinePatchRect
 # 有多个正确答案的情况
 @export var correct_answer:Array[String] = []
-
-
+@export var place_slot_se:AudioStream
+@export var drag_start_se:AudioStream
 #检查是否是正确答案
 func is_correct() -> bool:
 	if label.text == '' or label.text == "":
@@ -41,6 +41,8 @@ func _can_drop_data(_at_position, data):
 func _get_drag_data(_at_position):
 	if label.text == '':
 		return null
+		
+	MusicManager.play_se(drag_start_se, -2.0)
 	#中转
 	var preview = GameEvents.get_drag_preview(label.text)
 	
@@ -68,7 +70,7 @@ func _drop_data(_at_position, data):
 	var manager = _get_page_manager(self)
 	if manager and manager.has_method('handle_word_move'):
 		manager.handle_word_move(new_text, origin_node, self)
-
+	MusicManager.play_se(place_slot_se, 1.0) # 类似“啪嗒”一声的木质或纸张卡入声
 
 func _get_page_manager(node):
 	var p = node.get_parent()
