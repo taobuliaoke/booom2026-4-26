@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d8l86fx5atxs"
-path="res://.godot/imported/NewGame.png-b5dc0ca98feaa6bcf791e8016d7e5033.ctex"
+uid="uid://cug71g0xlttcb"
+path="res://.godot/imported/tree2.png-8e5838ccc701b1b3b2f6280755cdc53f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/NewGame.png"
-dest_files=["res://.godot/imported/NewGame.png-b5dc0ca98feaa6bcf791e8016d7e5033.ctex"]
+source_file="res://art/vision/prologue/prologue_river/tree2.png"
+dest_files=["res://.godot/imported/tree2.png-8e5838ccc701b1b3b2f6280755cdc53f.ctex"]
 
 [params]
 
