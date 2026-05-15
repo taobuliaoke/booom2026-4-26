@@ -1,6 +1,8 @@
 # MusicManager.gd
 extends Node
 
+signal bgm_finished
+
 var bgm_player: AudioStreamPlayer
 var pitch_tween: Tween
 var fade_tween: Tween
@@ -52,3 +54,19 @@ func play_se(se_stream: AudioStream, volume_db: float = 0.0):
 	se_player.bus = "Master" 
 	se_player.play()
 	se_player.finished.connect(se_player.queue_free)
+	
+	# MusicManager.gd
+
+func play_once_then_callback(stream: AudioStream, volume_db: float = 0.0):
+	bgm_player.stream = stream
+	bgm_player.volume_db = volume_db
+	bgm_player.pitch_scale = 1.0
+	bgm_player.play()
+	
+	# 确保只连接一次，避免多次触发
+	if bgm_player.finished.is_connected(_on_bgm_finished):
+		bgm_player.finished.disconnect(_on_bgm_finished)
+	bgm_player.finished.connect(_on_bgm_finished)
+
+func _on_bgm_finished():
+	bgm_finished.emit() # 音乐播完，发出信号

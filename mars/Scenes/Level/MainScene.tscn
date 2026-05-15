@@ -6,21 +6,29 @@
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="3_c1ier"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="3_gyaec"]
 [ext_resource type="Script" uid="uid://dq7yn4ble4d6m" path="res://Script/reasoning_group.gd" id="3_p5ymy"]
+[ext_resource type="AudioStream" uid="uid://rrn08he15h62" path="res://Audio/mp3/Level1/Win_shule.mp3" id="4_b3tex"]
 [ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="4_bpy1e"]
 [ext_resource type="PackedScene" uid="uid://bnh43ra5a8v1" path="res://Scenes/Level/Level1.tscn" id="6_3va76"]
+[ext_resource type="AudioStream" uid="uid://c3hefcnf1pqss" path="res://Audio/mp3/Level1/reasoningpage1.mp3" id="6_i0fyu"]
 [ext_resource type="PackedScene" uid="uid://doxfsuld4fsb0" path="res://Scenes/Level/level_2.tscn" id="7_wmecs"]
+[ext_resource type="AudioStream" uid="uid://dsjr3uidd0ekp" path="res://Audio/mp3/Level1/reasoningpage2.mp3" id="8_k8nx2"]
 [ext_resource type="Script" uid="uid://euxiacw53p8f" path="res://Script/inventory.gd" id="8_mymud"]
 [ext_resource type="PackedScene" uid="uid://dbvrbw36e5sdv" path="res://Scenes/word_card.tscn" id="9_4sso6"]
+[ext_resource type="AudioStream" uid="uid://bu0hx1u2ixjvi" path="res://Audio/mp3/Level1/reasoningpage3.mp3" id="10_2blte"]
 [ext_resource type="PackedScene" uid="uid://df6kdpkev120a" path="res://Scenes/toggle_button.tscn" id="10_r0vnq"]
 [ext_resource type="PackedScene" uid="uid://n33ok0udqg1u" path="res://Scenes/next_button.tscn" id="11_hx8n4"]
 [ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://Art/UI/mysteryA.png" id="11_i0j58"]
 [ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://Art/UI/mysteryE.png" id="11_p5ymy"]
+[ext_resource type="AudioStream" uid="uid://bhe673cqyujhx" path="res://Audio/mp3/Level1/GetWord.mp3" id="12_5uq7n"]
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://cpibujf4fghri" path="res://Scenes/letter.tscn" id="16_dtg5n"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="17_d0jji"]
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="18_cotnl"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
+[ext_resource type="AudioStream" uid="uid://b5lgoxy07jbbb" path="res://Audio/mp3/Level1/kiss.mp3" id="20_2blte"]
+[ext_resource type="AudioStream" uid="uid://c3m6y6i2oog2b" path="res://Audio/mp3/Level1/PenOpen.mp3" id="25_eepcn"]
+[ext_resource type="AudioStream" uid="uid://fkusv7fna6dc" path="res://Audio/mp3/Level1/PenClose.mp3" id="26_j5j7i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eju3t"]
 shader = ExtResource("17_d0jji")
@@ -48,6 +56,7 @@ offset_top = -4.0
 offset_right = 39.0
 offset_bottom = 36.0
 script = ExtResource("3_p5ymy")
+level_win_se = ExtResource("4_b3tex")
 
 [node name="ReasoningPage_1" type="Panel" parent="ReasoningGroup" unique_id=1629547195]
 self_modulate = Color(1, 1, 1, 0)
@@ -58,6 +67,7 @@ offset_right = 1893.4285
 offset_bottom = 639.71423
 scale = Vector2(0.7, 0.7)
 script = ExtResource("3_gyaec")
+page_correct_se = ExtResource("6_i0fyu")
 
 [node name="FeedBackPanel" type="Panel" parent="ReasoningGroup/ReasoningPage_1" unique_id=1403260255]
 self_modulate = Color(1, 1, 1, 0)
@@ -391,6 +401,7 @@ offset_right = 1877.2856
 offset_bottom = 1128.1428
 scale = Vector2(0.7, 0.7)
 script = ExtResource("3_gyaec")
+page_correct_se = ExtResource("8_k8nx2")
 
 [node name="FeedBackPanel" type="Panel" parent="ReasoningGroup/ReasoningPage_2" unique_id=424428421]
 self_modulate = Color(1, 1, 1, 0)
@@ -717,6 +728,7 @@ offset_right = 787.6924
 offset_bottom = 1353.8462
 scale = Vector2(0.65, 0.65)
 script = ExtResource("3_bpy1e")
+view_correct_se = ExtResource("10_2blte")
 
 [node name="views_name" type="Control" parent="ReasoningGroup/ReasoningForView" unique_id=2082816907]
 anchors_preset = 0
@@ -1001,6 +1013,7 @@ metadata/_edit_lock_ = true
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 script = ExtResource("8_mymud")
+get_slot_se = ExtResource("12_5uq7n")
 
 [node name="WordCard" parent="UiLayer" unique_id=417128353 instance=ExtResource("9_4sso6")]
 offset_left = -205.0
@@ -1052,6 +1065,7 @@ offset_bottom = -95.0
 grow_vertical = 0
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+kiss_se = ExtResource("20_2blte")
 metadata/_edit_lock_ = true
 
 [node name="PrevButton" parent="UiLayer" unique_id=640096522 instance=ExtResource("12_enc0b")]
@@ -1062,6 +1076,7 @@ offset_top = -223.0
 offset_bottom = -96.0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
+kiss2_se = ExtResource("20_2blte")
 metadata/_edit_lock_ = true
 
 [node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
@@ -1076,6 +1091,8 @@ offset_left = 1312.0
 offset_top = 876.0
 offset_right = 1587.0
 offset_bottom = 1205.0
+open_se = ExtResource("25_eepcn")
+close_se = ExtResource("26_j5j7i")
 
 [node name="TextureRect" type="TextureRect" parent="UiLayer" unique_id=1552045099]
 material = SubResource("ShaderMaterial_eju3t")

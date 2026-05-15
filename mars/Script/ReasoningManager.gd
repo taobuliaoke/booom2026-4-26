@@ -1,6 +1,7 @@
 extends Control
 @onready var page_container = self 
 
+@export var page_correct_se: AudioStream
 @onready var feedback_panel = $FeedBackPanel
 @onready var feedback_label = $FeedBackPanel/Label
 @onready var E_slots_container = $Emptys
@@ -82,10 +83,10 @@ func _check_all_slots():
 		_on_some_wrong(wrong_count)
 		
 func _on_all_crrect():
+	MusicManager.play_se(page_correct_se, 4.0) # 稍微清脆、带有一点解开谜题成就感的铃声或正向音效
 	print('完全正确，事情是这样的：')
 	_show_feedback("推理完全正确！")
 	_display_truth_state()
-	
 	var parent_node = get_parent()
 	if parent_node and parent_node.has_method('check_global_victory'):
 		parent_node.check_global_victory()

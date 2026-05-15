@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7iuo41fc5qay" path="res://Script/Level.gd" id="1_q12u6"]
 [ext_resource type="Texture2D" uid="uid://dt6leyqtgnnq5" path="res://Art/Vision/Level1/Level1_Wenyuan.png" id="2_5vtej"]
+[ext_resource type="AudioStream" uid="uid://vmyrhtn4nou3" path="res://Audio/mp3/Level1/Level1Auto.mp3" id="2_gl8jy"]
 [ext_resource type="Texture2D" uid="uid://dbwenlhhhvnho" path="res://Art/Vision/Level1/Level1_Shendeyuan.png" id="2_jghel"]
 [ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://Art/UI/mysteryA.png" id="2_n1aum"]
 [ext_resource type="Texture2D" uid="uid://cm7eopjlv812g" path="res://Art/UI/mysteryB.png" id="3_gl8jy"]
@@ -15,8 +16,11 @@
 
 [node name="Level1" type="Node2D" unique_id=1293253096]
 script = ExtResource("1_q12u6")
+level1_bgm = ExtResource("2_gl8jy")
 data_resource_path = "res://Script/Resourse/level_1_data.tres"
+blink_duration = null
 view_icons = Array[Texture2D]([ExtResource("2_n1aum"), ExtResource("3_gl8jy"), ExtResource("4_u04hf"), ExtResource("5_ugtqp"), ExtResource("6_1dslf")])
+slide_duration = null
 
 [node name="Viewpoints" type="Node2D" parent="." unique_id=1828431442]
 

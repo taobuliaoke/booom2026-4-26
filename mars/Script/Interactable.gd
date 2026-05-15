@@ -1,4 +1,6 @@
 extends Area2D
+
+
 var is_hovering = false
 var word_card_scene = preload("res://Scenes/word_card.tscn")
 var dialog_root: Control = null
@@ -7,6 +9,8 @@ var dialog_root: Control = null
 # 在编辑器右侧直接填词条
 @export var word_name: String = "……"
 @export var marker_node: CanvasItem
+
+@export var clue_collect_se: AudioStream
 
 func _ready():
 	var p = get_parent()
@@ -68,6 +72,7 @@ func _input_event(_viewport, event, _shape_idx):
 	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("点到我了")
+		MusicManager.play_se(clue_collect_se, 2.0)
 		collect_this_word()
 
 func collect_this_word():

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvqrcq4btc6ia"]
 
 [ext_resource type="Script" uid="uid://d3kwjggkfiav1" path="res://Script/Interactable.gd" id="1_v6xsw"]
+[ext_resource type="AudioStream" uid="uid://bhe673cqyujhx" path="res://Audio/mp3/Level1/GetWord.mp3" id="2_v6xsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi15k"]
 size = Vector2(51.931034, 51.627586)
@@ -8,6 +9,7 @@ size = Vector2(51.931034, 51.627586)
 [node name="Interactable" type="Area2D" unique_id=512711626]
 script = ExtResource("1_v6xsw")
 word_name = ""
+clue_collect_se = ExtResource("2_v6xsw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=545069451]
 position = Vector2(26.034483, 26.186207)

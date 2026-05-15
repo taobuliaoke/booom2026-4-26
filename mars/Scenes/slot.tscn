@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b5n2rw08ngjk2" path="res://Script/slot.gd" id="1_12ej0"]
 [ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="1_luhj6"]
+[ext_resource type="AudioStream" uid="uid://b6oq8y64nddu2" path="res://Audio/mp3/Level1/PuttWordDown.mp3" id="2_67ou1"]
+[ext_resource type="AudioStream" uid="uid://cctb2phfjwfwg" path="res://Audio/mp3/Level1/Drag.mp3" id="3_c828r"]
 
 [node name="Slot" type="MarginContainer" unique_id=214723661]
 offset_right = 89.035
 offset_bottom = 50.0
 script = ExtResource("1_12ej0")
 correct_answer = Array[String](["周某", "沈某"])
+place_slot_se = ExtResource("2_67ou1")
+drag_start_se = ExtResource("3_c828r")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=744153642]
 custom_minimum_size = Vector2(50, 0)

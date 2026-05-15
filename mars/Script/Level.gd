@@ -1,4 +1,9 @@
 extends Node2D
+
+
+# 在 Level1 的根脚本顶部
+@export var level1_bgm: AudioStream
+
 @export var data_resource_path: String
 @export var blink_duration:float = 0.2 #(眨眼动画时间)
 
@@ -18,6 +23,9 @@ var current_view_index: int = 0
 var is_blinking:bool = false
 
 func _ready():
+	if level1_bgm:
+		MusicManager.play_with_fade_in(level1_bgm, 2.0) # 2秒淡入
+		
 	#初始化时先让眼睑完全张开
 	upper_lid.custom_minimum_size.y = 0
 	lower_lid.custom_minimum_size.y = 0

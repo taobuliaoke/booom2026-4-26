@@ -1,5 +1,7 @@
 extends Control
 
+@export var view_correct_se: AudioStream
+
 @onready var feedback_panel = $FeedBackPanel
 @onready var feedback_label = $FeedBackPanel/Label
 @onready var v_slots_container = $Vslots
@@ -55,6 +57,7 @@ func _check_all_slots():
 
 		
 func _on_all_crrect():
+	MusicManager.play_se(view_correct_se, 4.0) # 稍微清脆、带有一点解开谜题成就感的铃声或正向音效
 	print('完全正确，事情是这样的：')
 	_show_feedback("推理完全正确！")
 	#播放通关动画

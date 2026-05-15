@@ -2,9 +2,12 @@
 
 [ext_resource type="Material" uid="uid://b2hu170p6t07m" path="res://Shader/stylized_toon.tres" id="2_alhrv"]
 [ext_resource type="Texture2D" uid="uid://1dlc0yas52k8" path="res://3D_Content/puzzle.png" id="3_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://cl2ow2qmf1k6" path="res://Audio/mp3/3d/PutButton.mp3" id="3_dvqvj"]
 [ext_resource type="Script" uid="uid://bfmo6vfbv4jcj" path="res://3D_Content/pivot_point.gd" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://b6g7xshy0v7dd" path="res://Audio/mp3/3d/wotter.mp3" id="4_evuiu"]
+[ext_resource type="AudioStream" uid="uid://cbb3dw1vrej2y" path="res://Audio/mp3/3d/limbs_1.mp3" id="4_q22pi"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="6_1alwr"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="7_alhrv"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="7_alhrv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2n8ci"]
 sky_top_color = Color(0.41809472, 0.49533564, 0.69748855, 1)
@@ -254,6 +257,9 @@ shape = SubResource("WorldBoundaryShape3D_1bvp3")
 [node name="PivotPoint" type="Node3D" parent="." unique_id=2122630250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6638181, 2.0814755, 0.72589636)
 script = ExtResource("3_h2yge")
+btn_click_se = ExtResource("3_dvqvj")
+limbs_grow_se = ExtResource("4_q22pi")
+stage_ambient_se = ExtResource("4_evuiu")
 
 [node name="PuzzleObject" type="Node3D" parent="PivotPoint" unique_id=940405586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0605613, -0.02146864, 0.037879348)
