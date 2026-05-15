@@ -119,8 +119,8 @@ func _unhandled_input(event):
 
 
 func _process(delta):
-	if debug_mode and _debug_label:
-		_update_debug_label()
+	#if debug_mode and _debug_label:
+		#_update_debug_label()
 	if not is_won and not is_dragging:
 		_try_snap(delta)
 
