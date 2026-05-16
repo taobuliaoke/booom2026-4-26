@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/Level1Auto.mp3-7cf1a7537c5db0910052f1aedc1e76
 
 loop=true
 loop_offset=0.0
-bpm=0.0
+bpm=120.0
 beat_count=0
 bar_beats=4

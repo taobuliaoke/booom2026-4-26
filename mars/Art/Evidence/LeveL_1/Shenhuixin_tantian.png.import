@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfehjjjiub7gj"
-path="res://.godot/imported/Shenhuixin_tantian.png-27a1e72d8d08d43dffa40282d67842f8.ctex"
+path="res://.godot/imported/Shenhuixin_tantian.png-e308304ec0b07e3bee3f3e7d7b478fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Evidence/LeveL_1/Shenhuixin_tantian.png"
-dest_files=["res://.godot/imported/Shenhuixin_tantian.png-27a1e72d8d08d43dffa40282d67842f8.ctex"]
+source_file="res://art/Evidence/LeveL_1/Shenhuixin_tantian.png"
+dest_files=["res://.godot/imported/Shenhuixin_tantian.png-e308304ec0b07e3bee3f3e7d7b478fe7.ctex"]
 
 [params]
 

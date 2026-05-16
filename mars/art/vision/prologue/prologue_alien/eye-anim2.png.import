@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cowjj2nj5t8yd"
-path="res://.godot/imported/4287fcd7-2ff2-48da-8b00-860faea31a99.png-848d60b14570f714eb056431db436840.ctex"
+uid="uid://bn7qyq6f28at2"
+path="res://.godot/imported/eye-anim2.png-ab3e8c9efc3956b896b05c961a7128aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/letter/4287fcd7-2ff2-48da-8b00-860faea31a99.png"
-dest_files=["res://.godot/imported/4287fcd7-2ff2-48da-8b00-860faea31a99.png-848d60b14570f714eb056431db436840.ctex"]
+source_file="res://art/vision/prologue/prologue_alien/eye-anim2.png"
+dest_files=["res://.godot/imported/eye-anim2.png-ab3e8c9efc3956b896b05c961a7128aa.ctex"]
 
 [params]
 
