@@ -257,7 +257,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_crqvi")
 }, {
 "duration": 1.0,
@@ -306,6 +306,17 @@ tracks/0/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Boat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_uumld"]
 resource_name = "boat"
@@ -320,6 +331,17 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 15, -0.33888888, 0, 0.3277778, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.0333333, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Boat:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 0, -0.33888888, -0.0614929, 0.3277778, 0.059476744, -20, -0.34444445, 1.6597213, 0.32222223, -1.5526425),
 "times": PackedFloat32Array(0, 2.0333333, 4)
 }
 
@@ -396,7 +418,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_nim4c")
 to_minigame_slide = 3
 special_slides = [NodePath("SlidesContainer/AlienSlide")]
@@ -411,6 +433,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="TitleSlide" type="Node2D" parent="SlidesContainer" unique_id=1416818479]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide" unique_id=421492128]
 anchors_preset = 15
@@ -453,6 +476,7 @@ text = "  神仙显灵
 scroll_active = false
 
 [node name="RiverSlide" type="Node2D" parent="SlidesContainer" unique_id=2054057829]
+visible = false
 script = ExtResource("3_2gnns")
 
 [node name="static" type="Node2D" parent="SlidesContainer/RiverSlide" unique_id=242865763]
@@ -512,6 +536,7 @@ texture = ExtResource("11_mxmxd")
 centered = false
 
 [node name="BoatSlide" type="Node2D" parent="SlidesContainer" unique_id=2011201158]
+visible = false
 script = ExtResource("3_2gnns")
 layers_config = {
 "close": 0.01,
@@ -584,7 +609,7 @@ texture = ExtResource("23_3ptvb")
 centered = false
 
 [node name="Boat" type="Sprite2D" parent="SlidesContainer/AlienSlide" unique_id=1067894496]
-position = Vector2(-41, -0.72581786)
+position = Vector2(-41, 0)
 scale = Vector2(1.035, 1.035)
 texture = ExtResource("24_wvlmx")
 centered = false
@@ -624,7 +649,7 @@ animation = &"glass_open"
 [node name="Eye" type="AnimatedSprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=469181649]
 position = Vector2(749.05664, 497.0922)
 sprite_frames = SubResource("SpriteFrames_406dk")
-animation = &"center"
+animation = &"eye"
 
 [node name="Area2D2" type="Area2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=1709036476 node_paths=PackedStringArray("prologue", "glass_anim", "eye_anim")]
 script = ExtResource("5_52yis")
@@ -642,18 +667,21 @@ libraries/ = SubResource("AnimationLibrary_aawr4")
 autoplay = &"boat"
 
 [node name="PanoramaSlide" type="Node2D" parent="SlidesContainer" unique_id=628548123]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlide" unique_id=1086709686]
 texture = ExtResource("7_2jbdw")
 centered = false
 
 [node name="PanoramaSlideChanged" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlideChanged" unique_id=1186193574]
 texture = ExtResource("8_go5so")
 centered = false
 
 [node name="TitleSlide2" type="Node2D" parent="SlidesContainer" unique_id=618350915]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="SlidesContainer/TitleSlide2" unique_id=887100732]
 anchors_preset = 15
@@ -719,7 +747,11 @@ offset_left = 151.0
 offset_top = 1071.0
 offset_right = 1472.0
 offset_bottom = 1134.0
-theme_override_font_sizes/normal_font_size = 35
+theme_override_colors/font_shadow_color = Color(0.5330367, 0.5330367, 0.5330367, 0.6627451)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "你好"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=682776889]
 root_node = NodePath("../..")

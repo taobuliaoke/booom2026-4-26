@@ -3,9 +3,8 @@ extends Area2D
 @export var glass_anim:AnimatedSprite2D
 @export var eye_anim:AnimatedSprite2D
 func _ready():
-	
 	pass
-
+	
 # event 是输入的具体内容（移动、点击、滚轮等）
 # shape_idx 如果你有多个碰撞形状，可以用它区分点到了哪个
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
@@ -19,9 +18,11 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
 			
 				await glass_anim.animation_finished
 				prologue.is_eye_active = false
-				$"../EyeAnchor/Pupil".hide()
+				
 				$"../Eye".play("eye")
+				
 				await eye_anim.animation_finished
+				$"../EyeAnchor/Pupil".hide()
 				$"../Area2D2/CollisionShape2D".disabled = false
 				prologue.is_animation = false
 				return
