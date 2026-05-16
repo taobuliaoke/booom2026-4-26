@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwen0yi3bq56l"
-path="res://.godot/imported/prologue_0.jpg-b7a075330c0b589adccce6629a6941df.ctex"
+path="res://.godot/imported/prologue_0.jpg-12a2337668330f73b8b602074eb88315.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Vision/prologue/prologue_0.jpg"
-dest_files=["res://.godot/imported/prologue_0.jpg-b7a075330c0b589adccce6629a6941df.ctex"]
+source_file="res://art/vision/prologue/prologue_0.jpg"
+dest_files=["res://.godot/imported/prologue_0.jpg-12a2337668330f73b8b602074eb88315.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cipawf46v1cjg"
-path="res://.godot/imported/eye-close.png-8a248c672663e67f87ff10365b040f31.ctex"
+path="res://.godot/imported/eye-close.png-4e68c4b5270a0a975d58f9ec50992099.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Vision/prologue/prologue_alien/eye-close.png"
-dest_files=["res://.godot/imported/eye-close.png-8a248c672663e67f87ff10365b040f31.ctex"]
+source_file="res://art/vision/prologue/prologue_alien/eye-close.png"
+dest_files=["res://.godot/imported/eye-close.png-4e68c4b5270a0a975d58f9ec50992099.ctex"]
 
 [params]
 
