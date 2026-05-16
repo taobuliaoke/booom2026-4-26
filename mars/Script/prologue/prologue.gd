@@ -211,6 +211,7 @@ func go_to_next_step():
 		_display_current_content()
 		set_process_unhandled_input(true) 
 		is_locked = false
+		return
 	if GlobalData.current_page == (to_minigame_slide + 1):
 		if not is_post_bgm_finished:
 			print('音乐尚未播放结束，暂时无法跳转')
@@ -221,7 +222,8 @@ func go_to_next_step():
 		.set_ease(Tween.EASE_IN_OUT)
 		await tween.finished
 		GlobalData.current_page =5
-	
+		is_locked = false
+		return
 	if GlobalData.current_page == to_minigame_slide: 
 		print('正在跳转3d场景，锁定所有后续逻辑')
 		#音乐戛然而止
@@ -268,13 +270,14 @@ func _on_item_clicked():
 	# 只有在不播字，不切换场景时才响应
 	if not is_typing and not is_locked:
 		$SlidesContainer/AlienSlide/medium/Node2D/Eye.play("eye_white")
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		eye_pupil_red.visible = true
 		MusicManager.play_se(put_button)
 		var tween = create_tween()
 		tween.tween_property(eye_pupil_red,"position:y",430.0,1)\
 		.set_trans(Tween.TRANS_BACK)\
 		.set_ease(Tween.EASE_OUT)
-
+		
 		await tween.finished
 		go_to_next_step()
 		

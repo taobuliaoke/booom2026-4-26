@@ -15,8 +15,8 @@ extends Node2D
 
 @onready var viewpoints_container = $Viewpoints
 #引用眼睑节点
-@onready var upper_lid =$"../../UiLayer/BlinkCanvas/UpperLid"
-@onready var lower_lid =$"../../UiLayer/BlinkCanvas/LowerLid"
+@export var upper_lid : ColorRect
+@export var lower_lid : ColorRect
 
 # 记录当前看的是第几个视角（从 0 开始）
 var current_view_index: int = 0
