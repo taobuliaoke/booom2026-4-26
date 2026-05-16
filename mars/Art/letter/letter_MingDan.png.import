@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuffvo6dgcgrj"
-path="res://.godot/imported/letter_MingDan.png-9c465c787b7edc960ae6b9aacdebffcc.ctex"
+path="res://.godot/imported/letter_MingDan.png-3273522f5d2c76200f219b707f61c468.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/letter/letter_MingDan.png"
-dest_files=["res://.godot/imported/letter_MingDan.png-9c465c787b7edc960ae6b9aacdebffcc.ctex"]
+source_file="res://art/letter/letter_MingDan.png"
+dest_files=["res://.godot/imported/letter_MingDan.png-3273522f5d2c76200f219b707f61c468.ctex"]
 
 [params]
 

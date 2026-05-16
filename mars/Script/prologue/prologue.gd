@@ -142,10 +142,9 @@ func _display_current_content():
 	if GlobalData.current_page == (to_minigame_slide + 1) and post_3d_bgm:
 		is_post_bgm_finished = false
 		MusicManager.play_once_then_callback(post_3d_bgm)
-		# 监听播放结束信号
+# 监听播放结束信号
 		if not MusicManager.bgm_finished.is_connected(_on_post_bgm_ended):
 			MusicManager.bgm_finished.connect(_on_post_bgm_ended)
-	
 	current_dialogue_index = 0
 	_show_dialogue_step()
 	

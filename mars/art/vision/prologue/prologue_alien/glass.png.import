@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfla21mrch5hl"
-path="res://.godot/imported/glass.png-fd00aad2faed60df2833946f93f8f3a7.ctex"
+path="res://.godot/imported/glass.png-fb419d3aac96ab112e85de6639f57319.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Vision/prologue/prologue_alien/glass.png"
-dest_files=["res://.godot/imported/glass.png-fd00aad2faed60df2833946f93f8f3a7.ctex"]
+source_file="res://art/vision/prologue/prologue_alien/glass.png"
+dest_files=["res://.godot/imported/glass.png-fb419d3aac96ab112e85de6639f57319.ctex"]
 
 [params]
 

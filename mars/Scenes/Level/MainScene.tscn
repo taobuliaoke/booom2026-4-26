@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cve87385duapf"]
 
 [ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_i0j58"]
-[ext_resource type="Texture2D" uid="uid://ekboxnq5cfam" path="res://Art/UI/Reason_1.png" id="2_i0j58"]
+[ext_resource type="Texture2D" uid="uid://ekboxnq5cfam" path="res://art/UI/Reason_1.png" id="2_i0j58"]
 [ext_resource type="Script" uid="uid://45gmo527sitv" path="res://Script/RMForView.gd" id="3_bpy1e"]
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="3_c1ier"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="3_gyaec"]
@@ -17,16 +17,16 @@
 [ext_resource type="AudioStream" uid="uid://bu0hx1u2ixjvi" path="res://Audio/mp3/Level1/reasoningpage3.mp3" id="10_2blte"]
 [ext_resource type="PackedScene" uid="uid://df6kdpkev120a" path="res://Scenes/toggle_button.tscn" id="10_r0vnq"]
 [ext_resource type="PackedScene" uid="uid://n33ok0udqg1u" path="res://Scenes/next_button.tscn" id="11_hx8n4"]
-[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://Art/UI/mysteryA.png" id="11_i0j58"]
-[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://Art/UI/mysteryE.png" id="11_p5ymy"]
+[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://art/UI/mysteryA.png" id="11_i0j58"]
+[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://art/UI/mysteryE.png" id="11_p5ymy"]
 [ext_resource type="AudioStream" uid="uid://bhe673cqyujhx" path="res://Audio/mp3/Level1/GetWord.mp3" id="12_5uq7n"]
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://cpibujf4fghri" path="res://Scenes/letter.tscn" id="16_dtg5n"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="17_d0jji"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="18_cotnl"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="18_cotnl"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
-[ext_resource type="AudioStream" uid="uid://b5lgoxy07jbbb" path="res://Audio/mp3/Level1/kiss.mp3" id="20_2blte"]
+[ext_resource type="AudioStream" uid="uid://cn0pvntpmmujd" path="res://Audio/mp3/Level1/MouseChosing.mp3" id="20_eepcn"]
 [ext_resource type="AudioStream" uid="uid://c3m6y6i2oog2b" path="res://Audio/mp3/Level1/PenOpen.mp3" id="25_eepcn"]
 [ext_resource type="AudioStream" uid="uid://fkusv7fna6dc" path="res://Audio/mp3/Level1/PenClose.mp3" id="26_j5j7i"]
 
@@ -1065,7 +1065,7 @@ offset_bottom = -95.0
 grow_vertical = 0
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
-kiss_se = ExtResource("20_2blte")
+kiss_se = ExtResource("20_eepcn")
 metadata/_edit_lock_ = true
 
 [node name="PrevButton" parent="UiLayer" unique_id=640096522 instance=ExtResource("12_enc0b")]
@@ -1076,7 +1076,7 @@ offset_top = -223.0
 offset_bottom = -96.0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
-kiss2_se = ExtResource("20_2blte")
+kiss2_se = ExtResource("20_eepcn")
 metadata/_edit_lock_ = true
 
 [node name="CharacterDialogUI" parent="UiLayer" unique_id=1356130498 instance=ExtResource("15_rv6c1")]
