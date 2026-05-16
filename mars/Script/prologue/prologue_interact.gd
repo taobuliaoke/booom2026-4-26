@@ -7,9 +7,8 @@ extends Area2D
 @export var  eyeopen_se : AudioStream
 
 func _ready():
-	
 	pass
-
+	
 # event 是输入的具体内容（移动、点击、滚轮等）
 # shape_idx 如果你有多个碰撞形状，可以用它区分点到了哪个
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
@@ -27,7 +26,9 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
 				$"../EyeAnchor/Pupil".hide()
 				MusicManager.play_se(eyeopen_se, 4.0) 
 				$"../Eye".play("eye")
+				
 				await eye_anim.animation_finished
+				$"../EyeAnchor/Pupil".hide()
 				$"../Area2D2/CollisionShape2D".disabled = false
 				prologue.is_animation = false
 				return
