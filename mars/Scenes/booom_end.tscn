@@ -1,18 +1,62 @@
 [gd_scene format=3 uid="uid://1ypb8en1ws5c"]
 
-[ext_resource type="Texture2D" uid="uid://mvostg0kgob5" path="res://Art/UI/047b1f8ea5d97683bee19095b3bb3149.jpg" id="1_fblos"]
+[ext_resource type="Texture2D" uid="uid://bbmeqs3mogm5h" path="res://Art/booomend/bird.jpg" id="1_hr636"]
+[ext_resource type="Script" uid="uid://dom33l5a867no" path="res://Script/booom_end.gd" id="1_ne8g5"]
+[ext_resource type="Texture2D" uid="uid://ci0cdcgyk7b5v" path="res://Art/booomend/PoopLint.png" id="2_ne8g5"]
+[ext_resource type="Shader" uid="uid://c3wyowm16m7su" path="res://Shader/hand_drawn_jitter.gdshader" id="3_6nxbv"]
+[ext_resource type="Texture2D" uid="uid://devfpjl6k3wm6" path="res://Art/booomend/Brid.png" id="3_vitow"]
+[ext_resource type="Texture2D" uid="uid://ewq6qcb7wny" path="res://Art/booomend/BridLint.png" id="4_6nxbv"]
 
-[node name="BooomEnd" type="Node2D" unique_id=1241172231]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8545"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuswo"]
+shader = ExtResource("3_6nxbv")
+shader_parameter/jitter_speed = 10.0
+shader_parameter/jitter_amount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_su0xj"]
+shader = ExtResource("3_6nxbv")
+shader_parameter/jitter_speed = 10.0
+shader_parameter/jitter_amount = 1.0
+
+[node name="BooomEnd" type="Control" unique_id=1460364488]
+material = SubResource("ShaderMaterial_x8545")
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ne8g5")
 
 [node name="EndBG" type="Sprite2D" parent="." unique_id=1476378526]
-position = Vector2(800, 600)
-texture = ExtResource("1_fblos")
+texture_filter = 1
+position = Vector2(799.8311, 529.75006)
+scale = Vector2(1.966017, 1.9684287)
+texture = ExtResource("1_hr636")
+metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="EndBG" unique_id=338975984]
-offset_left = -272.0
-offset_top = -82.0
-offset_right = 278.0
-offset_bottom = 21.0
+[node name="PopLint" type="Sprite2D" parent="EndBG" unique_id=1082906275]
+texture_filter = 1
+material = SubResource("ShaderMaterial_wuswo")
+scale = Vector2(1, 1.0000004)
+texture = ExtResource("2_ne8g5")
+
+[node name="Bird" type="Sprite2D" parent="EndBG" unique_id=1282045989]
+texture_filter = 1
+texture = ExtResource("3_vitow")
+
+[node name="BirdLint" type="Sprite2D" parent="EndBG" unique_id=520157872]
+texture_filter = 1
+material = SubResource("ShaderMaterial_su0xj")
+scale = Vector2(1, 1.0000002)
+texture = ExtResource("4_6nxbv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1519600521]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=338975984]
+modulate = Color(0, 0, 0, 1)
+offset_left = 435.99997
+offset_top = 298.0
+offset_right = 1358.0
+offset_bottom = 543.0
 theme_override_font_sizes/font_size = 50
 text = "恭喜通关暴躁2026版本
 《荧惑仙》的试玩关卡！"
+autowrap_mode = 1
