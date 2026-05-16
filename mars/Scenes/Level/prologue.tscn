@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ckrxkqol5q63a" path="res://art/vision/prologue/prologue_river/background.png" id="3_n4yvt"]
 [ext_resource type="Texture2D" uid="uid://0lo5p3a15hwr" path="res://art/vision/prologue/prologue_river/land.png" id="3_tivjr"]
 [ext_resource type="Shader" uid="uid://c3wyowm16m7su" path="res://Shader/hand_drawn_jitter.gdshader" id="4_2gcac"]
+[ext_resource type="AudioStream" uid="uid://cn0pvntpmmujd" path="res://Audio/mp3/Level1/MouseChosing.mp3" id="4_e6lxq"]
 [ext_resource type="Texture2D" uid="uid://c0jbhiv30tm7e" path="res://art/vision/prologue/prologue_river/worm.png" id="4_tivjr"]
 [ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="4_w8mph"]
 [ext_resource type="Texture2D" uid="uid://nrwyu8wxapsy" path="res://art/vision/prologue/prologue_river/wave.png" id="5_2gnns"]
@@ -35,6 +36,9 @@
 [ext_resource type="Texture2D" uid="uid://u2fuw8cb1y7h" path="res://art/vision/prologue/prologue_alien/glass_anim.png" id="27_wvlmx"]
 [ext_resource type="Texture2D" uid="uid://8fb6w8pgy2pl" path="res://art/vision/prologue/prologue_alien/eye-anim.png" id="28_mrtvs"]
 [ext_resource type="Texture2D" uid="uid://8elkmj6766gs" path="res://art/vision/prologue/prologue_alien/pupil.png" id="28_uumld"]
+[ext_resource type="Texture2D" uid="uid://bn7qyq6f28at2" path="res://art/vision/prologue/prologue_alien/eye-anim2.png" id="32_2dg63"]
+[ext_resource type="Texture2D" uid="uid://dnk2duc1d6spn" path="res://art/vision/prologue/prologue_alien/eye_pupil2.png" id="33_1mwoc"]
+[ext_resource type="Texture2D" uid="uid://d0u6p6s8anl3g" path="res://art/vision/prologue/prologue_alien/eye-white.png" id="33_crqvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ntvsi"]
 shader = ExtResource("4_w8mph")
@@ -238,6 +242,34 @@ region = Rect2(976, 0, 244, 186)
 atlas = ExtResource("28_mrtvs")
 region = Rect2(1220, 0, 244, 186)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_capwn"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(0, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk787"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(244, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2dcr"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(488, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwq7x"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(732, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prart"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(976, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tmje"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(1220, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqesp"]
+atlas = ExtResource("32_2dg63")
+region = Rect2(1464, 0, 244, 186)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0go8"]
 atlas = ExtResource("28_mrtvs")
 region = Rect2(488, 0, 244, 186)
@@ -245,6 +277,10 @@ region = Rect2(488, 0, 244, 186)
 [sub_resource type="AtlasTexture" id="AtlasTexture_406dk"]
 atlas = ExtResource("28_mrtvs")
 region = Rect2(244, 0, 244, 186)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f65u4"]
+atlas = ExtResource("33_crqvi")
+region = Rect2(0, 0, 240, 178)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_406dk"]
 animations = [{
@@ -275,6 +311,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_capwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk787")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2dcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwq7x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_prart")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tmje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqesp")
+}],
+"loop": true,
+"name": &"eye_rolling",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_o0go8")
 }],
 "loop": false,
@@ -288,6 +350,14 @@ animations = [{
 "loop": false,
 "name": &"eye_skin_up",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f65u4")
+}],
+"loop": true,
+"name": &"eye_white",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrtvs"]
@@ -404,14 +474,31 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_crqvi"]
+resource_name = "fade_out_long"
+length = 1.5666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ScreenFader:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 1.5666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ntbng"]
 _data = {
 &"RESET": SubResource("Animation_erp77"),
 &"fade_in": SubResource("Animation_o1e67"),
-&"fade_out": SubResource("Animation_3hhce")
+&"fade_out": SubResource("Animation_3hhce"),
+&"fade_out_long": SubResource("Animation_crqvi")
 }
 
-[node name="Prologue" type="Control" unique_id=1102609327 node_paths=PackedStringArray("special_slides", "slide_nodes")]
+[node name="Prologue" type="Control" unique_id=1102609327 node_paths=PackedStringArray("special_slides", "slide_nodes", "eye_pupil_red")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -425,6 +512,8 @@ special_slides = [NodePath("SlidesContainer/AlienSlide")]
 slide_nodes = [NodePath("SlidesContainer/TitleSlide"), NodePath("SlidesContainer/RiverSlide"), NodePath("SlidesContainer/BoatSlide"), NodePath("SlidesContainer/AlienSlide"), NodePath("SlidesContainer/PanoramaSlide"), NodePath("SlidesContainer/PanoramaSlideChanged"), NodePath("SlidesContainer/TitleSlide2")]
 prologue_bgm = ExtResource("2_ntvsi")
 post_3d_bgm = ExtResource("3_jkv37")
+eye_pupil_red = NodePath("SlidesContainer/AlienSlide/medium/Node2D/EyePupil2")
+put_button = ExtResource("4_e6lxq")
 
 [node name="SlidesContainer" type="Control" parent="." unique_id=1208665037]
 anchors_preset = 0
@@ -649,7 +738,12 @@ animation = &"glass_open"
 [node name="Eye" type="AnimatedSprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=469181649]
 position = Vector2(749.05664, 497.0922)
 sprite_frames = SubResource("SpriteFrames_406dk")
-animation = &"eye"
+animation = &"eye_white"
+
+[node name="EyePupil2" type="Sprite2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=1869081850]
+visible = false
+position = Vector2(745.283, 495.41013)
+texture = ExtResource("33_1mwoc")
 
 [node name="Area2D2" type="Area2D" parent="SlidesContainer/AlienSlide/medium/Node2D" unique_id=1709036476 node_paths=PackedStringArray("prologue", "glass_anim", "eye_anim")]
 script = ExtResource("5_52yis")
@@ -667,10 +761,14 @@ libraries/ = SubResource("AnimationLibrary_aawr4")
 autoplay = &"boat"
 
 [node name="PanoramaSlide" type="Node2D" parent="SlidesContainer" unique_id=628548123]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SlidesContainer/PanoramaSlide" unique_id=1086709686]
 texture = ExtResource("7_2jbdw")
+centered = false
+
+[node name="Prologue6" type="Sprite2D" parent="SlidesContainer/PanoramaSlide" unique_id=1053914042]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("8_go5so")
 centered = false
 
 [node name="PanoramaSlideChanged" type="Node2D" parent="SlidesContainer" unique_id=2077317540]
@@ -757,6 +855,4 @@ text = "你好"
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_ntbng")
 
-[connection signal="mouse_entered" from="SlidesContainer/AlienSlide/medium/Node2D/Area2D" to="SlidesContainer/AlienSlide/medium/Node2D/Area2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="SlidesContainer/AlienSlide/medium/Node2D/Area2D" to="SlidesContainer/AlienSlide/medium/Node2D/Area2D" method="_on_mouse_exited"]
 [connection signal="animation_finished" from="SlidesContainer/AlienSlide/medium/Node2D/Glass" to="SlidesContainer/AlienSlide/medium/Node2D/Area2D" method="_on_animated_sprite_2d_animation_finished"]

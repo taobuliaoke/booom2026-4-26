@@ -9,7 +9,8 @@ extends Control
 @export var prologue_bgm: AudioStream
 # prologue.gd
 @export var post_3d_bgm: AudioStream # 3D 场景结束后的新音乐
-
+@export var eye_pupil_red:Sprite2D
+@export var put_button:AudioStream
 # --- 节点引用 ---
 
 @onready var dialogue_label = $CanvasLayer/DialogueLabel # 请确保你的场景中有此路径的 Label 
@@ -196,10 +197,30 @@ func go_to_next_step():
 	print("!!! [调试] 开始执行跳转逻辑，当前页码:", GlobalData.current_page)
 	
 		#从3d出来之后播放新音乐
+	if GlobalData.current_page == 5:
+		#淡出动画
+		set_process_unhandled_input(false)
+		$CanvasLayer/AnimationPlayer.play('fade_out_long')
+		await $CanvasLayer/AnimationPlayer.animation_finished
+	
+	#在黑屏下切换内容
+		_change_slide_content()
+	
+		#播放淡入动画
+		$CanvasLayer/AnimationPlayer.play('fade_in')
+		_display_current_content()
+		set_process_unhandled_input(true) 
+		is_locked = false
 	if GlobalData.current_page == (to_minigame_slide + 1):
 		if not is_post_bgm_finished:
 			print('音乐尚未播放结束，暂时无法跳转')
 			return #如果音乐没有播完，直接拦截点击
+		var tween = create_tween()
+		tween.tween_property($SlidesContainer/PanoramaSlide/Prologue6, "modulate:a", 1.0, 5)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN_OUT)
+		await tween.finished
+		GlobalData.current_page =5
 	
 	if GlobalData.current_page == to_minigame_slide: 
 		print('正在跳转3d场景，锁定所有后续逻辑')
@@ -208,7 +229,6 @@ func go_to_next_step():
 		SceneChanger.change_scene("res://3D_Content/3Dgame.tscn") 
 		GlobalData.current_page = to_minigame_slide + 1 
 		return
-
 	
 	#第三种情况，正常翻页或结束
 	if GlobalData.current_page >= final_slide: 
@@ -247,6 +267,15 @@ func _change_slide_content():
 func _on_item_clicked():
 	# 只有在不播字，不切换场景时才响应
 	if not is_typing and not is_locked:
+		$SlidesContainer/AlienSlide/medium/Node2D/Eye.play("eye_white")
+		eye_pupil_red.visible = true
+		MusicManager.play_se(put_button)
+		var tween = create_tween()
+		tween.tween_property(eye_pupil_red,"position:y",430.0,1)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_OUT)
+
+		await tween.finished
 		go_to_next_step()
 		
 		
