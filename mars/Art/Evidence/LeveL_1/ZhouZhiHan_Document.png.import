@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdwqerfis8yqr"
-path="res://.godot/imported/ZhouZhiHan_Document.png-07fbdc5aa4fa89eeed54c1e9055ff65f.ctex"
+path="res://.godot/imported/ZhouZhiHan_Document.png-13a0c6d4b79083e391806b2c8eaaed92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Evidence/LeveL_1/ZhouZhiHan_Document.png"
-dest_files=["res://.godot/imported/ZhouZhiHan_Document.png-07fbdc5aa4fa89eeed54c1e9055ff65f.ctex"]
+source_file="res://Art/Evidence/LeveL_1/ZhouZhiHan_Document.png"
+dest_files=["res://.godot/imported/ZhouZhiHan_Document.png-13a0c6d4b79083e391806b2c8eaaed92.ctex"]
 
 [params]
 

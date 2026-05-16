@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8fb6w8pgy2pl"
-path="res://.godot/imported/eye-anim.png-5a2a746610eba9d5bf8d8d32ff4937b4.ctex"
+path="res://.godot/imported/eye-anim.png-7a93bdfa79c3a2999f3e33fa9ae0b3cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/prologue/prologue_alien/eye-anim.png"
-dest_files=["res://.godot/imported/eye-anim.png-5a2a746610eba9d5bf8d8d32ff4937b4.ctex"]
+source_file="res://Art/Vision/prologue/prologue_alien/eye-anim.png"
+dest_files=["res://.godot/imported/eye-anim.png-7a93bdfa79c3a2999f3e33fa9ae0b3cb.ctex"]
 
 [params]
 

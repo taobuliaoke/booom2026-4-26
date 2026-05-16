@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2bb68cbjbsaa" path="res://Script/word_card.gd" id="1_k0ndv"]
 [ext_resource type="Texture2D" uid="uid://cmdb38i8xl0rl" path="res://Art/UI/WordCard.png" id="1_o10kx"]
+[ext_resource type="AudioStream" uid="uid://cctb2phfjwfwg" path="res://Audio/mp3/Level1/Drag.mp3" id="2_0bnit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k0ndv"]
 font_size = 50
@@ -14,6 +15,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 script = ExtResource("1_k0ndv")
+drag_word_se = ExtResource("2_0bnit")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=464928428]
 layout_mode = 2

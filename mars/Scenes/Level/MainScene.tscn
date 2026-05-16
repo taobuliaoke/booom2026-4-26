@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cve87385duapf"]
 
 [ext_resource type="PackedScene" uid="uid://dk8obsm68d3lv" path="res://Scenes/tooltip_layer.tscn" id="1_i0j58"]
-[ext_resource type="Texture2D" uid="uid://ekboxnq5cfam" path="res://art/UI/Reason_1.png" id="2_i0j58"]
+[ext_resource type="Texture2D" uid="uid://ekboxnq5cfam" path="res://Art/UI/Reason_1.png" id="2_i0j58"]
 [ext_resource type="Script" uid="uid://45gmo527sitv" path="res://Script/RMForView.gd" id="3_bpy1e"]
 [ext_resource type="FontFile" uid="uid://cks8xay6u2lji" path="res://theme/郑庆科南北词宫谱宋体.ttf" id="3_c1ier"]
 [ext_resource type="Script" uid="uid://d06hbfc74n2aa" path="res://Script/ReasoningManager.gd" id="3_gyaec"]
@@ -17,14 +17,16 @@
 [ext_resource type="AudioStream" uid="uid://bu0hx1u2ixjvi" path="res://Audio/mp3/Level1/reasoningpage3.mp3" id="10_2blte"]
 [ext_resource type="PackedScene" uid="uid://df6kdpkev120a" path="res://Scenes/toggle_button.tscn" id="10_r0vnq"]
 [ext_resource type="PackedScene" uid="uid://n33ok0udqg1u" path="res://Scenes/next_button.tscn" id="11_hx8n4"]
-[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://art/UI/mysteryA.png" id="11_i0j58"]
-[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://art/UI/mysteryE.png" id="11_p5ymy"]
+[ext_resource type="Texture2D" uid="uid://dilxnh30iwjyh" path="res://Art/UI/mysteryA.png" id="11_i0j58"]
+[ext_resource type="Texture2D" uid="uid://bskmicyr1sbxq" path="res://Art/UI/mysteryE.png" id="11_p5ymy"]
+[ext_resource type="Texture2D" uid="uid://sot1dit63k31" path="res://Art/UI/cut.png" id="12_2u1pm"]
 [ext_resource type="AudioStream" uid="uid://bhe673cqyujhx" path="res://Audio/mp3/Level1/GetWord.mp3" id="12_5uq7n"]
 [ext_resource type="PackedScene" uid="uid://dq1qy8ti4khwt" path="res://Scenes/prev_button.tscn" id="12_enc0b"]
+[ext_resource type="Texture2D" uid="uid://cgg4dcujsitko" path="res://Art/UI/semicolon.png" id="12_j5j7i"]
 [ext_resource type="PackedScene" uid="uid://ubiero115yt2" path="res://Scenes/DialogueUI/character_dialog_ui.tscn" id="15_rv6c1"]
 [ext_resource type="PackedScene" uid="uid://cpibujf4fghri" path="res://Scenes/letter.tscn" id="16_dtg5n"]
 [ext_resource type="Shader" uid="uid://38l0r6uxfq7t" path="res://Shader/stylized_red.gdshader" id="17_d0jji"]
-[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://art/UI/slot.png" id="18_cotnl"]
+[ext_resource type="Texture2D" uid="uid://bufeprcvtb3r5" path="res://Art/UI/slot.png" id="18_cotnl"]
 [ext_resource type="PackedScene" uid="uid://bvqrcq4btc6ia" path="res://Scenes/Interactable.tscn" id="19_ypccg"]
 [ext_resource type="AudioStream" uid="uid://cn0pvntpmmujd" path="res://Audio/mp3/Level1/MouseChosing.mp3" id="20_eepcn"]
 [ext_resource type="AudioStream" uid="uid://c3m6y6i2oog2b" path="res://Audio/mp3/Level1/PenOpen.mp3" id="25_eepcn"]
@@ -48,7 +50,6 @@ texture = ExtResource("2_i0j58")
 metadata/_edit_lock_ = true
 
 [node name="ReasoningGroup" type="Control" parent="." unique_id=1824886820]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -1.0
@@ -89,7 +90,7 @@ offset_right = 977.2627
 offset_bottom = 58.73673
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "以上是关于女孩们的事"
+text = "以上是关于洋文课的事"
 
 [node name="Words" type="Control" parent="ReasoningGroup/ReasoningPage_1" unique_id=1256055204]
 anchors_preset = 0
@@ -422,7 +423,7 @@ offset_right = 972.7146
 offset_bottom = 72.59038
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "以上是关于岸上的人的事"
+text = "以上是关于岸上的闲人的事"
 
 [node name="Words" type="Control" parent="ReasoningGroup/ReasoningPage_2" unique_id=952979633]
 anchors_preset = 0
@@ -497,35 +498,35 @@ offset_top = 177.1429
 offset_right = 735.7143
 offset_bottom = 217.1429
 theme_override_font_sizes/font_size = 40
-text = "，"
+text = "——"
 
 [node name="Label_8" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1268171958]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 1075.7142
+offset_left = 1132.857
 offset_top = 181.42854
-offset_right = 1360.0
+offset_right = 1417.1428
 offset_bottom = 221.42854
 theme_override_font_sizes/font_size = 40
-text = "的名字划掉，换"
+text = "的名字划掉，"
 
 [node name="Label_9" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=373398178]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 8.571411
-offset_top = 241.42853
-offset_right = 48.57141
-offset_bottom = 281.4286
+offset_left = 11.428556
+offset_top = 244.28568
+offset_right = 91.42856
+offset_bottom = 284.28574
 theme_override_font_sizes/font_size = 40
-text = "成"
+text = "换成"
 
 [node name="Label_13" type="Label" parent="ReasoningGroup/ReasoningPage_2/Words" unique_id=1170194881]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 404.2857
-offset_top = 241.42853
-offset_right = 444.2857
-offset_bottom = 281.4286
+offset_left = 442.85718
+offset_top = 242.85712
+offset_right = 482.85718
+offset_bottom = 282.85718
 theme_override_font_sizes/font_size = 40
 text = "。"
 
@@ -644,34 +645,34 @@ correct_answer = Array[String](["女儿"])
 
 [node name="Empty_13" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=953925971 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 724.28577
+offset_left = 781.42865
 offset_top = 167.14288
-offset_right = 899.28577
+offset_right = 956.42865
 offset_bottom = 223.14288
 correct_answer = Array[String](["周"])
 
 [node name="Empty_14" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1956616737 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 900.0
+offset_left = 957.1429
 offset_top = 167.14291
-offset_right = 1075.0
+offset_right = 1132.1428
 offset_bottom = 223.14291
 correct_answer = Array[String](["静姝"])
 
 [node name="Empty_16" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=935998623 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 52.857132
-offset_top = 232.85724
-offset_right = 227.85713
-offset_bottom = 288.85727
+offset_left = 91.42859
+offset_top = 234.28583
+offset_right = 266.4286
+offset_bottom = 290.28583
 correct_answer = Array[String](["沈"])
 
 [node name="Empty_17" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1502671077 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
-offset_left = 228.57144
-offset_top = 232.85712
-offset_right = 403.57144
-offset_bottom = 288.85718
+offset_left = 267.14288
+offset_top = 234.2857
+offset_right = 442.14288
+offset_bottom = 290.28577
 correct_answer = Array[String](["慧心"])
 
 [node name="Empty_18" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=291107855 instance=ExtResource("4_bpy1e")]
@@ -680,7 +681,7 @@ offset_left = 8.571437
 offset_top = 305.71432
 offset_right = 183.57144
 offset_bottom = 361.71432
-correct_answer = Array[String](["神"])
+correct_answer = Array[String](["神", "荧惑"])
 
 [node name="Empty_19" parent="ReasoningGroup/ReasoningPage_2/Emptys" unique_id=1604083145 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
@@ -806,18 +807,20 @@ anchor_right = 0.99200004
 anchor_bottom = 0.124000005
 offset_left = 374.2857
 offset_top = 907.1428
-offset_right = -11.280029
-offset_bottom = 1042.8514
+offset_right = -9.08313
+offset_bottom = 1135.2001
 
 [node name="Label" type="Label" parent="ReasoningGroup/ReasoningForView/FeedBackPanel" unique_id=1420686441]
 layout_mode = 0
-offset_left = 22.63739
-offset_top = 235.93417
-offset_right = 342.6374
-offset_bottom = 351.9342
+offset_left = 164.17587
+offset_top = 32.85717
+offset_right = 207.25278
+offset_bottom = 413.85718
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "我要看到所有……"
+theme_override_font_sizes/font_size = 45
+text = "我要看到所有
+"
+autowrap_mode = 1
 
 [node name="Vslots" type="Control" parent="ReasoningGroup/ReasoningForView" unique_id=1614643245]
 anchors_preset = 0
@@ -848,7 +851,7 @@ offset_left = 360.69232
 offset_top = 131.00003
 offset_right = 530.6923
 offset_bottom = 187.00003
-correct_answer = Array[String](["神"])
+correct_answer = Array[String](["神", "荧惑"])
 
 [node name="VSlot_4" parent="ReasoningGroup/ReasoningForView/Vslots" unique_id=1493757450 instance=ExtResource("4_bpy1e")]
 layout_mode = 0
@@ -962,9 +965,16 @@ offset_bottom = 1284.6155
 theme_override_font_sizes/font_size = 40
 text = "周静姝"
 
+[node name="Sprite2D" type="Sprite2D" parent="ReasoningGroup" unique_id=116926541]
+position = Vector2(991, 438)
+scale = Vector2(0.9510595, 0.3846154)
+texture = ExtResource("12_2u1pm")
+
 [node name="Environment" type="Node2D" parent="." unique_id=1239188360]
 
 [node name="Level1" parent="Environment" unique_id=1293253096 instance=ExtResource("6_3va76")]
+blink_duration = 0.2
+slide_duration = 0.3
 metadata/_edit_lock_ = true
 
 [node name="Level2" parent="Environment" unique_id=1646515426 instance=ExtResource("7_wmecs")]
@@ -972,6 +982,38 @@ visible = false
 script = null
 
 [node name="UiLayer" type="CanvasLayer" parent="." unique_id=1067193768]
+
+[node name="Control" type="Control" parent="UiLayer" unique_id=581991105]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 39.0
+offset_bottom = 36.0
+
+[node name="Count" type="Label" parent="UiLayer/Control" unique_id=1537651055]
+layout_mode = 0
+offset_left = 1350.0
+offset_top = 1095.0
+offset_right = 1390.0
+offset_bottom = 1140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="UiLayer/Control" unique_id=1511455973]
+position = Vector2(1391, 1147)
+texture = ExtResource("12_j5j7i")
+
+[node name="Intotal" type="Label" parent="UiLayer/Control" unique_id=478522611]
+layout_mode = 0
+offset_left = 1393.0
+offset_top = 1150.0
+offset_right = 1447.0
+offset_bottom = 1195.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "19"
 
 [node name="BlinkCanvas" type="CanvasLayer" parent="UiLayer" unique_id=1556948744]
 
@@ -1009,11 +1051,12 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_edit_lock_ = true
 
-[node name="Inventory" type="HFlowContainer" parent="UiLayer/MarginContainer" unique_id=1025961843]
+[node name="Inventory" type="HFlowContainer" parent="UiLayer/MarginContainer" unique_id=1025961843 node_paths=PackedStringArray("count_label")]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 script = ExtResource("8_mymud")
 get_slot_se = ExtResource("12_5uq7n")
+count_label = NodePath("../../Control/Count")
 
 [node name="WordCard" parent="UiLayer" unique_id=417128353 instance=ExtResource("9_4sso6")]
 offset_left = -205.0
