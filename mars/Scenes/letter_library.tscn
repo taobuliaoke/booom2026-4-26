@@ -41,8 +41,8 @@ position = Vector2(344, 316)
 texture = ExtResource("2_7qn7r")
 
 [node name="MingDan" parent="Letter_MingDan" unique_id=512711626 node_paths=PackedStringArray("marker_node") instance=ExtResource("2_667sm")]
-position = Vector2(342, 296.00003)
-scale = Vector2(0.472, 1.537)
+position = Vector2(333, 269)
+scale = Vector2(0.557, 1.814)
 word_name = "静姝"
 marker_node = NodePath("../RedMarker")
 
@@ -71,6 +71,7 @@ mouse_filter = 2
 texture = ExtResource("4_7qn7r")
 
 [node name="Letter_Draft" type="Control" parent="." unique_id=1407139688]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,7 +84,7 @@ offset_right = 679.30237
 offset_bottom = 693.9535
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.645, 0.645)
+scale = Vector2(0.85, 0.85)
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Letter_Draft" unique_id=68923829]
@@ -109,19 +110,19 @@ scale = Vector2(1, 0.41443485)
 texture = ExtResource("2_7qn7r")
 
 [node name="Draft_3" parent="Letter_Draft" unique_id=1121767718 node_paths=PackedStringArray("marker_node") instance=ExtResource("2_667sm")]
-position = Vector2(178.29459, 342.63568)
-scale = Vector2(0.39999998, 0.39999998)
+position = Vector2(167.05884, 332.9412)
+scale = Vector2(0.68, 0.68)
 word_name = "鸳"
 marker_node = NodePath("../DraftNotion_3")
 
 [node name="Draft_2" parent="Letter_Draft" unique_id=1656658060 node_paths=PackedStringArray("marker_node") instance=ExtResource("2_667sm")]
-position = Vector2(178.29459, 306.97675)
-scale = Vector2(0.39999998, 0.39999998)
+position = Vector2(165.88234, 294.11765)
+scale = Vector2(0.69, 0.69)
 word_name = "文"
 marker_node = NodePath("../DraftNotion_2")
 
 [node name="Draft_1" parent="Letter_Draft" unique_id=39684187 node_paths=PackedStringArray("marker_node") instance=ExtResource("2_667sm")]
-position = Vector2(137.9845, 441.86047)
-scale = Vector2(0.4, 0.4)
+position = Vector2(124.70587, 428.23526)
+scale = Vector2(0.67, 0.67)
 word_name = "教"
 marker_node = NodePath("../RedMarker_1")

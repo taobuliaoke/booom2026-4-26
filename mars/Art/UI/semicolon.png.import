@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnkuym8rlntc3"
-path="res://.godot/imported/title_screen.png-38b857f74d217cc67b7c475c30d65b0f.ctex"
+uid="uid://cgg4dcujsitko"
+path="res://.godot/imported/semicolon.png-1e5b5375fb47ec72f029cfef4aede958.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/TitleScreen/title_screen.png"
-dest_files=["res://.godot/imported/title_screen.png-38b857f74d217cc67b7c475c30d65b0f.ctex"]
+source_file="res://Art/UI/semicolon.png"
+dest_files=["res://.godot/imported/semicolon.png-1e5b5375fb47ec72f029cfef4aede958.ctex"]
 
 [params]
 

@@ -29,7 +29,7 @@ func handle_word_move(word_text: String, _from_node: Node, to_node: Node):
 	#如果是从另一个 Slot 拖过来的，且目标位置已经有词了
 	# 这里可以选择交换词语，或者简单地覆盖。
 	to_node.label.text = word_text
-	to_node.get_node("NinePatchRect").modulate = Color(0.767, 1.2, 0.567, 1.0) # 发光效果
+	to_node.get_node("NinePatchRect").modulate = Color(0.95, 0.859, 0.629, 1.0) # 发光效果
 	
 	
 	#播放动效

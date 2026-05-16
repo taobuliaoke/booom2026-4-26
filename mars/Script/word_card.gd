@@ -34,13 +34,14 @@ func _get_drag_data(_at_position):
 	if drag_tween:
 		drag_tween.kill()
 	
+	MusicManager.play_se(drag_word_se, -2.0)
+	
 	# 创建循环变色动画
 	drag_tween = create_tween().set_loops()
 	drag_tween.tween_property(bg_texture, "modulate", Color.BLUE, 1)
 	drag_tween.tween_property(bg_texture, "modulate", Color.DARK_ORANGE, 1)
 	
-	MusicManager.play_se(drag_word_se, -2.0)
-	
+
 	return label.text
 
 # 2. 【新增】处理拖拽结束（无论成功还是失败）

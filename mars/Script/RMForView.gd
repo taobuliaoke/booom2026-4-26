@@ -59,7 +59,7 @@ func _check_all_slots():
 func _on_all_crrect():
 	MusicManager.play_se(view_correct_se, 4.0) # 稍微清脆、带有一点解开谜题成就感的铃声或正向音效
 	print('完全正确，事情是这样的：')
-	_show_feedback("推理完全正确！")
+	_show_feedback("对，就是这样")
 	#播放通关动画
 	_display_truth_state()
 	

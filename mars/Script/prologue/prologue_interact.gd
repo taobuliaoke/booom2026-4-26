@@ -2,6 +2,10 @@ extends Area2D
 @export var prologue:Control
 @export var glass_anim:AnimatedSprite2D
 @export var eye_anim:AnimatedSprite2D
+
+@export var lidopen_se : AudioStream
+@export var  eyeopen_se : AudioStream
+
 func _ready():
 	
 	pass
@@ -14,12 +18,14 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
 			if self.name == "Area2D2": prologue.item_clicked.emit()
 			else:
 				$CollisionShape2D.disabled = true
+				MusicManager.play_se(lidopen_se, 4.0) 
 				glass_anim.play("glass_open")
 				prologue.is_animation = true
 			
 				await glass_anim.animation_finished
 				prologue.is_eye_active = false
 				$"../EyeAnchor/Pupil".hide()
+				MusicManager.play_se(eyeopen_se, 4.0) 
 				$"../Eye".play("eye")
 				await eye_anim.animation_finished
 				$"../Area2D2/CollisionShape2D".disabled = false
