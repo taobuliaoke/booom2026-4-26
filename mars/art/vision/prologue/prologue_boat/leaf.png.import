@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu828pdphwh7p"
-path="res://.godot/imported/leaf.png-89a76d4c7bc572c93da4296937d460a9.ctex"
+path="res://.godot/imported/leaf.png-01d94d091ac19a23d6a9da0e8630e391.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/prologue/prologue_boat/leaf.png"
-dest_files=["res://.godot/imported/leaf.png-89a76d4c7bc572c93da4296937d460a9.ctex"]
+source_file="res://Art/Vision/prologue/prologue_boat/leaf.png"
+dest_files=["res://.godot/imported/leaf.png-01d94d091ac19a23d6a9da0e8630e391.ctex"]
 
 [params]
 

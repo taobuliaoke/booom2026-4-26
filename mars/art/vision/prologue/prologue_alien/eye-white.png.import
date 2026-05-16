@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0u6p6s8anl3g"
-path="res://.godot/imported/eye-white.png-20ef0c00dc0e05f9d2ab1b0587dc834a.ctex"
+path="res://.godot/imported/eye-white.png-334b68255b40ed3b30b023e0b22c25c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/prologue/prologue_alien/eye-white.png"
-dest_files=["res://.godot/imported/eye-white.png-20ef0c00dc0e05f9d2ab1b0587dc834a.ctex"]
+source_file="res://Art/Vision/prologue/prologue_alien/eye-white.png"
+dest_files=["res://.godot/imported/eye-white.png-334b68255b40ed3b30b023e0b22c25c3.ctex"]
 
 [params]
 

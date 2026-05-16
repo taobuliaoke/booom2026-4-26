@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqjxdv2mckg21"
-path="res://.godot/imported/background.png-ac2006e8059a0b251a4314d1eda88671.ctex"
+path="res://.godot/imported/background.png-7fedd988d41a3c345689b1226a0f0d2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/vision/prologue/prologue_boat/background.png"
-dest_files=["res://.godot/imported/background.png-ac2006e8059a0b251a4314d1eda88671.ctex"]
+source_file="res://Art/Vision/prologue/prologue_boat/background.png"
+dest_files=["res://.godot/imported/background.png-7fedd988d41a3c345689b1226a0f0d2f.ctex"]
 
 [params]
 
