@@ -10,6 +10,24 @@ var word_card_scene = preload("res://Scenes/word_card.tscn")
 @export var place_slot_se:AudioStream
 @export var drag_start_se:AudioStream
 #检查是否是正确答案
+
+# ==================== 新增功能：右键清空 ====================
+func _gui_input(event: InputEvent) -> void:
+	# 检查是否是鼠标按键事件，并且是按下状态（非释放）
+	if event is InputEventMouseButton and event.pressed:
+		# 检查是否是鼠标右键 (MOUSE_BUTTON_RIGHT)
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			# 如果当前 slot 里面有文本，才执行清空
+			if is_filled():
+				clear_slot()
+				# 播放个清空的声音（如果需要，可以复用 drag_start_se 或不播）
+				MusicManager.play_se(drag_start_se, -2.0)
+				
+				# 接收了该事件，防止它继续向上传递
+				accept_event()
+# ==========================================================
+
+
 func is_correct() -> bool:
 	if label.text == '' or label.text == "":
 		return false

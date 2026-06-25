@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://buywnne5xrbco"]
+
+[ext_resource type="Script" uid="uid://blnvs6dvx4ok7" path="res://Script/tutorial_scene.gd" id="1_epmsy"]
+[ext_resource type="Shader" uid="uid://berjabxpo6lj5" path="res://Shader/character_dialog_ui.gdshader" id="2_7u0dx"]
+[ext_resource type="Texture2D" uid="uid://cunp7bkjlhwak" path="res://Art/Vision/Guide/Guide_bg.jpg" id="2_mw53g"]
+[ext_resource type="Shader" uid="uid://c3wyowm16m7su" path="res://Shader/hand_drawn_jitter.gdshader" id="2_oaf0i"]
+[ext_resource type="Texture2D" uid="uid://cwbv27ejpdmhx" path="res://Art/Vision/Guide/Guide_text.png" id="3_oaf0i"]
+[ext_resource type="PackedScene" uid="uid://xysgpobuo6ri" path="res://Scenes/slot.tscn" id="4_7u0dx"]
+[ext_resource type="Script" uid="uid://byfb6gaw2r5tv" path="res://Script/tutorialreason.gd" id="4_mw53g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7f8g8"]
+shader = ExtResource("2_7u0dx")
+shader_parameter/speed = 3.0
+shader_parameter/frequency = 8.1030003848925
+shader_parameter/amplitude = 0.0150000007125
+shader_parameter/edge_softness = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc1uj"]
+shader = ExtResource("2_oaf0i")
+shader_parameter/jitter_speed = 10.0
+shader_parameter/jitter_amount = 1.0
+
+[node name="tutorial_scene" type="Control" unique_id=164894772]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_epmsy")
+
+[node name="Background" type="TextureRect" parent="." unique_id=211637452]
+material = SubResource("ShaderMaterial_7f8g8")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_mw53g")
+metadata/_edit_lock_ = true
+
+[node name="Bg_text" type="TextureRect" parent="Background" unique_id=552885047]
+material = SubResource("ShaderMaterial_qc1uj")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_oaf0i")
+metadata/_edit_lock_ = true
+
+[node name="ReasoningManager" type="Control" parent="." unique_id=377529019]
+anchors_preset = 0
+offset_left = 122.0
+offset_top = 740.0
+offset_right = 162.0
+offset_bottom = 780.0
+script = ExtResource("4_mw53g")
+
+[node name="GuideLabel" type="RichTextLabel" parent="ReasoningManager" unique_id=442147824]
+layout_mode = 0
+offset_right = 883.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+text = "张三是     ，赵四被     杀了。"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReasoningManager" unique_id=406726999]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 21.000002
+anchor_top = -1.3750001
+anchor_right = 21.000002
+anchor_bottom = -1.3750001
+offset_left = -6.1035156e-05
+offset_right = 531.99994
+offset_bottom = 236.0
+
+[node name="Slot1" parent="ReasoningManager" unique_id=214723661 instance=ExtResource("4_7u0dx")]
+layout_mode = 0
+offset_left = 108.0
+offset_top = -11.0
+offset_right = 197.035
+offset_bottom = 39.0
+
+[node name="Slot2" parent="ReasoningManager" unique_id=1404322543 instance=ExtResource("4_7u0dx")]
+layout_mode = 0
+offset_left = 354.0
+offset_top = -12.0
+offset_right = 443.0
+offset_bottom = 38.0
+
+[node name="FeedBackPanel" type="Panel" parent="ReasoningManager" unique_id=196482542]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 2.3500001
+anchor_bottom = 2.3500001
+offset_left = 1.0
+offset_right = 366.0
+offset_bottom = 39.999992
+
+[node name="Label" type="Label" parent="ReasoningManager/FeedBackPanel" unique_id=1624100785]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="Trues" type="Label" parent="ReasoningManager" unique_id=1527394943]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 17.0

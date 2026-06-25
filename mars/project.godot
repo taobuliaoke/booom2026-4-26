@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Mars"
-run/main_scene="uid://dfr4s3at6xko2"
+run/main_scene="uid://buywnne5xrbco"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -36,8 +36,8 @@ MusicManager="*uid://dgq07yj533evs"
 
 window/size/viewport_width=1600
 window/size/viewport_height=1200
-window/size/window_width_override=800
-window/size/window_height_override=600
+window/size/window_width_override=1600
+window/size/window_height_override=1200
 window/stretch/mode="canvas_items"
 
 [filesystem]

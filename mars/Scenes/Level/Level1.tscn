@@ -23,7 +23,6 @@ view_icons = Array[Texture2D]([ExtResource("2_n1aum"), ExtResource("3_gl8jy"), E
 [node name="Viewpoints" type="Node2D" parent="." unique_id=1828431442]
 
 [node name="CharacterA_View" type="Node2D" parent="Viewpoints" unique_id=235592852]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterA_View" unique_id=634595649]
 position = Vector2(800, 450)
@@ -77,7 +76,6 @@ ui_pos_node = NodePath("WenYuanMK")
 position = Vector2(146, -299)
 
 [node name="CharacterB_View" type="Node2D" parent="Viewpoints" unique_id=224654874]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterB_View" unique_id=1777260132]
 position = Vector2(800, 450)
@@ -93,7 +91,6 @@ ui_pos_node = NodePath("ZhouZhiHanMK")
 position = Vector2(-380.99545, -207.69232)
 
 [node name="CharacterC_View" type="Node2D" parent="Viewpoints" unique_id=996782327]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterC_View" unique_id=1362285274]
 position = Vector2(801.07, 450)
@@ -140,7 +137,6 @@ scale = Vector2(1, 0.305)
 character_id = "bird"
 
 [node name="CharacterD_View" type="Node2D" parent="Viewpoints" unique_id=1397963395]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Viewpoints/CharacterD_View" unique_id=439661490]
 position = Vector2(800, 450)

@@ -89,7 +89,7 @@
 		  "item_name": "十字架项链",
 		  "collectible_word": "",
 		  "path": "res://Art/Evidence/LeveL_1/Dingjiali_necklace.png",
-		  "can_interact": true,
+		  "can_interact": false,
 		  "content": ""
 		  
 		},
@@ -110,7 +110,7 @@
 		  "item_name": "十字架项链",
 		  "collectible_word": "",
 		  "path": "res://Art/Evidence/LeveL_1/Dingjiali_necklace.png",
-		  "can_interact": true,
+		  "can_interact": false,
 		  "content": ""
 		  
 		},
